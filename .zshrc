@@ -103,6 +103,7 @@ alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup
 alias scripts='cd ~/Documents/scripts/'
 alias scripts-nuke='cd ~/Documents/ && sudo rm -rf scripts && git clone git@github.com:georgegillams/scrpts.git'
 alias scripts-save-zshrc='scripts && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
+alias scripts-save-nvimrc='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
