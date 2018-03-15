@@ -25,7 +25,7 @@ fi
 
 # set -o vi
 
-alias zsh-rebuild='. ~/.zshrc && cp ~/.zshrc ~/Dropbox/Apps/ZSH/.zshrc && cp ~/.nvimrc ~/Dropbox/Apps/NeoVim/.nvimrc'
+alias zsh-rebuild='. ~/.zshrc && scripts-save-zshrc'
 alias zsh-edit-config='atom ~/.zshrc'
 alias brew-edit-install-script='atom ~/Dropbox/Apps/brew_install.sh'
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.nvimrc ~/.nvimrc'
@@ -101,6 +101,7 @@ alias activity-stream-nuke='cd ~/Documents/ && sudo rm -rf activity-stream && gi
 alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup'
 
 alias scripts='cd ~/Documents/scripts/'
+alias scripts-nuke='cd ~/Documents/ && sudo rm -rf scripts && git clone git@github.com:georgegillams/scrpts.git'
 alias scripts-save-zshrc='scripts && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
