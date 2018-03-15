@@ -104,6 +104,7 @@ alias scripts='cd ~/Documents/scripts/'
 alias scripts-nuke='cd ~/Documents/ && sudo rm -rf scripts && git clone git@github.com:georgegillams/scrpts.git'
 alias scripts-save-zshrc='scripts && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 alias scripts-save-nvimrc='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
+alias scripts-save-greasemonkey='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
@@ -111,29 +112,6 @@ alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && cd client && heroku local web'
 alias georgegillams-run-server='georgegillams && node server/server.js'
 alias georgegillams-run-all='georgegillams && npm run start'
-
-alias acg='cd ~/Documents/automated-code-generation'
-alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation && git clone git@github.com:georgegillams/automated-code-generation.git'
-alias acg-setup='acg && pipenv install'
-alias acg-run='acg && pipenv run python3 demo'
-alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
-alias acg-test='acg && pytest tests'
-
-alias data-mining='cd ~/Documents/data-mining-coursework'
-alias data-mining-nuke='cd ~/Documents/ && sudo rm -rf data-mining-coursework && git clone git@github.com:georgegillams/data-mining-coursework.git'
-alias data-mining-setup='data-mining && pipenv install'
-alias data-mining-run-demo='data-mining && pipenv run python3 demo'
-alias data-mining-run-initial-plots='data-mining && pipenv run python3 initial_graph_plots'
-alias data-mining-run-all='data-mining-run-demo && data-mining-run-initial-plots'
-alias data-mining-test='data-mining && pytest tests'
-
-alias dmp='cd ~/Documents/data-mining-personal'
-alias dmp-nuke='cd ~/Documents/ && sudo rm -rf data-mining-personal && git clone git@github.com:georgegillams/data-mining-personal.git'
-alias dmp-setup='dmp && pipenv install'
-alias dmp-run-data-cleanup='dmp && pipenv run python3 data_cleaning'
-alias dmp-run-data-clustering='dmp && pipenv run python3 data_clustering'
-alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering'
-alias dmp-test='dmp && pytest tests'
 
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -delete && npm test'
@@ -177,6 +155,30 @@ alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkS
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
+# ======================== UNIVERSITY ========================
+alias acg='cd ~/Documents/automated-code-generation'
+alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation && git clone git@github.com:georgegillams/automated-code-generation.git'
+alias acg-setup='acg && pipenv install'
+alias acg-run='acg && pipenv run python3 demo'
+alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
+alias acg-test='acg && pytest tests'
+
+alias data-mining='cd ~/Documents/data-mining-coursework'
+alias data-mining-nuke='cd ~/Documents/ && sudo rm -rf data-mining-coursework && git clone git@github.com:georgegillams/data-mining-coursework.git'
+alias data-mining-setup='data-mining && pipenv install'
+alias data-mining-run-demo='data-mining && pipenv run python3 demo'
+alias data-mining-run-initial-plots='data-mining && pipenv run python3 initial_graph_plots'
+alias data-mining-run-all='data-mining-run-demo && data-mining-run-initial-plots'
+alias data-mining-test='data-mining && pytest tests'
+
+alias dmp='cd ~/Documents/data-mining-personal'
+alias dmp-nuke='cd ~/Documents/ && sudo rm -rf data-mining-personal && git clone git@github.com:georgegillams/data-mining-personal.git'
+alias dmp-setup='dmp && pipenv install'
+alias dmp-run-data-cleanup='dmp && pipenv run python3 data_cleaning'
+alias dmp-run-data-clustering='dmp && pipenv run python3 data_clustering'
+alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering'
+alias dmp-test='dmp && pytest tests'
+
 alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
 alias automated-code-generation='cd ~/Dropbox/Southampton/WORK/8\ Semester/09\ -\ Automated\ Code\ Generation/'
 alias data-mining-module='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
@@ -205,5 +207,7 @@ alias gdp-message-structure='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Projec
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
+
+# ====================== END UNIVERSITY ======================
 
 export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/Users/georgegillams/.nvm/versions/node/v8.9.0/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin

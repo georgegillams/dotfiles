@@ -1,1 +1,1209 @@
 Script started on Thu Mar 15 10:52:26 2018
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Documents/scripts/greasemonkey]1;../greasemonkey[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Documents/scripts/greasemonkey [42m[34m [30m master ? [49m[32m[39m [K[60C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3399 [39m[37m[39m[47m[30m 10:52:27 [39m[00m[49m[82D[?1h=[?2004hscripts
+[J[0mscripts              [Jscripts-nuke         [Jscripts-save-nvimrc  [Jscripts-save-zshrc [J[A[0m[27m[24m[0m[39m[49m[77Cscripts[K[53C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3399 [39m[37m[39m[47m[30m 10:52:27 [39m[00m[49m[0m[39m[49m[75D[?1l>[?2004l
+[J]2;cd ~/Documents/scripts/]1;scripts[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Documents/scripts]1;..ments/scripts[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Documents/scripts [42m[34m [30m master ? [49m[32m[39m [K[73C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3400 [39m[37m[39m[47m[30m 10:52:28 [39m[00m[49m[95D[?1h=[?2004hggit-add-all[1m [0m[0m && git  it-commit-push ""A"d"d" "g"r"e"a"s"o"m"" " e"m"o"n"k"e"y" "s"c"r"i"p"t"s"[?1l>[?2004l
+]2;git add . && git-commit-push "Add greasemonkey scripts"]1;git-add-all[master 44d5ee2] Add greasemonkey scripts
+ 5 files changed, 188 insertions(+)
+ create mode 100644 greasemonkey/Github CI Details links.js
+ create mode 100644 greasemonkey/secure ecs.js
+ create mode 100644 greasemonkey/skyscanner buttons.js
+ create mode 100644 greasemonkey/southampton camera club.js
+ create mode 100644 greasemonkey/typescript
+Counting objects: 8, done.
+Delta compression using up to 8 threads.
+Compressing objects:  14% (1/7)   Compressing objects:  28% (2/7)   Compressing objects:  42% (3/7)   Compressing objects:  57% (4/7)   Compressing objects:  71% (5/7)   Compressing objects:  85% (6/7)   Compressing objects: 100% (7/7)   Compressing objects: 100% (7/7), done.
+Writing objects:  12% (1/8)   Writing objects:  25% (2/8)   Writing objects:  37% (3/8)   Writing objects:  50% (4/8)   Writing objects:  62% (5/8)   Writing objects:  75% (6/8)   Writing objects:  87% (7/8)   Writing objects: 100% (8/8)   Writing objects: 100% (8/8), 2.54 KiB | 2.54 MiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0)
+To github.com:georgegillams/scripts.git
+   e0018cc..44d5ee2  master -> master
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Documents/scripts]1;..ments/scripts[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Documents/scripts [42m[34m [30m master [49m[32m[39m [K[75C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3401 [39m[37m[39m[47m[30m 10:52:44 [39m[00m[49m[97D[?1h=[?2004hccd ~. /Library[1m/[0m[0m/o moMobile\ Documents[1m/[0m[10D         [0m [10D[8D       [8D        [8DLibrary[1m/[0m[0m/applA[3Cication\ Support[1m/[0m[0m/mox  z M
+[J[1;31mMiKTeX[0m/      [J[1;31mMobileSync[0m/  [J[1;31mMozilla[0m/   [J[A[0m[27m[24m[0m[39m[49m[62Ccd ~/Library/Application\ Support/M[K[40C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3401 [39m[37m[39m[47m[30m 10:52:44 [39m[00m[49m[0m[39m[49m[62Dozilla[1m/[0m[0m [?1l>[?2004l
+[J]2;cd ~/Library/Application\ Support/Mozilla]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla]1;..pport/Mozilla[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3402 [39m[37m[39m[47m[30m 10:54:22 [39m[00m[49m[90D[?1h=[?2004hlls[?1l>[?2004l
+]2;ls -G]1;ls[1m[36mExtensions[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla]1;..pport/Mozilla[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3403 [39m[37m[39m[47m[30m 10:54:23 [39m[00m[49m[90D[?1h=[?2004hccd exExtensions[1m/[0m[0m [?1l>[?2004l
+]2;cd Extensions]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla/Extensions]1;..la/Extensions[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla/Extensions [49m[34m[39m [K[57C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3404 [39m[37m[39m[47m[30m 10:54:25 [39m[00m[49m[79D[?1h=[?2004hlls[?1l>[?2004l
+]2;ls -G]1;ls[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla/Extensions]1;..la/Extensions[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla/Extensions [49m[34m[39m [K[57C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3405 [39m[37m[39m[47m[30m 10:54:25 [39m[00m[49m[79D[?1h=[?2004hccd ..[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla]1;..pport/Mozilla[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3406 [39m[37m[39m[47m[30m 10:54:30 [39m[00m[49m[90D[?1h=[?2004hlls -la[?1l>[?2004l
+]2;ls -G -la]1;lstotal 0
+drwx------@  3 georgegillams  staff    96 14 Feb 22:12 [1m[36m.[39;49m[0m
+drwx------+ 66 georgegillams  staff  2112 13 Mar 10:33 [1m[36m..[39;49m[0m
+drwx------@  2 georgegillams  staff    64 14 Feb 22:12 [1m[36mExtensions[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Mozilla]1;..pport/Mozilla[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Mozilla [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3407 [39m[37m[39m[47m[30m 10:54:31 [39m[00m[49m[90D[?1h=[?2004hccd ..[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support]1;..ation Support[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support [49m[34m[39m [K[76C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3408 [39m[37m[39m[47m[30m 10:54:33 [39m[00m[49m[98D[?1h=[?2004hlls -la[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support]1;..ation Support[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support [49m[34m[39m [K[76C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3408 [39m[37m[39m[47m[30m 10:54:35 [39m[00m[49m[98D[?1h=[?2004hccd ~/:obr    Library[1m/[0m[0m/Mozil     Fir   
+[1;31mAccounts[0m/                   [1;31mCookies[0m/                    [1;31mIcons[0m/                      [1;31mMetadata[0m/                   [1;31mScriptingAdditions[0m/       
+[1;31mAndroid[0m/                    [1;31mCoreFollowUp[0m/               [1;31mIdentityServices[0m/           [1;31mMobile\ Documents[0m/          [1;31mScripts[0m/                  
+[1;31mApplication\ Scripts[0m/       [1;31mDES[0m/                        [1;31mInput\ Methods[0m/             [1;31mPDF\ Services[0m/              [1;31mServices[0m/                 
+[1;31mApplication\ Support[0m/       [1;31mDeveloper[0m/                  [1;31mInternet\ Plug-Ins[0m/         [1;31mPasses[0m/                     [1;31mSharing[0m/                  
+[1;31mAssistant[0m/                  [1;31mDictionaries[0m/               [1;31mJupyter[0m/                    [1;31mPersonas[0m/                   [1;31mSounds[0m/                   
+[1;31mAssistants[0m/                 [1;31mDropbox[0m/                    [1;31mKeyboard[0m/                   [1;31mPhotoshopCrashes[0m/           [1;31mSpeech[0m/                   
+[1;31mAudio[0m/                      [1;31mFamily[0m/                     [1;31mKeyboard\ Layouts[0m/          [1;31mPreferencePanes[0m/            [1;31mSpelling[0m/                 
+[1;31mAutosave\ Information[0m/      [1;31mFavorites[0m/                  [1;31mKeyboardServices[0m/           [1;31mPreferences[0m/                [1;31mSuggestions[0m/              
+[1;31mCaches[0m/                     [1;31mFileProvider[0m/               [1;31mKeychains[0m/                  [1;31mPrinters[0m/                   [1;31mSyncedPreferences[0m/        
+[1;31mCalendars[0m/                  [1;31mFlashlightPlugins[0m/          [1;31mLanguageModeling[0m/           [1;31mPubSub[0m/                     [1;31mVirtualBox[0m/               
+[1;31mCallServices[0m/               [1;31mFontCollections[0m/            [1;31mLaunchAgents[0m/               [1;31mPython[0m/                     [1;31mVoices[0m/                   
+[1;31mColorPickers[0m/               [1;31mFonts[0m/                      [1;31mLogs[0m/                       [1;31mSafari[0m/                     [1;31mWebKit[0m/                   
+[1;31mColors[0m/                     [1;31mGameKit[0m/                    [1;31mMail[0m/                       [1;31mSafariSafeBrowsing[0m/         [1;31mWorkflows[0m/                
+[1;31mCompositions[0m/               [1;31mGoogle[0m/                     [1;31mMaps[0m/                       [1;31mSaved\ Application\ State[0m/  [1;31mcom.apple.internal.ck[0m/    
+[J[1;31mContainers[0m/                 [J[1;31mGroup\ Containers[0m/          [J[1;31mMessages[0m/                   [J[1;31mScreen\ Savers[0m/             [J[1;31miMovie[0m/                   [J[15A[0m[27m[24m[0m[39m[49m[61Ccd ~/Library/[K[63C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3408 [39m[37m[39m[47m[30m 10:54:35 [39m[00m[49m[0m[39m[49m[85DSppl
+[J[A[78C    Application\ Support[1m/[0m[0m/Mo
+[J[J[1;31mMobileSync[0m/  [J[1;31mMozilla[0m/   [J[A[0m[27m[24m[0m[39m[49m[61Ccd ~/Library/Application\ Support/Mo[K[40C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3408 [39m[37m[39m[47m[30m 10:54:35 [39m[00m[49m[0m[39m[49m[62D  Firefox[1m/[0m[0m [?1l>[?2004l
+[J]2;cd ~/Library/Application\ Support/Firefox]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3409 [39m[37m[39m[47m[30m 10:55:59 [39m[00m[49m[90D[?1h=[?2004hlls -la[?1l>[?2004l
+]2;ls -G -la]1;lstotal 8
+drwx------   6 georgegillams  staff   192 14 Feb 22:12 [1m[36m.[39;49m[0m
+drwx------+ 66 georgegillams  staff  2112 13 Mar 10:33 [1m[36m..[39;49m[0m
+drwx------  12 georgegillams  staff   384 12 Mar 14:03 [1m[36mCrash Reports[39;49m[0m
+drwx------   2 georgegillams  staff    64 14 Feb 22:12 [1m[36mPending Pings[39;49m[0m
+drwx------@  4 georgegillams  staff   128  9 Mar 09:04 [1m[36mProfiles[39;49m[0m
+-rw-r--r--@  1 georgegillams  staff   220  9 Mar 09:04 profiles.ini
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3410 [39m[37m[39m[47m[30m 10:56:00 [39m[00m[49m[90D[?1h=[?2004hccd Profiles[1m/[0m[0m [?1l>[?2004l
+]2;cd Profiles]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox/Profiles]1;..efox/Profiles[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox/Profiles [49m[34m[39m [K[59C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3411 [39m[37m[39m[47m[30m 10:56:04 [39m[00m[49m[81D[?1h=[?2004hlls -la[?1l>[?2004l
+]2;ls -G -la]1;lstotal 0
+drwx------@  4 georgegillams  staff   128  9 Mar 09:04 [1m[36m.[39;49m[0m
+drwx------   6 georgegillams  staff   192 14 Feb 22:12 [1m[36m..[39;49m[0m
+drwx------@ 62 georgegillams  staff  1984 15 Mar 10:55 [1m[36m0a3ki44s.dev-edition-default-1520586277426[39;49m[0m
+drwx------@ 56 georgegillams  staff  1792 16 Feb 21:55 [1m[36m6haljwh7.default[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox/Profiles]1;..efox/Profiles[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox/Profiles [49m[34m[39m [K[59C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3412 [39m[37m[39m[47m[30m 10:56:05 [39m[00m[49m[81D[?1h=[?2004hccd ..[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3413 [39m[37m[39m[47m[30m 10:56:08 [39m[00m[49m[90D[?1h=[?2004httree --a[?1l>[?2004l
+]2;tree --a]1;treetree: Invalid argument -`-'.
+usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]
+	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]
+	[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]
+	[--charset charset] [--filelimit[=]#] [--si] [--timefmt[=]<f>]
+	[--sort[=]<name>] [--matchdirs] [--ignore-case] [--] [<directory list>]
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[66C[39m[0m[49m[31m[39m[41m[38;5;226m 1 [38;5;226m↵[39m [39m[38;5;244m[39m[48;5;244m[30m 3414 [39m[37m[39m[47m[30m 10:56:10 [39m[00m[49m[90D[?1h=[?2004htree --aa [?1l>[?2004l
+]2;tree -a]1;tree.
+├── Crash\ Reports
+│   ├── InstallTime20180206200532
+│   ├── InstallTime20180209162511
+│   ├── InstallTime20180215111455
+│   ├── InstallTime20180219114835
+│   ├── InstallTime20180222170353
+│   ├── InstallTime20180301022608
+│   ├── InstallTime20180302190033
+│   ├── InstallTime20180307142707
+│   ├── events
+│   └── pending
+│       ├── 67A9236C-78A0-4A0D-9A0F-3AB82D2854CD-browser.dmp
+│       ├── 67A9236C-78A0-4A0D-9A0F-3AB82D2854CD.dmp
+│       ├── 67A9236C-78A0-4A0D-9A0F-3AB82D2854CD.extra
+│       ├── 7F252614-15F9-440B-8AD7-9602279F7FFC-browser.dmp
+│       ├── 7F252614-15F9-440B-8AD7-9602279F7FFC.dmp
+│       ├── 7F252614-15F9-440B-8AD7-9602279F7FFC.extra
+│       ├── 99A907C5-A9E4-4108-9447-09493CAC6C60-browser.dmp
+│       ├── 99A907C5-A9E4-4108-9447-09493CAC6C60.dmp
+│       ├── 99A907C5-A9E4-4108-9447-09493CAC6C60.extra
+│       ├── A738F458-7601-4910-800D-47B635AABBA0-browser.dmp
+│       ├── A738F458-7601-4910-800D-47B635AABBA0.dmp
+│       ├── A738F458-7601-4910-800D-47B635AABBA0.extra
+│       ├── AB411CB8-69B6-440E-B207-EBCFAA74C215-browser.dmp
+│       ├── AB411CB8-69B6-440E-B207-EBCFAA74C215.dmp
+│       └── AB411CB8-69B6-440E-B207-EBCFAA74C215.extra
+├── Pending\ Pings
+├── Profiles
+│   ├── 0a3ki44s.dev-edition-default-1520586277426
+│   │   ├── .parentlock
+│   │   ├── AlternateServices.txt
+│   │   ├── SecurityPreloadState.txt
+│   │   ├── SiteSecurityServiceState.txt
+│   │   ├── TRRBlacklist.txt
+│   │   ├── Telemetry.ShutdownTime.txt
+│   │   ├── addonStartup.json.lz4
+│   │   ├── addons.json
+│   │   ├── blocklist.xml
+│   │   ├── blocklists
+│   │   │   ├── addons.json
+│   │   │   └── plugins.json
+│   │   ├── bookmarkbackups
+│   │   │   ├── bookmarks-2018-02-18_593_xDDZfeK4yD9RGExLFsxF9A==.jsonlz4
+│   │   │   ├── bookmarks-2018-02-19_594_sHYxrcBGJJlo7VTp2Ztyxw==.jsonlz4
+│   │   │   ├── bookmarks-2018-02-22_594_S88H-k42VYMipHiUXIhedQ==.jsonlz4
+│   │   │   ├── bookmarks-2018-02-23_595_hWJFLowwloaKsv9D2Wb44Q==.jsonlz4
+│   │   │   ├── bookmarks-2018-02-26_594_4lHheknADWMFpeuWthfBZA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-01_596_HnEkLBd2iGPQN8t-upPcmg==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-02_597_pKlS-WOI9EUtIJFUpLQ5nA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-05_597_UDz0jXTXjxsT5mw30GZcXA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-06_596_bVfy8HTU-3-Eo7v9sI1WoA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-07_595_uDI5vSBwtb9yVXO0I+tfNA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-08_596_P-fBiMyq+116drlMUhwePA==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-11_594_FZWl4F7-daf+YKa4De-AQw==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-12_595_C0YuGEILmTkxuq-ZLyja2w==.jsonlz4
+│   │   │   ├── bookmarks-2018-03-13_598_X7adRBTBZjqjgsldlOzZcg==.jsonlz4
+│   │   │   └── bookmarks-2018-03-15_603_TtWErDQ9E8S7D+3ESOnHbw==.jsonlz4
+│   │   ├── browser-extension-data
+│   │   │   ├── 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack
+│   │   │   │   └── storage.js
+│   │   │   ├── adguardadblocker@adguard.com
+│   │   │   │   └── storage.js
+│   │   │   ├── jid1-MnnxcxisBPnSXQ@jetpack
+│   │   │   │   └── storage.js
+│   │   │   ├── simple-translate@sienori
+│   │   │   │   └── storage.js
+│   │   │   ├── support@lastpass.com
+│   │   │   ├── wappalyzer@crunchlabz.com
+│   │   │   │   └── storage.js
+│   │   │   ├── {a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}
+│   │   │   │   └── storage.js
+│   │   │   ├── {d7742d87-e61d-4b78-b8a1-b469842139fa}
+│   │   │   │   └── storage.js
+│   │   │   └── {e4a8a97b-f2ed-450b-b12d-ee082ba24781}
+│   │   │       └── storage.js
+│   │   ├── cert9.db
+│   │   ├── compatibility.ini
+│   │   ├── containers.json
+│   │   ├── content-prefs.sqlite
+│   │   ├── cookies.sqlite
+│   │   ├── cookies.sqlite-shm
+│   │   ├── cookies.sqlite-wal
+│   │   ├── crashes
+│   │   │   ├── events
+│   │   │   └── store.json.mozlz4
+│   │   ├── datareporting
+│   │   │   ├── aborted-session-ping
+│   │   │   ├── archived
+│   │   │   │   └── 2018-03
+│   │   │   │       ├── 1520587278666.2ae1b266-194c-f946-a327-8eb892293767.modules.jsonlz4
+│   │   │   │       ├── 1520634592858.531a588b-fc6b-eb4f-9995-c551a109c820.sync.jsonlz4
+│   │   │   │       ├── 1520670037246.0df7daf3-ccbc-8c44-9d47-69d75f0f70f2.main.jsonlz4
+│   │   │   │       ├── 1520673092596.158c4d59-b031-0148-a138-f4cce3ae522c.update.jsonlz4
+│   │   │   │       ├── 1520673442976.16de6888-cc6d-fd4b-b250-9c95d5dd7b91.main.jsonlz4
+│   │   │   │       ├── 1520688255000.fb4a972f-9c4a-aa4c-a54f-567648164a1a.sync.jsonlz4
+│   │   │   │       ├── 1520753394914.bb18df16-8749-8c4a-96c2-87a649d2b813.main.jsonlz4
+│   │   │   │       ├── 1520753398904.a5143baa-8139-d144-8027-3524d9e17201.sync.jsonlz4
+│   │   │   │       ├── 1520753947670.1df082b4-7785-a64b-a27a-bc52b48c774f.crash.jsonlz4
+│   │   │   │       ├── 1520839183914.47bd4879-5a1d-f44c-914b-d09c758df3e4.main.jsonlz4
+│   │   │   │       ├── 1520839188612.c37e1152-4bac-6f44-a5e6-a762a9f6a000.sync.jsonlz4
+│   │   │   │       ├── 1520839194070.bd1d73d8-2999-ae4f-98d7-58b1fbd91880.crash.jsonlz4
+│   │   │   │       ├── 1520857741528.0044bc84-d7a3-7549-b0fa-ee0a4001d5d7.sync.jsonlz4
+│   │   │   │       ├── 1520857741646.4e156576-638e-4c41-8a52-3f62c964f0b7.main.jsonlz4
+│   │   │   │       ├── 1520857741658.4354f837-8b43-6e47-90c7-f78023319b25.first-shutdown.jsonlz4
+│   │   │   │       ├── 1520857741700.e0fe593f-cedc-ab48-8b28-81b7412fc7d9.saved-session.jsonlz4
+│   │   │   │       ├── 1520863411828.804f4fdf-9998-b043-8bb7-1daf42c873f7.update.jsonlz4
+│   │   │   │       ├── 1520932551740.53e9e925-2cd3-5948-adb4-754ebc40aeae.main.jsonlz4
+│   │   │   │       ├── 1520965509656.61cba772-ce0b-2044-94a7-ed99a599da02.sync.jsonlz4
+│   │   │   │       ├── 1520965509874.851b71c5-d0b5-6246-84fa-0fa4918fb495.main.jsonlz4
+│   │   │   │       ├── 1520965509916.b694ba74-0d5d-e242-a48c-add1bd4e535e.saved-session.jsonlz4
+│   │   │   │       ├── 1521011361770.50a5e95f-7ad4-6e40-9f94-ece989cd150e.main.jsonlz4
+│   │   │   │       ├── 1521024798602.3beaa4ca-0197-9e44-9069-2204d2290088.main.jsonlz4
+│   │   │   │       ├── 1521044541388.2344ef74-4e8a-5648-b29a-3f228be9826b.update.jsonlz4
+│   │   │   │       ├── 1521103875390.45af7f63-7a25-474b-a783-e3e77cca6a9a.main.jsonlz4
+│   │   │   │       ├── 1521107057712.1049b18a-8345-ca44-a0b3-ecdffe11f965.main.jsonlz4
+│   │   │   │       └── 1521107685142.fdfd8fc2-a770-a849-9aa5-801dc9e0bfa1.sync.jsonlz4
+│   │   │   ├── session-state.json
+│   │   │   └── state.json
+│   │   ├── experiments.json
+│   │   ├── extension-settings.json
+│   │   ├── extensions
+│   │   │   ├── 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack.xpi
+│   │   │   ├── @react-devtools.xpi
+│   │   │   ├── DontFuckWithPaste@raim.ist.xpi
+│   │   │   ├── adguardadblocker@adguard.com.xpi
+│   │   │   ├── disable-ctrl-q-and-cmd-q@robwu.nl.xpi
+│   │   │   ├── https-everywhere@eff.org.xpi
+│   │   │   ├── jid1-D7momAzRw417Ag@jetpack.xpi
+│   │   │   ├── jid1-MnnxcxisBPnSXQ@jetpack.xpi
+│   │   │   ├── simple-translate@sienori.xpi
+│   │   │   ├── support@lastpass.com.xpi
+│   │   │   ├── tb-clear-cache-single@codefisher.org.xpi
+│   │   │   ├── wappalyzer@crunchlabz.com.xpi
+│   │   │   ├── {4cc4a13b-94a6-7568-370d-5f9de54a9c7f}.xpi
+│   │   │   ├── {a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}.xpi
+│   │   │   ├── {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+│   │   │   └── {e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi
+│   │   ├── extensions.json
+│   │   ├── favicons.sqlite
+│   │   ├── favicons.sqlite-shm
+│   │   ├── favicons.sqlite-wal
+│   │   ├── formhistory.sqlite
+│   │   ├── gmp
+│   │   │   └── Darwin_x86_64-gcc3
+│   │   ├── gmp-gmpopenh264
+│   │   │   └── 1.7.1
+│   │   │       ├── gmpopenh264.info
+│   │   │       └── libgmpopenh264.dylib
+│   │   ├── gmp-widevinecdm
+│   │   │   └── 1.4.8.1008
+│   │   │       ├── LICENSE.txt
+│   │   │       ├── libwidevinecdm.dylib
+│   │   │       ├── libwidevinecdm.dylib.sig
+│   │   │       └── manifest.json
+│   │   ├── handlers.json
+│   │   ├── key4.db
+│   │   ├── kinto.sqlite
+│   │   ├── logins.json
+│   │   ├── minidumps
+│   │   ├── permissions.sqlite
+│   │   ├── pkcs11.txt
+│   │   ├── places.sqlite
+│   │   ├── places.sqlite-shm
+│   │   ├── places.sqlite-wal
+│   │   ├── pluginreg.dat
+│   │   ├── prefs.js
+│   │   ├── revocations.txt
+│   │   ├── saved-telemetry-pings
+│   │   ├── search.json.mozlz4
+│   │   ├── serviceworker.txt
+│   │   ├── sessionCheckpoints.json
+│   │   ├── sessionstore-backups
+│   │   │   ├── previous.jsonlz4
+│   │   │   ├── recovery.baklz4
+│   │   │   ├── recovery.jsonlz4
+│   │   │   ├── upgrade.jsonlz4-20180302190033
+│   │   │   └── upgrade.jsonlz4-20180307142707
+│   │   ├── signedInUser.json
+│   │   ├── storage
+│   │   │   ├── default
+│   │   │   │   ├── about+newtab
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 3312185054sbndi_pspte.files
+│   │   │   │   │       └── 3312185054sbndi_pspte.sqlite
+│   │   │   │   ├── http+++video.ibt.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── http+++vt.nationalrail.co.uk
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── http+++www.nationalrail.co.uk
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++fstoppers.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 993782502OBNDE__KSDISG_NLA.files
+│   │   │   │   │       └── 993782502OBNDE__KSDISG_NLA.sqlite
+│   │   │   │   ├── https+++lpcdn.lpsnmedia.net
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 713543746LePgSaercoutrSe.files
+│   │   │   │   │       └── 713543746LePgSaercoutrSe.sqlite
+│   │   │   │   ├── https+++mubaris.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── cache
+│   │   │   │   │       ├── .padding
+│   │   │   │   │       ├── caches.sqlite
+│   │   │   │   │       └── morgue
+│   │   │   │   │           ├── 101
+│   │   │   │   │           ├── 11
+│   │   │   │   │           │   └── {3427abf4-bfba-d749-bcb3-75fd70c6ee0b}.final
+│   │   │   │   │           ├── 110
+│   │   │   │   │           │   └── {0a030b35-3b37-5c41-b332-a09462e5bc6e}.final
+│   │   │   │   │           ├── 118
+│   │   │   │   │           ├── 119
+│   │   │   │   │           │   └── {cb309498-5614-f34c-9e4d-a3df2593e777}.final
+│   │   │   │   │           ├── 12
+│   │   │   │   │           │   └── {b06f2aba-2808-db4c-adc8-d191239a950c}.final
+│   │   │   │   │           ├── 120
+│   │   │   │   │           ├── 124
+│   │   │   │   │           ├── 126
+│   │   │   │   │           ├── 130
+│   │   │   │   │           ├── 137
+│   │   │   │   │           ├── 144
+│   │   │   │   │           │   └── {f01b46d5-0c87-524e-84ac-0fc5ef5e3390}.final
+│   │   │   │   │           ├── 145
+│   │   │   │   │           │   └── {d997f026-277f-f14c-831b-0deae7f98291}.final
+│   │   │   │   │           ├── 149
+│   │   │   │   │           ├── 15
+│   │   │   │   │           ├── 153
+│   │   │   │   │           ├── 157
+│   │   │   │   │           │   └── {b2b310e3-bcfe-b04d-8335-ff52f12af89d}.final
+│   │   │   │   │           ├── 16
+│   │   │   │   │           │   └── {fe6d3e51-2536-8944-a543-0b03cfa40f10}.final
+│   │   │   │   │           ├── 162
+│   │   │   │   │           │   └── {6fd1a6a0-8746-9947-8994-a5b81bfb84a2}.final
+│   │   │   │   │           ├── 17
+│   │   │   │   │           ├── 171
+│   │   │   │   │           │   └── {69ad1b59-9677-a34e-93d4-68f9f5c36eab}.final
+│   │   │   │   │           ├── 18
+│   │   │   │   │           │   └── {339e0e62-62bf-4d47-9083-9da197662012}.final
+│   │   │   │   │           ├── 180
+│   │   │   │   │           │   └── {e9cc0dd0-22dc-fc4e-a0fe-281c2d47dbb4}.final
+│   │   │   │   │           ├── 182
+│   │   │   │   │           │   └── {261534bd-eabb-8d4b-85b3-e72978cbc0b6}.final
+│   │   │   │   │           ├── 189
+│   │   │   │   │           ├── 19
+│   │   │   │   │           │   └── {4a4f26bc-5f53-db49-ae4d-4ec9362dca13}.final
+│   │   │   │   │           ├── 190
+│   │   │   │   │           │   └── {83069d76-ebdd-9845-b659-492c819adcbe}.final
+│   │   │   │   │           ├── 191
+│   │   │   │   │           ├── 197
+│   │   │   │   │           │   └── {afcc6c4d-ea8f-4a4e-8dfb-f378b6cafec5}.final
+│   │   │   │   │           ├── 200
+│   │   │   │   │           │   └── {8e176c0e-dfb9-b64c-bbb1-063624811cc8}.final
+│   │   │   │   │           ├── 201
+│   │   │   │   │           │   └── {346e2484-a509-a946-a76e-46baeaca29c9}.final
+│   │   │   │   │           ├── 203
+│   │   │   │   │           │   └── {442750ac-be80-7148-8d58-ffe3f9e50bcb}.final
+│   │   │   │   │           ├── 207
+│   │   │   │   │           │   └── {87fd1e6f-4772-8f4b-a75a-327bd556eacf}.final
+│   │   │   │   │           ├── 21
+│   │   │   │   │           │   ├── {d0867dff-291a-0f44-9877-0cd10d20b415}.final
+│   │   │   │   │           │   └── {fa0f60fa-4909-fa4d-9ffb-853b9c63ee15}.final
+│   │   │   │   │           ├── 215
+│   │   │   │   │           ├── 216
+│   │   │   │   │           ├── 220
+│   │   │   │   │           ├── 227
+│   │   │   │   │           ├── 231
+│   │   │   │   │           ├── 233
+│   │   │   │   │           ├── 240
+│   │   │   │   │           │   ├── {36c2cbf6-f829-5548-888d-7e9ddf63a4f0}.final
+│   │   │   │   │           │   └── {7fd5a495-5c88-884f-a79e-a0ef30ce78f0}.final
+│   │   │   │   │           ├── 25
+│   │   │   │   │           │   └── {155b424e-0e32-144d-95a3-7fab4321a919}.final
+│   │   │   │   │           ├── 255
+│   │   │   │   │           │   └── {10a700ea-d5f2-5f40-81ea-7469fb9483ff}.final
+│   │   │   │   │           ├── 30
+│   │   │   │   │           ├── 31
+│   │   │   │   │           │   └── {40edae1e-1222-2445-a931-d2a1f258cc1f}.final
+│   │   │   │   │           ├── 42
+│   │   │   │   │           ├── 43
+│   │   │   │   │           ├── 44
+│   │   │   │   │           ├── 45
+│   │   │   │   │           │   └── {4c7ea1e4-fec3-924c-be6a-e7a4330ea22d}.final
+│   │   │   │   │           ├── 48
+│   │   │   │   │           ├── 51
+│   │   │   │   │           ├── 61
+│   │   │   │   │           │   └── {2e19a0e4-27c4-9443-ac9b-01bed9ac2e3d}.final
+│   │   │   │   │           ├── 64
+│   │   │   │   │           │   └── {19f3494a-6db1-1744-8daa-3e7ec1396b40}.final
+│   │   │   │   │           ├── 72
+│   │   │   │   │           ├── 74
+│   │   │   │   │           ├── 75
+│   │   │   │   │           ├── 79
+│   │   │   │   │           │   └── {a4f6fe6c-71db-fa41-98df-7901d3a5144f}.final
+│   │   │   │   │           ├── 9
+│   │   │   │   │           │   └── {7589877f-13df-5741-9093-344f5a812b09}.final
+│   │   │   │   │           ├── 92
+│   │   │   │   │           ├── 93
+│   │   │   │   │           │   └── {08f8d710-33cc-b448-b7a0-426333f6485d}.final
+│   │   │   │   │           └── 94
+│   │   │   │   ├── https+++outlook.office.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── cache
+│   │   │   │   │       ├── .padding
+│   │   │   │   │       ├── caches.sqlite
+│   │   │   │   │       └── morgue
+│   │   │   │   │           ├── 0
+│   │   │   │   │           │   └── {e9c3f6b4-10d5-f043-a90a-125bbf7b2c00}.final
+│   │   │   │   │           ├── 100
+│   │   │   │   │           │   └── {cbe1ae8d-a96f-c346-939f-581f23ef5364}.final
+│   │   │   │   │           ├── 101
+│   │   │   │   │           │   └── {42fc000a-2e3f-1848-8a71-ba55386a3365}.final
+│   │   │   │   │           ├── 103
+│   │   │   │   │           │   └── {79bfffa6-84df-1f47-bfac-a11c4381b967}.final
+│   │   │   │   │           ├── 104
+│   │   │   │   │           ├── 107
+│   │   │   │   │           ├── 108
+│   │   │   │   │           ├── 111
+│   │   │   │   │           │   └── {0d9f95f1-0ba9-5b4b-acf1-6b5f7fb1bf6f}.final
+│   │   │   │   │           ├── 120
+│   │   │   │   │           │   └── {f65fdeb4-094e-4940-939a-281e121eec78}.final
+│   │   │   │   │           ├── 123
+│   │   │   │   │           │   └── {f75ffa9c-f227-f14b-b31c-ee171d1de57b}.final
+│   │   │   │   │           ├── 124
+│   │   │   │   │           │   └── {20e151a3-1429-0046-96b6-b14b1c32377c}.final
+│   │   │   │   │           ├── 125
+│   │   │   │   │           ├── 126
+│   │   │   │   │           ├── 127
+│   │   │   │   │           ├── 131
+│   │   │   │   │           │   ├── {214289dc-2ee3-1645-9f83-919678fc2a83}.final
+│   │   │   │   │           │   └── {b62b42d4-22d0-1d49-8a95-290ef96fea83}.final
+│   │   │   │   │           ├── 136
+│   │   │   │   │           │   └── {54d84e18-5091-3445-b1e1-cae61fab8888}.final
+│   │   │   │   │           ├── 138
+│   │   │   │   │           ├── 14
+│   │   │   │   │           │   └── {f7641cfc-8555-a343-a65d-d5c924f4f40e}.final
+│   │   │   │   │           ├── 140
+│   │   │   │   │           ├── 141
+│   │   │   │   │           │   ├── {23c38acb-41ed-6943-9431-b5adb4f7fe8d}.final
+│   │   │   │   │           │   └── {95b96818-68d3-8349-9dc2-05d6dca5aa8d}.final
+│   │   │   │   │           ├── 142
+│   │   │   │   │           ├── 143
+│   │   │   │   │           │   └── {a9519d81-3075-b847-b983-4d33b4dc088f}.final
+│   │   │   │   │           ├── 145
+│   │   │   │   │           ├── 147
+│   │   │   │   │           │   └── {e657faae-da71-084a-b31c-acffb2b66693}.final
+│   │   │   │   │           ├── 148
+│   │   │   │   │           │   └── {554aa378-2001-1b47-9b6a-6c1836bab194}.final
+│   │   │   │   │           ├── 149
+│   │   │   │   │           │   └── {a3e7253a-9bcf-fe47-8b45-382911aae995}.final
+│   │   │   │   │           ├── 151
+│   │   │   │   │           ├── 152
+│   │   │   │   │           ├── 154
+│   │   │   │   │           ├── 157
+│   │   │   │   │           ├── 158
+│   │   │   │   │           │   └── {5979dd8d-89ab-5c4b-8c46-95336f30999e}.final
+│   │   │   │   │           ├── 161
+│   │   │   │   │           │   └── {1fbbbb1d-7afa-0d49-bf52-5f38027318a1}.final
+│   │   │   │   │           ├── 163
+│   │   │   │   │           │   └── {89302a19-fec0-4447-92f4-755697a1bca3}.final
+│   │   │   │   │           ├── 166
+│   │   │   │   │           │   └── {ca531269-b239-8a4b-8b41-e1f16d875fa6}.final
+│   │   │   │   │           ├── 167
+│   │   │   │   │           │   └── {0659c5ed-4c60-bb4c-afe4-c5ae574faea7}.final
+│   │   │   │   │           ├── 17
+│   │   │   │   │           │   └── {c462f499-3af5-4b40-a3bf-2359dffd2811}.final
+│   │   │   │   │           ├── 172
+│   │   │   │   │           ├── 174
+│   │   │   │   │           │   ├── {3d7edbb8-04e9-8845-bae9-c73fcc3124ae}.final
+│   │   │   │   │           │   └── {45d47134-62bc-8741-b4de-40504541a4ae}.final
+│   │   │   │   │           ├── 176
+│   │   │   │   │           │   └── {c05501ac-31cd-7f40-bee7-8a038469dcb0}.final
+│   │   │   │   │           ├── 177
+│   │   │   │   │           ├── 179
+│   │   │   │   │           ├── 18
+│   │   │   │   │           │   └── {b0921b84-c13f-2c43-a7c5-dcb9a46f7112}.final
+│   │   │   │   │           ├── 183
+│   │   │   │   │           │   └── {2a2f56de-6e0a-5a4e-9374-bcff2124cab7}.final
+│   │   │   │   │           ├── 189
+│   │   │   │   │           ├── 19
+│   │   │   │   │           ├── 193
+│   │   │   │   │           ├── 195
+│   │   │   │   │           ├── 197
+│   │   │   │   │           ├── 199
+│   │   │   │   │           ├── 203
+│   │   │   │   │           │   └── {77c78e00-0a14-2148-b2de-3f942fdfebcb}.final
+│   │   │   │   │           ├── 204
+│   │   │   │   │           ├── 208
+│   │   │   │   │           │   └── {238b53b8-601d-0241-a0ed-31631d7093d0}.final
+│   │   │   │   │           ├── 211
+│   │   │   │   │           ├── 212
+│   │   │   │   │           ├── 213
+│   │   │   │   │           │   └── {83e9b706-2724-fc4b-8089-e66dde48dfd5}.final
+│   │   │   │   │           ├── 214
+│   │   │   │   │           │   └── {926bbea1-02a8-c14f-baed-59b8a025cad6}.final
+│   │   │   │   │           ├── 218
+│   │   │   │   │           │   └── {cea928f1-3046-8d46-9cbb-b107e62528da}.final
+│   │   │   │   │           ├── 219
+│   │   │   │   │           ├── 220
+│   │   │   │   │           │   └── {e090018b-7464-9745-b601-926c0134c5dc}.final
+│   │   │   │   │           ├── 222
+│   │   │   │   │           ├── 224
+│   │   │   │   │           ├── 227
+│   │   │   │   │           ├── 23
+│   │   │   │   │           ├── 230
+│   │   │   │   │           │   └── {b94d28ee-1f64-cd42-a69e-de27c9672ee6}.final
+│   │   │   │   │           ├── 236
+│   │   │   │   │           │   └── {3060faa6-77d9-3c4c-b379-9253f7d622ec}.final
+│   │   │   │   │           ├── 238
+│   │   │   │   │           ├── 245
+│   │   │   │   │           ├── 249
+│   │   │   │   │           │   └── {94217d33-a110-1c43-977d-2a250eceecf9}.final
+│   │   │   │   │           ├── 252
+│   │   │   │   │           │   └── {e9b7cd7b-d969-4c48-b449-adb3da9fb3fc}.final
+│   │   │   │   │           ├── 254
+│   │   │   │   │           │   └── {4b90377b-64bb-5244-9778-426ccffe32fe}.final
+│   │   │   │   │           ├── 30
+│   │   │   │   │           │   └── {d472a119-ad15-dd48-9a78-0890fc9a9f1e}.final
+│   │   │   │   │           ├── 34
+│   │   │   │   │           │   └── {afed7cc5-b9c4-b64d-9f1f-58b2b4cc9522}.final
+│   │   │   │   │           ├── 43
+│   │   │   │   │           │   └── {2b6d99cd-c890-d845-96eb-9b336ed32d2b}.final
+│   │   │   │   │           ├── 52
+│   │   │   │   │           │   └── {a01b4f8f-49d0-cb48-9e92-a2afd904f434}.final
+│   │   │   │   │           ├── 53
+│   │   │   │   │           │   └── {e3e9ff3f-00b2-dc40-9148-a628f7da6535}.final
+│   │   │   │   │           ├── 55
+│   │   │   │   │           │   └── {1ad41bec-1879-d844-a7f3-b777712bc837}.final
+│   │   │   │   │           ├── 57
+│   │   │   │   │           ├── 6
+│   │   │   │   │           ├── 63
+│   │   │   │   │           ├── 67
+│   │   │   │   │           │   └── {24cc554b-ca66-d24e-a1ab-6c09ad045043}.final
+│   │   │   │   │           ├── 70
+│   │   │   │   │           ├── 72
+│   │   │   │   │           │   └── {c413b40a-2a9e-144b-92fe-48e9624ee848}.final
+│   │   │   │   │           ├── 74
+│   │   │   │   │           │   └── {368799b3-3e08-804c-95dc-5f18147c094a}.final
+│   │   │   │   │           ├── 77
+│   │   │   │   │           │   └── {d21120a8-78eb-8642-9b50-03a1ebbb584d}.final
+│   │   │   │   │           ├── 78
+│   │   │   │   │           │   └── {78a6126a-838e-5f4b-b91a-776ba32ca04e}.final
+│   │   │   │   │           ├── 83
+│   │   │   │   │           │   └── {02b85d19-7f11-2b41-8c60-30a2d44ff853}.final
+│   │   │   │   │           ├── 86
+│   │   │   │   │           ├── 88
+│   │   │   │   │           ├── 90
+│   │   │   │   │           │   └── {1ab06f3b-debb-ee43-b496-98176379d15a}.final
+│   │   │   │   │           ├── 91
+│   │   │   │   │           │   └── {a9063e54-5587-a040-a660-d8513994815b}.final
+│   │   │   │   │           ├── 92
+│   │   │   │   │           ├── 93
+│   │   │   │   │           │   └── {03cce6a6-41ad-9342-8dd3-de5677e60b5d}.final
+│   │   │   │   │           ├── 95
+│   │   │   │   │           ├── 98
+│   │   │   │   │           └── 99
+│   │   │   │   ├── https+++regex101.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── cache
+│   │   │   │   │       ├── .padding
+│   │   │   │   │       ├── caches.sqlite
+│   │   │   │   │       └── morgue
+│   │   │   │   │           ├── 100
+│   │   │   │   │           │   └── {6da08079-a7e8-134f-b790-9cfca9d60c64}.final
+│   │   │   │   │           ├── 11
+│   │   │   │   │           │   └── {18ea0d17-f069-794b-ba18-64453a4f170b}.final
+│   │   │   │   │           ├── 116
+│   │   │   │   │           │   └── {ef39f2fa-fb43-3643-a18c-74e0f2c36f74}.final
+│   │   │   │   │           ├── 122
+│   │   │   │   │           │   └── {54bcf375-38b9-dc4e-b440-56ab0786b97a}.final
+│   │   │   │   │           ├── 146
+│   │   │   │   │           │   └── {8c709cf9-4eb5-2c4d-8ca3-f90391cf0d92}.final
+│   │   │   │   │           ├── 148
+│   │   │   │   │           │   └── {5eedc093-484f-3e48-9f0e-5a4141278694}.final
+│   │   │   │   │           ├── 149
+│   │   │   │   │           │   └── {e252ebb4-9822-f742-9cd2-dd0d4ecc0495}.final
+│   │   │   │   │           ├── 150
+│   │   │   │   │           │   └── {c92a9b20-9d6a-cd4d-9ae6-2b980c394096}.final
+│   │   │   │   │           ├── 156
+│   │   │   │   │           │   └── {73b18bd3-032a-ac43-a079-952fc3c2779c}.final
+│   │   │   │   │           ├── 159
+│   │   │   │   │           │   └── {ca728e80-615a-2b49-824d-9ed7de2d439f}.final
+│   │   │   │   │           ├── 161
+│   │   │   │   │           │   └── {a82213d9-0db4-264a-b856-d7fb6e02eea1}.final
+│   │   │   │   │           ├── 166
+│   │   │   │   │           │   └── {d0df47a4-d431-f54d-b222-ce0a4d9d3ca6}.final
+│   │   │   │   │           ├── 175
+│   │   │   │   │           │   └── {3b34ebfb-ad20-5041-85e1-d5efab9ffaaf}.final
+│   │   │   │   │           ├── 189
+│   │   │   │   │           │   └── {5e4fc2f1-794a-744d-9be2-d4be81721ebd}.final
+│   │   │   │   │           ├── 195
+│   │   │   │   │           │   └── {1b2235ba-104f-bc49-92d0-342a2a2851c3}.final
+│   │   │   │   │           ├── 198
+│   │   │   │   │           │   └── {1e7bbc73-fa24-a342-8faf-09bb99fbf3c6}.final
+│   │   │   │   │           ├── 208
+│   │   │   │   │           │   └── {f4eca490-76f5-9c4e-a36f-54cb955c10d0}.final
+│   │   │   │   │           ├── 209
+│   │   │   │   │           │   └── {9492a315-e991-a249-9ac8-fd1c543694d1}.final
+│   │   │   │   │           ├── 216
+│   │   │   │   │           ├── 218
+│   │   │   │   │           │   └── {5e3e9ed2-01e6-134f-ae25-f2d65dc1d0da}.final
+│   │   │   │   │           ├── 222
+│   │   │   │   │           │   └── {05c718b2-5a00-c841-8484-b23f610799de}.final
+│   │   │   │   │           ├── 228
+│   │   │   │   │           │   └── {95252acc-2c9f-6b44-ab27-f411035520e4}.final
+│   │   │   │   │           ├── 232
+│   │   │   │   │           │   └── {7919cf1f-700a-0247-a0d9-0ad63b338de8}.final
+│   │   │   │   │           ├── 235
+│   │   │   │   │           │   └── {dd3d5d3c-925d-0745-a5cd-b0752cc5b4eb}.final
+│   │   │   │   │           ├── 244
+│   │   │   │   │           │   └── {4c174119-47bd-e945-ad5d-84f478fa6ef4}.final
+│   │   │   │   │           ├── 246
+│   │   │   │   │           │   └── {4a03108c-df1a-fc40-945c-57b4ab1ae8f6}.final
+│   │   │   │   │           ├── 25
+│   │   │   │   │           ├── 30
+│   │   │   │   │           │   └── {473a73d8-964c-684f-9d15-0f125b7ec11e}.final
+│   │   │   │   │           ├── 33
+│   │   │   │   │           │   └── {9c1acd18-bc2c-264f-9207-5d9a270d6621}.final
+│   │   │   │   │           ├── 36
+│   │   │   │   │           │   └── {620ce495-8c5e-cc4b-ae4a-459a20912024}.final
+│   │   │   │   │           ├── 5
+│   │   │   │   │           │   └── {cb8932bd-cfea-1043-afbd-3703dbcd3605}.final
+│   │   │   │   │           ├── 53
+│   │   │   │   │           │   └── {7a738e03-289c-2948-b9fc-0040b21d8135}.final
+│   │   │   │   │           ├── 56
+│   │   │   │   │           │   └── {725b60e8-9c6b-da4f-af2b-494cf7df5038}.final
+│   │   │   │   │           ├── 59
+│   │   │   │   │           │   └── {08118c39-4943-0446-84d6-42f598f9ac3b}.final
+│   │   │   │   │           ├── 63
+│   │   │   │   │           │   └── {e0492abd-005d-eb4f-b68b-3e6ef067a33f}.final
+│   │   │   │   │           ├── 78
+│   │   │   │   │           │   └── {f0ffd341-0ae4-9349-8c9c-14a184333d4e}.final
+│   │   │   │   │           ├── 92
+│   │   │   │   │           │   └── {0b3de306-d978-8e44-bd54-e171b993545c}.final
+│   │   │   │   │           ├── 94
+│   │   │   │   │           │   └── {07089fef-8e2c-0241-8340-8696532d595e}.final
+│   │   │   │   │           └── 98
+│   │   │   │   │               └── {731a7762-884b-e341-bc43-2e84d02a7c62}.final
+│   │   │   │   ├── https+++secure.halifax-online.co.uk
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++secure.tsb.co.uk
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++twitter.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   ├── cache
+│   │   │   │   │   │   ├── .padding
+│   │   │   │   │   │   ├── caches.sqlite
+│   │   │   │   │   │   └── morgue
+│   │   │   │   │   │       └── 161
+│   │   │   │   │   │           └── {8924791d-fcaf-f04d-a692-ffac2855d4a1}.final
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 437107801ddma_ethyape.files
+│   │   │   │   │       └── 437107801ddma_ethyape.sqlite
+│   │   │   │   ├── https+++www.creativebloq.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 1256665748ftieb.files
+│   │   │   │   │       └── 1256665748ftieb.sqlite
+│   │   │   │   ├── https+++www.facebook.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 2498542862____ttes.files
+│   │   │   │   │       └── 2498542862____ttes.sqlite
+│   │   │   │   ├── https+++www.theguardian.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   ├── cache
+│   │   │   │   │   │   ├── .padding
+│   │   │   │   │   │   ├── caches.sqlite
+│   │   │   │   │   │   └── morgue
+│   │   │   │   │   │       ├── 27
+│   │   │   │   │   │       │   └── {57399a92-1238-2a42-b6d3-b9202e80a61b}.final
+│   │   │   │   │   │       └── 41
+│   │   │   │   │   │           └── {15e956ab-1abd-0644-a87c-07bce46de829}.final
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++www.themuse.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++www.thetrainline.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 301792106ttes.files
+│   │   │   │   │       └── 301792106ttes.sqlite
+│   │   │   │   ├── https+++www.youtube.com
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   ├── cache
+│   │   │   │   │   │   ├── .padding
+│   │   │   │   │   │   ├── caches.sqlite
+│   │   │   │   │   │   └── morgue
+│   │   │   │   │   │       └── 245
+│   │   │   │   │   │           └── {a1ce68ab-1b54-434b-b8bc-5cb6f1a590f5}.final
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 3211250388sbwdpsunsohintoatciif.files
+│   │   │   │   │       └── 3211250388sbwdpsunsohintoatciif.sqlite
+│   │   │   │   ├── moz-extension+++0a7541e2-aaec-c349-a75f-f91dff5f0e78
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 3767951567Gyrlarmam.files
+│   │   │   │   │       └── 3767951567Gyrlarmam.sqlite
+│   │   │   │   ├── moz-extension+++10bde2f9-be8e-a446-b3f0-aa42838cea51
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 61413404gyreekansoem.files
+│   │   │   │   │       └── 61413404gyreekansoem.sqlite
+│   │   │   │   ├── moz-extension+++43dcffae-a45c-c845-9876-af11e0e69d03
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 1275293905AedggauraortdSRsuel.files
+│   │   │   │   │       │   ├── 3
+│   │   │   │   │       │   ├── 4
+│   │   │   │   │       │   └── journals
+│   │   │   │   │       └── 1275293905AedggauraortdSRsuel.sqlite
+│   │   │   │   ├── moz-extension+++dd321544-6381-7842-b19f-58b4a79c3315
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 583651055lp.files
+│   │   │   │   │       │   ├── 1
+│   │   │   │   │       │   ├── 11
+│   │   │   │   │       │   ├── 12
+│   │   │   │   │       │   ├── 16
+│   │   │   │   │       │   ├── 4
+│   │   │   │   │       │   ├── 5
+│   │   │   │   │       │   └── journals
+│   │   │   │   │       └── 583651055lp.sqlite
+│   │   │   │   └── moz-safe-about+home
+│   │   │   │       ├── .metadata
+│   │   │   │       ├── .metadata-v2
+│   │   │   │       └── idb
+│   │   │   │           ├── 3312185054sbndi_pspte.files
+│   │   │   │           └── 3312185054sbndi_pspte.sqlite
+│   │   │   ├── permanent
+│   │   │   │   ├── chrome
+│   │   │   │   │   ├── .metadata
+│   │   │   │   │   ├── .metadata-v2
+│   │   │   │   │   └── idb
+│   │   │   │   │       ├── 2918063365piupsah.files
+│   │   │   │   │       ├── 2918063365piupsah.sqlite
+│   │   │   │   │       ├── 3561288849sdhlie.files
+│   │   │   │   │       └── 3561288849sdhlie.sqlite
+│   │   │   │   └── indexeddb+++fx-devtools
+│   │   │   │       ├── .metadata
+│   │   │   │       ├── .metadata-v2
+│   │   │   │       └── idb
+│   │   │   │           ├── 478967115deegvatroootlss--cans.files
+│   │   │   │           └── 478967115deegvatroootlss--cans.sqlite
+│   │   │   └── temporary
+│   │   │       └── https+++regex101.com
+│   │   │           ├── .metadata
+│   │   │           ├── .metadata-v2
+│   │   │           └── asmjs
+│   │   │               ├── metadata
+│   │   │               └── module15
+│   │   ├── storage-sync.sqlite
+│   │   ├── storage.sqlite
+│   │   ├── times.json
+│   │   ├── weave
+│   │   │   ├── addonsreconciler.json
+│   │   │   ├── changes
+│   │   │   │   ├── addons.json
+│   │   │   │   ├── clients.json
+│   │   │   │   ├── forms.json
+│   │   │   │   ├── history.json
+│   │   │   │   └── passwords.json
+│   │   │   ├── failed
+│   │   │   │   ├── addons.json
+│   │   │   │   ├── bookmarks.json
+│   │   │   │   ├── clients.json
+│   │   │   │   ├── extension-storage.json
+│   │   │   │   ├── forms.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── passwords.json
+│   │   │   │   ├── prefs.json
+│   │   │   │   └── tabs.json
+│   │   │   ├── logs
+│   │   │   │   ├── error-sync-1520676795912.txt
+│   │   │   │   ├── error-sync-1520702176476.txt
+│   │   │   │   ├── error-sync-1520702349516.txt
+│   │   │   │   ├── error-sync-1520702349622.txt
+│   │   │   │   ├── error-sync-1520702359286.txt
+│   │   │   │   ├── error-sync-1520707762830.txt
+│   │   │   │   ├── error-sync-1520776932348.txt
+│   │   │   │   ├── error-sync-1520847988124.txt
+│   │   │   │   ├── error-sync-1520848539798.txt
+│   │   │   │   ├── error-sync-1520852612366.txt
+│   │   │   │   ├── error-sync-1520852612458.txt
+│   │   │   │   ├── error-sync-1520852613064.txt
+│   │   │   │   ├── error-sync-1520855569188.txt
+│   │   │   │   ├── error-sync-1520855611292.txt
+│   │   │   │   ├── error-sync-1520965728440.txt
+│   │   │   │   └── error-sync-1521103880140.txt
+│   │   │   └── toFetch
+│   │   │       ├── addons.json
+│   │   │       ├── bookmarks.json
+│   │   │       ├── clients.json
+│   │   │       ├── extension-storage.json
+│   │   │       ├── forms.json
+│   │   │       ├── history.json
+│   │   │       ├── passwords.json
+│   │   │       ├── prefs.json
+│   │   │       └── tabs.json
+│   │   ├── webappsstore.sqlite
+│   │   ├── webappsstore.sqlite-shm
+│   │   ├── webappsstore.sqlite-wal
+│   │   └── xulstore.json
+│   └── 6haljwh7.default
+│       ├── .parentlock
+│       ├── AlternateServices.txt
+│       ├── SecurityPreloadState.txt
+│       ├── SiteSecurityServiceState.txt
+│       ├── addonStartup.json.lz4
+│       ├── addons.json
+│       ├── blocklist.xml
+│       ├── blocklists
+│       │   ├── addons.json
+│       │   └── plugins.json
+│       ├── bookmarkbackups
+│       │   ├── bookmarks-2018-02-14_14_t68-hymBqqkuePpTiwTLcA==.jsonlz4
+│       │   └── bookmarks-2018-02-15_592_SPw6hh+R4jqBrhKobwiLPw==.jsonlz4
+│       ├── browser-extension-data
+│       │   ├── 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack
+│       │   │   └── storage.js
+│       │   ├── jid1-MnnxcxisBPnSXQ@jetpack
+│       │   │   └── storage.js
+│       │   ├── momentum@momentumdash.com
+│       │   ├── slackmoji@mozilla.org
+│       │   ├── support@lastpass.com
+│       │   ├── wappalyzer@crunchlabz.com
+│       │   │   └── storage.js
+│       │   ├── {7efbd09d-90ad-47fa-b91a-08c472bdf566}
+│       │   ├── {a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}
+│       │   │   └── storage.js
+│       │   ├── {d7742d87-e61d-4b78-b8a1-b469842139fa}
+│       │   │   └── storage.js
+│       │   └── {e4a8a97b-f2ed-450b-b12d-ee082ba24781}
+│       │       └── storage.js
+│       ├── cert9.db
+│       ├── compatibility.ini
+│       ├── containers.json
+│       ├── content-prefs.sqlite
+│       ├── cookies.sqlite
+│       ├── cookies.sqlite-shm
+│       ├── cookies.sqlite-wal
+│       ├── crashes
+│       │   ├── events
+│       │   └── store.json.mozlz4
+│       ├── datareporting
+│       │   ├── archived
+│       │   │   └── 2018-02
+│       │   │       ├── 1518646885929.93d02f6f-97f8-d04c-9bb8-322f1835b712.main.jsonlz4
+│       │   │       ├── 1518647364522.d66211a9-0e88-014e-b863-52a82584d035.modules.jsonlz4
+│       │   │       ├── 1518647529918.0bfa0eae-6466-7043-8152-3929d229fa92.main.jsonlz4
+│       │   │       ├── 1518648234401.91066432-efb7-7446-ae2c-01023fe853fb.new-profile.jsonlz4
+│       │   │       ├── 1518676527185.47c9ae53-bff4-af42-bc06-c076fa923712.main.jsonlz4
+│       │   │       ├── 1518677651169.cb53cd7c-e8e6-f145-b237-6a674c9c2bfa.sync.jsonlz4
+│       │   │       ├── 1518677651239.0974fd9b-0342-5c4b-9658-59d20108f0c7.main.jsonlz4
+│       │   │       ├── 1518677651241.5a504f75-892e-644a-8193-e02dc79defa5.first-shutdown.jsonlz4
+│       │   │       ├── 1518695529059.0005e82f-bbc7-8646-a8c3-20077176bc89.sync.jsonlz4
+│       │   │       ├── 1518695529118.c776ddfc-1c3f-0749-b979-25ae5a691e6c.health.jsonlz4
+│       │   │       ├── 1518695529136.7f2a8f75-63ff-fe42-9d1d-a3f7a3d3aab8.health.jsonlz4
+│       │   │       ├── 1518695529156.455fb2de-dccf-8b44-ad2b-5525178ae092.main.jsonlz4
+│       │   │       ├── 1518701233198.2de0807d-e207-ef47-b7ec-7d6a9f4651ff.health.jsonlz4
+│       │   │       ├── 1518701233215.0a5b1231-4c39-c346-8b37-164331920a2e.health.jsonlz4
+│       │   │       ├── 1518701233222.f7e57c7a-40de-6c46-b8f7-8558e45a54cf.main.jsonlz4
+│       │   │       ├── 1518728199573.2162240c-5421-7541-91a8-3cc512fa6ec3.health.jsonlz4
+│       │   │       ├── 1518728199614.eacf6170-64d3-cf4e-a2f8-29dec2f3e0a1.health.jsonlz4
+│       │   │       └── 1518728199631.23b9a78b-ade1-024f-ac9d-9f99b4d6d2e6.main.jsonlz4
+│       │   ├── session-state.json
+│       │   └── state.json
+│       ├── extension-settings.json
+│       ├── extensions
+│       │   ├── @enable-copy-cut-paste.xpi
+│       │   ├── @react-devtools.xpi
+│       │   ├── DontFuckWithPaste@raim.ist.xpi
+│       │   ├── TabsTree@traxium.xpi
+│       │   ├── disable-ctrl-q-and-cmd-q@robwu.nl.xpi
+│       │   ├── https-everywhere@eff.org.xpi
+│       │   ├── jid1-7OsjI9sxTAYQNg@jetpack.xpi
+│       │   ├── jid1-MnnxcxisBPnSXQ@jetpack.xpi
+│       │   ├── support@lastpass.com.xpi
+│       │   ├── tb-clear-cache-single@codefisher.org.xpi
+│       │   ├── wappalyzer@crunchlabz.com.xpi
+│       │   ├── {06997db0-c027-4d5f-bd37-b0d9230226ea}.xpi
+│       │   ├── {4cc4a13b-94a6-7568-370d-5f9de54a9c7f}.xpi
+│       │   ├── {7efbd09d-90ad-47fa-b91a-08c472bdf566}.xpi
+│       │   ├── {a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}.xpi
+│       │   ├── {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+│       │   └── {e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi
+│       ├── extensions.json
+│       ├── favicons.sqlite
+│       ├── formhistory.sqlite
+│       ├── gmp
+│       │   └── Darwin_x86_64-gcc3
+│       ├── gmp-gmpopenh264
+│       │   └── 1.7.1
+│       │       ├── gmpopenh264.info
+│       │       └── libgmpopenh264.dylib
+│       ├── gmp-widevinecdm
+│       │   └── 1.4.8.1008
+│       │       ├── LICENSE.txt
+│       │       ├── libwidevinecdm.dylib
+│       │       ├── libwidevinecdm.dylib.sig
+│       │       └── manifest.json
+│       ├── handlers.json
+│       ├── key4.db
+│       ├── kinto.sqlite
+│       ├── localstore.rdf
+│       ├── logins.json
+│       ├── minidumps
+│       ├── permissions.sqlite
+│       ├── pkcs11.txt
+│       ├── places.sqlite
+│       ├── pluginreg.dat
+│       ├── prefs.js
+│       ├── revocations.txt
+│       ├── saved-telemetry-pings
+│       │   ├── 0005e82f-bbc7-8646-a8c3-20077176bc89
+│       │   ├── 0974fd9b-0342-5c4b-9658-59d20108f0c7
+│       │   ├── 2162240c-5421-7541-91a8-3cc512fa6ec3
+│       │   ├── 2de0807d-e207-ef47-b7ec-7d6a9f4651ff
+│       │   └── c776ddfc-1c3f-0749-b979-25ae5a691e6c
+│       ├── search.json.mozlz4
+│       ├── serviceworker.txt
+│       ├── sessionCheckpoints.json
+│       ├── sessionstore-backups
+│       │   ├── previous.jsonlz4
+│       │   └── upgrade.jsonlz4-20180206200532
+│       ├── sessionstore.jsonlz4
+│       ├── shield-preference-experiments.json
+│       ├── signedInUser.json
+│       ├── storage
+│       │   ├── default
+│       │   │   ├── about+newtab
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 3312185054sbndi_pspte.files
+│       │   │   │       └── 3312185054sbndi_pspte.sqlite
+│       │   │   ├── https+++app.polymail.io
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 1955723316ploilaym.files
+│       │   │   │       └── 1955723316ploilaym.sqlite
+│       │   │   ├── https+++outlook.office.com
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── cache
+│       │   │   │       ├── .padding
+│       │   │   │       ├── caches.sqlite
+│       │   │   │       └── morgue
+│       │   │   │           ├── 1
+│       │   │   │           │   └── {193b93ef-7b3e-ea40-b4e4-4e9cb8d94901}.final
+│       │   │   │           ├── 102
+│       │   │   │           │   └── {1ae3926e-6db6-c842-8353-9fb770f98566}.final
+│       │   │   │           ├── 103
+│       │   │   │           │   └── {fb8c18a9-fb93-bf4d-89b4-75d3609b6267}.final
+│       │   │   │           ├── 109
+│       │   │   │           │   └── {976fdb90-6f3a-f44d-be6e-8aa55024bd6d}.final
+│       │   │   │           ├── 115
+│       │   │   │           │   └── {1168a961-db9a-6842-b63d-4ee4254d5673}.final
+│       │   │   │           ├── 119
+│       │   │   │           │   └── {1ff80ff4-ca7c-5543-8a89-12b9347b8f77}.final
+│       │   │   │           ├── 121
+│       │   │   │           │   └── {cc2e878e-99d7-2243-9021-9a8a30e83f79}.final
+│       │   │   │           ├── 130
+│       │   │   │           │   └── {3f3c87c6-1f74-334e-988e-d0e2617ec582}.final
+│       │   │   │           ├── 132
+│       │   │   │           │   └── {93176f49-0211-f646-ac94-3ecb1cce1784}.final
+│       │   │   │           ├── 147
+│       │   │   │           │   └── {7c6de455-8c50-b140-b663-b90043506493}.final
+│       │   │   │           ├── 158
+│       │   │   │           │   └── {6d61f19a-5a65-7e47-ade4-ac75a8c2719e}.final
+│       │   │   │           ├── 161
+│       │   │   │           │   └── {caf8c212-bdc7-0840-a5bd-67e403bc5ea1}.final
+│       │   │   │           ├── 167
+│       │   │   │           │   └── {38c721e6-0408-124d-97d6-5615a065dba7}.final
+│       │   │   │           ├── 171
+│       │   │   │           │   └── {471c4d85-8997-fc4c-930f-0e4eb91074ab}.final
+│       │   │   │           ├── 177
+│       │   │   │           │   └── {b0cda8c6-7a09-434b-88a8-4af0f57584b1}.final
+│       │   │   │           ├── 183
+│       │   │   │           │   └── {a8021fc1-8388-2e45-9a90-950476a0aeb7}.final
+│       │   │   │           ├── 184
+│       │   │   │           │   └── {4162340c-bd94-dc47-8f68-d10799b2cab8}.final
+│       │   │   │           ├── 197
+│       │   │   │           │   └── {e04d8b95-9cbc-204d-80a0-fccd2862cec5}.final
+│       │   │   │           ├── 202
+│       │   │   │           │   └── {f74048df-a9e8-fe4b-bd52-7cd705bc42ca}.final
+│       │   │   │           ├── 208
+│       │   │   │           │   ├── {ded9f9f3-c005-bd41-ad76-9808d0dc1ed0}.final
+│       │   │   │           │   └── {f95e52f8-5cc8-304e-aae5-1bce01ebc9d0}.final
+│       │   │   │           ├── 210
+│       │   │   │           │   └── {8ab39552-d857-0845-9fbe-e1d034a814d2}.final
+│       │   │   │           ├── 212
+│       │   │   │           │   └── {f4ab02af-f7a9-4a4c-bd57-0d9e166acfd4}.final
+│       │   │   │           ├── 22
+│       │   │   │           │   └── {d435c02f-04a7-c547-ae5a-31019b54f516}.final
+│       │   │   │           ├── 24
+│       │   │   │           │   └── {a211a47e-9986-7744-ba70-59b1baf59218}.final
+│       │   │   │           ├── 243
+│       │   │   │           │   └── {4466ce6e-d2e3-dc47-a762-5ce10ddabef3}.final
+│       │   │   │           ├── 244
+│       │   │   │           │   └── {1eb8c8e4-f7b0-f94c-9270-1e421c72bef4}.final
+│       │   │   │           ├── 248
+│       │   │   │           │   └── {797d64f1-4b40-534f-9fbf-f62b8d7245f8}.final
+│       │   │   │           ├── 251
+│       │   │   │           │   └── {b812b508-d59e-2a4b-96c4-2cecf18d9efb}.final
+│       │   │   │           ├── 252
+│       │   │   │           │   └── {b4b4737e-d9f3-2242-aa84-be27dda156fc}.final
+│       │   │   │           ├── 27
+│       │   │   │           │   ├── {42bda404-9d2a-7742-894d-7067bb9a451b}.final
+│       │   │   │           │   └── {a37dda14-6b69-2747-9829-252d794fda1b}.final
+│       │   │   │           ├── 3
+│       │   │   │           │   └── {e0f8f5d5-89d5-8d43-bbb0-32a41f543403}.final
+│       │   │   │           ├── 39
+│       │   │   │           │   └── {fd58e08a-aab3-e442-ac98-e63987148327}.final
+│       │   │   │           ├── 40
+│       │   │   │           │   └── {0bc1b156-3570-3240-993e-69a44c09b428}.final
+│       │   │   │           ├── 45
+│       │   │   │           │   └── {bf64310d-d9a0-e24f-9c48-c4f93ac16d2d}.final
+│       │   │   │           ├── 46
+│       │   │   │           │   └── {bdd8087e-df61-614d-9d3f-2189a7cf9b2e}.final
+│       │   │   │           ├── 49
+│       │   │   │           │   └── {8a14a060-7666-de45-b707-c42ce98dcd31}.final
+│       │   │   │           ├── 60
+│       │   │   │           │   └── {d94b91e4-3fe3-5940-8f69-8a17ecef493c}.final
+│       │   │   │           ├── 66
+│       │   │   │           │   ├── {6c12121e-2839-f840-a289-dabe37f86b42}.final
+│       │   │   │           │   └── {7167996e-1551-9d4b-a633-3940ee42a042}.final
+│       │   │   │           ├── 67
+│       │   │   │           │   └── {c836222f-c012-be4f-8576-31b8b5b84243}.final
+│       │   │   │           ├── 68
+│       │   │   │           │   └── {c423b50e-89ba-5f4f-9448-bba064033544}.final
+│       │   │   │           ├── 71
+│       │   │   │           │   └── {3edb981d-7c41-544d-8172-71ba796d5147}.final
+│       │   │   │           ├── 73
+│       │   │   │           │   └── {e04ccdf9-db1f-7c49-9e0d-610774b39749}.final
+│       │   │   │           ├── 78
+│       │   │   │           │   └── {45bb653e-c035-2349-9e8c-e3c536bee44e}.final
+│       │   │   │           ├── 84
+│       │   │   │           │   └── {4650643e-a95f-8b46-9244-a5ab731ce754}.final
+│       │   │   │           ├── 86
+│       │   │   │           │   └── {7b061e40-255d-dc41-a4d7-25b8ba076e56}.final
+│       │   │   │           ├── 88
+│       │   │   │           │   ├── {a95551cb-1ee8-c148-9512-c2ebb5513358}.final
+│       │   │   │           │   └── {c0222d2a-a156-6c45-939b-d9b51c03c958}.final
+│       │   │   │           ├── 95
+│       │   │   │           │   └── {4aace510-d174-4243-8ba9-c0a000b7365f}.final
+│       │   │   │           ├── 96
+│       │   │   │           │   ├── {1d0c3fa6-0528-0645-8885-d565fae4f560}.final
+│       │   │   │           │   └── {770d9027-a0da-b74f-bd3f-39de5db16c60}.final
+│       │   │   │           ├── 97
+│       │   │   │           │   └── {565dc1ad-65cd-5447-8234-6af31c81dd61}.final
+│       │   │   │           └── 98
+│       │   │   │               └── {3bcfa8b1-c864-6243-b637-a6abc3658062}.final
+│       │   │   ├── https+++tpc.googlesyndication.com
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 12183338011.files
+│       │   │   │       └── 12183338011.sqlite
+│       │   │   ├── https+++www.kaggle.com
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── cache
+│       │   │   │       ├── .padding
+│       │   │   │       ├── caches.sqlite
+│       │   │   │       └── morgue
+│       │   │   │           ├── 110
+│       │   │   │           │   └── {e0325b62-24d5-e942-9c5b-d36dc985ac6e}.final
+│       │   │   │           ├── 111
+│       │   │   │           │   └── {aa1925e5-6a38-f64f-bf6d-01c0588ae46f}.final
+│       │   │   │           ├── 117
+│       │   │   │           │   └── {4438fb99-71d8-e949-9c3c-40082c28cc75}.final
+│       │   │   │           ├── 123
+│       │   │   │           │   └── {15aba4f3-1099-0a45-90db-38644aa5d57b}.final
+│       │   │   │           ├── 131
+│       │   │   │           │   └── {683c4fe7-4acb-3e4d-9fed-371ca862fa83}.final
+│       │   │   │           ├── 169
+│       │   │   │           │   └── {28f7f22c-52be-a94c-a035-0732abc7aea9}.final
+│       │   │   │           ├── 174
+│       │   │   │           │   └── {397f89ae-d80e-764e-963f-a0b61cf73bae}.final
+│       │   │   │           ├── 183
+│       │   │   │           │   └── {40ea8455-1b08-7c4c-9327-37a967ccd8b7}.final
+│       │   │   │           ├── 217
+│       │   │   │           │   └── {3e7b7d68-e0e3-754b-ab3b-9718a57645d9}.final
+│       │   │   │           ├── 221
+│       │   │   │           │   └── {ab7e96b5-afe0-5343-b629-183f0bc8e9dd}.final
+│       │   │   │           ├── 244
+│       │   │   │           │   └── {3a6504ed-44de-3942-9536-0270a3a1f0f4}.final
+│       │   │   │           ├── 250
+│       │   │   │           │   └── {82e6f12e-5575-7248-9e3b-dc834ce368fa}.final
+│       │   │   │           ├── 58
+│       │   │   │           │   └── {b37e802c-f044-5f4e-adcc-a727eb07cb3a}.final
+│       │   │   │           ├── 64
+│       │   │   │           │   └── {a4683697-8999-3049-ab48-dd4a63be6e40}.final
+│       │   │   │           └── 74
+│       │   │   │               └── {5450eab1-3d87-894b-8865-82ce344e5a4a}.final
+│       │   │   ├── https+++www.lifewire.com
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 12183338011.files
+│       │   │   │       └── 12183338011.sqlite
+│       │   │   ├── https+++www.macworld.co.uk
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 12183338011.files
+│       │   │   │       └── 12183338011.sqlite
+│       │   │   ├── moz-extension+++0ad6d7a2-6ee4-684e-ac16-9b801359f57f
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 583651055lp.files
+│       │   │   │       │   ├── 1
+│       │   │   │       │   ├── 4
+│       │   │   │       │   ├── 5
+│       │   │   │       │   └── journals
+│       │   │   │       └── 583651055lp.sqlite
+│       │   │   ├── moz-extension+++26f90988-2298-0147-a856-e78552b28eec
+│       │   │   │   ├── .metadata
+│       │   │   │   ├── .metadata-v2
+│       │   │   │   └── idb
+│       │   │   │       ├── 61413404gyreekansoem.files
+│       │   │   │       └── 61413404gyreekansoem.sqlite
+│       │   │   └── moz-safe-about+home
+│       │   │       ├── .metadata
+│       │   │       ├── .metadata-v2
+│       │   │       └── idb
+│       │   │           ├── 3312185054sbndi_pspte.files
+│       │   │           └── 3312185054sbndi_pspte.sqlite
+│       │   ├── permanent
+│       │   │   └── chrome
+│       │   │       ├── .metadata
+│       │   │       ├── .metadata-v2
+│       │   │       └── idb
+│       │   │           ├── 2918063365piupsah.files
+│       │   │           ├── 2918063365piupsah.sqlite
+│       │   │           ├── 3561288849sdhlie.files
+│       │   │           └── 3561288849sdhlie.sqlite
+│       │   └── temporary
+│       ├── storage-sync.sqlite
+│       ├── storage.sqlite
+│       ├── times.json
+│       ├── weave
+│       │   ├── addonsreconciler.json
+│       │   ├── changes
+│       │   │   ├── addons.json
+│       │   │   ├── clients.json
+│       │   │   ├── forms.json
+│       │   │   ├── history.json
+│       │   │   └── passwords.json
+│       │   ├── failed
+│       │   │   ├── addons.json
+│       │   │   ├── bookmarks.json
+│       │   │   ├── clients.json
+│       │   │   ├── extension-storage.json
+│       │   │   ├── forms.json
+│       │   │   ├── history.json
+│       │   │   ├── passwords.json
+│       │   │   ├── prefs.json
+│       │   │   └── tabs.json
+│       │   ├── logs
+│       │   │   └── error-sync-1518695529044.txt
+│       │   └── toFetch
+│       │       ├── addons.json
+│       │       ├── bookmarks.json
+│       │       ├── clients.json
+│       │       ├── extension-storage.json
+│       │       ├── forms.json
+│       │       ├── history.json
+│       │       ├── passwords.json
+│       │       ├── prefs.json
+│       │       └── tabs.json
+│       ├── webappsstore.sqlite
+│       └── xulstore.json
+└── profiles.ini
+
+465 directories, 654 files
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3415 [39m[37m[39m[47m[30m 10:56:12 [39m[00m[49m[90D[?1h=[?2004htree -a | grep gm_script[?1l>[?2004l
+]2;tree -a | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} gm_script]1;tree[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[64C[39m[0m[49m[31m[39m[41m[38;5;226m 0|1 [38;5;226m↵[39m [39m[38;5;244m[39m[48;5;244m[30m 3416 [39m[37m[39m[47m[30m 10:56:28 [39m[00m[49m[90D[?1h=[?2004htree -a | grep gm_script        rease[?1l>[?2004l
+]2;tree -a | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} grease]1;tree[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[64C[39m[0m[49m[31m[39m[41m[38;5;226m 0|1 [38;5;226m↵[39m [39m[38;5;244m[39m[48;5;244m[30m 3417 [39m[37m[39m[47m[30m 10:56:32 [39m[00m[49m[90D[?1h=[?2004htree -a | grep grease       prefs[?1l>[?2004l
+]2;tree -a | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} prefs]1;tree│   │   ├── content-[01;31m[Kprefs[m[K.sqlite
+│   │   ├── [01;31m[Kprefs[m[K.js
+│   │   │   │   ├── [01;31m[Kprefs[m[K.json
+│   │   │       ├── [01;31m[Kprefs[m[K.json
+│       ├── content-[01;31m[Kprefs[m[K.sqlite
+│       ├── [01;31m[Kprefs[m[K.js
+│       │   │   ├── [01;31m[Kprefs[m[K.json
+│       │       ├── [01;31m[Kprefs[m[K.json
+[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Library/Application Support/Firefox]1;..pport/Firefox[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Library/Application Support/Firefox [49m[34m[39m [K[68C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3418 [39m[37m[39m[47m[30m 10:56:36 [39m[00m[49m[90D[?1h=[?2004hddmp[?1l>[?2004l
+]2;cd ~/Documents/data-mining-personal]1;dmp[1m[7m%[27m[1m[0m                                                                                                                                                                ]2;georgegillams@Georges-MBP: ~/Documents/data-mining-personal]1;..ning-personal[0m[27m[24m[J[39m[0m[49m[40m [93mgeorgegillams@Georges-MBP [44m[30m [30m~/Documents/data-mining-personal [43m[34m [30m writeup-report ● [49m[33m[39m [K[52C[39m[0m[49m[30m[39m[40m[32m [32m✔[39m [39m[38;5;244m[39m[48;5;244m[30m 3419 [39m[37m[39m[47m[30m 10:56:41 [39m[00m[49m[74D[?1h=[?2004h
