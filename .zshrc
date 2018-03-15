@@ -176,8 +176,9 @@ alias dmp-nuke='cd ~/Documents/ && sudo rm -rf data-mining-personal && git clone
 alias dmp-setup='dmp && pipenv install'
 alias dmp-run-data-cleanup='dmp && pipenv run python3 data_cleaning'
 alias dmp-run-data-clustering='dmp && pipenv run python3 data_clustering'
+alias dmp-run-data-matrix='dmp && pipenv run python3 data_matrix_generation'
 alias dmp-run-data-mds='dmp && pipenv run python3 data_multidimensional_scaling'
-alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering && dmp-run-data-mds'
+alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering && dmp-run-data-matrix && dmp-run-data-mds'
 alias dmp-test='dmp && pytest tests'
 
 alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
