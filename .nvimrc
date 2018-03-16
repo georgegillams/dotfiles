@@ -38,7 +38,6 @@ Plugin 'flowtype/vim-flow'
 
 " Misc
 Plugin 'FuzzyFinder'
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plugin 'shougo/neocomplete.vim'
 
 
@@ -117,6 +116,3 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 let g:sass_lint_config ='/Users/georgegillams/Documents/projects/backpack/.stylelintrc.json'
 
 nnoremap <C-p> :FuzzyOpen<CR>
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
