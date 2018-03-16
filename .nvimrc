@@ -7,30 +7,26 @@ set mouse=a
 call vundle#begin()
 
 " All of your Plugins must be added before the following line
+" Display
 Plugin 'bling/vim-airline'
-Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'christoomey/vim-sort-motion'
-Plugin 'mjbrownie/browser.vim'
-Plugin 'w0rp/ale'
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plugin 'pangloss/vim-javascript'
-Plugin 'kien/ctrlp.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'rakr/vim-one'
 Plugin 'joshdick/onedark.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'tpope/vim-commentary'
 Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'shougo/neocomplete.vim'
+
+" Language Support
+Plugin 'mxw/vim-jsx'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'w0rp/ale'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'moll/vim-node'
@@ -38,12 +34,20 @@ Plugin 'beautify-web/js-beautify'
 Plugin 'mitermayer/vim-prettier'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'gcorne/vim-sass-lint'
-Plugin 'L9'
+Plugin 'flowtype/vim-flow'
+
+" Misc
 Plugin 'FuzzyFinder'
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'shougo/neocomplete.vim'
+
+
+Plugin 'tpope/vim-commentary'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'L9'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'cloudhead/neovim-fuzzy'
-Plugin 'flowtype/vim-flow'
 Plugin 'lervag/vimtex'
 call vundle#end()            " required
 filetype plugin indent on    " required
