@@ -78,7 +78,7 @@ alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git
 function git-commit-push() { git commit -m $@ && ggf }
 function git-commit-push-no-verify() { git commit -m $@ --no-verify && ggf }
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && mv * ~/Desktop/back/ && git-add-all && git-master-latest && mv ~/Desktop/back/* ./'
-function git-make-mr() { touch remove.txt && git-commit-push -m $@ && rm remove.txt && git-commit-push "squash me" }
+function git-make-mr() { touch remove.txt && git-add-all && git-commit-push -m $@ && rm remove.txt && git-commit-push "squash me" }
 
 alias bedrock='cd ~/Documents/bedrock/'
 alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
