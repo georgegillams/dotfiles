@@ -1,206 +1,86 @@
-set nocompatible               " be eMproved
-filetype off                   " required!
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+# Path to your oh-my-zsh installation.
+export ZSH=$(echo ~)/.oh-my-zsh
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-" Language Support
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'keith/swift.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rust-lang/rust.vim'
-Plugin 'HerringtonDarkholme/yats.vim'
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+plugins=(git colored-man colorize github jira pip python osx zsh-syntax-highlighting)
 
-" Misc
-Plugin 'w0rp/ale'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-airline/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'junegunn/goyo.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-surround'
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-" Color Schemes
-Plugin 'altercation/vim-colors-solarized'
-call vundle#end()
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-set number
-set shell=/bin/zsh\ -l
-syntax on
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set backspace=indent,eol,start
-set noswapfile
-set nocursorline
-set nocursorcolumn
-set background=dark
-set smartcase
-set lazyredraw
-let mapleader = ' '
-colorscheme solarized
-set list
-set listchars=eol:¬
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-" Remap
-vnoremap . :norm.<CR>
-inoremap jk <ESC>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>z :wq<CR>
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-nnoremap <Leader>s :sv<CR>
-nnoremap <Leader>v :vs<CR>
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-" Windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-" Buffers
-set hidden
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-" Navigation
-nnoremap <leader>] :YcmCompleter GoTo<CR>
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-set ruler
-set colorcolumn=120
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 
-" Python
-let g:loaded_python_provider = 1
-let g:python3_host_prog = '/Users/hugotunius/Envs/nvim/bin/python'
+source $ZSH/oh-my-zsh.sh
 
-" vim-airline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline_theme = 'powerlineish'
-set laststatus=2
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+# User configuration
+# export MANPATH="/usr/local/man:$MANPATH"
+source ~/.env/env.sh
+source ~/.env/loader.sh
 
-nmap <leader>bb :Buffer<cr>
-nmap <C-P> :Files<CR>
-nmap <C-I> :Tags<CR>
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-" You complete me
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_server_keep_logfiles=1
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-" Strip whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-" Ignores for NERDTree
-let NERDTreeIgnore = ['\.pyc$']
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-" Dash
-nmap <silent> <leader>d <Plug>DashSearch
-
-" vim-jsx
-let g:jsx_ext_required = 0
-
-let g:ycm_filetype_specific_completion_to_disable = {
-  \'ruby': 1
-  \}
-let g:javascript_plugin_flow = 1
-
-
-" Ale
-"let g:ale_python_flake8_args="flake8"
-let g:airline#extensions#ale#enabled = 1
-let g:ale_linters = {
-\   'python': ['flake8'],
-\   'javascript': ['eslint', 'flow'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error='✘'
-let g:ale_sign_warning='▲'
-
-let g:ale_echo_msg_error_str = '✘'
-let g:ale_echo_msg_warning_str = '▲'
-let g:ale_echo_msg_format = '%severity% [%linter%] %s'
-
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 1
-let g:ale_open_list = 0
-nmap <silent> <C-a> :ALEDetail<CR>
-
-let g:vim_markdown_folding_disabled = 1
-
-" Fugitive
-nmap <leader>gb :Gblame<CR>
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gl :Gpull<CR>
-nmap <leader>gh :Gbrowse<CR>
-
-augroup ft_rb
-    au!
-    " fix the SLOOOW syntax highlighting
-    au FileType ruby setlocal re=1 foldmethod=manual nocursorline
-augroup END
-
-" Rust
-let g:rustfmt_autosave = 1
-let g:rustfmt_command = "cargo fmt -- "
-
-" From https://statico.github.io/vim3.html
-function! ProseMode()
-  call goyo#execute(0, [])
-  set spell noci nosi noai nolist noshowmode noshowcmd
-  set complete+=s
-  set bg=light
-  if !has('gui_running')
-    let g:solarized_termcolors=256
-  endif
-  colors solarized
-endfunction
-
-command! ProseMode call ProseMode()
-nmap \p :ProseMode<CR>
-
-" Ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
