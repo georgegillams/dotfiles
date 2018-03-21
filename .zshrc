@@ -36,6 +36,7 @@ alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop .
 alias nvim-edit-config='nvim ~/.nvimrc'
 
 alias system-fix-nvm='sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp /opt/local/bin/node opt/local/include/node /opt/local/lib/node_modules && brew uninstall nvm && rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d && sudo rm -rf ~/.npm && sudo rm -rf ~/.nvm &&  rm -f /usr/local/bin/node'
+alias system-fix-nvimrc-location="mkdir -p ~/.config/nvim && echo 'source ~/.nvimrc' > ~/.config/nvim/init.vim"
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add ~/.ssh/id_rsa &>/dev/null'
 alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotlight.plist /System/Library/LaunchAgents/com.apple.Spotlight.plist.BAK && mv /System/Library/LaunchDaemons/com.apple.metadata.mds.plist /System/Library/LaunchDaemons/com.apple.metadata.mds.plist.BAK'
