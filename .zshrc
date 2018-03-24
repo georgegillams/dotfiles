@@ -113,7 +113,7 @@ alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && npm run start:client'
-alias georgegillams-run-server='georgegillams && node server/server.js'
+alias georgegillams-run-server='georgegillams && npm run start:server'
 alias georgegillams-run-all='georgegillams && npm run start'
 
 alias backpack='cd ~/Documents/backpack/'
