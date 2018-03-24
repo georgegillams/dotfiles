@@ -185,6 +185,7 @@ alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering && dmp-run-da
 alias dmp-test='dmp && pytest tests'
 
 alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
+alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf'
 alias semantic-web-upload-ontology='cp ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/tv-listing-ontology.owl ./server_content/ontologies/tv-listing-ontology.owl && git-add-all && git-commit-push "Update tv-listing ontology"'
 alias automated-code-generation='cd ~/Dropbox/Southampton/WORK/8\ Semester/09\ -\ Automated\ Code\ Generation/'
 alias data-mining-module='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
