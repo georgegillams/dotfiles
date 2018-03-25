@@ -184,6 +184,7 @@ alias dmp-run-data-mds='dmp && pipenv run python3 data_multidimensional_scaling'
 alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering && dmp-run-data-matrix && dmp-run-data-mds'
 alias dmp-test='dmp && pytest tests'
 
+alias start-vowl='cd ~/Downloads/webvowl_1.0.6 && http-server ./ & open  http://127.0.0.1:8080'
 alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
 alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf'
 alias semantic-web-upload-ontology='cp ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/tv-listing-ontology.owl ./server_content/ontologies/tv-listing-ontology.owl && git-add-all && git-commit-push "Update tv-listing ontology"'
