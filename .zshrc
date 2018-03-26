@@ -111,7 +111,7 @@ alias scripts-save-nvimrc='scripts && cp ~/.nvimrc ./ && git-add-all && git-comm
 
 alias academic-references='cd ~/Documents/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
-alias academic-references-setup='academic-references && cd package && npm i && cd ../example && npm i'
+alias academic-references-setup='academic-references && cd package && npm i && cd ../example && npm i && academic-references'
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
