@@ -192,7 +192,7 @@ alias dmp-test='dmp && pytest tests'
 
 alias start-vowl='cd ~/Downloads/webvowl_1.0.6 && http-server ./ & open  http://127.0.0.1:8080'
 alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
-alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf && open Relationships.numbers'
+alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf && open Relationships.numbers && open tv-listing-ontology.owl'
 alias semantic-web-upload-ontology='georgegillams && cp ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/tv-listing-ontology.owl ./server_content/ontologies/tv-listing-ontology.owl && git-add-all && git-commit-push "Update tv-listing ontology" && cd -'
 alias automated-code-generation='cd ~/Dropbox/Southampton/WORK/8\ Semester/09\ -\ Automated\ Code\ Generation/'
 alias data-mining-module='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
