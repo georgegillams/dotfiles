@@ -109,12 +109,11 @@ alias scripts-save-zshrc='scripts && cp ~/.zshrc ./ && git-add-all && git-commit
 alias scripts-save-nvimrc='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 # alias scripts-save-greasemonkey='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
-alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
-alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-setup='georgegillams && npm install'
-alias georgegillams-run-web-app='georgegillams && npm run start:client'
-alias georgegillams-run-server='georgegillams && npm run start:server'
-alias georgegillams-run-all='georgegillams && npm run start'
+alias academic-references='cd ~/Documents/react-component-academic-reference/'
+alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
+alias academic-references-setup='academic-references && cd package && npm i && cd ../example && npm i'
+alias academic-references-run-web-app='academic-references && cd example && npm run start'
+alias academic-references-publish='academic-references && cd package && npm publish'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
