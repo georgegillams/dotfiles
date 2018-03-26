@@ -27,7 +27,7 @@ fi
 
 alias zsh-rebuild='. ~/.zshrc && scripts-save-zshrc && cd -'
 alias nvim-rebuild='nvim +"source ~/.nvimrc" +PluginInstall +qall && scripts-save-nvimrc && cd -'
-alias zsh-edit-config='nvim ~/.zshrc'
+alias zsh-edit-config='atom ~/.zshrc'
 alias brew-edit-install-script='atom ~/Dropbox/Apps/brew_install.sh'
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.nvimrc ~/.nvimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
@@ -108,6 +108,13 @@ alias scripts-nuke='cd ~/Documents/ && sudo rm -rf scripts && git clone git@gith
 alias scripts-save-zshrc='scripts && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 alias scripts-save-nvimrc='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 # alias scripts-save-greasemonkey='scripts && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
+
+alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
+alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias georgegillams-setup='georgegillams && npm install'
+alias georgegillams-run-web-app='georgegillams && npm run start:client'
+alias georgegillams-run-server='georgegillams && npm run start:server'
+alias georgegillams-run-all='georgegillams && npm run start'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
