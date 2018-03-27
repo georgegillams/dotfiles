@@ -219,6 +219,7 @@ alias gdp-ssh-pi-eth0-home='ssh pi@192.168.2.2'
 alias gdp-writeup='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/ && open Report.docx'
 alias gdp-message-structure='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/communication-specification/ && open messages.numbers'
 alias gdp-individual-report='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/individual\ report && open ProjectReport.tex && open Specification.pdf'
+alias gdp-report='gdp-individual-report'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
