@@ -50,6 +50,8 @@ alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
 alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
+alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
+
 alias work-plan='cd ~/Dropbox/Southampton/WORK/8\ Semester && open WORK_PLAN.numbers'
 
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting.xlsx'
