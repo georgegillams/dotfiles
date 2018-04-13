@@ -149,6 +149,7 @@ alias backpack-check-cross-dependencies='backpack && npm run check-bpk-dependenc
 alias backpack-generate-prop-tables='backpack && npm run generate-prop-tables'
 alias backpack-update-prop-geneeration-PR='backpack &&  git add scripts/npm/generate-prop-tables.js && git commit --amend --no-edit --no-verify  && git-reset'
 alias backpack-fix-cross-dependencies='backpack && npm run fix-bpk-dependencies'
+alias backpack-replace-binds='backpack && npm run replace-binds'
 function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && git add . && git commit -m $@ && ggf }
 alias backpack-android-shake='$ANDROID_HOME/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
