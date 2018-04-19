@@ -168,12 +168,12 @@ alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
 # ======================== UNIVERSITY ========================
-alias acg='cd ~/Documents/automated-code-generation'
-alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation && git clone git@github.com:georgegillams/automated-code-generation.git'
-alias acg-setup='acg && pipenv install'
-alias acg-run='acg && pipenv run python3 demo'
-alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
-alias acg-test='acg && pytest tests'
+alias acg='cd ~/Documents/automated-code-generation-2'
+alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation-2 && git clone git@github.com:georgegillams/automated-code-generation-2.git'
+# alias acg-setup='acg && pipenv install'
+# alias acg-run='acg && pipenv run python3 demo'
+# alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
+# alias acg-test='acg && pytest tests'
 
 alias data-mining='cd ~/Documents/data-mining-coursework'
 alias data-mining-nuke='cd ~/Documents/ && sudo rm -rf data-mining-coursework && git clone git@github.com:georgegillams/data-mining-coursework.git'
