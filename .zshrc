@@ -124,6 +124,13 @@ alias georgegillams-run-web-app='georgegillams && npm run start:client'
 alias georgegillams-run-server='georgegillams && npm run start:server'
 alias georgegillams-run-all='georgegillams && npm run start'
 
+alias epicc-conference='cd ~/Documents/epicc-conference.co.uk/'
+alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.co.uk.git'
+alias epicc-conference-setup='epicc-conference && npm install'
+alias epicc-conference-run-web-app='epicc-conference && npm run start:client'
+alias epicc-conference-run-server='epicc-conference && npm run start:server'
+alias epicc-conference-run-all='epicc-conference && npm run start'
+
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -delete && npm test'
 alias backpack-run-tests='backpack && npm test'
