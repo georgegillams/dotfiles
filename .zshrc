@@ -177,7 +177,7 @@ alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-lates
 # ======================== UNIVERSITY ========================
 alias acg='cd ~/Documents/automated-code-generation-2'
 alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation-2 && git clone git@github.com:georgegillams/automated-code-generation-2.git'
-alias acg-compile-and-run='c++ *.c maths_*.h && clear && ./a.out'
+alias acg-compile-and-run='c++ *.c *.h && clear && ./a.out'
 # alias acg-setup='acg && pipenv install'
 # alias acg-run='acg && pipenv run python3 demo'
 # alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
