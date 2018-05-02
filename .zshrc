@@ -122,7 +122,7 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git cl
 alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && npm run start:client'
 alias georgegillams-run-server='georgegillams && npm run start:server'
-alias georgegillams-run-all='georgegillams && npm run start'
+alias georgegillams-run-all='redis-server & georgegillams && npm run start'
 
 alias epicc-conference='cd ~/Documents/epicc-conference/'
 alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
