@@ -168,6 +168,9 @@ function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && gi
 alias backpack-android-shake='$ANDROID_HOME/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
+alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
+alias backpack-deploy-neo-docs='backpack-neo-gh-pages && rm -rf dist && backpack && npm run docs:neo:dist && cp -R dist ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update" && git subtree push --prefix dist origin gh-pages'
+
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
 alias skyscanner-android-app-run='cd ~/Documents/android-app/'
