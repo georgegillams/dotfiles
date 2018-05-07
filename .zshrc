@@ -81,12 +81,13 @@ alias git-push-force='ggf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function git-commit-push() { git commit -m $@ && ggf }
 function git-commit-push-no-verify() { git commit -m $@ --no-verify && ggf }
-alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && mv * ~/Desktop/back/ && git-add-all && git-master-latest && mv ~/Desktop/back/* ./'
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
+function git-revert-to-master() { git checkout origin/master $@ }
 alias git-rebase-continue='git rebase --continue'
 alias git-rebase-abort='git rebase --abort'
 alias git-clean='git clean -xdf'
+alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 
 alias bedrock='cd ~/Documents/bedrock/'
 alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
