@@ -39,6 +39,7 @@ alias system-fix-nvm='sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/n
 alias system-fix-nvimrc-location="mkdir -p ~/.config/nvim && echo 'source ~/.nvimrc' > ~/.config/nvim/init.vim"
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add ~/.ssh/id_rsa &>/dev/null'
+alias system-fix-ssh-neo='ssh-add ~/.ssh/id_rsa_backpack_neo &>/dev/null'
 alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotlight.plist /System/Library/LaunchAgents/com.apple.Spotlight.plist.BAK && mv /System/Library/LaunchDaemons/com.apple.metadata.mds.plist /System/Library/LaunchDaemons/com.apple.metadata.mds.plist.BAK'
 alias system-disable-indexing='sudo mdutil -a -i off'
 alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm -rf ~/Library/Containers/io.canarymail.mac/'
