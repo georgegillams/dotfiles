@@ -170,8 +170,8 @@ alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
 alias backpack-deploy-neo-docs='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && npm run docs:neo:dist && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
-alias backpack-undeploy-neo-docs='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo `<h1 style="display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;">Coming soon...</h1>` > index.html && git-add-all && git-commit-push "undeploy"'
-alias backpack-undeploy-neo-docs-test2='cd ~/Documents && echo `<h1 style="display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;">Coming soon...</h1>` > index.html'
+alias backpack-undeploy-neo-docs='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo "<h1 style=`display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;`>Coming soon...</h1>" > index.html && git-add-all && git-commit-push "undeploy"'
+alias backpack-undeploy-neo-docs-test2='cd ~/Documents && echo "<h1 style=`display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;`>Coming soon...</h1>" > index.html'
 
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
