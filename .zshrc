@@ -78,6 +78,7 @@ alias git-amend-push='gcn! && ggf'
 alias git-amend-push-no-verify='gcn! --no-verify && ggf'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias git-push-force='ggf'
+alias git-yolo='git-push-force'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function git-commit-push() { git commit -m $@ && ggf }
 function git-commit-push-no-verify() { git commit -m $@ --no-verify && ggf }
