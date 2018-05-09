@@ -146,7 +146,7 @@ alias backpack-fix-tests-web='backpack && find . -name "*.js.snap" -not -path ".
 alias backpack-run-tests-web='backpack && npm run test'
 alias backpack-fix-tests-native='backpack && cd native/ && find . -name "*.js.snap" -delete && cd .. && npm run test:native'
 alias backpack-run-tests-native='backpack && npm run test:native'
-alias backpack-setup='backpack && npm install && npm run build && npm run bootstrap'
+alias backpack-setup='backpack && npm install && npm run build && npm run bootstrap && npm run build'
 alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone git@github.com:Skyscanner/backpack.git'
 alias backpack-nuke-setup='backpack-nuke && backpack-setup'
 alias backpack-refresh-android-device='$ANDROID_HOME/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_HOME/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
@@ -169,8 +169,8 @@ alias backpack-android-shake='$ANDROID_HOME/platform-tools/adb shell input keyev
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
-alias backpack-deploy-neo-docs='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && npm run docs:neo:dist && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
-alias backpack-undeploy-neo-docs='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo "<h1 style=\"display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;\">Coming soon...</h1>" > index.html && git-add-all && git-commit-push "undeploy"'
+alias backpack-neo-gh-pages-deploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && npm run docs:neo:dist && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
+alias backpack-neo-gh-pages-undeploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo "<h1 style=\"display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;\">Coming soon...</h1>" > index.html && git-add-all && git-commit-push "undeploy"'
 
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
