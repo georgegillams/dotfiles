@@ -8,6 +8,7 @@ call vundle#begin()
 
 " All of your Plugins must be added before the following line
 " Display
+Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
