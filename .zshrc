@@ -28,7 +28,7 @@ fi
 alias zsh-rebuild='. ~/.zshrc && dotfiles-save-zshrc && cd -'
 alias nvim-rebuild='nvim +"source ~/.nvimrc" +PluginInstall +qall && dotfiles-save-nvimrc && cd -'
 alias zsh-edit-config='nvim ~/.zshrc'
-alias brew-edit-install-script='atom ~/Dropbox/Apps/brew_install.sh'
+alias brew-edit-install-script='nvim ~/Dropbox/Apps/brew_install.sh'
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.nvimrc ~/.nvimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
 alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
