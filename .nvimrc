@@ -39,7 +39,8 @@ Plugin 'flowtype/vim-flow'
 " Misc
 Plugin 'FuzzyFinder'
 Plugin 'shougo/neocomplete.vim'
-
+Plugin 'junegunn/vim-fnr'
+Plugin 'junegunn/vim-pseudocl'
 
 Plugin 'tpope/vim-commentary'
 Plugin 'jiangmiao/auto-pairs'
