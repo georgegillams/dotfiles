@@ -169,7 +169,7 @@ alias backpack-android-shake='$ANDROID_HOME/platform-tools/adb shell input keyev
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
-alias backpack-neo-gh-pages-deploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && npm run docs:neo:dist && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
+alias backpack-neo-gh-pages-deploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
 alias backpack-neo-gh-pages-undeploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo "<h1 style=\"display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;\">Coming soon...</h1>" > index.html && git-add-all && git-commit-push "undeploy"'
 
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
