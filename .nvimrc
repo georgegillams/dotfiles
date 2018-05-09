@@ -9,6 +9,7 @@ call vundle#begin()
 " All of your Plugins must be added before the following line
 " Display
 Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'shmargum/vim-sass-colors'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -33,7 +34,6 @@ Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'moll/vim-node'
 Plugin 'beautify-web/js-beautify'
 Plugin 'mitermayer/vim-prettier'
-Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'gcorne/vim-sass-lint'
 Plugin 'flowtype/vim-flow'
 
