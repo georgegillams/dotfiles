@@ -64,6 +64,38 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
+" Ale
+"let g:ale_python_flake8_args="flake8"
+let g:airline#extensions#ale#enabled = 1
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'javascript': ['eslint', 'flow'],
+\}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error='✘'
+let g:ale_sign_warning='▲'
+
+let g:ale_echo_msg_error_str = '✘'
+let g:ale_echo_msg_warning_str = '▲'
+let g:ale_echo_msg_format = '%severity% [%linter%] %s'
+
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 1
+let g:ale_open_list = 0
+nmap <silent> <C-a> :ALEDetail<CR>
+
+let g:vim_markdown_folding_disabled = 1
+
+
+
 autocmd vimenter * NERDTree
 filetype plugin on
 syntax on
@@ -112,7 +144,7 @@ let g:airline_left_sep = ''
 let g:airline_theme='one'
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs :Fixmyjs
+" autocmd BufWritePre *.js,*.jsx,*.mjs :Fixmyjs
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
 
 let g:sass_lint_config ='/Users/georgegillams/Documents/projects/backpack/.stylelintrc.json'
