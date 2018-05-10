@@ -71,6 +71,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'javascript': ['eslint', 'flow'],
+\   'scss': ['scsslint'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
