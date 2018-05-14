@@ -26,6 +26,7 @@ fi
 # set -o vi
 
 alias zsh-rebuild='. ~/.zshrc && dotfiles-save-zshrc && cd -'
+function zsh-show-me() { whence -f $@ }
 alias nvim-rebuild='nvim +"source ~/.nvimrc" +PluginInstall +qall && dotfiles-save-nvimrc && cd -'
 alias zsh-edit-config='nvim ~/.zshrc'
 alias brew-edit-install-script='nvim ~/Dropbox/Apps/brew_install.sh'
@@ -249,3 +250,6 @@ alias gdp-report='gdp-individual-report'
 # ====================== END UNIVERSITY ======================
 
 export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/Users/georgegillams/.nvm/versions/node/v8.9.0/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
+
+# added by travis gem
+[ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
