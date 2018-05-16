@@ -195,14 +195,6 @@ alias acg-compile-and-run='c++ *.c *.h && clear && ./a.out'
 # alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
 # alias acg-test='acg && pytest tests'
 
-alias data-mining='cd ~/Documents/data-mining-coursework'
-alias data-mining-nuke='cd ~/Documents/ && sudo rm -rf data-mining-coursework && git clone git@github.com:georgegillams/data-mining-coursework.git'
-alias data-mining-setup='data-mining && pipenv install'
-alias data-mining-run-demo='data-mining && pipenv run python3 demo'
-alias data-mining-run-initial-plots='data-mining && pipenv run python3 initial_graph_plots'
-alias data-mining-run-all='data-mining-run-demo && data-mining-run-initial-plots'
-alias data-mining-test='data-mining && pytest tests'
-
 alias dmp='cd ~/Documents/data-mining-personal'
 alias dmp-nuke='cd ~/Documents/ && sudo rm -rf data-mining-personal && git clone git@github.com:georgegillams/data-mining-personal.git'
 alias dmp-setup='dmp && pipenv install'
@@ -218,7 +210,7 @@ alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ W
 alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf && open Relationships.numbers && open tv-listing-ontology.owl'
 alias semantic-web-upload-ontology='georgegillams && cp ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/tv-listing-ontology.owl ./server_content/ontologies/tv-listing-ontology.owl && git-add-all && git-commit-push "Update tv-listing ontology" && cd -'
 alias automated-code-generation='cd ~/Dropbox/Southampton/WORK/8\ Semester/09\ -\ Automated\ Code\ Generation/'
-alias data-mining-module='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
+alias data-mining='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
 
 alias gdp='cd ~/Documents/gdp3/'
 alias gdp-copy-message-structures-to-client='gdp && cp *message_structure.json ./client/src/'
