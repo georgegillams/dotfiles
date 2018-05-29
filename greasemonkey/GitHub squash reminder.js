@@ -5,6 +5,7 @@
 // @exclude     none
 // @version     2
 // @description:en	Adds an reminder to squash PRs that have > 1 commit
+// @description   	Adds an reminder to squash PRs that have > 1 commit
 // @grant    		none
 // ==/UserScript==
 
