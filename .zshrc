@@ -9,6 +9,8 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export REST_PUBLIC_ACCESS_KEY="5a5b8bd87d7ef24c5cf08c84"
 export REST_PRIVATE_ACCESS_KEY="87852370c4037728ba4a21e3dfcb730c84355"
+export ADMIN_USERNAME="georgegillams"
+export ADMIN_PASSWORD="oin2c7x38rcn28t4g27ny3lr"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 HIST_STAMPS="dd/mm/yyyy"
