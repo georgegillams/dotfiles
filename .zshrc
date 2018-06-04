@@ -8,7 +8,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ADMIN_USERNAME="georgegillams"
-export ADMIN_PASSWORD="oin2c7x38rcn28t4g27ny3lr"
+export ADMIN_PASSWORD_HASH="\$2b\$10\$kZr2lkVcPiU3wsbowjNtUOpATLlf4AZpqjSYzrM0b/G/3yj5tRt1m"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 HIST_STAMPS="dd/mm/yyyy"
