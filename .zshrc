@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export ADMIN_USERNAME="georgegillams"
 export ADMIN_PASSWORD_HASH="\$2b\$10\$kZr2lkVcPiU3wsbowjNtUOpATLlf4AZpqjSYzrM0b/G/3yj5tRt1m"
 
@@ -150,7 +150,7 @@ alias backpack-run-tests-native='backpack && npm run test:native'
 alias backpack-setup='backpack && npm install && npm run build && npm run bootstrap && npm run build'
 alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone git@github.com:Skyscanner/backpack.git'
 alias backpack-nuke-setup='backpack-nuke && backpack-setup'
-alias backpack-refresh-android-device='$ANDROID_HOME/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_HOME/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
+alias backpack-refresh-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-run-native='backpack && npm install && npm run build && npm run native'
 alias backpack-run-android='backpack && npm run android'
 alias backpack-run-ios='backpack && npm run ios'
@@ -166,7 +166,7 @@ alias backpack-update-prop-geneeration-PR='backpack &&  git add scripts/npm/gene
 alias backpack-fix-cross-dependencies='backpack && npm run fix-bpk-dependencies'
 alias backpack-replace-binds='backpack && npm run replace-binds'
 function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && git add . && git commit -m $@ && ggf }
-alias backpack-android-shake='$ANDROID_HOME/platform-tools/adb shell input keyevent 82'
+alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
