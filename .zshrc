@@ -7,6 +7,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export ADMIN_USERNAME="georgegillams"
 export ADMIN_PASSWORD_HASH="\$2b\$10\$kZr2lkVcPiU3wsbowjNtUOpATLlf4AZpqjSYzrM0b/G/3yj5tRt1m"
 
