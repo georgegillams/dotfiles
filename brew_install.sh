@@ -34,3 +34,11 @@ brew install python3
 brew install redis
 brew install wget
 defaults write com.apple.finder AppleShowAllFiles YES
+
+# Install powerline fonts:
+cd ~/Documents/
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
