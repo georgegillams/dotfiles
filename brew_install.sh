@@ -34,3 +34,4 @@ brew install python3
 brew install redis
 brew install wget
 defaults write com.apple.finder AppleShowAllFiles YES
+ln -s ~/Dropbox/Apps/Atom ~/.atom
