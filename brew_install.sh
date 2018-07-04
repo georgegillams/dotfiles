@@ -6,6 +6,7 @@ brew cask install adobe-creative-cloud
 brew cask install alfred
 brew cask install atom
 brew cask install authy
+brew cask install rbenv
 brew cask install avibrazil-rdm
 brew cask install bettertouchtool
 brew cask install canary
