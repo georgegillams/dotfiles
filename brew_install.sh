@@ -1,6 +1,7 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+brew tap caskroom/fonts && brew cask install font-source-code-pro
 brew install zsh zsh-completions
 brew cask install adobe-creative-cloud
 brew cask install alfred
@@ -34,6 +35,7 @@ brew install heroku/brew/heroku
 brew install python3
 brew install redis
 brew install wget
+cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 defaults write com.apple.finder AppleShowAllFiles YES
 
 # Install powerline fonts:
