@@ -71,6 +71,10 @@ alias getphonelocal='echo "07867592615" | pbcopy'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
+alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
+for (let i = 0; i < toClick.length; i += 1){
+toClick[i].click();
+}"'
 alias git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && git branch -D $(git-branch | grep -v "master")'
 alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && git branch -D $(git-branch | grep -v "develop")'
 alias git-add-all='git add .'
@@ -132,6 +136,9 @@ alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && npm run start:client'
 alias georgegillams-run-server='georgegillams && npm run start:server'
 alias georgegillams-run-all='redis-server & georgegillams && npm run start'
+alias georgegillams-backup-blog-posts='curl -i --raw https://www.georgegillams.co.uk/api/blog-posts/ --header "blog-collection: all" > ~/Dropbox/georgegillams.co.uk\ backups/blog-posts.txt'
+alias georgegillams-backup-comments='curl -i --raw https://www.georgegillams.co.uk/api/comments/ --header "page_id: 633786" > ~/Dropbox/georgegillams.co.uk\ backups/comments.txt'
+alias georgegillams-backup='georgegillams-backup-blog-posts && georgegillams-backup-comments'
 
 alias epicc-conference='cd ~/Documents/epicc-conference/'
 alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
