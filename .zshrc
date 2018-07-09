@@ -27,7 +27,6 @@ fi
 # set -o vi
 
 alias zsh-rebuild='. ~/.zshrc && dotfiles-save-zshrc && cd -'
-function zsh-show-me() { whence -f $@ }
 alias nvim-rebuild='nvim +"source ~/.nvimrc" +PluginInstall +qall && dotfiles-save-nvimrc && cd -'
 alias zsh-edit-config='atom ~/.zshrc'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
