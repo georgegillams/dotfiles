@@ -179,9 +179,7 @@ function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && gi
 alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
-alias backpack-neo-gh-pages='cd ~/Documents/backpack-neo.github.io/'
-alias backpack-neo-gh-pages-deploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && backpack && cp -R ./dist/* ../backpack-neo.github.io/ && backpack-neo-gh-pages && git-add-all && git-commit-push "update"'
-alias backpack-neo-gh-pages-undeploy='backpack-neo-gh-pages && find . -and -not -path "./.git*" -delete && echo "<h1 style=\"display: flex;text-align: center;flex-direction: row;justify-content: space-around;line-height: 15rem;font-size: 3rem;\">Coming soon...</h1>" > index.html && git-add-all && git-commit-push "undeploy"'
+alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
