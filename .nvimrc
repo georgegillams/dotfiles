@@ -3,80 +3,139 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-set mouse=a
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
-" All of your Plugins must be added before the following line
-" Display
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'shmargum/vim-sass-colors'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'rakr/vim-one'
-Plugin 'joshdick/onedark.vim'
-Plugin 'stephenmckinney/vim-solarized-powerline'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'airblade/vim-gitgutter'
-
-" Language Support
-Plugin 'mxw/vim-jsx'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'christoomey/vim-sort-motion'
-Plugin 'w0rp/ale'
+" Language
+Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'ruanyl/vim-fixmyjs'
-Plugin 'moll/vim-node'
-Plugin 'beautify-web/js-beautify'
-Plugin 'mitermayer/vim-prettier'
-Plugin 'gcorne/vim-sass-lint'
-Plugin 'flowtype/vim-flow'
+Plugin 'plasticboy/vim-markdown'
 
 " Misc
-Plugin 'FuzzyFinder'
-Plugin 'shougo/neocomplete.vim'
-Plugin 'junegunn/vim-fnr'
-Plugin 'junegunn/vim-pseudocl'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'rhysd/clever-f.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vimwiki/vimwiki'
+Plugin 'w0rp/ale'
+"requires different colour schema https://github.com/arcticicestudio/nord-iterm2
+Plugin 'arcticicestudio/nord-vim'
 
-Plugin 'tpope/vim-commentary'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'L9'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'cloudhead/neovim-fuzzy'
-Plugin 'lervag/vimtex'
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
+colorscheme nord
+set number
+set shell=/bin/zsh\ -l
+syntax on
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set backspace=indent,eol,start
+set noswapfile
+set nocursorline
+set nocursorcolumn
+set background=dark
+set smartcase
+set lazyredraw
+let mapleader = ' '
+
+"Nerdtree"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"AutoClose NerdTree if last file is closed
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
+
+" Check if NERDTree is open or active
+ function! IsNERDTreeOpen()        
+   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+   endfunction
+
+" Pins NERDTree to the left hand side
+"
+augroup AuNERDTreeCmd
+autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
+augroup END
+
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+   function! SyncTree()
+     if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+         NERDTreeFind
+             wincmd p
+               endif
+               endfunction
+
+               " Highlight currently open buffer in NERDTree
+               autocmd BufEnter * call SyncTree()
+"Prettier
+let g:prettier#autoformat = 0
+
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue Prettier
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+set laststatus=2
+
+" Fugitive
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gl :Gpull<CR>
+nmap <leader>gh :Gbrowse<CR>
+
+"Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
 
 " Ale
 "let g:ale_python_flake8_args="flake8"
-let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
-\   'python': ['flake8'],
-\   'javascript': ['eslint', 'flow'],
-\   'scss': ['scsslint'],
-\}
-let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'go': ['gofmt'],
+\   'python': ['flake8'],
 \}
-let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='▲'
@@ -91,65 +150,69 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 1
 let g:ale_open_list = 0
-nmap <silent> <C-a> :ALEDetail<CR>
 
 let g:vim_markdown_folding_disabled = 1
 
+"Js
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 
 
-autocmd vimenter * NERDTree
-filetype plugin on
-syntax on
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-set background=dark
-colorscheme solarized8_flat
-
-set statusline+=%#warningmsg#
-set statusline+=%*
-
-"Fix my js"
- let g:fixmyjs_rc_path = '/Users/georgegillams/Documents/projects/backpack/.eslintrc'
- " let g:fixmyjs_engine = 'fixmyjs'
-
+"misc
+set backspace=indent,eol,start
 set number
-set expandtab ts=4 sw=4 ai
-set guifont=Fira\ Mono\ for\ Powerline
 
-"vim-airline"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
-let g:airline_theme='one'
+" From https://statico.github.io/vim3.html
+function! ProseMode()
+  call goyo#execute(0, [])
+  set spell noci nosi noai nolist noshowmode noshowcmd
+  set complete+=s
+  set bg=light
+endfunction
 
-let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs :Fixmyjs
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
+command! ProseMode call ProseMode()
+nmap \p :ProseMode<CR>
 
-let g:sass_lint_config ='/Users/georgegillams/Documents/projects/backpack/.stylelintrc.json'
+"Custom Mapping
+inoremap jj <Esc>
 
-nnoremap <C-p> :FuzzyOpen<CR>
-nnoremap <C-s> :vsplit<CR>
+nnoremap <Leader>s :sv<CR>
+nnoremap <Leader>v :vs<CR>
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>z :wq<CR>
+
+nnoremap <Leader>nt :terminal ++curwin<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+nmap <C-P> :GFiles<CR>
+nmap <C-I> :Tags<CR>
+nmap <Leader>c :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nmap <Leader>th :set hlsearch!<CR>
+nmap <Leader>m :marks<CR>
+nmap <Leader>r :reg<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>a :Ack!<Space>
+
+" Movement
+nnoremap J 6j
+nnoremap K 6k
+nnoremap H 6h
+nnoremap L 6l
+
+" Buffers
+set hidden
+nmap <leader>bb :Buffer<cr>
+nmap <leader>T :enew<CR>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bl :ls<CR>
+nmap <leader>bd :bd<CR>
 
