@@ -135,9 +135,7 @@ alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && npm run start:client'
 alias georgegillams-run-server='georgegillams && npm run start:server'
 alias georgegillams-run-all='redis-server & georgegillams && npm run start'
-alias georgegillams-backup-blog-posts='curl -i --raw https://www.georgegillams.co.uk/api/blog-posts/ --header "blog-collection: all" > ~/Dropbox/georgegillams.co.uk\ backups/blog-posts.txt'
-alias georgegillams-backup-comments='curl -i --raw https://www.georgegillams.co.uk/api/comments/ --header "page_id: 633786" > ~/Dropbox/georgegillams.co.uk\ backups/comments.txt'
-alias georgegillams-backup='georgegillams-backup-blog-posts && georgegillams-backup-comments'
+alias georgegillams-backup='dotfiles && node georgegillams.co.uk-backup.js && cd -'
 
 alias epicc-conference='cd ~/Documents/epicc-conference/'
 alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
@@ -180,6 +178,11 @@ alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input k
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
+
+alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
+alias fullstack-run='fullstack && npm run client & APIKEY="ASDF" node server/src/server.js'
+alias fullstack-setup='fullstack && npm install'
+alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
 alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
@@ -253,3 +256,5 @@ export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin
 
 # added by travis gem
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
