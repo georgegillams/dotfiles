@@ -27,17 +27,17 @@ fi
 # set -o vi
 
 alias zsh-rebuild='. ~/.zshrc && dotfiles-save-zshrc && cd -'
-alias nvim-rebuild='nvim +"source ~/.nvimrc" +PluginInstall +qall && dotfiles-save-nvimrc && cd -'
-alias zsh-edit-config='atom ~/.zshrc'
+alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
+alias zsh-edit-config='vi ~/.zshrc'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
-alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.nvimrc ~/.nvimrc'
+alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.vimrc ~/.vimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
 alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
 
-alias nvim-edit-config='nvim ~/.nvimrc'
+alias vim-edit-config='vim ~/.vimrc'
 
 alias system-fix-nvm='sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp /opt/local/bin/node opt/local/include/node /opt/local/lib/node_modules && brew uninstall nvm && rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d && sudo rm -rf ~/.npm && sudo rm -rf ~/.nvm &&  rm -f /usr/local/bin/node'
-alias system-fix-nvimrc-location="mkdir -p ~/.config/nvim && echo 'source ~/.nvimrc' > ~/.config/nvim/init.vim"
+alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add ~/.ssh/id_rsa &>/dev/null'
 alias system-fix-ssh-neo='ssh-add ~/.ssh/id_rsa_backpack_neo &>/dev/null'
@@ -120,8 +120,8 @@ alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup
 alias dotfiles='cd ~/Documents/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
-alias dotfiles-save-nvimrc='dotfiles && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
-# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.nvimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
+# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
 alias academic-references='cd ~/Documents/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
