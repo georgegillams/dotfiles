@@ -6,6 +6,7 @@ brew install zsh zsh-completions
 brew cask install adobe-creative-cloud
 brew cask install alfred
 brew cask install atom
+brew cask install the_silver_searcher
 brew cask install authy
 brew cask install rbenv
 brew cask install avibrazil-rdm
@@ -35,6 +36,7 @@ brew install heroku/brew/heroku
 brew install python3
 brew install redis
 brew install wget
+cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 defaults write com.apple.finder AppleShowAllFiles YES
 
