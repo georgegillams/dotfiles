@@ -26,7 +26,7 @@ fi
 
 # set -o vi
 
-alias zsh-rebuild='. ~/.zshrc && dotfiles-save-zshrc && cd -'
+alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='vi ~/.zshrc'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
