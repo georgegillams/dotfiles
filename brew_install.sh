@@ -22,7 +22,6 @@ brew cask install google-chrome
 brew cask install iterm2
 brew cask nmap
 brew cask netcat
-brew cask install java
 brew cask install nordvpn
 brew cask install postman
 brew cask install rocket
@@ -38,6 +37,9 @@ brew install heroku/brew/heroku
 brew install python3
 brew install redis
 brew install wget
+brew install watchman
+brew tap caskroom/versions && brew cask install java8
+brew cask install android-studio
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/Documents && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc && cp dotfiles/.zshrc ~/.zshrc
