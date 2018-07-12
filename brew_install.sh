@@ -8,10 +8,10 @@ brew cask install alfred
 brew cask install atom
 brew cask install the_silver_searcher
 brew cask install authy
-brew cask install rbenv
 brew cask install avibrazil-rdm
 brew cask install bettertouchtool
 brew cask install canary
+brew install rbenv
 brew install cmake
 brew cask install caret
 brew cask install charles
@@ -46,6 +46,10 @@ vim-rebuild
 vim-rebuild
 defaults write com.apple.finder AppleShowAllFiles YES
 open https://github.com/arcticicestudio/nord-iterm2
+
+# Install detox
+brew tap wix/brew
+brew install applesimutils
 
 # Install powerline fonts:
 cd ~/Documents/

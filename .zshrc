@@ -177,6 +177,8 @@ function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && gi
 alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
+alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
+
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
 alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
