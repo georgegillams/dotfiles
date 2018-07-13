@@ -65,4 +65,4 @@ rm -rf fonts
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
-echo "Now install manually:\nAmphetamine\nLastpass\nGifox\nGifHunter\nImageOptim\nNordVPN\nSketch\nVBox\nSpotify"
+echo "Now install manually:\nAmphetamine\nFranz\nLastpass\nGifox\nGifHunter\nImageOptim\nNordVPN\nSketch\nVBox\nSpotify"
