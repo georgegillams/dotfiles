@@ -95,6 +95,7 @@ alias git-rebase-continue='git rebase --continue'
 alias git-rebase-abort='git rebase --abort'
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
+alias git-empty='rm -rf * && rm .*';
 
 alias bedrock='cd ~/Documents/bedrock/'
 alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
