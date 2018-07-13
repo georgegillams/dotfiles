@@ -29,7 +29,7 @@ fi
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='vi ~/.zshrc'
-alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && cd ~/Desktop && .brew_install.sh'
+alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && cd ~/Desktop && ./brew_install.sh'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.vimrc ~/.vimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
