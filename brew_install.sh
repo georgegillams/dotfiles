@@ -12,6 +12,7 @@ brew cask install canary
 brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
+brew cask install detexify
 brew cask install dropbox
 brew cask install firefox
 brew cask install firefox-developer-edition
