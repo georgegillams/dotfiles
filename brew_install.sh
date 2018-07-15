@@ -36,6 +36,7 @@ brew cask install vlc
 brew install cmake
 brew install heroku/brew/heroku
 brew install imageoptim-cli
+brew install lynx
 brew install python3
 brew install rbenv
 brew install redis
