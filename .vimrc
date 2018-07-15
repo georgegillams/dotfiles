@@ -181,7 +181,7 @@ inoremap jj <Esc>
 nnoremap <Leader>s :sv<CR>
 nnoremap <Leader>v :vs<CR>
 
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>w :wa<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>z :wq<CR>
 
