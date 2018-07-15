@@ -131,6 +131,8 @@ alias academic-references-setup='academic-references && cd package && npm i && c
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
+alias redis-run='pkill redis && sleep 5 && redis-server'
+
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-ssr-2='cd ~/Documents/georgegillams_ssr_2/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
