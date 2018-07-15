@@ -218,3 +218,4 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bl :ls<CR>
 nmap <leader>bd :bd<CR>
 
+:set mouse=a

@@ -37,6 +37,7 @@ brew install cmake
 brew install heroku/brew/heroku
 brew install imageoptim-cli
 brew install lynx
+brew install macvim
 brew install python3
 brew install rbenv
 brew install redis
@@ -68,6 +69,7 @@ cd ..
 rm -rf fonts
 
 # Install YCM backend:
+ln -s /usr/local/bin/mvim vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
