@@ -73,4 +73,4 @@ ln -s /usr/local/bin/mvim vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
-echo "Now install manually:\nAmphetamine\nLastpass\nGifHunter\nTodoist"
+echo "Now install manually:\nAmphetamine\nLastpass\nLogitech Gaming Centre\nGifHunter\nTodoist"
