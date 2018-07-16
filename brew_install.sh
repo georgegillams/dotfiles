@@ -52,9 +52,12 @@ brew tap caskroom/versions && brew cask install java8
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
-pbcopy < ~/.ssh/id_rsa.pub
 echo "Now go to Github, select Add SSH key and paste the public file contents"
+pbcopy < ~/.ssh/id_rsa.pub
 echo "Press any key once complete"
+read
+read
+read
 read
 
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
