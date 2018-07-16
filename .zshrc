@@ -133,6 +133,7 @@ alias academic-references-publish='academic-references && cd package && npm publ
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-ssr-2='cd ~/Documents/georgegillams_ssr_2/'
+alias georgegillams-ssr-2-nuk='georgegillams-ssr-2 && cd .. && rm -rf georgegillams_ssr_2 && git clone git@github.com:georgegillams/georgegillams_ssr_2.git'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-setup='georgegillams && npm install'
 alias georgegillams-run-web-app='georgegillams && npm run start:client'
