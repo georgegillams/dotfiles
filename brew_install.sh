@@ -48,6 +48,15 @@ brew install wget
 brew install zsh zsh-completions
 brew tap caskroom/fonts && brew cask install font-source-code-pro
 brew tap caskroom/versions && brew cask install java8
+
+
+# Set up Git SSH
+ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
+pbcopy < ~/.ssh/id_rsa.pub
+echo "Now go to Github, select Add SSH key and paste the public file contents"
+echo "Press any key once complete"
+read
+
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/Documents && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc && cp dotfiles/.zshrc ~/.zshrc
@@ -73,4 +82,10 @@ ln -s /usr/local/bin/mvim vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
+cd ~/Documents && git clone https://github.com/georgegillams/georgegillams.co.uk.git
+cd ~/Documents && git clone https://github.com/georgegillams/georgegillams_ssr_2.git
+cd ~/Documents && git clone https://github.com/skyscanner/backpack.git
+
 echo "Now install manually:\nAmphetamine\nLastpass\nLogitech Gaming Centre\nGifHunter\nTodoist"
+echo "Press any key once complete"
+read
