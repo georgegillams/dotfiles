@@ -31,6 +31,8 @@ alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-
 alias zsh-edit-config='vi ~/.zshrc'
 alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && rm -rf ~/.ssh/* && cd ~/Desktop && ./brew_install.sh'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
+function brew-install() { dotfiles && echo "brew install $@\n" >> brew_install.sh && brew install $@ && git-add-all && git-commit-push "Update brew script" }
+function brew-cask-install() { dotfiles && echo "brew cask install $@\n" >> brew_install.sh && brew cask install $@ && git-add-all && git-commit-push "Update brew script" }
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.vimrc ~/.vimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
 alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
