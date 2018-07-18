@@ -138,3 +138,20 @@ read
 # Do this last as it's huge!
 mas install 497799835 # XCode
 
+# Setup backpack ios dependencies:
+open /Applications/Xcode.app/
+echo "Wait until Xcode installation completes, and then press a key to continue"
+read
+cd ~/Documents/backpack && rbenv install $(cat native/ios/.ruby-version)
+sudo gem install bundler
+
+# Setup backpack android dependencies:
+open /Applications/Android\ Studio.app/
+echo "Wait until Android Studio installation completes, and then press a key to continue"
+read
+$HOME/Library/Android/sdk/tools/bin/sdkmanager --licenses
+$HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-27;google_apis;x86"
+$HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-21;google_apis;x86"
+$HOME/Library/Android/sdk/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-27;google_apis;x86" --device "pixel" && cp native/android/bpk-avd.ini ~/.android/avd/bpk-avd.avd/config.ini
+$HOME/Library/Android/sdk/tools/bin/avdmanager create avd --name "bpk-avd-min" --package "system-images;android-21;google_apis;x86" --device "Nexus 5"
+
