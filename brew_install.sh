@@ -45,6 +45,7 @@ brew cask install virtualbox
 brew cask install vlc
 brew install applesimutils # detox
 brew install cmake
+brew install coffeescript
 brew install cowsay
 brew install git
 brew install heroku/brew/heroku
@@ -67,6 +68,7 @@ mas install 497799835 # XCode
 mas install 926036361 # LastPass
 mas install 1031163338 # GIFHunter
 mas install 585829637 # Todoist
+mas install 937984704 # Amphetamine
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
