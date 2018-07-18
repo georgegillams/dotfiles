@@ -149,6 +149,10 @@ sudo gem install bundler
 open /Applications/Android\ Studio.app/
 echo "Wait until Android Studio installation completes, and then press a key to continue"
 read
+read
+read
+read
+read
 $HOME/Library/Android/sdk/tools/bin/sdkmanager --licenses
 $HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-27;google_apis;x86"
 $HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-21;google_apis;x86"
