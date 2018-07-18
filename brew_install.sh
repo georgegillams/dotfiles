@@ -109,6 +109,7 @@ backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
 
 # Run Lastpass installer
 open /usr/local/Caskroom/lastpass/latest/LastPass\ Installer.app
+open /Applications/Docker.app/
 
 # Copy iterm2 initial settings over
 sudo cp iterm_dropbox_sync_config ~/Library/Preferences/com.googlecode.iterm2.plist
