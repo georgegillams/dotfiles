@@ -67,7 +67,6 @@ brew install watchman
 brew install wget
 brew install zsh zsh-completions
 
-mas install 497799835 # XCode
 mas install 926036361 # LastPass
 mas install 1031163338 # GIFHunter
 mas install 585829637 # Todoist
@@ -102,9 +101,9 @@ cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
 # Clone common guithub repos
-cd ~/Documents && git clone https://github.com/georgegillams/georgegillams.co.uk.git
-cd ~/Documents && git clone https://github.com/georgegillams/georgegillams_ssr_2.git
-cd ~/Documents && git clone https://github.com/skyscanner/backpack.git
+cd ~/Documents && git clone git@github.com:georgegillams/georgegillams.co.uk.git
+cd ~/Documents && git clone git@github.com:georgegillams/georgegillams_ssr_2.git
+cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
 backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
 
 # Run Lastpass installer
@@ -133,3 +132,7 @@ open https://github.com/arcticicestudio/nord-iterm2
 sleep 10
 echo "Press any key once complete"
 read
+
+# Do this last as it's huge!
+mas install 497799835 # XCode
+
