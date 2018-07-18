@@ -48,6 +48,7 @@ brew install cmake
 brew install coffeescript
 brew install cowsay
 brew install docker
+brew install docker-compose
 brew install git
 brew install heroku/brew/heroku
 brew install imageoptim-cli
