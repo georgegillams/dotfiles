@@ -110,12 +110,25 @@ backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
 # Run Lastpass installer
 open /usr/local/Caskroom/lastpass/latest/LastPass\ Installer.app
 open /Applications/Docker.app/
+open /Applications/Firefox\ Developer\ Edition.app/
+open /Applications/Utilities/Adobe\ Creative\ Cloud/ACC/Creative\ Cloud.app/
+open /Applications/Alfred\ 3.app/
+open /Applications/Dropbox.app
+open /Applications/Authy\ Desktop.app/
+open /Applications/Canary.app/
+open /Applications/NordVPN.app/
+open /Applications/Todoist.app/
+open /Applications/Spotify.app/
 
 # Copy iterm2 initial settings over
 sudo cp iterm_dropbox_sync_config ~/Library/Preferences/com.googlecode.iterm2.plist
 
 echo "NOW INSTALL MANUALLY ☹️"
-open http://support.logitech.com/en_gb/software/lgs
+echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
+cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
+echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
+cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
+echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 open https://github.com/arcticicestudio/nord-iterm2
 sleep 10
 echo "Press any key once complete"
