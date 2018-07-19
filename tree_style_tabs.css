@@ -1,0 +1,45 @@
+/* Show title of unread tabs with red and italic font */
+
+.tab {
+  height: 25px;
+  color: #FFBB00 !important;
+  background-color: #252033;
+  transition: height .2s ease-in-out;
+}
+
+.tab.unread .label {
+  color: #FFBB00 !important;
+}
+
+.tab.active {
+  background-color: #FFFFFF;
+}
+
+.tab .label {
+  color: #FFFFFF;
+}
+
+.tab.active .label {
+  color: #252033;
+}
+
+.tab:hover {
+  color: white !important;
+  background-color: #524C61;
+}
+
+.tab.active:hover {
+  background-color: #FFFFFF;
+}
+
+/* Add private browsing indicator per tab */
+
+.tab.private-browsing .label:before {
+  content: " 🕶 ";
+}
+
+.tab.private-browsing {
+  background-color: red;
+}
+
+
