@@ -119,9 +119,6 @@ open /Applications/NordVPN.app/
 open /Applications/Todoist.app/
 open /Applications/Spotify.app/
 
-# Copy iterm2 initial settings over
-sudo cp iterm_dropbox_sync_config ~/Library/Preferences/com.googlecode.iterm2.plist
-
 echo "NOW INSTALL MANUALLY ☹️"
 echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
 cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
