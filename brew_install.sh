@@ -80,6 +80,8 @@ sleep 10
 echo "Press any key once complete"
 read
 
+ npm login
+
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/Documents && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc && cp dotfiles/.zshrc ~/.zshrc
@@ -107,6 +109,7 @@ cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
 backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
 
 # Run Lastpass installer
+open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 open /usr/local/Caskroom/lastpass/latest/LastPass\ Installer.app
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/
