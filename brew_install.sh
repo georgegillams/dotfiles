@@ -121,6 +121,7 @@ open /Applications/Canary.app/
 open /Applications/NordVPN.app/
 open /Applications/Todoist.app/
 open /Applications/Spotify.app/
+open ./resources/Network\ Link\ Conditioner.prefPane
 
 echo "NOW INSTALL MANUALLY ☹️"
 echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
