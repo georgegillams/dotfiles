@@ -28,7 +28,7 @@ fi
 
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
-alias zsh-edit-config='vi ~/.zshrc'
+alias zsh-edit-config='vim ~/.zshrc'
 alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && rm -rf ~/.ssh/* && cd ~/Desktop && ./brew_install.sh'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
 function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew install $@ }
@@ -50,6 +50,10 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
+
+alias weather-southampton='curl wttr.in/Southampton'
+alias weather-london='curl wttr.in/London'
+alias weather='weather-london';
 
 alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
