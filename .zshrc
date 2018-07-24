@@ -36,6 +36,13 @@ function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew
 alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.vimrc ~/.vimrc'
 alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
 alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
+alias dropbox='cd ~/Dropbox'
+alias documents='cd ~/Documents'
+alias desktop='cd ~/Desktop'
+
+alias weather-southampton='curl wttr.in/Southampton'
+alias weather-london='curl wttr.in/London'
+alias weather='weather-london';
 
 alias vim-edit-config='vim ~/.vimrc'
 
@@ -50,10 +57,6 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
-
-alias weather-southampton='curl wttr.in/Southampton'
-alias weather-london='curl wttr.in/London'
-alias weather='weather-london';
 
 alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
