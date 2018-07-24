@@ -63,6 +63,7 @@ brew install rbenv
 brew install redis
 brew install sl
 brew install the_silver_searcher
+brew install vim
 brew install watchman
 brew install wget
 brew install zsh zsh-completions
