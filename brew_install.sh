@@ -99,7 +99,8 @@ cd ..
 rm -rf fonts
 
 # Install YCM backend:
-ln -s /usr/local/bin/mvim vim
+ln -s /usr/local/bin/mvim ~/vim
+ln -s /usr/local/bin/mvim ~/vi
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 

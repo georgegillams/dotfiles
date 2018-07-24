@@ -1,14 +1,19 @@
 /* Show title of unread tabs with red and italic font */
 
+.sidebar {
+  background-color: black
+}
+
 .tab {
   height: 25px;
-  color: #FFBB00 !important;
+  color: #E6E4EB !important;
   background-color: #252033;
   transition: height .2s ease-in-out;
 }
 
 .tab.unread .label {
-  color: #FFBB00 !important;
+  color: darkorange !important;
+  font-weight: bolder;
 }
 
 .tab.active {
@@ -16,7 +21,7 @@
 }
 
 .tab .label {
-  color: #FFFFFF;
+  color: #E6E4EC;
 }
 
 .tab.active .label {
