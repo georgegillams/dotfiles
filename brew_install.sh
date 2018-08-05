@@ -54,6 +54,7 @@ brew install docker-compose
 brew install git
 brew install heroku/brew/heroku
 brew install imageoptim-cli
+brew install libdvdcss
 brew install lolcat
 brew install lynx
 brew install macvim
