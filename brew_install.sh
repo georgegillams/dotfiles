@@ -28,6 +28,7 @@ brew cask install firefox-developer-edition
 brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
+brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install nordvpn
