@@ -85,7 +85,7 @@ toClick[i].click();
 }"'
 alias git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && git branch -D $(git-branch | grep -v "master")'
 alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && git branch -D $(git-branch | grep -v "develop")'
-alias git-add-all='georgegillams-ssr-2-lint-fix && cd - && git add .'
+alias git-add-all='git add .'
 alias git-reset='git-add-all && git reset --hard HEAD'
 alias git-fetch='git fetch --all'
 alias git-rebase-master='git fetch --all && git rebase origin/master | grep CONFLICT'
