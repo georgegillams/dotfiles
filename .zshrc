@@ -141,6 +141,7 @@ alias academic-references-run-web-app='academic-references && cd example && npm 
 alias academic-references-publish='academic-references && cd package && npm publish'
 
 alias georgegillams-ssr-2-lint-fix='georgegillams-ssr-2 && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
+alias glint='georgegillams-ssr-2-lint-fix'
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-ssr-2='cd ~/Documents/georgegillams_ssr_2/'
 alias georgegillams-ssr-2-nuk='georgegillams-ssr-2 && cd .. && rm -rf georgegillams_ssr_2 && git clone git@github.com:georgegillams/georgegillams_ssr_2.git'
