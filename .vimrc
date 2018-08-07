@@ -208,6 +208,8 @@ nnoremap J 6j
 nnoremap K 6k
 nnoremap H 6h
 nnoremap L 6l
+nnoremap B 6b
+nnoremap W 6w
 
 " Buffers
 set hidden
