@@ -62,6 +62,9 @@ alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
 alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
+alias jest-run-specific-tests='npx jest BpkBannerAlert'
+alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
+
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
 
 alias work-plan='cd ~/Dropbox/Southampton/WORK/8\ Semester && open WORK_PLAN.numbers'
@@ -105,6 +108,15 @@ alias git-rebase-abort='git rebase --abort'
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
+
+alias docker-reset='docker rm $(docker ps -a -q) --force'
+alias docker-reset-images='docker rmi $(docker images -q) --force'
+alias docker-reset-complete='docker-reset && docker-reset-images'
+alias docker-list-processes='docker ps -a'
+alias docker-list-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $(docker ps -aq)'
+alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}" $(docker ps -aq)'
+alias docker-start-all='docker start $(docker ps -aq)'
+alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
 alias bedrock='cd ~/Documents/bedrock/'
 alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
@@ -159,6 +171,8 @@ alias epicc-conference-run-web-app='epicc-conference && npm run start:client'
 alias epicc-conference-run-server='epicc-conference && npm run start:server'
 alias epicc-conference-run-all='epicc-conference && npm run start'
 
+# ======================== SKYSCANNER ========================
+
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -delete && npm test'
 alias backpack-run-tests='backpack && npm test'
@@ -205,69 +219,7 @@ alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && 
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
 alias skyscanner-android-app-run='cd ~/Documents/android-app/'
 
-alias docker-reset='docker rm $(docker ps -a -q) --force'
-alias docker-reset-images='docker rmi $(docker images -q) --force'
-alias docker-reset-complete='docker-reset && docker-reset-images'
-alias docker-list-processes='docker ps -a'
-alias docker-list-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $(docker ps -aq)'
-alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}" $(docker ps -aq)'
-alias docker-start-all='docker start $(docker ps -aq)'
-alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
-
-# ======================== UNIVERSITY ========================
-alias acg='cd ~/Documents/automated-code-generation-2'
-alias acg-nuke='cd ~/Documents/ && sudo rm -rf automated-code-generation-2 && git clone git@github.com:georgegillams/automated-code-generation-2.git'
-alias acg-compile-and-run='c++ *.c *.h && clear && ./a.out'
-# alias acg-setup='acg && pipenv install'
-# alias acg-run='acg && pipenv run python3 demo'
-# alias acg-run-initial-plots='acg && pipenv run python3 initial_graph_plots'
-# alias acg-test='acg && pytest tests'
-
-alias dmp='cd ~/Documents/data-mining-personal'
-alias dmp-nuke='cd ~/Documents/ && sudo rm -rf data-mining-personal && git clone git@github.com:georgegillams/data-mining-personal.git'
-alias dmp-setup='dmp && pipenv install'
-alias dmp-run-data-cleanup='dmp && pipenv run python3 data_cleaning'
-alias dmp-run-data-clustering='dmp && pipenv run python3 data_clustering'
-alias dmp-run-data-matrix='dmp && pipenv run python3 data_matrix_generation'
-alias dmp-run-data-mds='dmp && pipenv run python3 data_multidimensional_scaling'
-alias dmp-run-all='dmp-run-data-cleanup && dmp-run-data-clustering && dmp-run-data-matrix && dmp-run-data-mds'
-alias dmp-test='dmp && pytest tests'
-
-alias start-vowl='cd ~/Downloads/webvowl_1.0.6 && http-server ./ & open  http://127.0.0.1:8080'
-alias semantic-web='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/'
-alias semantic-web-coursework='cd ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/ && open Specification.pdf && open Relationships.numbers && open tv-listing-ontology.owl'
-alias semantic-web-upload-ontology='georgegillams && cp ~/Dropbox/Southampton/WORK/8\ Semester/15\ -\ Semantic\ Web\ Technologies/coursework/tv-listing-ontology.owl ./server_content/ontologies/tv-listing-ontology.owl && git-add-all && git-commit-push "Update tv-listing ontology" && cd -'
-alias automated-code-generation='cd ~/Dropbox/Southampton/WORK/8\ Semester/09\ -\ Automated\ Code\ Generation/'
-alias data-mining='cd ~/Dropbox/Southampton/WORK/8\ Semester/37\ -\ Data\ Mining/'
-
-alias gdp='cd ~/Documents/gdp3/'
-alias gdp-copy-message-structures-to-client='gdp && cp *message_structure.json ./client/src/'
-alias gdp-nuke='cd ~/Documents/ && sudo rm -rf gdp3 && git clone git@github.com:georgegillams/gdp3.git'
-alias gdp-nuke-setup='gdp-nuke && gdp-setup'
-alias gdp-run-tests='gdp && jest'
-alias gdp-install-server='cd ~/Desktop/spi/ && npm i -g node-sass && npm i -g react &&npm i -g eslint &&  npm i -g eslint-plugin-babel &&  -g node-es ci6 &m&  p-g nrpio -- cibuimld-pfronm-so ciurcme &p& 'n
-alias gdp-uninstall-server='cd ~/Desktop/ && sudo rm -rf spi && npm uninstall -g rpio && sudo rm -rf /home/pi/Desktop/spi/node_modules/rpio/'
-alias gdp-fix-tests='gdp && find . -name "*.js.snap" -delete && gdp-run-tests'
-alias gdp-setup='gdp && npm i && gdp-copy-message-structures-to-client'
-alias gdp-run-web-app='gdp && gdp-copy-message-structures-to-client && cd client && heroku local web'
-alias gdp-run-rpi='gdp && npm run start:rpi'
-alias gdp-run-all='gdp && gdp-copy-message-structures-to-client && npm run start'
-alias gdp-run-server='gdp && gdp-copy-message-structures-to-client && cd spi_server && ./build.sh && ./build/spi_server_app'
-alias gdp-send-rust-files-to-pi-eth0='gdp && cp *message_structure.json ./spi_server_rs/ && cp *message_structure.json ./spi_server_rs/src/ && cd spi_server_rs && rsync --recursive --exclude="node_modules" --exclude="target" -v -e ssh ./ pi@192.168.2.3:/home/pi/Desktop/spi_server_rs/ && gdp && rm -rf ./spi_server_rs/*message_structure.json && rm -rf ./spi_server_rs/src/*message_structure.json'
-alias gdp-send-rust-files-to-pi-eth0-home='gdp && cp *message_structure.json ./spi_server_rs/ && cp *message_structure.json ./spi_server_rs/src/ && cd spi_server_rs && rsync --recursive --exclude="node_modules" --exclude="target" -v -e ssh ./ pi@192.168.2.2:/home/pi/Desktop/spi_server_rs/ && gdp && rm -rf ./spi_server_rs/*message_structure.json && rm -rf ./spi_server_rs/src/*message_structure.json'
-# alias gdp-send-rust-files-to-pi-eth0-iphone='gdp && cd spi_server_rs && rsync --recursive --exclude="node_modules" --exclude="target" -v -e ssh ./ pi@172.20.10.7:/home/pi/Desktop/spi_server_rs/'
-alias gdp-ssh-pi-eth0='ssh pi@192.168.2.3'
-alias gdp-ssh-pi-eth0-home='ssh pi@192.168.2.2'
-# alias gdp-ssh-pi-eth0-iphone='ssh pi@172.20.10.7'
-alias gdp-writeup='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/ && open Report.docx'
-alias gdp-message-structure='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/communication-specification/ && open messages.numbers'
-alias gdp-individual-report='cd ~/Dropbox/Southampton/WORK/Group\ Design\ Project/individual\ report && open ProjectReport.tex && open Specification.pdf'
-alias gdp-report='gdp-individual-report'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
-# ====================== END UNIVERSITY ======================
+# ======================== SKYSCANNER ========================
 
 export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/Users/georgegillams/.nvm/versions/node/v8.9.0/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
 
