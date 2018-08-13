@@ -74,6 +74,7 @@ mas install 926036361 # LastPass
 mas install 1031163338 # GIFHunter
 mas install 585829637 # Todoist
 mas install 937984704 # Amphetamine
+mas install 1404231964 # UPRIGHT GO
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
