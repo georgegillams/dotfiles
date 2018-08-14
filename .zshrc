@@ -80,6 +80,8 @@ alias getemailwork='echo "george.gillams@skyscanner.net" | pbcopy'
 alias getphone='echo "+447867592615" | pbcopy'
 alias getphonelocal='echo "07867592615" | pbcopy'
 
+function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
+
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
 alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
