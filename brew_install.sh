@@ -59,6 +59,7 @@ brew install lolcat
 brew install lynx
 brew install macvim
 brew install mas
+brew install imagemagick
 brew install node@8
 brew install python3
 brew install rbenv
@@ -75,6 +76,8 @@ mas install 1031163338 # GIFHunter
 mas install 585829637 # Todoist
 mas install 937984704 # Amphetamine
 mas install 1404231964 # UPRIGHT GO
+mas install 661676740 # iGif Creator
+mas install 909566003 # iHex - Hex Editor
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
