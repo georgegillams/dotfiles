@@ -220,6 +220,10 @@ alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
+alias backpack-ios='cd ~/Documents/backpack/'
+alias backpack-ios-setup='backpack-ios'
+alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
+
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
 alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
