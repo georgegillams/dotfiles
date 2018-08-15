@@ -220,7 +220,8 @@ alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
 alias backpack-ios='cd ~/Documents/backpack-ios/'
-alias backpack-ios-setup='backpack-ios'
+alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install)'
+alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-install-ruby-version='backpack-ios && rbenv install $(cat .ruby-version)'
 
