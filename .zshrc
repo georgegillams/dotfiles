@@ -67,6 +67,8 @@ alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-comm
 alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
 # alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
+alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
+
 # ============================================================
 
 alias xcode='open'
@@ -190,39 +192,27 @@ alias backpack-fix-tests='backpack && find . -name "*.js.snap" -delete && npm te
 alias backpack-run-tests='backpack && npm test'
 alias backpack-watch-tests='backpack && npm run jest:native:watch & npm run jest:watch'
 alias backpack-run-flow='backpack && npm run flow'
-alias backpack-fix-tests-web='backpack && find . -name "*.js.snap" -not -path "./native/*" -delete && npm run test'
-alias backpack-run-tests-web='backpack && npm run test'
-alias backpack-fix-tests-native='backpack && cd native/ && find . -name "*.js.snap" -delete && cd .. && npm run test:native'
-alias backpack-run-tests-native='backpack && npm run test:native'
 alias backpack-setup='backpack && touch native/android/local.properties && npm i && npm run build && npm run bootstrap && npm run build && cd native/ios/ && bundle install && bundle exec pod install && backpack'
 alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone git@github.com:Skyscanner/backpack.git'
 alias backpack-nuke-setup='backpack-nuke && backpack-setup'
-alias backpack-refresh-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-run-native='backpack && npm run native'
 alias backpack-run-android='backpack && npm run android'
 alias backpack-run-ios='backpack && npm run ios'
-alias backpack-run-emulators='backpack && backpack-run-ios && backpack-run-android'
-alias backpack-detox-ios='backpack && npm run detox:build:ios'
-alias backpack-detox-android='backpack && npm run detox:build:android'
 alias backpack-run-docs='backpack && npm run docs'
-alias backpack-run-docs-neo='backpack && npm run docs'
-alias backpack-compile-docs='backpack && npm i && npm run build && npm run docs:dist'
 alias backpack-run-storybook='backpack && npm start'
-alias backpack-move-changes-to-clean-branch='backpack && sudo rm -rf ~/Desktop/back/* && mv native packages changelog.md readme.md ~/Desktop/back/ && git-master-latest && sudo rm -rf native && sudo rm -rf packages && mv ~/Desktop/back/native ~/Desktop/back/packages ./'
 alias backpack-check-cross-dependencies='backpack && npm run check-bpk-dependencies'
-alias backpack-generate-prop-tables='backpack && npm run generate-prop-tables'
-alias backpack-update-prop-geneeration-PR='backpack &&  git add scripts/npm/generate-prop-tables.js && git commit --amend --no-edit --no-verify  && git-reset'
 alias backpack-fix-cross-dependencies='backpack && npm run fix-bpk-dependencies'
-alias backpack-replace-binds='backpack && npm run replace-binds'
-function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && git add . && git commit -m $@ && ggf }
-alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
-alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
+alias backpack-clean-icons='sudo rm -rf packages/bpk-svgs/dist/png'
+
+alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
 alias backpack-ios='cd ~/Documents/backpack-ios/'
 alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install)'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
+alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
+
 alias backpack-ios-install-ruby-version='backpack-ios && rbenv install $(cat .ruby-version)'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
