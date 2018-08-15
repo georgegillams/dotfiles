@@ -18,7 +18,7 @@
 
 /* eslint-disable no-console */
 
-const { execSync } = require('child_process');
+const {execSync} = require('child_process');
 const prompt = require('prompt');
 const fs = require('fs');
 const path = require('path');
@@ -32,7 +32,7 @@ const schema = {
       message: '',
     },
     branch: {
-      description: "Enter the branch you wish to pull",
+      description: 'Enter the branch you wish to pull',
       pattern: /^[A-Za-z\-]+\:[A-Za-z\-]+$/,
       message: 'Enter the branch, including the github username',
       required: true,
@@ -40,12 +40,27 @@ const schema = {
   },
 };
 
-const doFork = async (err, { repoName, branch }) => {
+const doFork = async (err, {repoName, branch}) => {
   if (err) {
     console.error(err);
     return;
   }
 
+  branchSplit = branch.split(':');
+  gitUserName = branchSplit[0];
+  gitBranchName = branchSplit[1];
+
+  console.log(gitUserName);
+  console.log(gitBranchName);
+
+  console.log(`git checkout -b ${gitUserName}-${gitBranchName}`);
+  console.log(
+    `git pull https://github.com/${gitUserName}/${repoName}.git ${gitBranchName}`,
+  );
+  execSync(`git checkout -b ${gitUserName}-${gitBranchName}`);
+  execSync(
+    `git pull https://github.com/${gitUserName}/${repoName}.git ${gitBranchName}`,
+  );
 };
 
 prompt.start();
