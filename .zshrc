@@ -217,12 +217,12 @@ alias backpack-replace-binds='backpack && npm run replace-binds'
 function backpack-git-test-commit-push() { backpack && backpack-fix-tests= && git add . && git commit -m $@ && ggf }
 alias backpack-android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias backpack-delete-icons='sudo rm -rf packages/bpk-svgs/dist/png'
-
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
-alias backpack-ios='cd ~/Documents/backpack/'
+alias backpack-ios='cd ~/Documents/backpack-ios/'
 alias backpack-ios-setup='backpack-ios'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
+alias backpack-ios-install-ruby-version='backpack-ios && rbenv install $(cat .ruby-version)'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
