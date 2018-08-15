@@ -210,6 +210,7 @@ alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/
 alias backpack-ios='cd ~/Documents/backpack-ios/'
 alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install)'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
+alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
 
