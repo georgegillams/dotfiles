@@ -21,10 +21,12 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # set -o vi
+
+# ========================== SYSTEM ==========================
 
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
@@ -57,6 +59,15 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
+
+alias dotfiles='cd ~/Documents/dotfiles/'
+alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
+alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
+# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
+
+# ============================================================
 
 alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
@@ -142,12 +153,8 @@ alias activity-stream-run='activity-stream && npm run startmc'
 alias activity-stream-nuke='cd ~/Documents/ && sudo rm -rf activity-stream && git clone git@github.com:georgegillams/activity-stream.git'
 alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup'
 
-alias dotfiles='cd ~/Documents/dotfiles/'
-alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
-alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
-alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
-# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
+
+# ==================== PERSONAL PROJECTS =====================
 
 alias academic-references='cd ~/Documents/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
@@ -173,6 +180,8 @@ alias epicc-conference-setup='epicc-conference && npm i'
 alias epicc-conference-run-web-app='epicc-conference && npm run start:client'
 alias epicc-conference-run-server='epicc-conference && npm run start:server'
 alias epicc-conference-run-all='epicc-conference && npm run start'
+
+# ============================================================
 
 # ======================== SKYSCANNER ========================
 
@@ -222,7 +231,7 @@ alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && 
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
 alias skyscanner-android-app-run='cd ~/Documents/android-app/'
 
-# ======================== SKYSCANNER ========================
+# ============================================================
 
 export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/Users/georgegillams/.nvm/versions/node/v8.9.0/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
 
