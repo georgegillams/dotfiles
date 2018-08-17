@@ -207,6 +207,10 @@ alias backpack-run-storybook='backpack && npm start'
 alias backpack-check-cross-dependencies='backpack && npm run check-bpk-dependencies'
 alias backpack-fix-cross-dependencies='backpack && npm run fix-bpk-dependencies'
 alias backpack-clean-icons='sudo rm -rf packages/bpk-svgs/dist/png'
+alias backpack-check-outdated-npm-packages='for dir in `ls packages`
+do
+  (cd ./packages/$dir && npm outdated);
+done'
 
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
