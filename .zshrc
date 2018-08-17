@@ -211,7 +211,7 @@ alias backpack-check-outdated-npm-packages='for dir in `ls packages`
 do
   (cd ./packages/$dir && npm outdated);
 done'
-alias backpack-check-outdated-npm-packages-native='for dir in `ls packages`
+alias backpack-check-outdated-npm-packages-native='for dir in `ls native/packages`
 do
   (cd ./native/packages/$dir && npm outdated);
 done'
