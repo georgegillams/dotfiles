@@ -75,6 +75,8 @@ alias xcode='open'
 alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
 alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
+alias AndroidStudio="open -a /Applications/Android\ Studio.app"
+
 alias jest-run-specific-tests='npx jest BpkBannerAlert'
 alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
 
@@ -215,8 +217,8 @@ alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clo
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
 
 alias backpack-android='cd ~/Documents/backpack-android/'
-alias backpack-android-setup='backpack-android && echo "Setting up!"'
-alias backpack-android-open='backpack-android && echo "Opening app"'
+alias backpack-android-setup='backpack-android && npm i'
+alias backpack-android-open='backpack-android && AndroidStudio ./'
 alias backpack-android-setup-open='backpack-android-setup && backpack-android-open'
 alias backpack-android-nuke='cd ~/Documents/ && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
 alias backpack-android-nuke-setup='backpack-android-nuke && backpack-android-setup'
