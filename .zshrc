@@ -69,6 +69,8 @@ alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "U
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 
+alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
+
 # ============================================================
 
 alias xcode='open'
