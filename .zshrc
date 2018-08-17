@@ -214,6 +214,13 @@ alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
 
+alias backpack-android='cd ~/Documents/backpack-android/'
+alias backpack-android-setup='backpack-android && echo "Setting up!"'
+alias backpack-android-open='backpack-android && echo "Opening app"'
+alias backpack-android-setup-open='backpack-android-setup && backpack-android-open'
+alias backpack-android-nuke='cd ~/Documents/ && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
+alias backpack-android-nuke-setup='backpack-android-nuke && backpack-android-setup'
+
 alias backpack-ios-install-ruby-version='backpack-ios && rbenv install $(cat .ruby-version)'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
