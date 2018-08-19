@@ -86,7 +86,7 @@ alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushal
 
 alias work-plan='cd ~/Dropbox/Southampton/WORK/8\ Semester && open WORK_PLAN.numbers'
 
-alias house='cd ~/Dropbox/house/'
+alias house='cd ~/Dropbox/Mortgage\ and\ House/'
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting.numbers'
 alias wedding=' cd ~/Dropbox/Wedding/'
 alias wedding_budget='wedding && open Wedding_Expenses.xlsx'
