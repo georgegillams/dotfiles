@@ -93,12 +93,16 @@ alias wedding_budget='wedding && open Wedding_Expenses.xlsx'
 
 alias clearcache='npm cache clean --force && npm cache clear && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
-alias getemail='echo "georgegillams@hotmail.co.uk" | pbcopy'
-alias getemailwork='echo "george.gillams@skyscanner.net" | pbcopy'
-alias getphone='echo "+447867592615" | pbcopy'
-alias getphonelocal='echo "07867592615" | pbcopy'
+alias get-email-old='echo "georgegillams@hotmail.co.uk" | pbcopy'
+alias get-email='echo "g@georgegillams.co.uk" | pbcopy'
+alias get-email-work='echo "george.gillams@skyscanner.net" | pbcopy'
+alias get-phone='echo "+447867592615" | pbcopy'
+alias get-phone-local='echo "07867592615" | pbcopy'
 
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
+
+alias travis-fold-start='echo -e "travis_fold:start:$1\033[33;1m$2\033[0m"'
+alias travis-fold-end='echo -e "\ntravis_fold:end:$1\r"'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
