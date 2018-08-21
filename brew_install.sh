@@ -46,6 +46,7 @@ brew cask install vectr
 brew cask install virtualbox
 brew cask install vlc
 brew install applesimutils # detox
+brew install ack
 brew install cmake
 brew install coffeescript
 brew install cowsay
