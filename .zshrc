@@ -253,6 +253,9 @@ alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && 
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
 alias skyscanner-android-app-run='cd ~/Documents/android-app/'
 
+alias pecha-kucha='cd ~/Dropbox/Pecha\ Kucha/'
+alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
+
 # ============================================================
 
 export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/Users/georgegillams/.nvm/versions/node/v8.9.0/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
