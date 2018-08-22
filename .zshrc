@@ -253,7 +253,7 @@ alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && 
 alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
 alias skyscanner-android-app-run='cd ~/Documents/android-app/'
 
-alias pecha-kucha='cd ~/Dropbox/Pecha\ Kucha/'
+alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 
 # ============================================================
