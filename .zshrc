@@ -250,9 +250,11 @@ alias fullstack-run='fullstack && npm run client & APIKEY="ASDF" node server/src
 alias fullstack-setup='fullstack && npm i'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
-alias skyscanner-ios-app-setup='skyscanner-ios-app./dependencies repo update && ./dependencies install'
-alias skyscanner-ios-app-run='cd ~/Documents/skyscanner-ios-app/'
-alias skyscanner-android-app-run='cd ~/Documents/android-app/'
+alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/'
+alias skyscanner-ios-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
+alias skyscanner-ios-app-setup='skyscanner-ios-app && gem install bundler && ./fullsetup'
+alias skyscanner-ios-app-open='skyscanner-ios-app && open Project/Working/Skyscanner.xcworkspace'
+alias skyscanner-ios-app-setup-open='skyscanner-ios-app-setup && skyscanner-ios-app-open'
 
 alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
