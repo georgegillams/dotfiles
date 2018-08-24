@@ -252,7 +252,7 @@ alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test
 
 alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/'
 alias skyscanner-ios-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
-alias skyscanner-ios-app-setup='skyscanner-ios-app && gem install bundler && ./fullsetup'
+alias skyscanner-ios-app-setup='skyscanner-ios-app && gem install bundler && cd ios && ./fullsetup'
 alias skyscanner-ios-app-open='skyscanner-ios-app && open Project/Working/Skyscanner.xcworkspace'
 alias skyscanner-ios-app-setup-open='skyscanner-ios-app-setup && skyscanner-ios-app-open'
 
