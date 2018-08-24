@@ -267,3 +267,6 @@ export PATH=/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
