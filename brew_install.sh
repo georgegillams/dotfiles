@@ -45,8 +45,8 @@ brew cask install vanilla
 brew cask install vectr
 brew cask install virtualbox
 brew cask install vlc
-brew install applesimutils # detox
 brew install ack
+brew install applesimutils # detox
 brew install cmake
 brew install coffeescript
 brew install cowsay
@@ -54,14 +54,15 @@ brew install docker
 brew install docker-compose
 brew install git
 brew install heroku/brew/heroku
+brew install imagemagick
 brew install imageoptim-cli
 brew install libdvdcss
 brew install lolcat
 brew install lynx
 brew install macvim
 brew install mas
-brew install imagemagick
 brew install node@8
+brew install nvm
 brew install python3
 brew install rbenv
 brew install redis
@@ -79,6 +80,8 @@ mas install 937984704 # Amphetamine
 mas install 1404231964 # UPRIGHT GO
 mas install 661676740 # iGif Creator
 mas install 909566003 # iHex - Hex Editor
+
+\curl -sSL https://get.rvm.io | bash -s stable
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
