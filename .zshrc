@@ -242,7 +242,7 @@ alias backpack-android-nuke-setup='backpack-android-nuke && backpack-android-set
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
 alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
-alias fullstack-run='fullstack && npm run client & APIKEY="ASDF" node server/src/server.js'
+alias fullstack-run='fullstack && npm run client & node server/src/server.js'
 alias fullstack-setup='fullstack && npm i'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
