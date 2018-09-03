@@ -30,6 +30,7 @@ brew cask install gifox
 brew cask install google-chrome
 brew cask install handbrake
 brew cask install imageoptim
+brew cask install insomnia
 brew cask install iterm2
 brew cask install nordvpn
 brew cask install postman
