@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Skyscanner buttons
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/skyscanner_buttons
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/skyscanner_buttons
 // @include     *
 // @exclude     none
 // @version     3

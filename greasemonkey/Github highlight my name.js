@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Github highlight my name
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_highlight_name
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_highlight_name
 // @include     *github.com*
 // @exclude     none
 // @version     1

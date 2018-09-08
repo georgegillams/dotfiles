@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Find Backpack components
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/find_backpack_components
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/find_backpack_components
 // @include     *
 // @exclude     *backpack.github.io*
 // @exclude     *skyspace*

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Backpack
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/backpack_docs
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/backpack_docs
 // @include     *backpack.github.io*
 // @exclude     none
 // @version     1

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        GitHub Travis links new tab
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_travis_new_tab
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_travis_new_tab
 // @include     *github.com*
 // @exclude     none
 // @version     3

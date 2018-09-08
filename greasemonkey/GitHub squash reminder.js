@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        GitHub squash reminder
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_squash_reminder
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_squash_reminder
 // @include     *github.com*
 // @exclude     none
-// @version     2
+// @version     3
 // @description:en	Adds an reminder to squash PRs that have > 1 commit
 // @description   	Adds an reminder to squash PRs that have > 1 commit
 // @grant    		none

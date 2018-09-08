@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        secure ecs
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/secureEcs_download
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/secureEcs_download
 // @include     https://*.ecs.soton.ac.uk/*
 // @exclude     none
-// @version     1
+// @version     2
 // @grant    		none
 // ==/UserScript==
 

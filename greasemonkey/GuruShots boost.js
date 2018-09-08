@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        GuruShots boost
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/gurushots_boost
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/gurushots_boost
 // @include     *gurushots.com/*
 // @exclude     none
-// @version     5
+// @version     6
 // @description:en	Makes the boost buttons on GuruShots.com stand out more when a free boost is available.
 // @grant    		none
 // ==/UserScript==

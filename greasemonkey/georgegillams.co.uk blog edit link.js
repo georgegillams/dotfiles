@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        georgegillams.co.uk blog edit link
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/george_gillams_blog_edit
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/george_gillams_blog_edit
 // @include     *georgegillams.co.uk*
 // @include     *localhost:*
 // @include     *0.0.0.0:*

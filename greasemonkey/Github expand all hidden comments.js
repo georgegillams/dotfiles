@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        GitHub expand all hidden comments
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_expand_comments
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_expand_comments
 // @include     *github.com*
 // @exclude     none
 // @version     1

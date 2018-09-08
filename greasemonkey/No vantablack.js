@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        No vantablack
-// @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/no_vantablack
+// @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/no_vantablack
 // @include     *
 // @exclude     none
 // @version     1
