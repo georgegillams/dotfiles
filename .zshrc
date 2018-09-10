@@ -174,6 +174,7 @@ alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='georgegillams && cd .. && rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-lint-fix='georgegillams && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
 alias glint='(georgegillams-lint-fix || true)'
+alias georgegillams-backup='dotfiles && node georgegillams-backup.js && cd -'
 
 alias georgegillams-depreciated='cd ~/Documents/georgegillams-depreciated/'
 alias georgegillams-depreciated-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-depreciated && git clone git@github.com:georgegillams/georgegillams-depreciated.git'
