@@ -25,6 +25,7 @@ fi
 
 # ========================== SYSTEM ==========================
 
+function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history }
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='vim ~/.zshrc'
