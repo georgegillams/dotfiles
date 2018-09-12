@@ -114,14 +114,15 @@ alias git-add-all='git add .'
 alias git-reset='git-add-all && git reset --hard HEAD'
 alias git-fetch='git fetch --all'
 alias git-rebase-master='git fetch --all && git rebase origin/master | grep CONFLICT'
-alias git-amend-push='gcn! && ggf'
-alias git-amend-push-no-verify='gcn! --no-verify && ggf'
+alias git-pre-push='git status && sleep 3'
+alias git-amend-push='git-pre-push && gcn! && ggf'
+alias git-amend-push-no-verify='git-pre-push && gcn! --no-verify && ggf'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias git-push-force='ggf'
 alias git-yolo='git-push-force'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function git-commit-push() { git commit -m $@ && ggf }
-function git-commit-push-no-verify() { git commit -m $@ --no-verify && ggf }
+function git-commit-push() { git-pre-push && git commit -m $@ && ggf }
+function git-commit-push-no-verify() { git-pre-push && git commit -m $@ --no-verify && ggf }
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master() { git checkout origin/master $@ }
