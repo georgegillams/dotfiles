@@ -234,7 +234,7 @@ alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
-alias backpack-ios-install-ruby-version='backpack-ios && rbenv install $(cat .ruby-version)'
+alias backpack-ios-install-ruby-version='backpack-ios && rvm install ruby-$(cat .ruby-version)'
 
 alias backpack-android='cd ~/Documents/backpack-android/'
 alias backpack-android-setup='backpack-android && npm i'
