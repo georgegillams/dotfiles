@@ -33,7 +33,7 @@ const schema = {
     },
     branch: {
       description: 'Enter the branch you wish to pull',
-      pattern: /^[A-Za-z\-]+\:[A-Za-z\-]+$/,
+      pattern: /^[A-Za-z0-9\_\-]+\:[A-Za-z0-9\/\_\-]+$/,
       message: 'Enter the branch, including the github username',
       required: true,
     },
@@ -49,15 +49,16 @@ const doFork = async (err, {repoName, branch}) => {
   branchSplit = branch.split(':');
   gitUserName = branchSplit[0];
   gitBranchName = branchSplit[1];
+  gitBranchNameNew = branchSplit[1].split('/').join('-');
 
   console.log(gitUserName);
   console.log(gitBranchName);
 
-  console.log(`git checkout -b ${gitUserName}-${gitBranchName}`);
+  console.log(`git checkout -b ${gitUserName}-${gitBranchNameNew}`);
   console.log(
     `git pull https://github.com/${gitUserName}/${repoName}.git ${gitBranchName}`,
   );
-  execSync(`git checkout -b ${gitUserName}-${gitBranchName}`);
+  execSync(`git checkout -b ${gitUserName}-${gitBranchNameNew}`);
   execSync(
     `git pull https://github.com/${gitUserName}/${repoName}.git ${gitBranchName}`,
   );
