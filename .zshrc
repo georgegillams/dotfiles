@@ -149,7 +149,7 @@ alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/
 alias bedrock-nuke='cd ~/Documents/ && sudo rm -rf bedrock && git clone git@github.com:georgegillams/bedrock.git'
 alias bedrock-nuke-setup='bedrock-nuke && bedrock-setup'
 alias bedrock-run-server='bedrock && ./manage.py runserver'
-alias bedrock-run-gulp='bedrock && gulp'
+alias bedrock-run-gulp='bedrock && npx gulp'
 alias bedrock-localize='bedrock && ./manage.py l10n_update'
 alias bedrock-test='bedrock && py.test lib bedrock'
 
@@ -231,7 +231,7 @@ alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "s
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
 alias backpack-ios='cd ~/Documents/backpack-ios/'
-alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install) && gulp'
+alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install) && npx gulp'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
