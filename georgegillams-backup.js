@@ -1,6 +1,8 @@
 const {execSync} = require('child_process');
 const prompt = require('prompt');
 
+const entities = ["blogs", "comments", "payments", 'users'];
+
 // Create backup
 let defaultBackupName = Date.now().toString();
 const schema = {
@@ -28,25 +30,11 @@ const performBackup = async (err, {backupName, apiKey}) => {
 
   execSync(`mkdir ~/Dropbox/georgegillams.co.uk/backups/${backupName}`);
 
-  // Save blog posts:
-  execSync(
-    `curl -i --raw https://www.georgegillams.co.uk/api/blogs/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/blogs.txt`,
-  );
-
-  // Save comments
-  execSync(
-    `curl -i --raw https://www.georgegillams.co.uk/api/comments/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/comments.txt`,
-  );
-
-  // Save payments
-  execSync(
-    `curl -i --raw https://www.georgegillams.co.uk/api/payments/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/payments.txt`,
-  );
-
-  // Save users
-  execSync(
-    `curl -i --raw https://www.georgegillams.co.uk/api/users/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/users.txt`,
-  );
+  for (let i = 0; i < entities.length; i += 1) {
+    execSync(
+      `curl -i --raw https://www.georgegillams.co.uk/api/${entities[i]}/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/${entities[i]}.txt`,
+    );
+  }
 };
 
 prompt.start();
