@@ -80,6 +80,7 @@ mas install 937984704 # Amphetamine
 mas install 1404231964 # UPRIGHT GO
 mas install 661676740 # iGif Creator
 mas install 909566003 # iHex - Hex Editor
+mas install 447521961 # XChat Azure
 
 # install NVM and RVM
 \curl -sSL https://get.rvm.io | bash -s stable
