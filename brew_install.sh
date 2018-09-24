@@ -10,6 +10,7 @@ brew tap wix/brew
 
 brew cask install adobe-creative-cloud
 brew cask install alfred
+brew cask install android-platform-tools
 brew cask install android-studio
 brew cask install atom
 brew cask install authy
