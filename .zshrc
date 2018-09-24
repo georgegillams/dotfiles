@@ -40,6 +40,7 @@ alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop .
 alias dropbox='cd ~/Dropbox'
 alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
+alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
 alias weather-southampton='curl wttr.in/Southampton'
 alias weather-london='curl wttr.in/London'
