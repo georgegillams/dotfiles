@@ -49,7 +49,6 @@ brew cask install vlc
 brew install ack
 brew install applesimutils # detox
 brew install cmake
-brew install coffeescript
 brew install cowsay
 brew install docker
 brew install docker-compose
