@@ -195,6 +195,7 @@ alias epicc-conference-setup='epicc-conference && npm i'
 alias epicc-conference-run-web-app='epicc-conference && npm run start:client'
 alias epicc-conference-run-server='epicc-conference && npm run start:server'
 alias epicc-conference-run-all='epicc-conference && npm run start'
+alias epicc-conference-backup='dotfiles && node epicc-conference-backup.js && cd -'
 
 # ============================================================
 
