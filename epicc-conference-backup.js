@@ -1,7 +1,7 @@
 const {execSync} = require('child_process');
 const prompt = require('prompt');
 
-const entities = ["gts", "blogs", "comments", "payments", 'users'];
+const entities = ["blogs", "comments", "payments", 'users', "profiles"];
 
 // Create backup
 let defaultBackupName = Date.now().toString();
@@ -28,11 +28,11 @@ const performBackup = async (err, {backupName, apiKey}) => {
     return;
   }
 
-  execSync(`mkdir ~/Dropbox/georgegillams.co.uk/backups/${backupName}`);
+  execSync(`mkdir ~/Dropbox/epicc-conference.herokuapp.com/backups/${backupName}`);
 
   for (let i = 0; i < entities.length; i += 1) {
     execSync(
-      `curl -i --raw https://www.georgegillams.co.uk/api/${entities[i]}/load --header "apiKey: ${apiKey}" > ~/Dropbox/georgegillams.co.uk/backups/${backupName}/${entities[i]}.txt`,
+      `curl -i --raw https://epicc-conference.herokuapp.com/api/${entities[i]}/load --header "apiKey: ${apiKey}" > ~/Dropbox/epicc-conference.herokuapp.com/backups/${backupName}/${entities[i]}.txt`,
     );
   }
 };
