@@ -232,6 +232,16 @@ alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-s
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
+alias backpack-node-sass='cd ~/Documents/backpack-node-sass/'
+alias backpack-node-sass-setup='backpack-node-sass && npm i'
+alias backpack-node-sass-nuke='cd ~/Documents/ && sudo rm -rf backpack-node-sass/ && git clone git@github.com:Skyscanner/backpack-node-sass.git'
+alias backpack-node-sass-nuke-setup='backpack-node-sass-nuke && backpack-node-sass-setup'
+
+alias bpk-logos='cd ~/Documents/bpk-logos/'
+alias bpk-logos-setup='bpk-logos && npm i'
+alias bpk-logos-nuke='cd ~/Documents/ && sudo rm -rf bpk-logos/ && git clone git@github.com:Skyscanner/bpk-logos.git'
+alias bpk-logos-nuke-setup='bpk-logos-nuke && bpk-logos-setup'
+
 alias backpack-ios='cd ~/Documents/backpack-ios/'
 alias backpack-ios-setup='backpack-ios && bundle install && npm i && (cd Example && bundle exec pod install) && npx gulp'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
