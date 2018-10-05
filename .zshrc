@@ -60,13 +60,6 @@ alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFile
 alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
 
-alias dotfiles='cd ~/Documents/dotfiles/'
-alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
-alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
-alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
-# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
-
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 
 alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
@@ -83,8 +76,6 @@ alias jest-run-specific-tests='npx jest BpkBannerAlert'
 alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
 
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
-
-alias work-plan='cd ~/Dropbox/Southampton/WORK/8\ Semester && open WORK_PLAN.numbers'
 
 alias house='cd ~/Dropbox/Mortgage\ and\ House/'
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting.numbers'
@@ -145,6 +136,8 @@ alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkS
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
+# ========================== MOZILLA =========================
+
 alias bedrock='cd ~/Documents/bedrock/'
 alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
 alias bedrock-nuke='cd ~/Documents/ && sudo rm -rf bedrock && git clone git@github.com:georgegillams/bedrock.git'
@@ -166,8 +159,16 @@ alias activity-stream-run='activity-stream && npm run startmc'
 alias activity-stream-nuke='cd ~/Documents/ && sudo rm -rf activity-stream && git clone git@github.com:georgegillams/activity-stream.git'
 alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup'
 
+# ============================================================
 
 # ==================== PERSONAL PROJECTS =====================
+
+alias dotfiles='cd ~/Documents/dotfiles/'
+alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
+alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
+# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
 alias academic-references='cd ~/Documents/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
