@@ -1,7 +1,7 @@
 const {execSync} = require('child_process');
 const prompt = require('prompt');
 
-const entities = ["blogs", "comments", "payments", "users", "profiles"];
+const entities = ["blogs", "comments", "payments", "users", "profiles", "photoReleases"];
 
 // Create backup
 let defaultBackupName = Date.now().toString();
