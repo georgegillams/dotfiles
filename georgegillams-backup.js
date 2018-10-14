@@ -18,6 +18,7 @@ const schema = {
       pattern: /.*/,
       message: 'Enter the admin API key to use for this backup',
       required: true,
+      hidden: true,
     },
   },
 };
