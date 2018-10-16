@@ -71,6 +71,7 @@ brew install the_silver_searcher
 brew install vim
 brew install watchman
 brew install wget
+brew install yarn
 brew install zsh zsh-completions
 
 mas install 926036361 # LastPass
