@@ -230,7 +230,7 @@ alias backpack-check-outdated-top-level='npm outdated'
 alias backpack-output-all-outdated='backpack && (backpack-check-outdated-top-level > ~/Desktop/outdated.txt) & (sleep 5 && backpack-check-outdated-npm-packages >> ~/Desktop/outdated.txt && backpack-check-outdated-npm-packages-native >> ~/Desktop/outdated_native.txt) && cat ~/Desktop/outdated.txt | less'
 alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-setup && backpack-run-tests && gco -b no-jira-update-dependencies && git-add-all && git-commit-push "[NO-JIRA] Update dependencies"'
 
-alias backpack-release-tokens-beta='npm run build:tokens && (cd packages/bpk-tokens && npm publish --tag beta)'
+alias backpack-release-tokens-beta='git-add-all && git-amend-push && npm run build:tokens && (cd packages/bpk-tokens && npm publish --tag beta)'
 
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
