@@ -190,6 +190,10 @@ alias georgegillams-depreciated-run-server='georgegillams-depreciated && npm run
 alias georgegillams-depreciated-run-all='redis-server & georgegillams-depreciated && npm run start'
 alias georgegillams-depreciated-backup='dotfiles && node georgegillams-depreciated-backup.js && cd -'
 
+alias georgegillams-boilerplate='cd ~/Documents/georgegillams-boilerplate/'
+alias georgegillams-boilerplate-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
+alias georgegillams-boilerplate-setup='georgegillams-boilerplate && npm i'
+
 alias epicc-conference='cd ~/Documents/epicc-conference/'
 alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
 alias epicc-conference-setup='epicc-conference && npm i'
