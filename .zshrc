@@ -61,6 +61,7 @@ alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
+alias android-shake-twice='android-shake && sleep 5 && android-shake'
 
 alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
