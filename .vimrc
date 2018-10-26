@@ -12,6 +12,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 
 " Misc
+Plugin 'RRethy/vim-illuminate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
@@ -23,6 +24,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
@@ -30,7 +32,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vimwiki/vimwiki'
 Plugin 'w0rp/ale'
-"requires different colour schema https://github.com/arcticicestudio/nord-iterm2
+"requires different colour scheme https://github.com/aseom/dotfiles/blob/master/osx/iterm2/iceberg.itermcolors
+Plugin 'cocopon/iceberg.vim'
 Plugin 'arcticicestudio/nord-vim'
 
 call vundle#end()            " required
@@ -61,7 +64,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden=1
 
 " Check if NERDTree is open or active
- function! IsNERDTreeOpen()        
+ function! IsNERDTreeOpen()
    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
    endfunction
 
@@ -180,11 +183,9 @@ inoremap jj <Esc>
 nnoremap <Leader>s :sv<CR>
 nnoremap <Leader>v :vs<CR>
 
-nnoremap <Leader>w :wa<CR>
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>z :wq<CR>
-
-nnoremap <Leader>nt :terminal ++curwin<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -220,3 +221,14 @@ nmap <leader>bl :ls<CR>
 nmap <leader>bd :bd<CR>
 
 :set mouse=a
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
