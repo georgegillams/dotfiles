@@ -103,7 +103,7 @@ for (let i = 0; i < toClick.length; i += 1){
 toClick[i].click();
 }"'
 alias show-me-how-to-click-all-the-buttons='const buttons = document.getElementsByTagType(\"BUTTON\");
-for (let i =0 ; i < buttons.length; i += 1){
+for (let i = 0; i < buttons.length; i += 1){
   const button = buttons[i];
   if(button.getAttribute(\"aria-label\") === \"Move rule down: FORWARD TO GEORGEGILLAMS.CO.UK\"){
    console.log(button)
