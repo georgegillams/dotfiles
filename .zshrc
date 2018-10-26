@@ -102,6 +102,15 @@ alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.
 for (let i = 0; i < toClick.length; i += 1){
 toClick[i].click();
 }"'
+alias show-me-how-to-click-all-the-buttons='const buttons = document.getElementsByTagType(\"BUTTON\");
+for (let i =0 ; i < buttons.length; i += 1){
+  const button = buttons[i];
+  if(button.getAttribute(\"aria-label\") === \"Move rule down: FORWARD TO GEORGEGILLAMS.CO.UK\"){
+   console.log(button)
+    button.click();
+    console.log(\"clicked\");
+  }
+}'
 alias git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && git branch -D $(git-branch | grep -v "master")'
 alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && git branch -D $(git-branch | grep -v "develop")'
 alias git-add-all='git add .'
