@@ -17,7 +17,6 @@ brew cask install authy
 brew cask install avibrazil-rdm
 brew cask install bettertouchtool
 brew cask install caffeine
-brew cask install canary
 brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
@@ -38,7 +37,6 @@ brew cask install postman
 brew cask install postman
 brew cask install rocket
 brew cask install sketch
-brew cask install slack
 brew cask install slack
 brew cask install sourcetree
 brew cask install spotify
@@ -79,7 +77,6 @@ mas install 1031163338 # GIFHunter
 mas install 585829637 # Todoist
 mas install 937984704 # Amphetamine
 mas install 1404231964 # UPRIGHT GO
-mas install 661676740 # iGif Creator
 mas install 909566003 # iHex - Hex Editor
 mas install 447521961 # XChat Azure
 
@@ -144,7 +141,6 @@ open /Applications/Utilities/Adobe\ Creative\ Cloud/ACC/Creative\ Cloud.app/
 open /Applications/Alfred\ 3.app/
 open /Applications/Dropbox.app
 open /Applications/Authy\ Desktop.app/
-open /Applications/Canary.app/
 open /Applications/NordVPN.app/
 open /Applications/Todoist.app/
 open /Applications/Spotify.app/
