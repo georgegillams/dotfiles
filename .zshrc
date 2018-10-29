@@ -192,6 +192,11 @@ alias georgegillams-lint-fix='georgegillams && npx eslint --fix src/*/*/*.js* &&
 alias glint='(georgegillams-lint-fix || true)'
 alias georgegillams-backup='dotfiles && node georgegillams-backup.js && cd -'
 
+alias cookie-consent='cd ~/Documents/cookie-consent-corrected/'
+alias cookie-consent-nuke='cookie-consent && cd .. && rm -rf cookie-consent-corrected && git clone git@github.com:georgegillams/cookie-consent-corrected.git'
+alias cookie-consent-lint-fix='cookie-consent && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
+alias clint='(cookie-consent-lint-fix || true)'
+
 alias georgegillams-depreciated='cd ~/Documents/georgegillams-depreciated/'
 alias georgegillams-depreciated-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-depreciated && git clone git@github.com:georgegillams/georgegillams-depreciated.git'
 alias georgegillams-depreciated-setup='georgegillams-depreciated && npm i'
