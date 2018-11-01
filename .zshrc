@@ -230,9 +230,9 @@ alias backpack-setup='backpack && touch native/android/local.properties && npm i
 alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone git@github.com:Skyscanner/backpack.git'
 alias backpack-nuke-setup='backpack-nuke && backpack-setup'
 alias backpack-run-native='backpack && npm run native'
-alias backpack-run-android='($ANDROID_SDK_ROOT/emulator/emulator -avd PIXEL_2_XL_API_27 || true) && (cd native && npm run android:build)'
-alias backpack-run-android-old='($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) && (cd native && npm run android:build)'
-alias backpack-run-android-docs='($ANDROID_SDK_ROOT/emulator/emulator -avd bpk-avd || true) && (cd native && npm run android:build)'
+alias backpack-run-android='backpack && ($ANDROID_SDK_ROOT/emulator/emulator -avd PIXEL_2_XL_API_27 || true) && (cd native && npm run android:build)'
+alias backpack-run-android-old='(backpack && $ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) && (cd native && npm run android:build)'
+alias backpack-run-android-docs='(backpack && $ANDROID_SDK_ROOT/emulator/emulator -avd bpk-avd || true) && (cd native && npm run android:build)'
 alias backpack-run-ios='backpack && (cd native && react-native run-ios --simulator="iPhone XS")'
 alias backpack-run-ios-docs='backpack && (cd native && react-native run-ios --simulator="iPhone 8")'
 alias backpack-run-docs='backpack && npm run docs'
@@ -311,4 +311,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # export NVM_DIR=~/.nvm
 # source $(brew --prefix nvm)/nvm.sh
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
