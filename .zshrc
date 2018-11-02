@@ -99,11 +99,11 @@ alias travis-fold-end='echo -e "\ntravis_fold:end:$1\r"'
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
 alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
-for (let i = 0; i < toClick.length; i += 1){
+for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
 }"'
 alias show-me-how-to-click-all-the-buttons='echo "const buttons = document.getElementsByTagType(\"BUTTON\");
-for (let i = 0; i < buttons.length; i += 1){
+for (let i = buttons.length - 1; i >= 0; i -= 1){
   const button = buttons[i];
   if(button.getAttribute(\"aria-label\") === \"Move rule down: FORWARD TO GEORGEGILLAMS.CO.UK\"){
    console.log(button)
