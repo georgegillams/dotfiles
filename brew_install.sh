@@ -16,7 +16,6 @@ brew cask install atom
 brew cask install authy
 brew cask install avibrazil-rdm
 brew cask install bettertouchtool
-brew cask install caffeine
 brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
@@ -30,22 +29,17 @@ brew cask install gifox
 brew cask install google-chrome
 brew cask install handbrake
 brew cask install imageoptim
-brew cask install insomnia
 brew cask install iterm2
 brew cask install nordvpn
 brew cask install postman
-brew cask install postman
-brew cask install rocket
 brew cask install sketch
 brew cask install slack
 brew cask install sourcetree
 brew cask install spotify
 brew cask install the-unarchiver
-brew cask install vanilla
-brew cask install vectr
 brew cask install virtualbox
 brew cask install vlc
-brew install ack
+brew install ack # CLI search
 brew install applesimutils # detox
 brew install cmake
 brew install cowsay
@@ -59,7 +53,7 @@ brew install libdvdcss
 brew install lolcat
 brew install lynx
 brew install macvim
-brew install mas
+brew install mas # CLI apps store
 brew install node@8
 brew install python3
 brew install rbenv
