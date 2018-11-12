@@ -131,6 +131,7 @@ function git-commit-push-with-verification() { git-pre-push && git commit -m $@ 
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master() { git checkout origin/master $@ }
+function git-revert-to-develop() { git checkout origin/develop $@ }
 alias git-rebase-continue='git rebase --continue'
 alias git-rebase-abort='git rebase --abort'
 alias git-clean='git clean -xdf'
