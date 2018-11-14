@@ -19,6 +19,7 @@ brew cask install bettertouchtool
 brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
+brew cask install dash
 brew cask install detexify
 brew cask install docker
 brew cask install dropbox
