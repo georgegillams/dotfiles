@@ -55,7 +55,7 @@ brew install lolcat
 brew install lynx
 brew install macvim
 brew install mas # CLI apps store
-brew install node@8
+brew install nvm
 brew install python3
 brew install rbenv
 brew install redis
@@ -75,9 +75,12 @@ mas install 1404231964 # UPRIGHT GO
 mas install 909566003 # iHex - Hex Editor
 mas install 447521961 # XChat Azure
 
+# Setup default nvm
+nvm install 10.13.0
+nvm use 10.13.0
+
 # install NVM and RVM
 \curl -sSL https://get.rvm.io | bash -s stable
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 # Set up Git SSH
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
@@ -144,8 +147,8 @@ open ./resources/Network\ Link\ Conditioner.prefPane
 echo "NOW INSTALL MANUALLY ☹️"
 echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
 cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
-echo "Node version"
-cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
+# echo "Node version"
+# cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
 echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
