@@ -122,6 +122,7 @@ alias git-add-all='git-add-all-no-image-optimisation && node ~/Documents/dotfile
 alias git-reset='git-add-all-no-image-optimisation && git reset --hard HEAD'
 alias git-fetch='git fetch --all'
 alias git-rebase-master='git fetch --all && git rebase origin/master | grep CONFLICT'
+alias git-rebase-develop='git fetch --all && git rebase origin/develop | grep CONFLICT'
 alias git-pre-push='git status && sleep 3'
 alias git-amend-push='git-pre-push && gcn! --no-verify && ggf'
 alias git-amend-push-with-verification='git-pre-push && gcn! && ggf'
