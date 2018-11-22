@@ -115,8 +115,8 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }"'
-alias git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && git branch -D $(git-branch | grep -v "master")'
-alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && git branch -D $(git-branch | grep -v "develop")'
+alias git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && git branch -D $(git-branch | grep -v "master") && git submodule update'
+alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && git branch -D $(git-branch | grep -v "develop") && git submodule update'
 alias git-add-all-no-image-optimisation='git add .'
 alias git-add-all='git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
 alias git-reset='git-add-all-no-image-optimisation && git reset --hard HEAD'
