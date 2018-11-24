@@ -216,6 +216,7 @@ alias georgegillams-depreciated-backup='dotfiles && node georgegillams-depreciat
 alias georgegillams-boilerplate='cd ~/Documents/georgegillams-boilerplate/'
 alias georgegillams-boilerplate-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
 alias georgegillams-boilerplate-setup='georgegillams-boilerplate && npm i'
+alias georgegillams-boilerplate-rebase='cd ~/Documents/react-redux-boilerplate && git-master-latest && georgegillams-boilerplate && cp -R ../react-redux-boilerplate/* ./'
 
 alias epicc-conference='cd ~/Documents/epicc-conference/'
 alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
