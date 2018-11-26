@@ -246,8 +246,8 @@ alias backpack-run-ios='backpack && (cd native && react-native run-ios --simulat
 alias backpack-run-ios-docs='backpack && (cd native && react-native run-ios --simulator="iPhone 8")'
 alias backpack-run-docs='backpack && npm run docs'
 alias backpack-run-storybook='backpack && npm start'
-alias backpack-check-cross-dependencies='backpack && npm run check-bpk-dependencies'
-alias backpack-fix-cross-dependencies='backpack && npm run fix-bpk-dependencies'
+alias backpack-check-cross-dependencies='backpack && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js'
+alias backpack-fix-cross-dependencies='backpack && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js --fix'
 alias backpack-clean-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 alias backpack-check-outdated-npm-packages='for dir in `ls packages`
 do
