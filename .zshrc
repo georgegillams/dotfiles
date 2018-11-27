@@ -288,7 +288,7 @@ alias backpack-ios-publish='backpack-ios-release'
 alias backpack-ios-test='backpack-ios && BUILD_SDK=iphonesimulator12.1 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake test'
 
 alias backpack-android='cd ~/Documents/backpack-android/'
-alias backpack-android-setup='backpack-android && npm i'
+alias backpack-android-setup='backpack-android && npm i && npm run build'
 alias backpack-android-open='backpack-android && AndroidStudio ./'
 alias backpack-android-setup-open='backpack-android-setup && backpack-android-open'
 alias backpack-android-nuke='cd ~/Documents/ && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
