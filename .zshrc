@@ -81,7 +81,7 @@ alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
 
 alias house='cd ~/Dropbox/Mortgage\ and\ House/'
-alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting.numbers && open Budgetting_new.numbers'
+alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
 alias wedding=' cd ~/Dropbox/Wedding/'
 alias wedding_budget='wedding && open Wedding_Expenses.xlsx'
 
