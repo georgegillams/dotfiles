@@ -42,6 +42,7 @@ brew cask install virtualbox
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
+brew install cloc
 brew install cmake
 brew install cowsay
 brew install docker
