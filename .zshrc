@@ -307,6 +307,7 @@ alias skyscanner-ios-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git c
 alias skyscanner-ios-app-setup='skyscanner-ios-app && gem install bundler && cd ios && rvm use 2.3.1 && ./fullsetup && skyscanner-ios-app'
 alias skyscanner-ios-app-open='skyscanner-ios-app && open ios/Project/Working/Skyscanner.xcworkspace'
 alias skyscanner-ios-app-setup-open='skyscanner-ios-app-setup && skyscanner-ios-app-open'
+alias skyscanner-ios-app-login-to-npm='skyscanner-ios-app && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 
 alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
