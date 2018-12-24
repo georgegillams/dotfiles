@@ -68,13 +68,14 @@ brew install wget
 brew install yarn
 brew install zsh zsh-completions
 
-mas install 926036361 # LastPass
 mas install 1031163338 # GIFHunter
-mas install 585829637 # Todoist
-mas install 937984704 # Amphetamine
 mas install 1404231964 # UPRIGHT GO
-mas install 909566003 # iHex - Hex Editor
 mas install 447521961 # XChat Azure
+mas install 585829637 # Todoist
+mas install 909566003 # iHex - Hex Editor
+mas install 926036361 # LastPass
+mas install 937984704 # Amphetamine
+mas install 957734279 # Toggl
 
 # Setup default nvm
 nvm install 10.13.0
