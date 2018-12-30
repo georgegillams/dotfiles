@@ -43,6 +43,7 @@ alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
 alias weather-southampton='curl wttr.in/Southampton'
+alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
 
