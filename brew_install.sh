@@ -69,6 +69,7 @@ brew install yarn
 brew install zsh zsh-completions
 
 mas install 1031163338 # GIFHunter
+mas install 1278508951 # Trello
 mas install 1404231964 # UPRIGHT GO
 mas install 447521961 # XChat Azure
 mas install 585829637 # Todoist
