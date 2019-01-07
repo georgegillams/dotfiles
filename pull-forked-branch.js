@@ -23,11 +23,18 @@ const prompt = require('prompt');
 const fs = require('fs');
 const path = require('path');
 
+const getCurrentDirName = () => {
+  const dir = execSync("pwd").toString();
+  const split = dir.split("/");
+  const result = split[split.length -1];
+  return result.split("\n")[0];
+}
+
 const schema = {
   properties: {
     repoName: {
       description: 'what repo are you on',
-      default: 'backpack',
+      default: getCurrentDirName(),
       pattern: /.*/,
       message: '',
     },
