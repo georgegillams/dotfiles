@@ -29,8 +29,10 @@ fi
 alias zsh-remove-api-keys-from-history='zsh-remove-term-from-history APIKEY && zsh-remove-term-from-history API_KEY'
 function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
+alias tmux-rebuild='dotfiles-save-tmux-conf && cd -'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='vim ~/.zshrc'
+alias tmux-edit-config='vim ~/.tmux.conf'
 alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && rm -rf ~/.ssh/* && cd ~/Desktop && ./brew_install.sh'
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
 function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew install $@ }
@@ -194,6 +196,7 @@ alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup
 
 alias dotfiles='cd ~/Documents/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.cong ./ && git-add-all && git-commit-push "Update TMUX conf"'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
 alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
