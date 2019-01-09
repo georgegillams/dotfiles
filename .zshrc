@@ -67,6 +67,11 @@ alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
 
 function tmux-create-session() { tmux new -s $@ }
 function tmux-attach-session() { tmux attach -t $@ }
+alias tmux-detach="tmux detach"
+alias tmux-detatch="tmux-detach"
+alias tmux-split="tmux split-window"
+alias tmux-split-vertical="tmux-split"
+alias tmux-split-horizontal="tmux split-window -h"
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 5 && android-shake'
