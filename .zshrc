@@ -65,6 +65,9 @@ alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFile
 alias web_browser='w3m'
 alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
 
+function tmux-create-session() { tmux new -s $@ }
+function tmux-attach-session() { tmux attach -t $@ }
+
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 5 && android-shake'
 
