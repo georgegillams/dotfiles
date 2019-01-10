@@ -74,6 +74,8 @@ alias tmux-detatch="tmux-detach"
 alias tmux-split="tmux split-window"
 alias tmux-split-vertical="tmux-split"
 alias tmux-split-horizontal="tmux split-window -h"
+alias tmux-close="tmux kill-pane"
+alias tmux-exit="tmux-close"
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 5 && android-shake'
