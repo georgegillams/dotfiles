@@ -29,7 +29,7 @@ fi
 alias zsh-remove-api-keys-from-history='zsh-remove-term-from-history APIKEY && zsh-remove-term-from-history API_KEY'
 function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
-alias tmux-rebuild='dotfiles-save-tmux-conf && cd -'
+alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='vim ~/.zshrc'
 alias tmux-edit-config='vim ~/.tmux.conf'
