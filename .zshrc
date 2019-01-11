@@ -198,7 +198,7 @@ alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup
 
 alias dotfiles='cd ~/Documents/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
-alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.cong ./ && git-add-all && git-commit-push "Update TMUX conf"'
+alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && git-add-all && git-commit-push "Update TMUX conf"'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
 alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
