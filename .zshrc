@@ -169,6 +169,8 @@ alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkS
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
+alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -delete'
+
 # ========================== MOZILLA =========================
 
 alias bedrock='cd ~/Documents/bedrock/'
