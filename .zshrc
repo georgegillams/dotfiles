@@ -169,7 +169,7 @@ alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkS
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
-alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -delete'
+alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
 # ========================== MOZILLA =========================
 
@@ -249,7 +249,7 @@ alias epicc-conference-backup='dotfiles && node epicc-conference-backup.js && cd
 # ======================== SKYSCANNER ========================
 
 alias backpack='cd ~/Documents/backpack/'
-alias backpack-fix-tests='backpack && find . -name "*.js.snap" -delete && npm test'
+alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-run-tests='backpack && (pkill flow | true) && npm test'
 alias backpack-watch-tests='backpack && npm run jest:watch'
 alias backpack-run-flow='backpack && (pkill flow | true) && npm run flow'
@@ -276,7 +276,7 @@ alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-s
 alias backpack-release-tokens-beta='backpack && npm run build:tokens && git-add-all && git-amend-push && (cd packages/bpk-tokens && npm publish --tag beta)'
 
 alias backpack-react-native='cd ~/Documents/backpack-react-native/'
-alias backpack-react-native-fix-tests='backpack-react-native && find . -name "*.js.snap" -delete && npm test'
+alias backpack-react-native-fix-tests='backpack-react-native && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-react-native-run-tests='backpack-react-native && (pkill flow | true) && npm test'
 alias backpack-react-native-watch-tests='backpack-react-native && npm run jest:native:watch'
 alias backpack-react-native-run-flow='backpack-react-native && (pkill flow | true) && npm run flow'
