@@ -36,6 +36,7 @@ Plugin 'w0rp/ale'
 "requires different colour scheme https://github.com/aseom/dotfiles/blob/master/osx/iterm2/iceberg.itermcolors
 Plugin 'cocopon/iceberg.vim'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'gorodinskiy/vim-coloresque'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
