@@ -213,16 +213,16 @@ alias academic-references-setup='academic-references && cd package && npm i && c
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
-alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
-alias georgegillams-nuke='georgegillams && cd .. && rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-lint-fix='georgegillams && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
-alias glint='(georgegillams-lint-fix || true)'
-alias georgegillams-backup='dotfiles && node georgegillams-backup.js && cd -'
-
 alias cookie-consent='cd ~/Documents/cookie-consent-corrected/'
 alias cookie-consent-nuke='cookie-consent && cd .. && rm -rf cookie-consent-corrected && git clone git@github.com:georgegillams/cookie-consent-corrected.git'
 alias cookie-consent-lint-fix='cookie-consent && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
 alias clint='(cookie-consent-lint-fix || true)'
+
+alias georgegillams-old='cd ~/Documents/georgegillams.co.uk/'
+alias georgegillams-old-nuke='georgegillams-old && cd .. && rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias georgegillams-old-lint-fix='georgegillams-old && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
+alias glint-old='(georgegillams-old-lint-fix || true)'
+alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
 
 alias georgegillams-depreciated='cd ~/Documents/georgegillams-depreciated/'
 alias georgegillams-depreciated-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-depreciated && git clone git@github.com:georgegillams/georgegillams-depreciated.git'
@@ -232,18 +232,18 @@ alias georgegillams-depreciated-run-server='georgegillams-depreciated && npm run
 alias georgegillams-depreciated-run-all='redis-server & georgegillams-depreciated && npm run start'
 alias georgegillams-depreciated-backup='dotfiles && node georgegillams-depreciated-backup.js && cd -'
 
-alias georgegillams-boilerplate='cd ~/Documents/georgegillams-boilerplate/'
-alias georgegillams-boilerplate-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
-alias georgegillams-boilerplate-setup='georgegillams-boilerplate && npm i'
-alias georgegillams-boilerplate-rebase='cd ~/Documents/react-redux-boilerplate && git-master-latest && georgegillams-boilerplate && cp -R ../react-redux-boilerplate/* ./'
+alias georgegillams='cd ~/Documents/georgegillams-boilerplate/'
+alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
+alias georgegillams-setup='georgegillams && npm i'
+alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
-alias epicc-conference='cd ~/Documents/epicc-conference/'
-alias epicc-conference-nuke='cd ~/Documents/ && sudo rm -rf epicc-conference && git clone git@github.com:epicc-conference/epicc-conference.git'
-alias epicc-conference-setup='epicc-conference && npm i'
-alias epicc-conference-run-web-app='epicc-conference && npm run start:client'
-alias epicc-conference-run-server='epicc-conference && npm run start:server'
-alias epicc-conference-run-all='epicc-conference && npm run start'
-alias epicc-conference-backup='dotfiles && node epicc-conference-backup.js && cd -'
+alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
+alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:epicc-ticket-sales/epicc-ticket-sales.git'
+alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
+alias epicc-ticket-sales-run-web-app='epicc-ticket-sales && npm run start:client'
+alias epicc-ticket-sales-run-server='epicc-ticket-sales && npm run start:server'
+alias epicc-ticket-sales-run-all='epicc-ticket-sales && npm run start'
+alias epicc-ticket-sales-backup='dotfiles && node epicc-ticket-sales-backup.js && cd -'
 
 # ============================================================
 
