@@ -119,6 +119,10 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
+alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.getElementsByClassName(\"btn btn-sm BtnGroup-item tooltipped tooltipped-n rendered js-rendered\");
+for (let i = toClick.length - 1; i >= 0; i -= 1){
+toClick[i].click();
+}"'
 alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
