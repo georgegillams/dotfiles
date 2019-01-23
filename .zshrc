@@ -248,7 +248,7 @@ alias georgegillams-setup='georgegillams && npm i'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
-alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:epicc-ticket-sales/epicc-ticket-sales.git'
+alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
 alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
 alias epicc-ticket-sales-run-web-app='epicc-ticket-sales && npm run start:client'
 alias epicc-ticket-sales-run-server='epicc-ticket-sales && npm run start:server'
