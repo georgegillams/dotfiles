@@ -55,7 +55,8 @@ alias season-ticket='open ~/Desktop/season_ticket.jpg'
 
 function list-processes-on-port() { sudo lsof -i :$@ }
 function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
-function kill-processes-on-port() { for pid in \$(list-process-pids-on-port $@); do pkill -9 \$pid; done }
+function kill-process() { sudo kill -9 $@ }
+function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
 alias system-remove-nvm='sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp /opt/local/bin/node opt/local/include/node /opt/local/lib/node_modules && brew uninstall nvm && rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d && sudo rm -rf ~/.npm && sudo rm -rf ~/.nvm &&  rm -f /usr/local/bin/node'
 alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
 alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app"
