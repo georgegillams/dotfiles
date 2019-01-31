@@ -145,6 +145,7 @@ alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/de
 alias git-add-all-no-image-optimisation='git add .'
 alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
 alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
+alias git-reset-unstaged='git checkout -- .'
 alias git-fetch='git fetch --all'
 alias git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
 alias git-rebase-develop='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
