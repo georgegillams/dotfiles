@@ -295,7 +295,7 @@ alias backpack-react-native-run-flow='backpack-react-native && (pkill flow | tru
 alias backpack-react-native-setup='backpack-react-native && touch android/local.properties && npm i && cd ios/ && bundle install && bundle exec pod install && backpack-react-native'
 alias backpack-react-native-nuke='cd ~/Documents/ && sudo rm -rf backpack-react-native/ && git clone git@github.com:Skyscanner/backpack-react-native.git'
 alias backpack-react-native-nuke-setup='backpack-react-native-nuke && backpack-react-native-setup'
-alias backpack-react-native-run-android='backpack-react-native && ($ANDROID_SDK_ROOT/emulator/emulator -avd PIXEL_2_XL_API_27 || true) & npm run android'
+alias backpack-react-native-run-android='backpack-react-native && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5X_API_28 || true) & npm run android'
 alias backpack-react-native-run-android-old='backpack-react-native && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) & npm run android'
 alias backpack-react-native-run-android-docs='backpack-react-native && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5_API_27 || true) & npm run android'
 alias backpack-react-native-run-ios='backpack-react-native && react-native run-ios --simulator="iPhone XS"'
