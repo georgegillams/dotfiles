@@ -224,6 +224,10 @@ alias academic-references-setup='academic-references && cd package && npm i && c
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
+alias backpack-about-mdx='cd ~/Documents/backpack-about-mdx/'
+alias backpack-about-mdx-nuke='backpack-about-mdx && cd .. && rm -rf backpack-about-mdx && git clone git@github.com:Skyscanner/backpack-about-mdx.git'
+alias backpack-about-mdx-setup='backpack-about-mdx && npm i'
+
 alias cookie-consent='cd ~/Documents/cookie-consent-corrected/'
 alias cookie-consent-nuke='cookie-consent && cd .. && rm -rf cookie-consent-corrected && git clone git@github.com:georgegillams/cookie-consent-corrected.git'
 alias cookie-consent-lint-fix='cookie-consent && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
