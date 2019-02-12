@@ -170,7 +170,6 @@ alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clea
 alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
-alias backpack-git-submodules-reset='git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
 alias docker-reset='docker rm $(docker ps -a -q) --force'
@@ -268,6 +267,7 @@ alias epicc-ticket-sales-backup='dotfiles && node epicc-ticket-sales-backup.js &
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-run-tests='backpack && (pkill flow | true) && npm test'
+alias backpack-git-submodules-reset='backpack && git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias backpack-watch-tests='backpack && npm run jest:watch'
 alias backpack-run-flow='backpack && (pkill flow | true) && npm run flow'
 alias backpack-setup='backpack && npm i && npm run build && git-submodules-init'
