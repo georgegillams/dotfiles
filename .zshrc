@@ -170,6 +170,7 @@ alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clea
 alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
+alias git-submodules-reset='git-submodules-init'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
 alias docker-reset='docker rm $(docker ps -a -q) --force'
