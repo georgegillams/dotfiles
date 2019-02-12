@@ -144,7 +144,7 @@ alias git-master-latest='gco master && git-fetch && git reset --hard origin/mast
 alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
 alias git-add-all-no-image-optimisation='git add .'
 alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
-alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules && git-submodules-reset'
+alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='git checkout -- .'
 alias git-fetch='git fetch --all'
 alias git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
@@ -170,7 +170,7 @@ alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clea
 alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
-alias git-submodules-reset='git-submodules-init'
+alias backpack-git-submodules-reset='git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
 alias docker-reset='docker rm $(docker ps -a -q) --force'
