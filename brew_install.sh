@@ -48,6 +48,7 @@ brew install cowsay
 brew install docker
 brew install docker-compose
 brew install git
+brew install gpg
 brew install heroku/brew/heroku
 brew install imagemagick
 brew install imageoptim-cli
@@ -90,6 +91,20 @@ nvm use 10.13.0
 ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
 echo "Now go to Github, select Add SSH key and paste the public file contents"
 pbcopy < ~/.ssh/id_rsa.pub
+sleep 10
+echo "Press any key once complete"
+read
+
+# Set up Git commit signing
+gpg --gen-key
+echo "Configuring git to use the new GPG key"
+gpg --list-secret-keys --keyid-format LONG
+echo "Please copy the sec key and enter it"
+read keyLong
+git config --global user.signingkey $(keyLong)
+git config --global commit.gpgSign true
+echo "Now go to Github, select New GPG key and paste the exported data"
+gpg --export -a $(keyLong) | pbcopy
 sleep 10
 echo "Press any key once complete"
 read
