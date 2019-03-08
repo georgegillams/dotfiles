@@ -66,6 +66,7 @@ brew install redis
 brew install sl
 brew install the_silver_searcher
 brew install vim
+brew install w3m
 brew install watchman
 brew install wget
 brew install yarn
