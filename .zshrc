@@ -217,9 +217,9 @@ alias academic-references-publish='academic-references && cd package && npm publ
 
 alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
 
-alias georgegillams='cd ~/Documents/georgegillams-boilerplate/'
-alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
-alias georgegillams-setup='georgegillams && npm i && npm run build'
+alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
+alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
