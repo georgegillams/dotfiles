@@ -250,7 +250,7 @@ alias georgegillams-depreciated-backup='dotfiles && node georgegillams-depreciat
 
 alias georgegillams='cd ~/Documents/georgegillams-boilerplate/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
-alias georgegillams-setup='georgegillams && npm i'
+alias georgegillams-setup='georgegillams && npm i && npm run build'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
