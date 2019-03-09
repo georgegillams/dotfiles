@@ -5,8 +5,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export ANDROID_HOME="$ANDROID_SDK_ROOT"
-export ADMIN_USERNAME="georgegillams"
-export ADMIN_PASSWORD_HASH="\$2b\$10\$kZr2lkVcPiU3wsbowjNtUOpATLlf4AZpqjSYzrM0b/G/3yj5tRt1m"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
@@ -38,15 +36,12 @@ alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && c
 alias brew-edit-install-script='vim ~/Documents/dotfiles/brew_install.sh'
 function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew install $@ }
 function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew cask install $@ }
-alias zsh-pull-configs='cp ~/Dropbox/Apps/ZSH/.zshrc ~/.zshrc && cp ~/Dropbox/Apps/NeoVim/.vimrc ~/.vimrc'
-alias atom-link-synced-settings='ln -s ~/Dropbox/Apps/Atom ~/.atom'
-alias dropbox-link-synced-settings='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
+alias dropbox-link-desktop='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
 alias dropbox='cd ~/Dropbox'
 alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
-alias weather-southampton='curl wttr.in/Southampton'
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
@@ -58,7 +53,6 @@ function list-processes-on-port() { sudo lsof -i :$@ }
 function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
 function kill-process() { sudo kill -9 $@ }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
-alias system-remove-nvm='sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp /opt/local/bin/node opt/local/include/node /opt/local/lib/node_modules && brew uninstall nvm && rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d && sudo rm -rf ~/.npm && sudo rm -rf ~/.nvm &&  rm -f /usr/local/bin/node'
 alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
 alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app"
 alias system-open-sketch-updater="open /Applications/Sketch.app"
@@ -71,8 +65,7 @@ alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotli
 alias system-disable-indexing='sudo mdutil -a -i off'
 alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm -rf ~/Library/Containers/io.canarymail.mac/'
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
-alias web_browser='w3m'
-alias fiddler='cd /Applications/fiddler/ && mono --arch=32 Fiddler.exe'
+alias web-browser='w3m'
 
 function tmux-create-session() { tmux new -s $@ }
 function tmux-attach-session() { tmux attach -t $@ }
@@ -85,7 +78,7 @@ alias tmux-close="tmux kill-pane"
 alias tmux-exit="tmux-close"
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
-alias android-shake-twice='android-shake && sleep 5 && android-shake'
+alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
 alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
@@ -102,10 +95,7 @@ alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
 
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
 
-alias house='cd ~/Dropbox/Mortgage\ and\ House/'
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
-alias wedding=' cd ~/Dropbox/Wedding/'
-alias wedding_budget='wedding && open Wedding_Expenses.xlsx'
 
 alias clearcache='npm cache clean --force && npm cache clear && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
@@ -225,28 +215,7 @@ alias academic-references-setup='academic-references && cd package && npm i && c
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
-alias backpack-about-mdx='cd ~/Documents/backpack-about-mdx/'
-alias backpack-about-mdx-nuke='backpack-about-mdx && cd .. && rm -rf backpack-about-mdx && git clone git@github.com:Skyscanner/backpack-about-mdx.git'
-alias backpack-about-mdx-setup='backpack-about-mdx && npm i'
-
-alias cookie-consent='cd ~/Documents/cookie-consent-corrected/'
-alias cookie-consent-nuke='cookie-consent && cd .. && rm -rf cookie-consent-corrected && git clone git@github.com:georgegillams/cookie-consent-corrected.git'
-alias cookie-consent-lint-fix='cookie-consent && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
-alias clint='(cookie-consent-lint-fix || true)'
-
-alias georgegillams-old='cd ~/Documents/georgegillams.co.uk/'
-alias georgegillams-old-nuke='georgegillams-old && cd .. && rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-old-lint-fix='georgegillams-old && npx eslint --fix src/*/*/*.js* && npx eslint --fix src/*/*.js* && npx eslint --fix src/*.js*'
-alias glint-old='(georgegillams-old-lint-fix || true)'
 alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
-
-alias georgegillams-depreciated='cd ~/Documents/georgegillams-depreciated/'
-alias georgegillams-depreciated-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-depreciated && git clone git@github.com:georgegillams/georgegillams-depreciated.git'
-alias georgegillams-depreciated-setup='georgegillams-depreciated && npm i'
-alias georgegillams-depreciated-run-web-app='georgegillams-depreciated && npm run start:client'
-alias georgegillams-depreciated-run-server='georgegillams-depreciated && npm run start:server'
-alias georgegillams-depreciated-run-all='redis-server & georgegillams-depreciated && npm run start'
-alias georgegillams-depreciated-backup='dotfiles && node georgegillams-depreciated-backup.js && cd -'
 
 alias georgegillams='cd ~/Documents/georgegillams-boilerplate/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams-boilerplate && git clone git@github.com:georgegillams/georgegillams-boilerplate.git'
@@ -256,9 +225,6 @@ alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && g
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
 alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
-alias epicc-ticket-sales-run-web-app='epicc-ticket-sales && npm run start:client'
-alias epicc-ticket-sales-run-server='epicc-ticket-sales && npm run start:server'
-alias epicc-ticket-sales-run-all='epicc-ticket-sales && npm run start'
 alias epicc-ticket-sales-backup='dotfiles && node epicc-ticket-sales-backup.js && cd -'
 
 # ============================================================
