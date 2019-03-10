@@ -82,6 +82,11 @@ alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
 alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
+# ========================== NPM ==========================
+
+alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
+alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
+
 # ============================================================
 
 alias xcode='open'
@@ -314,7 +319,7 @@ alias fullstack-run='fullstack && npm run client & node server/src/server.js'
 alias fullstack-setup='fullstack && npm i'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
-alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/'
+alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'
 alias skyscanner-ios-app-rn-sanity-check='skyscanner-ios-app && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
 alias skyscanner-ios-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
 alias skyscanner-ios-app-setup='skyscanner-ios-app && gem install bundler && cd ios && rvm use 2.3.1 && ./fullsetup && skyscanner-ios-app'
@@ -351,5 +356,6 @@ load-nvmrc() {
     nvm use default
   fi
 }
+npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
