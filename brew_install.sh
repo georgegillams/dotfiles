@@ -20,10 +20,8 @@ brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
 brew cask install dash
-brew cask install detexify
 brew cask install docker
 brew cask install dropbox
-brew cask install firefox
 brew cask install firefox-developer-edition
 brew cask install franz
 brew cask install gifox
@@ -31,6 +29,7 @@ brew cask install google-chrome
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install night-owl
 brew cask install nordvpn
 brew cask install postman
 brew cask install rocket
@@ -44,14 +43,13 @@ brew cask install virtualbox
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
-brew install cloc
+brew install cloc # count lines of code
 brew install cmake
 brew install cowsay
 brew install docker
 brew install docker-compose
 brew install git
 brew install gpg
-brew install heroku/brew/heroku
 brew install imagemagick
 brew install imageoptim-cli
 brew install libdvdcss
