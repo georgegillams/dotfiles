@@ -120,6 +120,8 @@ read
 # echo "Press any key once complete"
 # read
 
+lpass login --trust g@georgegillams.co.uk
+
 npm login
 
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
