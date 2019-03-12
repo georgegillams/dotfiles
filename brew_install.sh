@@ -52,6 +52,7 @@ brew install git
 brew install gpg
 brew install imagemagick
 brew install imageoptim-cli
+brew install lastpass-cli
 brew install libdvdcss
 brew install lolcat
 brew install lynx
