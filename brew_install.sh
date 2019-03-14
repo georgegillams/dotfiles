@@ -154,14 +154,14 @@ cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
 backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
 
 # Copy firefox chrome.css to profile directories:
-# open /Applications/Firefox\ Developer\ Edition.app/
-# open /Applications/Firefox.app/
-# sleep 10
-# cd /Users/georgegillams/Library/Application\ Support/Firefox/Profiles/
-# find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Documents/dotfiles/chrome ./" \;
-# cd -
-# sleep 10
-# pkill firefox
+open /Applications/Firefox\ Developer\ Edition.app/
+open /Applications/Firefox.app/
+sleep 10
+cd /Users/georgegillams/Library/Application\ Support/Firefox/Profiles/
+find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Documents/dotfiles/chrome ./" \;
+cd -
+sleep 10
+pkill firefox
 
 # Run Lastpass installer
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
