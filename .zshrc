@@ -161,6 +161,7 @@ function git-revert-to-master() { git checkout origin/master $@ }
 function git-revert-to-develop() { git checkout origin/develop $@ }
 alias git-rebase-continue='git rebase --continue'
 alias git-rebase-abort='git rebase --abort'
+alias git-rebase-skip='git rebase --skip'
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
