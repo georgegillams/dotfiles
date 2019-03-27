@@ -26,6 +26,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'msanders/cocoa.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'rhysd/clever-f.vim'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
@@ -112,6 +113,7 @@ endfunction
 let g:prettier#autoformat = 0
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.m,*.h,*.swift Prettier
+autocmd BufWritePre *.m,*.h,*.swift ClangFormat
 
 " vim-airline
 let g:airline_powerline_fonts = 1
