@@ -113,7 +113,7 @@ endfunction
 let g:prettier#autoformat = 0
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.m,*.h,*.swift Prettier
-autocmd BufWritePre *.m,*.h,*.swift ClangFormat
+autocmd BufWritePre *.m,*.h ClangFormat
 
 " vim-airline
 let g:airline_powerline_fonts = 1
