@@ -194,12 +194,12 @@ read
 # Do this last as it's huge!
 mas install 497799835 # XCode
 
-# setup XCode plugins
-cd ~/Documents
-git clone git@github.com:travisjeffery/ClangFormat-Xcode.git
-cd ~/Documents/ClangFormat-Xcode && open ClangFormat.xcodeproj
-sudo gem install update_xcode_plugins
-update_xcode_plugins
+# # setup XCode plugins
+# cd ~/Documents
+# git clone git@github.com:travisjeffery/ClangFormat-Xcode.git
+# cd ~/Documents/ClangFormat-Xcode && open ClangFormat.xcodeproj
+# sudo gem install update_xcode_plugins
+# update_xcode_plugins
 
 # Setup backpack ios dependencies:
 open /Applications/Xcode.app/
