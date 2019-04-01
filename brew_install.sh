@@ -63,7 +63,7 @@ brew install python3
 brew install rbenv
 brew install redis
 brew install sl
-brew install swiftformat
+brew install swiftlint
 brew install the_silver_searcher
 brew install vim
 brew install w3m

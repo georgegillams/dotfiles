@@ -10,6 +10,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'keith/swift.vim'
+Plugin 'msanders/cocoa.vim'
+
+" Linting
+Plugin 'scrooloose/syntastic'
+Plugin 'tokorom/syntastic-swiftlint.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'rhysd/clever-f.vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'w0rp/ale'
 
 " Misc
 Plugin 'RRethy/vim-illuminate'
@@ -21,12 +31,7 @@ Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'keith/swift.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'msanders/cocoa.vim'
-Plugin 'prettier/vim-prettier'
-Plugin 'rhysd/clever-f.vim'
-Plugin 'rhysd/vim-clang-format'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
@@ -35,7 +40,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vimwiki/vimwiki'
-Plugin 'w0rp/ale'
 Plugin 'wakatime/vim-wakatime'
 "requires different colour scheme https://github.com/aseom/dotfiles/blob/master/osx/iterm2/iceberg.itermcolors
 Plugin 'cocopon/iceberg.vim'
@@ -114,6 +118,8 @@ let g:prettier#autoformat = 0
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.m,*.h,*.swift Prettier
 autocmd BufWritePre *.m,*.h ClangFormat
+
+let g:syntastic_swift_checkers = ['swiftlint']
 
 " vim-airline
 let g:airline_powerline_fonts = 1
