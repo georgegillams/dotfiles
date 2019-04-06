@@ -26,6 +26,7 @@ brew cask install firefox-developer-edition
 brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
+brew cask install grandperspective
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
@@ -73,7 +74,6 @@ brew install yarn
 brew install zsh zsh-completions
 
 mas install 1031163338 # GIFHunter
-mas install 1111570163 # GrandPerspective
 mas install 1165321484 # XCFormat for Xcode
 mas install 1183412116 # Swiftify for Xcode
 mas install 1278508951 # Trello
