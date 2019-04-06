@@ -357,4 +357,3 @@ load-nvmrc() {
 }
 npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc
