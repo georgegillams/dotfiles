@@ -73,6 +73,9 @@ brew install yarn
 brew install zsh zsh-completions
 
 mas install 1031163338 # GIFHunter
+mas install 1111570163 # GrandPerspective
+mas install 1165321484 # XCFormat for Xcode
+mas install 1183412116 # Swiftify for Xcode
 mas install 1278508951 # Trello
 mas install 447521961 # XChat Azure
 mas install 585829637 # Todoist
@@ -81,8 +84,6 @@ mas install 909566003 # iHex - Hex Editor
 mas install 926036361 # LastPass
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
-mas install 1165321484 # XCFormat for Xcode
-mas install 1183412116 # Swiftify for Xcode
 
 # Setup default nvm
 nvm install 10.13.0
