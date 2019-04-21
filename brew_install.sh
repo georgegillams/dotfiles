@@ -49,6 +49,7 @@ brew install cmake
 brew install cowsay
 brew install docker
 brew install docker-compose
+brew install exiftool
 brew install git
 brew install gpg
 brew install imagemagick
@@ -143,6 +144,12 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+
+# setup `git diff-image`
+cd ~/Documents
+git clone git@github.com:ewanmellor/git-diff-image.git
+cd git-diff-image
+./install.sh
 
 # Install YCM backend:
 ln -s /usr/local/bin/mvim ~/vim
