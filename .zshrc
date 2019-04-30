@@ -239,6 +239,19 @@ alias epicc-ticket-sales-backup='dotfiles && node epicc-ticket-sales-backup.js &
 
 # ======================== SKYSCANNER ========================
 
+alias backpack-docs='cd ~/Documents/backpack-docs/'
+alias backpack-docs-fix-tests='backpack-docs && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
+alias backpack-docs-run-tests='backpack-docs && (pkill flow | true) && npm test'
+alias backpack-docs-git-submodules-reset='backpack-docs && git checkout origin/master backpack-docs-android backpack-docs-ios backpack-docs-react-native && git submodule update --init --recursive'
+alias backpack-docs-watch-tests='backpack-docs && npm run jest:watch'
+alias backpack-docs-run-flow='backpack-docs && (pkill flow | true) && npm run flow'
+alias backpack-docs-setup='backpack-docs && npm i && npm run build && git-submodules-init'
+alias backpack-docs-nuke='cd ~/Documents/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
+alias backpack-docs-nuke-setup='backpack-docs-nuke && backpack-docs-setup'
+alias backpack-docs-run-docs='backpack-docs && npm run docs'
+alias backpack-docs-check-outdated-top-level='npm outdated'
+alias backpack-docs-output-all-outdated='backpack-docs && (backpack-docs-check-outdated-top-level > ~/Desktop/outdated.txt) & (sleep 5 && backpack-docs-check-outdated-npm-packages >> ~/Desktop/outdated.txt && backpack-docs-check-outdated-npm-packages-native >> ~/Desktop/outdated_native.txt) && cat ~/Desktop/outdated.txt | less'
+
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-run-tests='backpack && (pkill flow | true) && npm test'
@@ -256,10 +269,6 @@ alias backpack-clean-icons='sudo rm -rf packages/bpk-svgs/dist/png'
 alias backpack-check-outdated-npm-packages='for dir in `ls packages`
 do
   (cd ./packages/$dir && npm outdated);
-done'
-alias backpack-check-outdated-npm-packages-native='for dir in `ls native/packages`
-do
-  (cd ./native/packages/$dir && npm outdated);
 done'
 alias backpack-check-outdated-top-level='npm outdated'
 alias backpack-output-all-outdated='backpack && (backpack-check-outdated-top-level > ~/Desktop/outdated.txt) & (sleep 5 && backpack-check-outdated-npm-packages >> ~/Desktop/outdated.txt && backpack-check-outdated-npm-packages-native >> ~/Desktop/outdated_native.txt) && cat ~/Desktop/outdated.txt | less'
