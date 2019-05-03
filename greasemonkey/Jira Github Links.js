@@ -4,32 +4,30 @@
 // @include     *github.com*
 // @include     *gojira.skyscanner.net*
 // @exclude     none
-// @version     1
+// @version     2
 // @description:en	Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // @grant    		none
 // ==/UserScript==
 
 function makeGHLink() {
-  const allElements = document.getElementsByTagName('H1');
+  let allElements = document.getElementsByTagName('H1');
   for (let i = 0; i < allElements.length; i += 1) {
-    const element = allElements[i];
-    const elementMatch = element.innerText.match(/\[BPK-[0-9]+\]/g);
-    if (
-      elementMatch &&
-      elementMatch.length > 0 &&
-      element.childElementCount < 3
-    ) {
-      const text = elementMatch[0]
+    let element = allElements[i];
+    let elementMatch = element.innerText.match(/\[BPK-[0-9]+\]/g);
+    if (elementMatch && elementMatch.length > 0) {
+      let text = elementMatch[0]
         .split('[')
         .join('')
         .split(']')
         .join('');
-      const url = `https://gojira.skyscanner.net/browse/${text}`;
-      const newElement = document.createElement('a');
+      let url = `https://gojira.skyscanner.net/browse/${text}`;
+      let newElement = document.createElement('a');
       newElement.innerText = `View ${text} ticket on Jira`;
       newElement.href = url;
       newElement.style.color = '#00b2d6ff';
       newElement.style.fontSize = '1rem';
+      newElement.id = 'jira_github_links_result';
+
       element.appendChild(document.createElement('br'));
       element.appendChild(newElement);
     }
@@ -37,29 +35,33 @@ function makeGHLink() {
 }
 
 function makeJiraLink() {
-  const allElements = document.getElementsByTagName('LI');
+  let allElements = document.getElementsByTagName('LI');
+  const viewIssueSidebar = document.getElementById('viewissuesidebar');
   for (let i = 0; i < allElements.length; i += 1) {
-    const element = allElements[i];
-    const elementMatch = element.innerText.match(/^BPK-[0-9]+$/g);
-    if (
-      elementMatch &&
-      elementMatch.length > 0 &&
-      element.parentElement.childElementCount < 5
-    ) {
-      const text = element.innerText;
-      const url = `https://github.com/pulls?utf8=%E2%9C%93&q=is%3Aopen+is%3Apr+repo%3ASkyscanner%2Fbackpack+repo%3ASkyscanner%2Fbackpack-react-native+repo%3ASkyscanner%2Fbackpack-docs+repo%3ASkyscanner%2Fbackpack-react-scripts+repo%3ASkyscanner%2Fbackpack-node-sass+repo%3ASkyscanner%2Feslint-plugin-backpack+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Fbackpack-ios+repo%3ASkyscanner%2Fbackpack-android+${text}`;
-      const newElement = document.createElement('a');
+    let element = allElements[i];
+    let elementMatch = element.innerText.match(/^BPK-[0-9]+$/g);
+    if (elementMatch && elementMatch.length > 0) {
+      let text = element.innerText;
+      let url = `https://github.com/pulls?utf8=%E2%9C%93&q=is%3Aopen+is%3Apr+repo%3ASkyscanner%2Fbackpack+repo%3ASkyscanner%2Fbackpack-react-native+repo%3ASkyscanner%2Fbackpack-docs+repo%3ASkyscanner%2Fbackpack-react-scripts+repo%3ASkyscanner%2Fbackpack-node-sass+repo%3ASkyscanner%2Feslint-plugin-backpack+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Fbackpack-ios+repo%3ASkyscanner%2Fbackpack-android+${text}`;
+      let newElement = document.createElement('a');
       newElement.innerText = `View PRs for ${text} on GitHub`;
       newElement.href = url;
       newElement.style.color = '#00b2d6ff';
-      newElement.style.fontSize = '1rem';
-      element.appendChild(document.createElement('br'));
-      element.appendChild(newElement);
+      newElement.style.marginLeft = '10px';
+      newElement.id = 'jira_github_links_result';
+
+      viewIssueSidebar.appendChild(document.createElement('br'));
+      viewIssueSidebar.appendChild(newElement);
     }
   }
 }
 
 function makeLinks() {
+  const addedLink = document.getElementById('jira_github_links_result');
+  if (addedLink) {
+    return;
+  }
+
   makeGHLink();
   makeJiraLink();
 }
