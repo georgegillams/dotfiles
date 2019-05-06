@@ -3,7 +3,7 @@
 // @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_WIP_reminder
 // @include     *github.com*
 // @exclude     none
-// @version     2
+// @version     3
 // @description:en	Adds an reminder to not review WIP PR's
 // @description	Adds an reminder to not review WIP PR's
 // @grant    		none
@@ -23,7 +23,6 @@ function addReminder() {
           console.log(`element`, element)
         console.log(`element.parentElement.parentElement`, element.parentElement.parentElement);
         if (element.parentElement.parentElement.className.includes("labels css-truncate")) {
-          console.log(`wip`);
           let newElement = document.createElement('div');
           newElement.innerText = `HEY THIS IS WIP!`;
           newElement.style.backgroundColor = 'rgb(214, 11, 0)';
@@ -39,7 +38,13 @@ function addReminder() {
           newElement.style.display = 'flex';
           newElement.style.alignItems = 'center';
           newElement.style.justifyContent = 'center';
-          element.appendChild(newElement);
+          newElement.style.transition = "all 0.4s";
+          newElement.style.fontWeight = "bold";
+          newElement.onclick = function() {
+            newElement.style.opacity = 0;
+            newElement.style.pointerEvents = "none";
+          }
+          element.parentElement.parentElement.appendChild(newElement);
         }
       }
     }
