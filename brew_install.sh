@@ -79,6 +79,7 @@ mas install 1165321484 # XCFormat for Xcode
 mas install 1183412116 # Swiftify for Xcode
 mas install 1278508951 # Trello
 mas install 447521961 # XChat Azure
+mas install 552792489 # Status Clock
 mas install 585829637 # Todoist
 mas install 693112260 # Sim Daltonism
 mas install 909566003 # iHex - Hex Editor
