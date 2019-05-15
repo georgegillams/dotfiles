@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *gojira.skyscanner.net*
 // @exclude     none
-// @version     3
+// @version     4
 // @description:en	Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // @grant    		none
 // ==/UserScript==
@@ -13,7 +13,7 @@ function makeGHLink() {
   let allElements = document.getElementsByTagName('H1');
   for (let i = 0; i < allElements.length; i += 1) {
     let element = allElements[i];
-    let elementMatch = element.innerText.match(/\[BPK-[0-9]+\]/g);
+    let elementMatch = element.innerText.match(/\[BPKR?-[0-9]+\]/g);
     if (elementMatch && elementMatch.length > 0) {
       let text = elementMatch[0]
         .split('[')
@@ -39,7 +39,7 @@ function makeJiraLink() {
   const viewIssueSidebar = document.getElementById('viewissuesidebar');
   for (let i = 0; i < allElements.length; i += 1) {
     let element = allElements[i];
-    let elementMatch = element.innerText.match(/^BPK-[0-9]+$/g);
+    let elementMatch = element.innerText.match(/^BPKR?-[0-9]+$/g);
     if (elementMatch && elementMatch.length > 0) {
       let text = element.innerText;
       let url = `https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+repo%3ASkyscanner%2Fbackpack+repo%3ASkyscanner%2Fbackpack-react-native+repo%3ASkyscanner%2Fbackpack-docs+repo%3ASkyscanner%2Fbackpack-react-scripts+repo%3ASkyscanner%2Fbackpack-node-sass+repo%3ASkyscanner%2Feslint-plugin-backpack+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Fbackpack-ios+repo%3ASkyscanner%2Fbackpack-android+${text}`;
