@@ -245,10 +245,12 @@ alias backpack-docs-run-tests='backpack-docs && (pkill flow | true) && npm test'
 alias backpack-docs-git-submodules-reset='backpack-docs && git checkout origin/master backpack-docs-android backpack-docs-ios backpack-docs-react-native && git submodule update --init --recursive'
 alias backpack-docs-watch-tests='backpack-docs && npm run jest:watch'
 alias backpack-docs-run-flow='backpack-docs && (pkill flow | true) && npm run flow'
-alias backpack-docs-setup='backpack-docs && (cd docs && npm ci) && npm ci && npm run build-backpack'
+alias backpack-docs-setup='backpack-docs && npm i && npm run build-backpack'
 alias backpack-docs-nuke='cd ~/Documents/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
 alias backpack-docs-nuke-setup='backpack-docs-nuke && backpack-docs-setup'
 alias backpack-docs-run-docs='backpack-docs && npm run docs'
+
+alias backpack-publish-all-packages='backpack && cd packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;'
 
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
