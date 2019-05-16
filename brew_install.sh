@@ -30,6 +30,7 @@ brew cask install grandperspective
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install muzzle
 brew cask install night-owl
 brew cask install nordvpn
 brew cask install postman
