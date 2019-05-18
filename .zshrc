@@ -230,6 +230,11 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
+alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
+alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
+alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
+alias screen-reader-adventures-backup='dotfiles && node screen-reader-adventures-backup.js && cd -'
+
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
 alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
