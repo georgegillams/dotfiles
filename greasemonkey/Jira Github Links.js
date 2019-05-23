@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *gojira.skyscanner.net*
 // @exclude     none
-// @version     4
+// @version     5
 // @description:en	Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // @grant    		none
 // ==/UserScript==
@@ -42,16 +42,29 @@ function makeJiraLink() {
     let elementMatch = element.innerText.match(/^BPKR?-[0-9]+$/g);
     if (elementMatch && elementMatch.length > 0) {
       let text = element.innerText;
-      let url = `https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+repo%3ASkyscanner%2Fbackpack+repo%3ASkyscanner%2Fbackpack-react-native+repo%3ASkyscanner%2Fbackpack-docs+repo%3ASkyscanner%2Fbackpack-react-scripts+repo%3ASkyscanner%2Fbackpack-node-sass+repo%3ASkyscanner%2Feslint-plugin-backpack+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Fbackpack-ios+repo%3ASkyscanner%2Fbackpack-android+${text}`;
-      let newElement = document.createElement('a');
-      newElement.innerText = `View PRs for ${text} on GitHub`;
-      newElement.href = url;
-      newElement.style.color = '#00b2d6ff';
-      newElement.style.marginLeft = '10px';
-      newElement.id = 'jira_github_links_result';
+
+      let url1 = `https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+repo%3ASkyscanner%2Fbackpack+repo%3ASkyscanner%2Fbackpack-react-native+repo%3ASkyscanner%2Fbackpack-docs+repo%3ASkyscanner%2Fbackpack-react-scripts+repo%3ASkyscanner%2Fbackpack-node-sass+repo%3ASkyscanner%2Feslint-plugin-backpack+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Feslint-config-skyscanner+repo%3ASkyscanner%2Fbackpack-ios+repo%3ASkyscanner%2Fbackpack-android+${text}`;
+
+      let url2 = `https://github.skyscannertools.net/pulls?utf8=%E2%9C%93&q=is%3Apr+repo%3Aapps-tribe%2Fskyscanner-app+${text}`;
+
+      let newElement1 = document.createElement('a');
+      newElement1.innerText = `View PRs for ${text} on GitHub (Public)`;
+      newElement1.href = url1;
+      newElement1.style.color = '#00b2d6ff';
+      newElement1.style.marginLeft = '10px';
+      newElement1.id = 'jira_github_links_result';
+
+ 		  let newElement2 = document.createElement('a');
+      newElement2.innerText = `View PRs for ${text} on GitHub (Internal)`;
+      newElement2.href = url2;
+      newElement2.style.color = '#00b2d6ff';
+      newElement2.style.marginLeft = '10px';
+      newElement2.id = 'jira_github_links_result';
 
       viewIssueSidebar.appendChild(document.createElement('br'));
-      viewIssueSidebar.appendChild(newElement);
+      viewIssueSidebar.appendChild(newElement1);
+      viewIssueSidebar.appendChild(document.createElement('br'));
+      viewIssueSidebar.appendChild(newElement2);
     }
   }
 }
@@ -67,4 +80,5 @@ function makeLinks() {
 }
 
 setInterval(makeLinks, 2000);
+
 
