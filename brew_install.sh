@@ -54,6 +54,7 @@ brew install docker-compose
 brew install exiftool
 brew install git
 brew install gpg
+brew install hub
 brew install imagemagick
 brew install imageoptim-cli
 brew install lastpass-cli
