@@ -257,10 +257,14 @@ alias backpack-docs-run-docs='backpack-docs && npm run docs'
 
 alias backpack-publish-all-packages='backpack && cd packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;'
 
+alias kr-disable-codesign='kr codesign off'
+alias kr-enable-codesign='kr codesign on'
+
 alias backpack='cd ~/Documents/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-run-tests='backpack && (pkill flow | true) && npm test'
 alias backpack-watch-tests='backpack && npm run jest:watch'
+alias backpack-release='backpack && kr-disable-codesign && npm run publish && kr-enable-codesign'
 alias backpack-run-flow='backpack && (pkill flow | true) && npm run flow'
 alias backpack-setup='backpack && npm i && npm run build'
 alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone --recursive git@github.com:Skyscanner/backpack.git'
