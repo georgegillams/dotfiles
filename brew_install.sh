@@ -31,10 +31,13 @@ brew cask install grandperspective
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install lastpass
 brew cask install muzzle
 brew cask install night-owl
 brew cask install nordvpn
 brew cask install postman
+brew cask install reflector
+brew cask install reveal
 brew cask install rocket
 brew cask install sketch
 brew cask install slack
@@ -201,6 +204,8 @@ echo "Secure password character extractor => https://www.georgegillams.co.uk/app
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 open https://github.com/arcticicestudio/nord-iterm2
+echo "Snap camera"
+open https://snapcamera.snapchat.com/download/
 sleep 10
 echo "Press any key once complete"
 read
