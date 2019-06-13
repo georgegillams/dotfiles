@@ -13,6 +13,9 @@ brew tap caskroom/fonts && brew cask install font-source-code-pro
 brew tap caskroom/versions && brew cask install java8
 brew tap wix/brew
 
+# needed to make mas install work
+sudo chown -R $(whoami) /usr/local/lib/pkgconfig
+
 brew cask install adobe-creative-cloud
 brew cask install alfred
 brew cask install android-platform-tools
@@ -33,10 +36,10 @@ brew cask install google-chrome
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
-brew cask install lastpass
 brew cask install muzzle
 brew cask install night-owl
 brew cask install nordvpn
+brew cask install oracle-jdk
 brew cask install postman
 brew cask install reflector
 brew cask install sketch
@@ -59,7 +62,6 @@ brew install gpg
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli
-brew install lastpass-cli
 brew install libdvdcss
 brew install lolcat
 brew install lynx
@@ -79,6 +81,10 @@ brew install wget
 brew install yarn
 brew install zsh zsh-completions
 
+echo "Sign in to the AppStore. Press enter when complete"
+open /Applications/App\ Store.app
+read
+
 mas install 1031163338 # GIFHunter
 mas install 1278508951 # Trello
 mas install 447521961 # XChat Azure
@@ -88,6 +94,11 @@ mas install 693112260 # Sim Daltonism
 mas install 909566003 # iHex - Hex Editor
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
+mas install 926036361 # LastPass Password Manager
+
+echo "Sign in to LastPass. Hit enter when complete."
+open /Applications/LastPass.app
+read
 
 # Setup default nvm
 nvm install 10.13.0
@@ -95,6 +106,8 @@ nvm use 10.13.0
 
 # install NVM and RVM
 \curl -sSL https://get.rvm.io | bash -s stable
+
+git config --global user.name "George Gillams" && git config --global user.email george.gillams@skyscanner.net
 
 # Set up Krypt.co SSH/GPG keys:
 echo "Enter dev mode in the app to get started"
@@ -128,8 +141,7 @@ read
 # echo "Press any key once complete"
 # read
 
-lpass login --trust g@georgegillams.co.uk
-
+echo "Logging in to NPM"
 npm login
 
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -162,6 +174,8 @@ cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
 # Clone common guithub repos
+cd ~/Documents && rm -rf dotfiles
+cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
 cd ~/Documents && git clone git@github.com:georgegillams/georgegillams.co.uk.git
 cd ~/Documents && git clone git@github.com:Skyscanner/backpack.git
 cd ~/Documents && git clone git@github.com:Skyscanner/backpack-ios.git
@@ -181,7 +195,6 @@ pkill firefox
 
 # Run Lastpass installer
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
-open /usr/local/Caskroom/lastpass/latest/LastPass\ Installer.app
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/
 open /Applications/Firefox.app/
@@ -239,4 +252,3 @@ $HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-27;google_
 $HOME/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-21;google_apis;x86"
 $HOME/Library/Android/sdk/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-27;google_apis;x86" --device "pixel" && cp native/android/bpk-avd.ini ~/.android/avd/bpk-avd.avd/config.ini
 $HOME/Library/Android/sdk/tools/bin/avdmanager create avd --name "bpk-avd-min" --package "system-images;android-21;google_apis;x86" --device "Nexus 5"
-
