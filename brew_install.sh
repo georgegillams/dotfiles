@@ -20,7 +20,6 @@ brew cask install android-studio
 brew cask install atom
 brew cask install authy
 brew cask install avibrazil-rdm
-brew cask install bettertouchtool
 brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
@@ -29,10 +28,8 @@ brew cask install dash
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox-developer-edition
-brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
-brew cask install grandperspective
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
@@ -42,14 +39,11 @@ brew cask install night-owl
 brew cask install nordvpn
 brew cask install postman
 brew cask install reflector
-brew cask install reveal
-brew cask install rocket
 brew cask install sketch
 brew cask install slack
 brew cask install sourcetree
 brew cask install spotify
 brew cask install the-unarchiver
-brew cask install vanilla
 brew cask install virtualbox
 brew cask install vlc
 brew install ack # CLI search
