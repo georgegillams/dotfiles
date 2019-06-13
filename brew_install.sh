@@ -92,9 +92,9 @@ mas install 552792489 # Status Clock
 mas install 585829637 # Todoist
 mas install 693112260 # Sim Daltonism
 mas install 909566003 # iHex - Hex Editor
+mas install 926036361 # LastPass Password Manager
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
-mas install 926036361 # LastPass Password Manager
 
 echo "Sign in to LastPass. Hit enter when complete."
 open /Applications/LastPass.app
@@ -214,8 +214,15 @@ echo "NOW INSTALL MANUALLY ☹️"
 # cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
 echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
+rm -rf Secure_Password_Character_Extractor.zip
+
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
+cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
 open https://github.com/arcticicestudio/nord-iterm2
+echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select Powerline font under Text"
+read
+rm -rf Nord.itermcolors
+
 echo "Snap camera"
 open https://snapcamera.snapchat.com/download/
 sleep 10
