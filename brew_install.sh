@@ -103,6 +103,8 @@ read
 # Setup default nvm
 nvm install 10.13.0
 nvm use 10.13.0
+sudo chown -R $USER:$GROUP ~/.npm
+sudo chown -R $USER:$GROUP ~/.config
 
 # install NVM and RVM
 \curl -sSL https://get.rvm.io | bash -s stable
@@ -176,6 +178,7 @@ cd ~/.vim/bundle/YouCompleteMe
 # Clone common guithub repos
 cd ~/Documents && rm -rf dotfiles
 cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
+cd dotfiles && npm i
 cd ~/Documents && git clone git@github.com:georgegillams/georgegillams.co.uk.git
 cd ~/Documents && git clone git@github.com:Skyscanner/backpack.git
 cd ~/Documents && git clone git@github.com:Skyscanner/backpack-ios.git
