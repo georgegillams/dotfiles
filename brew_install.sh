@@ -2,6 +2,11 @@
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
+echo "Enable iTerm touchID"
+echo "Paste this into /etc/pam.d/sudo"
+echo "auth sufficient pam_tid.so" | pbcopy
+sudo vim /etc/pam.d/sudo
+
 brew update
 brew tap caskroom/cask
 brew tap caskroom/fonts && brew cask install font-source-code-pro
@@ -81,15 +86,12 @@ brew install yarn
 brew install zsh zsh-completions
 
 mas install 1031163338 # GIFHunter
-mas install 1165321484 # XCFormat for Xcode
-mas install 1183412116 # Swiftify for Xcode
 mas install 1278508951 # Trello
 mas install 447521961 # XChat Azure
 mas install 552792489 # Status Clock
 mas install 585829637 # Todoist
 mas install 693112260 # Sim Daltonism
 mas install 909566003 # iHex - Hex Editor
-mas install 926036361 # LastPass
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
 
@@ -102,6 +104,7 @@ nvm use 10.13.0
 
 # Set up Krypt.co SSH/GPG keys:
 echo "Enter dev mode in the app to get started"
+echo "Remember to add the new keys to all GitHub instances"
 curl https://krypt.co/kr | sh
 kr pair
 kr github
@@ -166,9 +169,11 @@ cd ~/.vim/bundle/YouCompleteMe
 
 # Clone common guithub repos
 cd ~/Documents && git clone git@github.com:georgegillams/georgegillams.co.uk.git
-cd ~/Documents && git clone git@github.com:georgegillams/georgegillams_ssr_2.git
-cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
-backpack-setup && georgegillams-setup && georgegillams-ssr-2 && npm i
+cd ~/Documents && git clone git@github.com:Skyscanner/backpack.git
+cd ~/Documents && git clone git@github.com:Skyscanner/backpack-ios.git
+cd ~/Documents && git clone git@github.com:Skyscanner/backpack-android.git
+cd ~/Documents && git clone git@github.com:Skyscanner/backpack-react-native.git
+backpack-setup && backpack-ios-setup && georgegillams-setup && backpack-rn-setup
 
 # Copy firefox chrome.css to profile directories:
 open /Applications/Firefox\ Developer\ Edition.app/
@@ -196,8 +201,8 @@ open /Applications/Spotify.app/
 open ./resources/Network\ Link\ Conditioner.prefPane
 
 echo "NOW INSTALL MANUALLY ☹️"
-echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
-cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
+# echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
+# cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
 # echo "Node version"
 # cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
 echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
