@@ -92,7 +92,7 @@ alias npm-set-artifatory-registry='npm config set registry https://artifactory.s
 # ============================================================
 
 alias xcode='open'
-alias xcode-delete-derived-data='sudo rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
+alias xcode-delete-derived-data='rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
 alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
 alias AndroidStudio="open -a /Applications/Android\ Studio.app"
