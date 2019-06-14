@@ -37,7 +37,6 @@ brew cask install handbrake
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install muzzle
-brew cask install night-owl
 brew cask install nordvpn
 brew cask install oracle-jdk
 brew cask install postman
@@ -51,6 +50,7 @@ brew cask install virtualbox
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
+brew install clang-format
 brew install cloc # count lines of code
 brew install cmake
 brew install cowsay
