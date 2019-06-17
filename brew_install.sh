@@ -74,6 +74,7 @@ brew install redis
 brew install sl
 brew install swiftlint
 brew install the_silver_searcher
+brew install tree
 brew install vim
 brew install w3m
 brew install watchman
