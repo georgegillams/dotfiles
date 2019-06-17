@@ -2,8 +2,9 @@
 // @name        GitHub squash reminder
 // @namespace   urn://https://www.georgegillams.co.uk/greasemonkey/github_squash_reminder
 // @include     *github.com*
+// @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     3
+// @version     4
 // @description:en	Adds an reminder to squash PRs that have > 1 commit
 // @description   	Adds an reminder to squash PRs that have > 1 commit
 // @grant    		none
