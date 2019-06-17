@@ -147,6 +147,8 @@ read
 echo "Logging in to NPM"
 npm login
 
+pod trunk register george.gillams@skyscanner.net
+
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/Documents && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc
