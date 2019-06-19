@@ -173,6 +173,8 @@ cd ~/Documents
 git clone git@github.com:ewanmellor/git-diff-image.git
 cd git-diff-image
 ./install.sh
+cd ..
+rm -rf git-diff-image
 
 # Install YCM backend:
 ln -s /usr/local/bin/mvim ~/vim
