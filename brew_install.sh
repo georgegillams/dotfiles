@@ -67,6 +67,7 @@ brew install lolcat
 brew install lynx
 brew install macvim
 brew install mas # CLI apps store
+brew install mitmproxy
 brew install nvm
 brew install python3
 brew install rbenv
