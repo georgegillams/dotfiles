@@ -90,6 +90,9 @@ read
 mas install 1031163338 # GIFHunter
 mas install 1039705526 # Grabbie
 mas install 1278508951 # Trello
+mas install 409183694 # Keynote
+mas install 409201541 # Pages
+mas install 409203825 # Numbers
 mas install 447521961 # XChat Azure
 mas install 552792489 # Status Clock
 mas install 585829637 # Todoist
