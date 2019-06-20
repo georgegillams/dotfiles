@@ -2,9 +2,10 @@
 // @name        Jira Github links
 // @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/jira_github_links
 // @include     *github.com*
+// @include     *github.skyscannertools.net*
 // @include     *gojira.skyscanner.net*
 // @exclude     none
-// @version     5
+// @version     6
 // @description:en	Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // @grant    		none
 // ==/UserScript==
@@ -80,5 +81,6 @@ function makeLinks() {
 }
 
 setInterval(makeLinks, 2000);
+
 
 
