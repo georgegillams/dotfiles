@@ -229,6 +229,10 @@ echo "Secure password character extractor => https://www.georgegillams.co.uk/app
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
 rm -rf Secure_Password_Character_Extractor.zip
 
+echo "Shift => https://tryshift.com/"
+cd ~/Downloads && wget https://update.tryshift.com/download/version/3.7.2/osx_64 && open shift-mac-v3.7.2.dmg && sleep 25
+rm -rf Secure_Password_Character_Extractor.zip
+
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
 open https://github.com/arcticicestudio/nord-iterm2
