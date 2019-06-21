@@ -31,6 +31,7 @@ brew cask install dash
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox-developer-edition
+brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
 brew cask install handbrake
@@ -227,10 +228,6 @@ echo "NOW INSTALL MANUALLY ☹️"
 # cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
 echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
-rm -rf Secure_Password_Character_Extractor.zip
-
-echo "Shift => https://tryshift.com/"
-cd ~/Downloads && wget https://update.tryshift.com/download/version/3.7.2/osx_64 && open shift-mac-v3.7.2.dmg && sleep 25
 rm -rf Secure_Password_Character_Extractor.zip
 
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
