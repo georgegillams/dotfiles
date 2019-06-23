@@ -58,6 +58,7 @@ brew install cmake
 brew install cowsay
 brew install docker
 brew install docker-compose
+brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install exiftool
 brew install git
 brew install gpg
@@ -230,6 +231,9 @@ echo "NOW INSTALL MANUALLY ☹️"
 echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
 cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
 rm -rf Secure_Password_Character_Extractor.zip
+
+echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
+open /usr/local/Caskroom/canon-eos-utility/*/*.app
 
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
