@@ -159,8 +159,8 @@ alias git-push-force-with-verification='ggf && git push --set-upstream $(git rem
 alias git-push-force='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
 alias git-yolo='git-push-force'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function git-commit-push-no-verification() { git-pre-push && git commit -m $@ --no-verify && git-push-force }
-function git-commit-push() { git-pre-push && git commit -m $@ && git-push-force-with-verification }
+function git-commit-push() { git-pre-push && git commit -m $@ --no-verify && git-push-force }
+function git-commit-push-with-verification() { git-pre-push && git commit -m $@ && git-push-force-with-verification }
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master() { git checkout origin/master $@ }
