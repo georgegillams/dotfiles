@@ -228,7 +228,7 @@ alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-setup='georgegillams && yarn install && yarn run prebuild'
+alias georgegillams-setup='georgegillams && yarn && yarn run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
@@ -336,7 +336,7 @@ alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E
 
 alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
 alias fullstack-run='fullstack && yarn run client & node server/src/server.js'
-alias fullstack-setup='fullstack && yarn install'
+alias fullstack-setup='fullstack && yarn'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
 alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'
