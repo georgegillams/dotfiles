@@ -186,7 +186,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 # ========================== MOZILLA =========================
 
 alias bedrock='cd ~/Documents/bedrock/'
-alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && yarn'
+alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && npm i'
 alias bedrock-nuke='cd ~/Documents/ && sudo rm -rf bedrock && git clone git@github.com:georgegillams/bedrock.git'
 alias bedrock-nuke-setup='bedrock-nuke && bedrock-setup'
 alias bedrock-run-server='bedrock && ./manage.py runserver'
@@ -228,7 +228,7 @@ alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-setup='georgegillams && yarn && yarn run prebuild'
+alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
@@ -335,8 +335,8 @@ alias backpack-android-nuke-setup='backpack-android-nuke && backpack-android-set
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
 alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
-alias fullstack-run='fullstack && yarn run client & node server/src/server.js'
-alias fullstack-setup='fullstack && yarn'
+alias fullstack-run='fullstack && npm run client & node server/src/server.js'
+alias fullstack-setup='fullstack && npm i'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
 alias skyscanner-ios-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'

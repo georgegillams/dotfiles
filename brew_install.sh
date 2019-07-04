@@ -49,6 +49,7 @@ brew cask install sourcetree
 brew cask install spotify
 brew cask install the-unarchiver
 brew cask install virtualbox
+brew cask install virtualbox-extension-pack
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
