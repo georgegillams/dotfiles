@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     4
+// @version     5
 // @description:en	Adds an reminder to squash PRs that have > 1 commit
 // @description   	Adds an reminder to squash PRs that have > 1 commit
 // @grant    		none
@@ -44,6 +44,18 @@ function addReminder() {
             "linear-gradient(-180deg, #e02626 0%, #9F2D27 90%)";
           element.style.color = "white";
         }
+        if (
+          element.textContent &&
+          element.textContent.includes("Squash and merge")
+        ) {
+          element.textContent = "SMERGE!";
+        }
+        if (
+          element.textContent &&
+          element.textContent.includes("Confirm squash and merge")
+        ) {
+          element.textContent = "Confirm SMERGE!";
+        }
       }
     }
     lastModifiedPr = prId;
@@ -51,3 +63,5 @@ function addReminder() {
 }
 
 setInterval(addReminder, 2000);
+
+
