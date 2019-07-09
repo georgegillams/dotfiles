@@ -139,7 +139,7 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }"'
-function git-jirabot-branch-name() { echo $@ > .tmpBranchName && jirabot precommit .tmpBranchName && cat .tmpBranchName }
+function git-jirabot-branch-name() { (echo $@ > .tmpBranchName && jirabot precommit .tmpBranchName && cat .tmpBranchName) & (sleep 2 && rm .tmpBranchName) }
 alias git-rebase-use-theirs='git checkout --theirs . && git add . && git rebase --continue'
 alias git-rebase-use-ours='git checkout --ours . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
@@ -160,7 +160,7 @@ alias git-push-force-with-verification='ggf && git push --set-upstream $(git rem
 alias git-push-force='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
 alias git-yolo='git-push-force'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function git-commit-push() { git-pre-push && git commit -m $@ --no-verify && git-push-force }
+function git-commit-push() { git-pre-push && git commit -m "$(git-jirabot-branch-name $@)" --no-verify && git-push-force }
 function git-commit-push-with-verification() { git-pre-push && git commit -m $@ && git-push-force-with-verification }
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
