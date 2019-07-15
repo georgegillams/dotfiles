@@ -144,16 +144,18 @@ alias git-rebase-use-theirs='git checkout --theirs . && git add . && git rebase 
 alias git-rebase-use-ours='git checkout --ours . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias git-master-latest-actual='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git-reset'
-alias git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
-alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest; else git-master-latest-actual; fi'
+alias git-develop-latest-actual='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
+alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest-actual; else git-master-latest-actual; fi'
+alias git-develop-latest='git-master-latest'
 alias git-add-all-no-image-optimisation='git add .'
 alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
 alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='git checkout -- .'
 alias git-fetch='git fetch --all'
 alias git-rebase-master-actual='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
-alias git-rebase-develop='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
-alias git-rebase-master=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-rebase-develop; else git-rebase-master; fi'
+alias git-rebase-develop-actual='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
+alias git-rebase-master=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-rebase-develop-actual; else git-rebase-master; fi'
+alias git-rebase-develop='git-rebase-master'
 alias git-pre-push='git status && sleep 3'
 alias git-amend-push='git-pre-push && gcn! --no-verify && git-push-force'
 alias git-amend-push-with-verification='git-pre-push && gcn! && git-push-force-with-verification'
@@ -167,8 +169,9 @@ function git-commit-push-with-verification() { git-pre-push && git commit -m $@ 
 function git-make-mr() { touch remove.txt && git-add-all && git-commit-push $@ && rm remove.txt && git-add-all && git-commit-push "squash me" }
 function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master-actual() { git checkout origin/master $@ }
-function git-revert-to-develop() { git checkout origin/develop $@ }
-function git-revert-to-master() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then git-revert-to-develop $@ ; else git-revert-to-master-actual $@ ; fi }
+function git-revert-to-develop-actual() { git checkout origin/develop $@ }
+function git-revert-to-master() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then git-revert-to-develop-actual $@ ; else git-revert-to-master-actual $@ ; fi }
+function git-revert-to-develop() { git-revert-to-master $@ }
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
