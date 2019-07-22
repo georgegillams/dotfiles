@@ -111,7 +111,7 @@ alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushal
 
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
 
-alias clearcache='npm cache clean --force && npm cache clear && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
+alias npm-clear-cache='npm cache clean --force && npm cache clear --force && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
 alias get-email-old='echo "georgegillams@hotmail.co.uk" | pbcopy'
 alias get-email='echo "g@georgegillams.co.uk" | pbcopy'
