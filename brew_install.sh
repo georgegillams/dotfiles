@@ -64,6 +64,7 @@ brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install exiftool
 brew install git
 brew install gpg
+brew install htop
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli
