@@ -54,7 +54,8 @@ function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID |
 function kill-process() { sudo kill -9 $@ }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
 alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
-alias system-fix-audio="sudo killall audio cored"
+alias system-fix-audio="sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
+alias system-fix-sound="system-fix-audio"
 alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
 alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app"
 alias system-open-sketch-updater="open /Applications/Sketch.app"
