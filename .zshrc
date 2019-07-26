@@ -268,7 +268,7 @@ alias backpack-docs-run-flow='backpack-docs && (pkill flow | true) && npm run fl
 alias backpack-docs-setup='backpack-docs && npm i && npm run build-backpack && npm run submodules:pull'
 alias backpack-docs-nuke='cd ~/Documents/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
 alias backpack-docs-nuke-setup='backpack-docs-nuke && backpack-docs-setup'
-alias backpack-docs-run-docs='backpack-docs && BPK_BUILT_AT=$( date -u +%s ) webpack-dev-server --open'
+alias backpack-docs-run-docs='backpack-docs && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
 
 alias backpack-publish-all-packages='backpack && cd packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;'
 
