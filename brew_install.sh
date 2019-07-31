@@ -63,6 +63,7 @@ brew install docker-compose
 brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install exiftool
 brew install git
+brew install golang
 brew install gpg
 brew install htop
 brew install hub
