@@ -179,6 +179,7 @@ function git-revert-to-master-actual() { git checkout origin/master $@ }
 function git-revert-to-develop-actual() { git checkout origin/develop $@ }
 function git-revert-to-master() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then git-revert-to-develop-actual $@ ; else git-revert-to-master-actual $@ ; fi }
 function git-revert-to-develop() { git-revert-to-master $@ }
+function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
