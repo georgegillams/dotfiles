@@ -395,3 +395,9 @@ load-nvmrc() {
 }
 npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
+
+# zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
+source /Users/georgen/.iterm2_shell_integration.zsh
+iterm2_print_user_vars() {
+  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+}
