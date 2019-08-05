@@ -90,6 +90,10 @@ brew install wget
 brew install yarn
 brew install zsh zsh-completions
 
+# Add iterm zsh integration
+curl -L https://iterm2.com/shell_integration/zsh \
+-o ~/.iterm2_shell_integration.zsh
+
 echo "Sign in to the AppStore. Press enter when complete"
 open /Applications/App\ Store.app
 read
