@@ -246,6 +246,10 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
+alias ggcomponents='cd ~/Documents/gg-components/'
+alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
+alias ggcomponents-setup='ggcomponents && npm i'
+
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
