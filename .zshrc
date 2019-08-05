@@ -381,6 +381,14 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# iTerm custom commands:
+source /Users/georgegillams/.iterm2_shell_integration.zsh
+iterm2_print_user_vars() {
+  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  iterm2_set_user_var whoamip $(whoamip)
+}
+iterm2_print_user_vars
 
 #Auto switch nvm versions:
 # place this after nvm initialization!
@@ -396,9 +404,3 @@ load-nvmrc() {
 npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
 
-# iTerm custom commands:
-source /Users/georgegillams/.iterm2_shell_integration.zsh
-iterm2_print_user_vars() {
-  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  iterm2_set_user_var whoamip $(whoamip)
-}
