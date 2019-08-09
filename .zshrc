@@ -2,7 +2,6 @@ export ZSH=/Users/georgegillams/.oh-my-zsh
 
 export PATH="/usr/local/sbin:$PATH"
 
-
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export TERM="xterm-256color"
@@ -130,6 +129,10 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
 alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.getElementsByClassName(\"btn btn-sm BtnGroup-item tooltipped tooltipped-n rendered js-rendered\");
+for (let i = toClick.length - 1; i >= 0; i -= 1){
+toClick[i].click();
+}"'
+alias git-show-me-how-to-unfold-all-gh-long-diffs='echo "const toClick = document.getElementsByClassName(\"load-diff-button btn-link width-full\");
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
 }"'
@@ -384,9 +387,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # iTerm custom commands:
 iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  iterm2_set_user_var zshTest $(echo "test")
+  iterm2_set_user_var zshTest "test"
 }
-iterm2_print_user_vars
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
