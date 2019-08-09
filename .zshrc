@@ -130,18 +130,18 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
-alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.getElementsByClassName(\"btn btn-sm BtnGroup-item tooltipped tooltipped-n rendered js-rendered\");
+alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.querySelectorAll(\"[aria-label="Display the rich diff"]\");
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
-}"'
+}" | pbcopy'
 alias git-show-me-how-to-unfold-all-gh-long-diffs='echo "const toClick = document.getElementsByClassName(\"load-diff-button btn-link width-full\");
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
-}"'
+}" | pbcopy'
 alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
-}"'
+}" | pbcopy'
 alias show-me-how-to-click-all-the-buttons='echo "const buttons = document.getElementsByTagType(\"BUTTON\");
 for (let i = buttons.length - 1; i >= 0; i -= 1){
   const button = buttons[i];
@@ -150,7 +150,7 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     button.click();
     console.log(\"clicked\");
   }
-}"'
+}" | pbcopy'
 function git-jirabot-branch-name() { (echo $@ > .tmpBranchName && jirabot precommit .tmpBranchName && cat .tmpBranchName) & (sleep 2 && rm .tmpBranchName) }
 alias git-rebase-use-theirs='git checkout --theirs . && git add . && git rebase --continue'
 alias git-rebase-use-ours='git checkout --ours . && git add . && git rebase --continue'
