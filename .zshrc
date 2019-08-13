@@ -130,7 +130,7 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
-alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.querySelectorAll(\"[aria-label="Display the rich diff"]\");
+alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.querySelectorAll(\`[aria-label=\"Display the rich diff\"]\`);
 for (let i = toClick.length - 1; i >= 0; i -= 1){
 toClick[i].click();
 }" | pbcopy'
@@ -346,7 +346,7 @@ alias backpack-ios-setup-open-complete='git-clean && xcode-delete-derived-data &
 alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
 alias backpack-ios-install-ruby-version='backpack-ios && rvm install ruby-$(cat .ruby-version)'
-alias backpack-ios-release='backpack-ios && BUILD_SDK=iphonesimulator12.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake release'
+alias backpack-ios-release='backpack-ios && BUILD_SDK=iphonesimulator12.1 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake release'
 alias backpack-ios-publish='backpack-ios-release'
 alias backpack-ios-test='backpack-ios && BUILD_SDK=iphonesimulator12.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake test && Example/Pods/SwiftLint/swiftlint lint --strict'
 alias backpack-ios-lint='backpack-ios && rake lint && Example/Pods/SwiftLint/swiftlint lint --strict --config Example/.swiftlint.yml'
