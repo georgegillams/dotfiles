@@ -45,6 +45,7 @@ brew cask install postman
 brew cask install reflector
 brew cask install sketch
 brew cask install slack
+brew cask install soundflower
 brew cask install sourcetree
 brew cask install spotify
 brew cask install the-unarchiver
