@@ -42,6 +42,7 @@ alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
 alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
+alias very-nice='open https://www.youtube.com/watch?v=Y9X5Ar8jotk'
 
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
