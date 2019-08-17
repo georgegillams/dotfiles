@@ -55,6 +55,7 @@ function list-processes-on-port() { sudo lsof -i :$@ }
 function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
 function kill-process() { sudo kill -9 $@ }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
+alias system-sleep="pmset sleepnow"
 alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
 alias system-fix-audio="sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
 alias system-fix-sound="system-fix-audio"
