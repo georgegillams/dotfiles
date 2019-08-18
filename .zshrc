@@ -93,6 +93,9 @@ alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
 alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
 alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
+alias npm-upgrade-major-packages='npx npm-check-updates -u'
+alias npm-upgrade-minor-packages='npx npm-check-updates -u --semverLevel minor'
+alias npm-upgrade-patch-packages='npx npm-check-updates -u --semverLevel patch'
 
 # ============================================================
 
