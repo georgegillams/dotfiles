@@ -27,6 +27,7 @@ brew cask install caret
 brew cask install charles
 brew cask install cleanmymac
 brew cask install coconutbattery
+brew cask install colour-contrast-analyser
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
