@@ -48,6 +48,12 @@ alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
 
+alias personal-zoom='open $(cat ~/.personalzoomrc)'
+alias backpack-zoom='open $(cat ~/.backpackzoomrc)'
+alias zoom='personal-zoom'
+alias zoom-backpack='backpack-zoom'
+alias zoom-personal='personal-zoom'
+
 alias vim-edit-config='vim ~/.vimrc'
 alias season-ticket='open ~/Desktop/season_ticket.jpg'
 
