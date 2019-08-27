@@ -319,6 +319,9 @@ alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-s
 
 alias backpack-release-tokens-beta='backpack && npm run build:tokens && git-add-all && git-amend-push && (cd packages/bpk-tokens && npm publish --tag beta)'
 
+alias update-backpack-npm-dependencies='npx npm-check-updates -u "/^bpk-.*$/"'
+alias backpack-propogate-changes='backpack-ios && update-backpack-npm-dependencies && backpack-android && update-backpack-npm-dependencies && backpack-rn && update-backpack-npm-dependencies'
+
 alias backpack-rn='cd ~/Documents/backpack-react-native/'
 alias backpack-rn-fix-tests='backpack-rn && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-rn-run-tests='backpack-rn && (pkill flow | true) && npm test'
