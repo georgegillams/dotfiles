@@ -321,7 +321,7 @@ alias backpack-release-tokens-beta='backpack && npm run build:tokens && git-add-
 
 alias update-backpack-npm-dependencies='npx npm-check-updates -u "/^bpk-.*$/"'
 alias create-bpk-dep-pr='gco NO-JIRA-update-bpk-dependencies && git-add-all && git-commit-push "Update bpk dependencies"'
-alias backpack-propogate-changes='backpack-ios && update-backpack-npm-dependencies && backpack-android && update-backpack-npm-dependencies && backpack-rn && update-backpack-npm-dependencies && backpack-ios-setup && create-bpk-dep-pr && backpack-rn-setup && create-bpk-dep-pr && backpack-android-setup && create-bpk-dep-pr'
+alias backpack-propogate-changes='backpack-ios && update-backpack-npm-dependencies && backpack-android && update-backpack-npm-dependencies && backpack-rn && update-backpack-npm-dependencies && backpack-ios && npm i && backpack-ios-setup && create-bpk-dep-pr && backpack-rn-setup && create-bpk-dep-pr && backpack-android-setup && create-bpk-dep-pr'
 
 alias backpack-rn='cd ~/Documents/backpack-react-native/'
 alias backpack-rn-fix-tests='backpack-rn && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
