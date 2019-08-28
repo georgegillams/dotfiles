@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     1
+// @version     2
 // @description:en	Creates a button which can expand all rich diffs in a PR.
 // @grant    		none
 // ==/UserScript==
@@ -23,20 +23,26 @@ function makeGHButton() {
   if (!filesElement) {
     return;
   }
-  const newElement = document.createElement('button');
-  newElement.innerText = `Expand all rich diffs`;
-  // newElement.href = url;
-  newElement.style.background =
+  const buttonElement = document.createElement('button');
+  buttonElement.innerText = `Expand all rich diffs`;
+  buttonElement.style.background =
     'linear-gradient(-180deg, var(--bpk-button-primary-gradient-start-color, #00d775) 0%, var(--bpk-button-primary-gradient-end-color, #00bd68) 100%)';
-  newElement.style.border = 'none';
-  newElement.style.fontSize = '1.5rem';
-  newElement.style.fontWeight = 'bold';
-  newElement.style.padding = '0.375rem 1.5rem';
-  newElement.style.borderRadius = '5rem';
-  newElement.style.color = 'white';
-  newElement.style.fontSize = '1rem';
-  newElement.id = 'expand_all_rich_diffs';
-  newElement.onclick = expandAllRichDiffs;
+  buttonElement.style.border = 'none';
+  buttonElement.style.fontSize = '1.5rem';
+  buttonElement.style.fontWeight = 'bold';
+  buttonElement.style.padding = '0.375rem 1.5rem';
+  buttonElement.style.borderRadius = '5rem';
+  buttonElement.style.color = 'white';
+  buttonElement.style.fontSize = '1rem';
+  buttonElement.id = 'expand_all_rich_diffs';
+  buttonElement.onclick = expandAllRichDiffs;
+
+  const newElement = document.createElement('div');
+  newElement.style.width = '100%';
+  newElement.style.display = 'flex';
+	newElement.style.justifyContent = 'center';
+
+  newElement.appendChild(buttonElement)
 
   filesElement.appendChild(document.createElement('br'));
   filesElement.appendChild(newElement);
