@@ -388,6 +388,7 @@ alias skyscanner-ios-app-open='skyscanner-ios-app && open ios/Project/Working/Sk
 alias skyscanner-ios-app-setup-open='skyscanner-ios-app-setup && skyscanner-ios-app-open'
 alias skyscanner-ios-app-login-to-npm='skyscanner-ios-app && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 alias skyscanner-ios-app-update-backpack-dependency='skyscanner-ios-app && (cd ios &&  bundle exec pod update Backpack)'
+alias skyscanner-ios-app-fix-react-native-snapshots='skyscanner-ios-app && (cd react-native && npx jest --detectOpenHandles -u)'
 
 alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
