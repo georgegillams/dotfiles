@@ -162,7 +162,7 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }" | pbcopy'
-function git-jirabot-branch-name() { (echo $@ > .tmpBranchName && jirabot precommit .tmpBranchName && cat .tmpBranchName) & (sleep 2 && rm .tmpBranchName) }
+function git-jirabot-branch-name() { (echo $@ > .tmpBranchName && node ~/Documents/dotfiles/prepend-ticket.js .tmpBranchName && cat .tmpBranchName) & (sleep 1 && rm .tmpBranchName) }
 alias git-rebase-use-theirs='git checkout --theirs . && git add . && git rebase --continue'
 alias git-rebase-use-ours='git checkout --ours . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
