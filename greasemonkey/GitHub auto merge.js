@@ -3,7 +3,7 @@
 // @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_auto_merge
 // @include     YOUR_PR_URL_HERE
 // @exclude     none
-// @version     1
+// @version     2
 // @description:en	Automatically merges a GitHub PR on the URL provided.
 // @grant    		none
 // ==/UserScript==
@@ -32,6 +32,7 @@ function mergeIfReady() {
     if (
       element.textContent &&
       !element.disabled &&
+      !element.className.includes('btn-danger') &&
       element.innerText === 'Merge pull request'
     ) {
       console.log('MERGING');
