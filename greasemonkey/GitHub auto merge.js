@@ -100,6 +100,7 @@ function getLocalStorageUrls() {
 }
 
 function removeUrlFromLocalStorage() {
+  console.log('CLEANING UP');
   let automergeUrls = getLocalStorageUrls();
   if (automergeUrls.includes(window.location.href)) {
     automergeUrls = automergeUrls.filter(a => a !== window.location.href);
@@ -119,9 +120,13 @@ function toggleAutoMerge() {
   let automergeUrls = getLocalStorageUrls();
   if (automergeUrls.includes(window.location.href)) {
     automergeUrls = automergeUrls.filter(a => !window.location.href);
+  console.log(`automergeUrls BEFORE`, automergeUrls);
+    console.log('REMOVING PR');
   } else {
     automergeUrls.push(window.location.href);
+    console.log('ADDING PR');
   }
+  console.log(`automergeUrls AFTER`, automergeUrls);
   window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
   updateUI();
 }
@@ -211,19 +216,24 @@ function reload() {
 
   console.log('RELOADING');
 
-  window.reload();
+  window.location.reload();
 }
 
 function worker() {
-  mergeIfReady();
-  cleanupLocalStorage();
-  createButtonIfNecessary();
+  try {
+    mergeIfReady();
+    cleanupLocalStorage();
+    createButtonIfNecessary();
 
-  if (testCount > 25) {
-    reload();
+    if (testCount > 25) {
+      reload();
+    }
+  } catch (e) {
+    console.log(e);
   }
 }
 
 setInterval(worker, 1500);
+
 
 
