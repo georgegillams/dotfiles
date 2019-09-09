@@ -1,17 +1,20 @@
 // ==UserScript==
 // @name        GitHub auto merge
 // @namespace   urn://https://www.georgegillams.co.uk/api/greasemonkey/github_auto_merge
-// @include     YOUR_PR_URL_HERE
+// @include     *github.com*
+// @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     3
+// @version     4
 // @description:en	Automatically merges a GitHub PR on the URL provided.
 // @grant    		none
 // ==/UserScript==
 
+let testCount = 0;
+
 function createNotification () {
   const notificationElement = document.createElement('div');
   notificationElement.innerText = `THIS PR WILL BE AUTOMATICALLY MERGED.`;
-  notificationElement.style.backgroundColor = 'red';
+  notificationElement.style.backgroundColor = '#d92b6b';
   notificationElement.style.fontSize = '1.5rem';
   notificationElement.style.fontWeight = 'bold';
   notificationElement.style.padding = '0.375rem 1.5rem';
@@ -29,18 +32,79 @@ function createNotification () {
   bodyElement.appendChild(notificationElement);
 }
 
-function showNotification() {
+function getNotification() {
   const addedNotification = document.getElementById('auto_merge_notification');
-  if (addedNotification) {
-    return;
-  }
+  return addedNotification;
+}
 
-  createNotification();
+function createNotificationIfNecessary() {
+  if(!getNotification()) {
+    createNotification();
+  }
+}
+
+function createButton () {
+  const mergeButton = document.createElement('button');
+  mergeButton.innerText = `AUTO MERGE PR`;
+  mergeButton.style.color = 'white';
+  mergeButton.style.fontSize = '1rem';
+  mergeButton.style.fontWeight = 'bold';
+  mergeButton.style.padding = '0.375rem 1.5rem';
+  mergeButton.id = 'auto_merge_button';
+  mergeButton.style.border = 'none';
+  mergeButton.style.backgroundColor = '#fa488a';
+  mergeButton.style.backgroundImage = 'linear-gradient(-180deg, #fa488a 0%, #d92b6b 100%)';
+  mergeButton.style.borderRadius = '10rem';
+  mergeButton.style.marginTop = '1rem';
+  mergeButton.onclick = toggleAutoMerge;
+
+  const mergeMessageElement = document.getElementsByClassName('merge-message')[0];
+  mergeMessageElement.appendChild(mergeButton);
+}
+
+function getAutoMergeButton() {
+  const addedButton = document.getElementById('auto_merge_button');
+  return addedButton;
+}
+
+function createButtonIfNecessary() {
+  if(!getAutoMergeButton()) {
+    createButton();
+  }
+}
+
+function removeNotificationifExists() {
+  const addedNotification = getNotification();
+
+  if(addedNotification) {
+    addedNotification.remove();
+  }
+}
+
+function willAutoMerge() {
+  const addedNotification = getNotification();
+  return addedNotification !== null;
+}
+
+function toggleAutoMerge() {
+  const addedButton = getAutoMergeButton();
+
+  if(willAutoMerge()) {
+    addedButton.innerText = 'AUTO MERGE PR'
+    removeNotificationifExists();
+  } else {
+    addedButton.innerText = 'CANCEL MERGE'
+    createNotificationIfNecessary();
+  }
 }
 
 function mergeIfReady() {
-  showNotification();
+  if(!willAutoMerge()) {
+    return;
+  }
+
   console.log('TESTING MERGEABILITY');
+  testCount += 1;
 
   let allElements = document.getElementsByTagName('BUTTON');
 
@@ -87,11 +151,23 @@ function mergeIfReady() {
 }
 
 function reload() {
+  if(!willAutoMerge()) {
+    return;
+  }
+
   console.log('RELOADING');
 
   window.reload();
 }
 
-setInterval(mergeIfReady, 1500);
-setInterval(reload, 36000);
+function worker() {
+  createButtonIfNecessary();
+  mergeIfReady();
+
+  if(testCount > 25) {
+    reload();
+  }
+}
+
+setInterval(worker, 1500);
 
