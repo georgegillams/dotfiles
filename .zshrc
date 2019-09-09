@@ -349,7 +349,7 @@ alias backpack-node-sass-nuke='cd ~/Documents/ && sudo rm -rf backpack-node-sass
 alias backpack-node-sass-nuke-setup='backpack-node-sass-nuke && backpack-node-sass-setup'
 
 alias bpk-logos='cd ~/Documents/bpk-logos/'
-alias bpk-logos-setup='bpk-logos && npm i'
+alias bpk-logos-setup='bpk-logos && npm i && npx gulp'
 alias bpk-logos-nuke='cd ~/Documents/ && sudo rm -rf bpk-logos/ && git clone git@github.skyscannertools.net:backpack/bpk-logos.git'
 alias bpk-logos-nuke-setup='bpk-logos-nuke && bpk-logos-setup'
 
