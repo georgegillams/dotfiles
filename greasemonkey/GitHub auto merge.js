@@ -11,7 +11,7 @@
 
 let testCount = 0;
 
-function createNotification () {
+function createNotification() {
   const notificationElement = document.createElement('div');
   notificationElement.innerText = `THIS PR WILL BE AUTOMATICALLY MERGED.`;
   notificationElement.style.backgroundColor = '#d92b6b';
@@ -38,12 +38,12 @@ function getNotification() {
 }
 
 function createNotificationIfNecessary() {
-  if(willAutoMerge() && !getNotification()) {
+  if (willAutoMerge() && !getNotification()) {
     createNotification();
   }
 }
 
-function createButton () {
+function createButton() {
   const mergeButton = document.createElement('button');
   mergeButton.innerText = `AUTO MERGE PR`;
   mergeButton.style.color = 'white';
@@ -53,18 +53,21 @@ function createButton () {
   mergeButton.id = 'auto_merge_button';
   mergeButton.style.border = 'none';
   mergeButton.style.backgroundColor = '#fa488a';
-  mergeButton.style.backgroundImage = 'linear-gradient(-180deg, #fa488a 0%, #d92b6b 100%)';
+  mergeButton.style.backgroundImage =
+    'linear-gradient(-180deg, #fa488a 0%, #d92b6b 100%)';
   mergeButton.style.borderRadius = '10rem';
   mergeButton.style.marginTop = '1rem';
   mergeButton.onclick = toggleAutoMerge;
 
   const mergeMessageElements = document.getElementsByClassName('merge-message');
-  if(mergeMessageElements.length < 1) {
+  if (mergeMessageElements.length < 1) {
     return;
   }
 
-  const mergeMessageElement = document.getElementsByClassName('merge-message')[0];
-  if(mergeMessageElement) {
+  const mergeMessageElement = document.getElementsByClassName(
+    'merge-message',
+  )[0];
+  if (mergeMessageElement) {
     mergeMessageElement.appendChild(mergeButton);
   }
 }
@@ -75,7 +78,7 @@ function getAutoMergeButton() {
 }
 
 function createButtonIfNecessary() {
-  if(!getAutoMergeButton()) {
+  if (!getAutoMergeButton()) {
     createButton();
     updateUI();
   }
@@ -84,28 +87,30 @@ function createButtonIfNecessary() {
 function removeNotificationIfNecessary() {
   const addedNotification = getNotification();
 
-  if(addedNotification && !willAutoMerge()) {
+  if (addedNotification && !willAutoMerge()) {
     addedNotification.remove();
   }
 }
 
 function getLocalStorageUrls() {
   const automergeUrlsString = window.localStorage.getItem('AUTOMERGE_URLS');
-	const automergeUrls = automergeUrlsString ? JSON.parse(automergeUrlsString) : [];
+  const automergeUrls = automergeUrlsString
+    ? JSON.parse(automergeUrlsString)
+    : [];
   return automergeUrls;
 }
 
 function removeUrlFromLocalStorage() {
   let automergeUrls = getLocalStorageUrls();
-  if(automergeUrls.includes(window.location.href)) {
-     automergeUrls = automergeUrls.filter(a => !window.location.href);
+  if (automergeUrls.includes(window.location.href)) {
+    automergeUrls = automergeUrls.filter(a => !window.location.href);
   }
   window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
 }
 
 function willAutoMerge() {
   const automergeUrls = getLocalStorageUrls();
-  if(automergeUrls.includes(window.location.href)) {
+  if (automergeUrls.includes(window.location.href)) {
     return true;
   }
   return false;
@@ -113,10 +118,10 @@ function willAutoMerge() {
 
 function toggleAutoMerge() {
   let automergeUrls = getLocalStorageUrls();
-  if(automergeUrls.includes(window.location.href)) {
-     automergeUrls = automergeUrls.filter(a => !window.location.href);
+  if (automergeUrls.includes(window.location.href)) {
+    automergeUrls = automergeUrls.filter(a => !window.location.href);
   } else {
-     automergeUrls.push(window.location.href);
+    automergeUrls.push(window.location.href);
   }
   window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
   updateUI();
@@ -125,11 +130,11 @@ function toggleAutoMerge() {
 function updateUI() {
   const addedButton = getAutoMergeButton();
 
-  if(addedButton) {
-    if(willAutoMerge()) {
-      addedButton.innerText = 'CANCEL MERGE'
+  if (addedButton) {
+    if (willAutoMerge()) {
+      addedButton.innerText = 'CANCEL MERGE';
     } else {
-      addedButton.innerText = 'AUTO MERGE PR'
+      addedButton.innerText = 'AUTO MERGE PR';
     }
   }
   removeNotificationIfNecessary();
@@ -137,7 +142,7 @@ function updateUI() {
 }
 
 function mergeIfReady() {
-  if(!willAutoMerge()) {
+  if (!willAutoMerge()) {
     return;
   }
 
@@ -190,7 +195,7 @@ function mergeIfReady() {
 }
 
 function reload() {
-  if(!willAutoMerge()) {
+  if (!willAutoMerge()) {
     return;
   }
 
@@ -203,7 +208,7 @@ function worker() {
   mergeIfReady();
   createButtonIfNecessary();
 
-  if(testCount > 25) {
+  if (testCount > 25) {
     reload();
   }
 }
