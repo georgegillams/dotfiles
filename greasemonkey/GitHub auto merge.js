@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     6
+// @version     7
 // @description:en	Automatically merges a GitHub PR on the URL provided.
 // @grant    		none
 // ==/UserScript==
@@ -186,7 +186,7 @@ function mergeIfReady() {
       element.textContent &&
       !element.disabled &&
       !element.className.includes('btn-danger') &&
-      element.innerText === 'Merge pull request'
+      (element.innerText === 'Merge pull request' || element.innerText === 'Squash and merge')
     ) {
       console.log('MERGING');
       element.click();
@@ -214,4 +214,5 @@ function worker() {
 }
 
 setInterval(worker, 1500);
+
 
