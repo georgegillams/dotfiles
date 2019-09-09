@@ -5,7 +5,7 @@
 // @include     *github.skyscannertools.net*
 // @exclude     none
 // @version     4
-// @description:en	Automatically merges a GitHub PR on the URL provided.
+// @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // @grant    		none
 // ==/UserScript==
 
