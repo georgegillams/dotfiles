@@ -4,8 +4,8 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     4
-// @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
+// @version     5
+// @description:en	Automatically merges a GitHub PR on the URL provided.
 // @grant    		none
 // ==/UserScript==
 
@@ -38,7 +38,7 @@ function getNotification() {
 }
 
 function createNotificationIfNecessary() {
-  if(!getNotification()) {
+  if(willAutoMerge() && !getNotification()) {
     createNotification();
   }
 }
@@ -70,32 +70,53 @@ function getAutoMergeButton() {
 function createButtonIfNecessary() {
   if(!getAutoMergeButton()) {
     createButton();
+    updateUI();
   }
 }
 
-function removeNotificationifExists() {
+function removeNotificationIfNecessary() {
   const addedNotification = getNotification();
 
-  if(addedNotification) {
+  if(addedNotification && !willAutoMerge()) {
     addedNotification.remove();
   }
 }
 
+function getLocalStorageUrls() {
+  const automergeUrlsString = window.localStorage.getItem('AUTOMERGE_URLS');
+	const automergeUrls = automergeUrlsString ? JSON.parse(automergeUrlsString) : [];
+  return automergeUrls;
+}
+
 function willAutoMerge() {
-  const addedNotification = getNotification();
-  return addedNotification !== null;
+  const automergeUrls = getLocalStorageUrls();
+  if(automergeUrls.includes(window.location.href)) {
+    return true;
+  }
+  return false;
 }
 
 function toggleAutoMerge() {
+  let automergeUrls = getLocalStorageUrls();
+  if(automergeUrls.includes(window.location.href)) {
+     automergeUrls = automergeUrls.filter(a => !window.location.href);
+  } else {
+     automergeUrls.push(window.location.href);
+  }
+  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+  updateUI();
+}
+
+function updateUI() {
   const addedButton = getAutoMergeButton();
 
   if(willAutoMerge()) {
-    addedButton.innerText = 'AUTO MERGE PR'
-    removeNotificationifExists();
-  } else {
     addedButton.innerText = 'CANCEL MERGE'
-    createNotificationIfNecessary();
+  } else {
+    addedButton.innerText = 'AUTO MERGE PR'
   }
+  removeNotificationIfNecessary();
+  createNotificationIfNecessary();
 }
 
 function mergeIfReady() {
