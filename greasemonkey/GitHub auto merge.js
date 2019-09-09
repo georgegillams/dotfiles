@@ -4,8 +4,8 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     5
-// @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
+// @version     6
+// @description:en	Automatically merges a GitHub PR on the URL provided.
 // @grant    		none
 // ==/UserScript==
 
@@ -58,8 +58,15 @@ function createButton () {
   mergeButton.style.marginTop = '1rem';
   mergeButton.onclick = toggleAutoMerge;
 
+  const mergeMessageElements = document.getElementsByClassName('merge-message');
+  if(mergeMessageElements.length < 1) {
+    return;
+  }
+
   const mergeMessageElement = document.getElementsByClassName('merge-message')[0];
-  mergeMessageElement.appendChild(mergeButton);
+  if(mergeMessageElement) {
+    mergeMessageElement.appendChild(mergeButton);
+  }
 }
 
 function getAutoMergeButton() {
@@ -88,6 +95,14 @@ function getLocalStorageUrls() {
   return automergeUrls;
 }
 
+function removeUrlFromLocalStorage() {
+  let automergeUrls = getLocalStorageUrls();
+  if(automergeUrls.includes(window.location.href)) {
+     automergeUrls = automergeUrls.filter(a => !window.location.href);
+  }
+  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+}
+
 function willAutoMerge() {
   const automergeUrls = getLocalStorageUrls();
   if(automergeUrls.includes(window.location.href)) {
@@ -110,10 +125,12 @@ function toggleAutoMerge() {
 function updateUI() {
   const addedButton = getAutoMergeButton();
 
-  if(willAutoMerge()) {
-    addedButton.innerText = 'CANCEL MERGE'
-  } else {
-    addedButton.innerText = 'AUTO MERGE PR'
+  if(addedButton) {
+    if(willAutoMerge()) {
+      addedButton.innerText = 'CANCEL MERGE'
+    } else {
+      addedButton.innerText = 'AUTO MERGE PR'
+    }
   }
   removeNotificationIfNecessary();
   createNotificationIfNecessary();
@@ -139,6 +156,7 @@ function mergeIfReady() {
     ) {
       console.log('DELETING BRANCH');
       element.click();
+      removeUrlFromLocalStorage();
       return;
     }
   }
@@ -182,8 +200,8 @@ function reload() {
 }
 
 function worker() {
-  createButtonIfNecessary();
   mergeIfReady();
+  createButtonIfNecessary();
 
   if(testCount > 25) {
     reload();
