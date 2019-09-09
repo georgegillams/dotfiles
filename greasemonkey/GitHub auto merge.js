@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     11
+// @version     12
 // @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // @grant    		none
 // @description	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
@@ -83,6 +83,10 @@ function createButtonIfNecessary() {
   }
 }
 
+function saveAutoMergeUrls(automergeUrls) {
+  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+}
+
 function removeNotificationIfNecessary() {
   const addedNotification = getNotification();
 
@@ -105,7 +109,7 @@ function removeUrlFromLocalStorage() {
   if (automergeUrls.includes(window.location.href)) {
     automergeUrls = automergeUrls.filter(a => a !== window.location.href);
   }
-  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+  saveAutoMergeUrls(automergeUrls);
 }
 
 function willAutoMerge() {
@@ -118,16 +122,16 @@ function willAutoMerge() {
 
 function toggleAutoMerge() {
   let automergeUrls = getLocalStorageUrls();
-  if (automergeUrls.includes(window.location.href)) {
-    automergeUrls = automergeUrls.filter(a => !window.location.href);
   console.log(`automergeUrls BEFORE`, automergeUrls);
+  if (automergeUrls.includes(window.location.href)) {
     console.log('REMOVING PR');
+    automergeUrls = automergeUrls.filter(a => !window.location.href);
   } else {
-    automergeUrls.push(window.location.href);
     console.log('ADDING PR');
+    automergeUrls.push(window.location.href);
   }
   console.log(`automergeUrls AFTER`, automergeUrls);
-  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+  saveAutoMergeUrls(automergeUrls);
   updateUI();
 }
 
@@ -234,6 +238,4 @@ function worker() {
 }
 
 setInterval(worker, 1500);
-
-
 
