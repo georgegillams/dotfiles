@@ -4,9 +4,10 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     8
+// @version     9
 // @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // @grant    		none
+// @description	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // ==/UserScript==
 
 let testCount = 0;
@@ -159,7 +160,6 @@ function mergeIfReady() {
     ) {
       console.log('DELETING BRANCH');
       element.click();
-      removeUrlFromLocalStorage();
       return;
     }
   }
@@ -192,6 +192,18 @@ function mergeIfReady() {
   }
 }
 
+function cleanupLocalStorage() {
+  const mergedBadgeElements = document.getElementsByClassName('State--purple');
+  if (mergedBadgeElements.length < 1) {
+    return;
+  }
+
+  const mergedBadgeElement = mergedBadgeElements[0];
+  if (mergedBadgeElement && mergedBadgeElement.innerText === 'Merged') {
+      removeUrlFromLocalStorage();
+  }
+}
+
 function reload() {
   if (!willAutoMerge()) {
     return;
@@ -204,6 +216,7 @@ function reload() {
 
 function worker() {
   mergeIfReady();
+  cleanupLocalStorage();
   createButtonIfNecessary();
 
   if (testCount > 25) {
