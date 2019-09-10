@@ -4,13 +4,28 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     14
+// @version     15
 // @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // @grant    		none
 // @description	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // ==/UserScript==
 
 let testCount = 0;
+
+function requestNotificationPermissions() {
+  if (!("Notification" in window) || (Notification.permission === "denied") ) {
+    Notification.requestPermission();
+  }
+}
+
+function createMergedNotification() {
+  Notification.requestPermission();
+  if (("Notification" in window) && (Notification.permission !== "denied") ) {
+    var notification = new Notification("PR merged!", {
+      body: "Your PR was merged automatically!"
+    });
+  }
+}
 
 function createNotification() {
   const notificationElement = document.createElement('div');
@@ -185,6 +200,7 @@ function mergeIfReady() {
       (element.innerText === 'Confirm merge' || element.innerText === 'Confirm squash and merge')
     ) {
       console.log('CONFIRMING MERGE');
+      createMergedNotification();
       element.click();
       return;
     }
@@ -231,6 +247,7 @@ function worker() {
     mergeIfReady();
     cleanupLocalStorage();
     createButtonIfNecessary();
+		requestNotificationPermissions();
 
     if (testCount > 25) {
       reload();
