@@ -4,10 +4,10 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     5
+// @version     6
 // @description:en	Adds an reminder to squash PRs that have > 1 commit
-// @description   	Adds an reminder to squash PRs that have > 1 commit
 // @grant    		none
+// @description   	Adds an reminder to squash PRs that have > 1 commit
 // ==/UserScript==
 
 let lastModifiedPr = null;
@@ -62,6 +62,14 @@ function addReminder() {
   }
 }
 
-setInterval(addReminder, 2000);
+function worker() {
+  try {
+    addReminder();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+setInterval(worker, 2000);
 
 

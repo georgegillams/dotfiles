@@ -4,9 +4,10 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     4
+// @version     5
 // @description:en	Adds rel=no_opener and taget=blank to github travis links on Github
 // @grant    		none
+// @description   	Adds rel=no_opener and taget=blank to github travis links on Github
 // ==/UserScript==
 
 function addTarget() {
@@ -20,5 +21,14 @@ function addTarget() {
   }
 }
 
-setInterval(addTarget, 2000);
+function worker() {
+  try {
+    addTarget();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+setInterval(worker, 2000);
+
 

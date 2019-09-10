@@ -4,9 +4,10 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     2
+// @version     3
 // @description:en	Creates a button which can expand all rich diffs in a PR.
 // @grant    		none
+// @description   	Creates a button which can expand all rich diffs in a PR.
 // ==/UserScript==
 
 function expandAllRichDiffs() {
@@ -62,5 +63,13 @@ function makeLinks() {
   makeGHButton();
 }
 
-setInterval(makeLinks, 2000);
+function worker() {
+  try {
+    makeLinks();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+setInterval(worker, 2000);
 

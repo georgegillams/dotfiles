@@ -5,9 +5,10 @@
 // @include     *github.skyscannertools.net*
 // @include     *gojira.skyscanner.net*
 // @exclude     none
-// @version     6
+// @version     7
 // @description:en	Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // @grant    		none
+// @description Creates links from GitHub PRs to their respective Jira ticket and vice-versa
 // ==/UserScript==
 
 function makeGHLink() {
@@ -80,7 +81,13 @@ function makeLinks() {
   makeJiraLink();
 }
 
-setInterval(makeLinks, 2000);
+function worker() {
+  try {
+    makeLinks();
+  } catch (e) {
+    console.log(e);
+  }
+}
 
-
+setInterval(worker, 2000);
 
