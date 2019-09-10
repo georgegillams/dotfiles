@@ -4,7 +4,7 @@
 // @include     *github.com*
 // @include     *github.skyscannertools.net*
 // @exclude     none
-// @version     12
+// @version     13
 // @description:en	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
 // @grant    		none
 // @description	Adds an option to GitHub PRs to auto-merge them. The tab must be kept open for the merge to be performed.
@@ -84,7 +84,12 @@ function createButtonIfNecessary() {
 }
 
 function saveAutoMergeUrls(automergeUrls) {
-  window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+  try {
+    window.localStorage.setItem('AUTOMERGE_URLS', JSON.stringify(automergeUrls));
+  } catch (e) {
+    console.log(e);
+    console.log('There was a problem writing to localStorage. Check that the quota has not been exceeded.')
+  }
 }
 
 function removeNotificationIfNecessary() {
@@ -122,7 +127,6 @@ function willAutoMerge() {
 
 function toggleAutoMerge() {
   let automergeUrls = getLocalStorageUrls();
-  console.log(`automergeUrls BEFORE`, automergeUrls);
   if (automergeUrls.includes(window.location.href)) {
     console.log('REMOVING PR');
     automergeUrls = automergeUrls.filter(a => !window.location.href);
@@ -130,7 +134,6 @@ function toggleAutoMerge() {
     console.log('ADDING PR');
     automergeUrls.push(window.location.href);
   }
-  console.log(`automergeUrls AFTER`, automergeUrls);
   saveAutoMergeUrls(automergeUrls);
   updateUI();
 }
