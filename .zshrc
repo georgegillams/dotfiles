@@ -403,7 +403,10 @@ export PATH=/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Libr
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # iTerm custom commands:
-iterm2_print_user_vars() {
+function iterm2_print_user_vars() {
+  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
+  iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+  iterm2_set_user_var nodeVersion $(node -v)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
   iterm2_set_user_var zshTest "test"
 }
