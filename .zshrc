@@ -404,11 +404,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
-  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
-  iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+  iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
   iterm2_set_user_var nodeVersion $(node -v)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  iterm2_set_user_var zshTest "test"
 }
 
 export NVM_DIR=~/.nvm
