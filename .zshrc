@@ -179,6 +179,7 @@ alias git-rebase-master-actual='git-fetch && (git rebase origin/master | grep CO
 alias git-rebase-develop-actual='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
 alias git-rebase-master=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-rebase-develop-actual; else git-rebase-master-actual; fi'
 alias git-rebase-develop='git-rebase-master'
+alias git-rebase-upstream='echo "ensure upstream is set using `git remote add upstream <URL>`" && git fetch upstream && git merge upstream/master && git push origin origin/master'
 alias git-pre-push='git status && sleep 3'
 alias git-amend-push='git-pre-push && gcn! --no-verify && git-push-force'
 alias git-amend-push-with-verification='git-pre-push && gcn! && git-push-force-with-verification'
