@@ -25,7 +25,6 @@ brew cask install authy
 brew cask install avibrazil-rdm
 brew cask install caret
 brew cask install charles
-brew cask install cleanmymac
 brew cask install coconutbattery
 brew cask install colour-contrast-analyser
 brew cask install dash
