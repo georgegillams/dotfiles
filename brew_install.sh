@@ -30,7 +30,7 @@ brew cask install colour-contrast-analyser
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
-brew cask install firefox-developer-edition
+brew cask install homebrew/cask-versions/firefox-developer-edition
 brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
