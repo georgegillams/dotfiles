@@ -7,7 +7,7 @@ const path = require('path');
 const optimiseImages = async () => {
   const changedFiles = execSync('git status -s | cut -c4-').toString().split('\n').filter(s => s !== '');
   changedFiles.forEach(f => {
-    if(f.includes("SnapshotTest")){
+    if(f.includes("SnapshotTest") || f.includes('backstop_data')){
     console.log(`Skipping snapshot test file 🌇 --> ${f} `);
     }else if(f.match(/(\.|\/)(gif|jpe?g|png)"?$/i)) {
       console.log(`optimising image file 🌄 --> ${f}`)
