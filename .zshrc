@@ -433,6 +433,15 @@ load-nvmrc() {
     nvm use default
   fi
 }
+load-ruby-version() {
+  if [[ -f .ruby-version && -r .ruby-version ]]; then
+    rvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to rvm default version"
+    rvm use default
+  fi
+}
 npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
+add-zsh-hook chpwd load-ruby-version
 
