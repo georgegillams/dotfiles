@@ -63,7 +63,7 @@ function kill-process() { sudo kill -9 $@ }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
 alias system-sleep="pmset sleepnow"
 alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
-alias system-clean-desktop="mv ~/Desktop/* ~/.Trash/"
+alias system-clean-desktop="mv ~/Desktop/* ~/.Trash/ && mv ~/.Trash/season_ticket* ~/Desktop/"
 alias system-fix-audio="sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
 alias system-fix-sound="system-fix-audio"
 alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
