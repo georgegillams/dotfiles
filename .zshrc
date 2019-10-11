@@ -351,6 +351,13 @@ alias backpack-rn-fix-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscann
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
+alias backpack-react-scripts='cd ~/Documents/backpack-react-scripts/'
+alias backpack-react-scripts-setup='backpack-react-scripts && cd packages/react-error-overlay && yarn && backpack-react-scripts'
+alias backpack-react-scripts-nuke='cd ~/Documents/ && sudo rm -rf backpack-react-scripts/ && git clone git@github.com:Skyscanner/backpack-react-scripts.git'
+alias backpack-react-scripts-nuke-setup='backpack-react-scripts-nuke && backpack-react-scripts-setup'
+alias backpack-react-scripts-publish='backpack-react-scripts && git-reset && npm run publish -- --scope backpack-react-scripts'
+alias backpack-react-scripts-release='backpack-react-scripts-publish'
+
 alias backpack-node-sass='cd ~/Documents/backpack-node-sass/'
 alias backpack-node-sass-setup='backpack-node-sass && npm i'
 alias backpack-node-sass-nuke='cd ~/Documents/ && sudo rm -rf backpack-node-sass/ && git clone git@github.com:Skyscanner/backpack-node-sass.git'
