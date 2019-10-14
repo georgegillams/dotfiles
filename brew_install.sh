@@ -113,6 +113,7 @@ mas install 909566003 # iHex - Hex Editor
 mas install 926036361 # LastPass Password Manager
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
+mas install 961632517 # Be Focused Pro - Focus Timer
 
 echo "Sign in to LastPass. Hit enter when complete."
 open /Applications/LastPass.app
