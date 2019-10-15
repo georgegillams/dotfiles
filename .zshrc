@@ -172,7 +172,7 @@ alias git-develop-latest-actual='gco develop && git-fetch && git reset --hard or
 alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest-actual; else git-master-latest-actual; fi'
 alias git-develop-latest='git-master-latest'
 alias git-add-all-no-image-optimisation='git add .'
-alias git-add-hunks='git-pre-push && git add -p'
+alias git-partial-add='git-pre-push && git add -p'
 alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
 alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='git checkout -- .'
