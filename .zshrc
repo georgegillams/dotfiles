@@ -370,7 +370,7 @@ alias bpk-logos-nuke='cd ~/Documents/ && sudo rm -rf bpk-logos/ && git clone git
 alias bpk-logos-nuke-setup='bpk-logos-nuke && bpk-logos-setup'
 
 alias backpack-ios='cd ~/Documents/backpack-ios/'
-alias backpack-ios-setup='backpack-ios && bundle install && nvm use 8.12.0 && npm ci && (cd Example && bundle exec pod update) && npx gulp'
+alias backpack-ios-setup='backpack-ios && bundle install && nvm use && npm ci && (cd Example && bundle exec pod update) && npx gulp'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-setup-open-complete='git-clean && xcode-delete-derived-data && backpack-ios-setup-open'
