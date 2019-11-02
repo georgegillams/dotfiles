@@ -263,7 +263,7 @@ alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -
 alias browser-scripts='cd ~/Documents/browser-scripts/'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && git-add-all && git-commit-push "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
-alias browser-scripts-build-readme='browser-scripts && node generate-readme.js'
+alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
