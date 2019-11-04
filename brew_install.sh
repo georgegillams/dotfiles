@@ -114,6 +114,7 @@ mas install 926036361 # LastPass Password Manager
 mas install 937984704 # Amphetamine
 mas install 957734279 # Toggl
 mas install 961632517 # Be Focused Pro - Focus Timer
+mas install 980577198 # Tunacan - Image concatenator
 
 echo "Sign in to LastPass. Hit enter when complete."
 open /Applications/LastPass.app
