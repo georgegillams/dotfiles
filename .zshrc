@@ -399,6 +399,8 @@ alias fullstack-run='fullstack && npm run client & node server/src/server.js'
 alias fullstack-setup='fullstack && npm i'
 alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
+alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login pip -f'
+
 alias skyscanner-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'
 alias skyscanner-app-rn-sanity-check='skyscanner-app && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
 alias skyscanner-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
@@ -455,4 +457,3 @@ load-ruby-version() {
 npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
-
