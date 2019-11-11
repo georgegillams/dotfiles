@@ -271,6 +271,10 @@ alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillam
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 
+alias reduxdefinitions='cd ~/Documents/redux-definitions/'
+alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
+alias reduxdefinitions-setup='reduxdefinitions && npm i'
+
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && npm i'
