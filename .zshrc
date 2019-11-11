@@ -273,7 +273,7 @@ alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && g
 
 alias reduxdefinitions='cd ~/Documents/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
-alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run build && npm run dev:install'
+alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && npm run dev:install'
 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
@@ -421,7 +421,7 @@ alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 
 # ============================================================
 
-export PATH=/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
+export PATH=$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
 
 # added by travis gem
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
