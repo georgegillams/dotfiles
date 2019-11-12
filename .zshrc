@@ -164,8 +164,8 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
   }
 }" | pbcopy'
 function git-prepend-branch-name() { node ~/Documents/dotfiles/prepend-ticket.js $@ }
-alias git-rebase-use-theirs='git checkout --theirs . && git add . && git rebase --continue'
-alias git-rebase-use-ours='git checkout --ours . && git add . && git rebase --continue'
+alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
+alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias git-master-latest-actual='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git-reset'
 alias git-develop-latest-actual='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
