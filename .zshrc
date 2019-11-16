@@ -207,6 +207,7 @@ alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
 alias docker-reset='docker rm $(docker ps -a -q) --force'
+alias docker-reset-hard='docker-reset && docker system prune -a'
 alias docker-reset-images='docker rmi $(docker images -q) --force'
 alias docker-reset-complete='docker-reset && docker-reset-images'
 alias docker-list-processes='docker ps -a'
