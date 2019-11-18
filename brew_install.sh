@@ -30,11 +30,11 @@ brew cask install colour-contrast-analyser
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
-brew cask install homebrew/cask-versions/firefox-developer-edition
 brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
 brew cask install handbrake
+brew cask install homebrew/cask-versions/firefox-developer-edition
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install muzzle
@@ -42,6 +42,7 @@ brew cask install nordvpn
 brew cask install oracle-jdk
 brew cask install pock
 brew cask install postman
+brew cask install qbittorrent
 brew cask install reflector
 brew cask install sketch
 brew cask install slack
