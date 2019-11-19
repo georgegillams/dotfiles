@@ -8,9 +8,9 @@ echo "auth sufficient pam_tid.so" | pbcopy
 sudo vim /etc/pam.d/sudo
 
 brew update
-brew tap homebrew/cask-cask
-brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
-brew tap homebrew/cask-versions && brew cask install java8
+brew tap homebrew/cask
+brew tap homebrew/fonts && brew cask install font-source-code-pro
+brew tap homebrew/versions && brew cask install java8
 brew tap wix/brew
 
 # needed to make mas install work
