@@ -7,12 +7,14 @@ export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
