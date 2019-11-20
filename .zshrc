@@ -8,6 +8,8 @@ export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery background_jobs history time)
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd/mm/yyyy"
