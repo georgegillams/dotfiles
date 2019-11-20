@@ -1,3 +1,4 @@
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=/Users/georgegillams/.oh-my-zsh
 
 export PATH="/usr/local/sbin:$PATH"
