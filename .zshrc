@@ -190,6 +190,7 @@ alias git-rebase-master=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-rebase
 alias git-rebase-develop='git-rebase-master'
 alias git-rebase-upstream='echo "ensure upstream is set using `git remote add upstream <URL>`" && git fetch upstream && git merge upstream/master && git push origin origin/master'
 alias git-pre-push='git status && sleep 3'
+alias git-rename-last-commit='git commit --amend'
 alias git-amend-push='git-pre-push && gcn! --no-verify && git-push-force'
 alias git-amend-push-with-verification='git-pre-push && gcn! && git-push-force-with-verification'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
@@ -211,7 +212,6 @@ function git-rename-branch() {
   newBranchName=$1
   git-branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
 }
-function git-rename-last-commit() { git commit --amend -m $@ }
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
