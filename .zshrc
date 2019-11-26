@@ -284,6 +284,7 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
+alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test'
 
 alias reduxdefinitions='cd ~/Documents/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
@@ -292,6 +293,7 @@ alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && npm i'
+alias ggcomponents-regenerate-snapshots='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest . && docker run gg-components-test'
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
