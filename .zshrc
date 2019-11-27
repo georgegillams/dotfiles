@@ -285,7 +285,7 @@ alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillam
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 function georgegillams-copy-snapshots-from-docker () {
-  containerId=${docker ps -a | grep georgegillams-test | awk '{print $1}'}
+  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
   georgegillams && docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
 alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test && georgegillams-copy-snapshots-from-docker'
@@ -298,7 +298,7 @@ alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && npm i'
 function ggcomponents-copy-snapshots-from-docker () {
-  containerId=${docker ps -a | grep gg-components-test | awk '{print $1}'}
+  containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   ggcomponents && docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
 alias ggcomponents-regenerate-snapshots='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest . && docker run gg-components-test && ggcomponents-copy-snapshots-from-docker'
