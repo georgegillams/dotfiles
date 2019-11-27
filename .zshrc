@@ -282,7 +282,7 @@ alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
-alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
+alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 function georgegillams-copy-snapshots-from-docker () {
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
@@ -296,7 +296,7 @@ alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && 
 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
-alias ggcomponents-setup='ggcomponents && npm i'
+alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
 function ggcomponents-copy-snapshots-from-docker () {
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   ggcomponents && docker cp $containerId:/usr/src/tmp/backstop_data ./
