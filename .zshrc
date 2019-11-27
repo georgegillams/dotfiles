@@ -293,7 +293,7 @@ alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && npm i'
-alias ggcomponents-copy-snapshots-from-docker='ggcomponents && docker cp `docker ps -a | grep gg-components-test | awk '{print $1}'`:/usr/src/tmp/backstop_data ./'
+alias ggcomponents-copy-snapshots-from-docker="ggcomponents && docker cp `docker ps -a | grep gg-components-test | awk '{print $1}'`:/usr/src/tmp/backstop_data ./"
 alias ggcomponents-regenerate-snapshots='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest . && docker run gg-components-test && gg-components-copy-snapshots-from-docker'
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
