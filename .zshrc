@@ -284,7 +284,11 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
-alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test'
+function georgegillams-copy-snapshots-from-docker () {
+  containerId=${docker ps -a | grep georgegillams-test | awk '{print $1}'}
+  georgegillams && docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test && georgegillams-copy-snapshots-from-docker'
 
 alias reduxdefinitions='cd ~/Documents/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
