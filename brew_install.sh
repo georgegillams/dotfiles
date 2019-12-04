@@ -260,6 +260,8 @@ sleep 10
 echo "Press any key once complete"
 read
 
+git config core.ignorecase false
+
 # Do this last as it's huge!
 mas install 497799835 # XCode
 
