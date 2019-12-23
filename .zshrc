@@ -433,8 +433,9 @@ alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login p
 
 alias skyscanner-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'
 alias skyscanner-app-rn-sanity-check='skyscanner-app && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
+alias skyscanner-app-nvmrc='echo "lts/erbium" > .nvmrc & echo "lts/erbium" > ./react-native/.nvmrc & echo "lts/erbium" > ./ios/.nvmrc'
 alias skyscanner-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
-alias skyscanner-app-setup='skyscanner-app && gem install bundler && (cd ios && rvm use 2.6.3 && ./fullsetup) && skyscanner-app'
+alias skyscanner-app-setup='skyscanner-app && skyscanner-app-nvmrc && gem install bundler && (cd ios && rvm use 2.6.3 && ./fullsetup) && skyscanner-app'
 alias skyscanner-app-open='skyscanner-app && open ios/Project/Working/Skyscanner.xcworkspace'
 alias skyscanner-app-setup-open='skyscanner-app-setup && skyscanner-app-open'
 alias skyscanner-app-login-to-npm='skyscanner-app && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
