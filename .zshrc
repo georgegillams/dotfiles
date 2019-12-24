@@ -382,7 +382,7 @@ alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "s
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
 alias backpack-react-scripts='cd ~/Documents/backpack-react-scripts/'
-alias backpack-react-scripts-setup='backpack-react-scripts && cd packages/react-error-overlay && yarn && backpack-react-scripts'
+alias backpack-react-scripts-setup='backpack-react-scripts && yarn && cd packages/react-error-overlay && yarn && backpack-react-scripts'
 alias backpack-react-scripts-nuke='cd ~/Documents/ && sudo rm -rf backpack-react-scripts/ && git clone git@github.com:Skyscanner/backpack-react-scripts.git'
 alias backpack-react-scripts-nuke-setup='backpack-react-scripts-nuke && backpack-react-scripts-setup'
 alias backpack-react-scripts-publish='backpack-react-scripts && git-reset && npm run publish -- --scope backpack-react-scripts'
