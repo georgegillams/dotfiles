@@ -305,6 +305,11 @@ alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
 alias screen-reader-adventures-backup='dotfiles && node screen-reader-adventures-backup.js && cd -'
+function screen-reader-adventures-copy-snapshots-from-docker () {
+  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
+  screen-reader-adventures && docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest . && docker run screen-reader-adventures-test && screen-reader-adventures-copy-snapshots-from-docker'
 
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
