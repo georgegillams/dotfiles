@@ -414,7 +414,7 @@ alias backpack-ios-install-ruby-version='backpack-ios && rvm install ruby-$(cat 
 alias backpack-ios-release='backpack-ios && BUILD_SDK=iphonesimulator13.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake release'
 alias backpack-ios-publish='backpack-ios-release'
 alias backpack-ios-build-ipa='backpack-ios && sh ~/Dropbox/secrets/backpack-ios/backpack-build-ipa && git-reset'
-alias backpack-ios-test='backpack-ios && BUILD_SDK=iphonesimulator12.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake test && Example/Pods/SwiftLint/swiftlint lint --strict'
+alias backpack-ios-test='backpack-ios && BUILD_SDK=iphonesimulator13.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake test && Example/Pods/SwiftLint/swiftlint lint --strict'
 alias backpack-ios-lint='backpack-ios && rake lint && Example/Pods/SwiftLint/swiftlint lint --strict --config Example/.swiftlint.yml'
 alias backpack-ios-clang-format='backpack-ios && (cd Backpack && clang-all-the-things) && (cd Example && clang-all-the-things)'
 
