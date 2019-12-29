@@ -20,6 +20,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'w0rp/ale'
+Plugin 'ngmy/vim-rubocop'
 
 " Misc
 Plugin 'RRethy/vim-illuminate'
