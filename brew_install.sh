@@ -123,8 +123,8 @@ open /Applications/LastPass.app
 read
 
 # Setup default nvm
-nvm install 10.13.0
-nvm use 10.13.0
+nvm install lts/erbium
+nvm use lts/erbium
 sudo chown -R $USER:$GROUP ~/.npm
 sudo chown -R $USER:$GROUP ~/.config
 
