@@ -46,6 +46,8 @@ alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
+alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && nvm install lts/erbium && nvm alias default lts/erbium'
+
 alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
 alias very-nice='vlc --play-and-exit ~/Documents/dotfiles/very-nice.mp3'
 
