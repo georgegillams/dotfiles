@@ -421,7 +421,8 @@ alias backpack-ios-lint='backpack-ios && rake lint && Example/Pods/SwiftLint/swi
 alias backpack-ios-clang-format='backpack-ios && (cd Backpack && clang-all-the-things) && (cd Example && clang-all-the-things)'
 alias backpack-ios-clean-status-bar='xcrun simctl status_bar "iPhone 8" override --time "0941" --wifiBars 3 --cellularBars 4 --batteryLevel 100'
 alias backpack-ios-take-screenshots-basic='backpack-ios && pkill Simulator && rake take_screenshots'
-alias backpack-ios-take-screenshots='backpack-ios-take-screenshots & (for i in {1..30}; do backpack-ios-take-screenshots-basic; sleep 30; done)'
+alias backpack-ios-keep-status-bar-clean='sleep 5 && for i in {1..30}; do backpack-ios-clean-status-bar; sleep 30; done'
+alias backpack-ios-take-screenshots='backpack-ios-take-screenshots-basic & backpack-ios-keep-status-bar-clean'
 
 alias backpack-android='cd ~/Documents/backpack-android/'
 alias backpack-android-setup='backpack-android && npm i && npm run build'
