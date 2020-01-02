@@ -221,7 +221,7 @@ alias git-submodules-pull='git submodule update --recursive --remote'
 
 alias docker-reset='docker rm $(docker ps -a -q) --force'
 alias docker-reset-hard='docker-reset && docker system prune -a'
-alias docker-reset-images='docker rmi $(docker images -q) --force'
+alias docker-reset-images='docker rmi $(docker images -a -q) --force'
 alias docker-reset-complete='docker-reset && docker-reset-images'
 alias docker-list-processes='docker ps -a'
 alias docker-list-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $(docker ps -aq)'
@@ -289,6 +289,34 @@ function georgegillams-copy-snapshots-from-docker () {
   georgegillams && docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
 alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test && georgegillams-copy-snapshots-from-docker'
+
+alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
+alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash'
+function georgegillams-docker-run-tests () {
+  georgegillams
+  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
+  docker cp .babelrc $containerId:/usr/src/tmp/ 
+  docker cp app $containerId:/usr/src/tmp/ 
+  docker cp backstop_data $containerId:/usr/src/tmp/ 
+  docker cp build $containerId:/usr/src/tmp/ 
+  docker cp config $containerId:/usr/src/tmp/ 
+  docker cp helpers $containerId:/usr/src/tmp/ 
+  docker cp jest.config.js $containerId:/usr/src/tmp/ 
+  docker cp package-lock.json $containerId:/usr/src/tmp/ 
+  docker cp package.json $containerId:/usr/src/tmp/ 
+  docker cp scripts $containerId:/usr/src/tmp/ 
+  docker cp server $containerId:/usr/src/tmp/ 
+  docker exec -it $containerId npm i
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test
+}
+function georgegillams-docker-copy-snapshots-to-host () {
+  georgegillams
+  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && (georgegillams-docker-run-tests | true) && georgegillams-docker-copy-snapshots-to-host'
 
 alias reduxdefinitions='cd ~/Documents/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
