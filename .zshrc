@@ -303,14 +303,14 @@ function georgegillams-docker-run-tests () {
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
-  docker exec -it $containerId npm run backstopjs:test
+  docker exec -it $containerId npm run backstopjs:test:allowFailure
 }
 function georgegillams-docker-copy-snapshots-to-host () {
   georgegillams
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && (georgegillams-docker-run-tests | true) && georgegillams-docker-copy-snapshots-to-host'
+alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
 
 alias reduxdefinitions='cd ~/Documents/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
@@ -337,14 +337,14 @@ function ggcomponents-docker-run-tests () {
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
-  docker exec -it $containerId npm run backstopjs:test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
 function ggcomponents-docker-copy-snapshots-to-host () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && (ggcomponents-docker-run-tests | true) && ggcomponents-docker-copy-snapshots-to-host'
+alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
