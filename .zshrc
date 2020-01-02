@@ -284,12 +284,6 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
-function georgegillams-copy-snapshots-from-docker () {
-  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
-  georgegillams && docker cp $containerId:/usr/src/tmp/backstop_data ./
-}
-alias georgegillams-regenerate-snapshots='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest . && docker run georgegillams-test && georgegillams-copy-snapshots-from-docker'
-
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash'
 function georgegillams-docker-run-tests () {
