@@ -297,11 +297,28 @@ alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
-function ggcomponents-copy-snapshots-from-docker () {
+alias ggcomponents-build-docker-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
+alias ggcomponents-run-docker-container='ggcomponents && docker run -itd gg-components-test bash'
+function ggcomponents-run-tests () {
+  ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
-  ggcomponents && docker cp $containerId:/usr/src/tmp/backstop_data ./
+  docker cp .storybook $containerId:/usr/src/tmp/ 
+  docker cp .storybook $containerId:/usr/src/tmp/ 
+  docker cp config $containerId:/usr/src/tmp/ 
+  docker cp dist $containerId:/usr/src/tmp/ 
+  docker cp package.json $containerId:/usr/src/tmp/ 
+  docker cp scripts $containerId:/usr/src/tmp/ 
+  docker cp src $containerId:/usr/src/tmp/ 
+  docker exec -it $containerId npm i
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test
 }
-alias ggcomponents-regenerate-snapshots='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest . && docker run gg-components-test && ggcomponents-copy-snapshots-from-docker'
+function ggcomponents-copy-snapshots-from-docker () {
+  ggcomponents
+  containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
 
 alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
