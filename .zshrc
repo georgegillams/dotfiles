@@ -303,7 +303,7 @@ function georgegillams-docker-run-tests () {
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
-  docker exec -it $containerId npm run backstopjs:test:allowFailure
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
 function georgegillams-docker-copy-snapshots-to-host () {
   georgegillams
