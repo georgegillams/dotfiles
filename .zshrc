@@ -297,24 +297,27 @@ alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && 
 alias ggcomponents='cd ~/Documents/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
-alias ggcomponents-build-docker-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
-alias ggcomponents-run-docker-container='ggcomponents && docker run -itd gg-components-test bash'
-function ggcomponents-run-tests () {
+alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
+alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd gg-components-test bash'
+function ggcomponents-docker-run-tests () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp .storybook $containerId:/usr/src/tmp/ 
-  docker cp .storybook $containerId:/usr/src/tmp/ 
+  docker cp babel.config.js $containerId:/usr/src/tmp/ 
+  docker cp backstop_data $containerId:/usr/src/tmp/ 
   docker cp config $containerId:/usr/src/tmp/ 
   docker cp dist $containerId:/usr/src/tmp/ 
+  docker cp package-lock.json $containerId:/usr/src/tmp/ 
   docker cp package.json $containerId:/usr/src/tmp/ 
   docker cp scripts $containerId:/usr/src/tmp/ 
   docker cp src $containerId:/usr/src/tmp/ 
+  docker cp test $containerId:/usr/src/tmp/ 
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test
 }
-function ggcomponents-copy-snapshots-from-docker () {
+function ggcomponents-docker-copy-snapshots-to-host () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
