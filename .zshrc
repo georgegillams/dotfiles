@@ -284,6 +284,7 @@ alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && 
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
+alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash'
 function georgegillams-docker-run-tests () {
@@ -359,7 +360,7 @@ alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures &&
 alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
 alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
-alias epicc-ticket-sales-backup='dotfiles && node epicc-ticket-sales-backup.js && cd -'
+alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && cd -'
 
 # ============================================================
 
