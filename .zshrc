@@ -514,16 +514,17 @@ echo "iTerm shell integration tested"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
-  echo "Defining iTerms user vars"
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
   iterm2_set_user_var nodeVersion $(node -v)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
+echo "Loading NVM"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion - disabled as it is too slow!
+echo "NVM ready"
 
 #Auto switch nvm versions:
 # place this after nvm initialization!
