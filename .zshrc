@@ -107,7 +107,9 @@ alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
 # ========================== NPM ==========================
 
-alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
+npm-set-normal-registry() {
+  npm config set registry https://registry.npmjs.org/
+}
 alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 alias npm-upgrade-major-dependencies='npx npm-check-updates -u'
 alias npm-upgrade-minor-dependencies='npx npm-check-updates -u --semverLevel major'
@@ -522,7 +524,7 @@ function iterm2_print_user_vars() {
 echo "Loading NVM"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion - disabled as it is too slow!
 echo "NVM ready"
 
