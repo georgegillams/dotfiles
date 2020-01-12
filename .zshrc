@@ -1,3 +1,5 @@
+echo "ZSH loaded"
+
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=/Users/georgegillams/.oh-my-zsh
 
@@ -522,6 +524,7 @@ source $(brew --prefix nvm)/nvm.sh
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
+  echo "Loading Node version"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
   elif [[ $(nvm version) != $(nvm version default)  ]]; then
@@ -530,6 +533,7 @@ load-nvmrc() {
   fi
 }
 load-ruby-version() {
+  echo "Loading Ruby version"
   if [[ -f .ruby-version && -r .ruby-version ]]; then
     rvm use
   elif [[ $(nvm version) != $(nvm version default)  ]]; then
