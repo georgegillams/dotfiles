@@ -500,8 +500,10 @@ alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 
 # ============================================================
+echo "Aliases ready"
 
 export PATH=$HOME/.fastlane/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
+echo "PATH defined"
 
 # added by travis gem
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
@@ -541,6 +543,6 @@ load-ruby-version() {
     rvm use default
   fi
 }
-npm-set-normal-registry
+add-zsh-hook chpwd npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
