@@ -507,11 +507,14 @@ echo "PATH defined"
 
 # added by travis gem
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
+echo "Travis integration done"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+echo "iTerm shell integration tested"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
+  echo "Defining iTerms user vars"
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
   iterm2_set_user_var nodeVersion $(node -v)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
