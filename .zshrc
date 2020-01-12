@@ -1,4 +1,25 @@
-echo "ZSH loaded"
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+function red() {
+  echo "${RED}$@${NC}"
+}
+
+function cyan() {
+  echo "${CYAN}$@${NC}"
+}
+
+function blue() {
+  echo "${BLUE}$@${NC}"
+}
+
+function info() {
+  blue $@
+}
+
+info "ZSH loaded"
 
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=/Users/georgegillams/.oh-my-zsh
@@ -294,17 +315,17 @@ alias georgegillams-docker-create-and-run-container='georgegillams && docker run
 function georgegillams-docker-run-tests () {
   georgegillams
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
-  docker cp .babelrc $containerId:/usr/src/tmp/ 
-  docker cp app $containerId:/usr/src/tmp/ 
-  docker cp backstop_data $containerId:/usr/src/tmp/ 
-  docker cp build $containerId:/usr/src/tmp/ 
-  docker cp config $containerId:/usr/src/tmp/ 
-  docker cp helpers $containerId:/usr/src/tmp/ 
-  docker cp jest.config.js $containerId:/usr/src/tmp/ 
-  docker cp package-lock.json $containerId:/usr/src/tmp/ 
-  docker cp package.json $containerId:/usr/src/tmp/ 
-  docker cp scripts $containerId:/usr/src/tmp/ 
-  docker cp server $containerId:/usr/src/tmp/ 
+  docker cp .babelrc $containerId:/usr/src/tmp/
+  docker cp app $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp build $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp helpers $containerId:/usr/src/tmp/
+  docker cp jest.config.js $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp server $containerId:/usr/src/tmp/
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
@@ -329,16 +350,16 @@ alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -
 function ggcomponents-docker-run-tests () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
-  docker cp .storybook $containerId:/usr/src/tmp/ 
-  docker cp babel.config.js $containerId:/usr/src/tmp/ 
-  docker cp backstop_data $containerId:/usr/src/tmp/ 
-  docker cp config $containerId:/usr/src/tmp/ 
-  docker cp dist $containerId:/usr/src/tmp/ 
-  docker cp package-lock.json $containerId:/usr/src/tmp/ 
-  docker cp package.json $containerId:/usr/src/tmp/ 
-  docker cp scripts $containerId:/usr/src/tmp/ 
-  docker cp src $containerId:/usr/src/tmp/ 
-  docker cp test $containerId:/usr/src/tmp/ 
+  docker cp .storybook $containerId:/usr/src/tmp/
+  docker cp babel.config.js $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp dist $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp src $containerId:/usr/src/tmp/
+  docker cp test $containerId:/usr/src/tmp/
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
@@ -502,17 +523,17 @@ alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 
 # ============================================================
-echo "Aliases ready"
+info "Aliases ready"
 
 export PATH=$HOME/.fastlane/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
-echo "PATH defined"
+info "PATH defined"
 
 # added by travis gem
 [ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
-echo "Travis integration done"
+info "Travis integration done"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-echo "iTerm shell integration tested"
+info "iTerm shell integration tested"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
@@ -521,31 +542,31 @@ function iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
-echo "Loading NVM"
+info "Loading NVM"
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+source $(brew --prefix nvm)/nvm.sh --no-use # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm - disabled as it does the same as the line above
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion - disabled as it is too slow!
-echo "NVM ready"
+info "NVM ready"
 
 #Auto switch nvm versions:
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
-  echo "Loading Node version"
+  info "Loading Node version"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
   elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
+    info "Reverting to nvm default version"
     nvm use default
   fi
 }
 load-ruby-version() {
-  echo "Loading Ruby version"
+  info "Loading Ruby version"
   if [[ -f .ruby-version && -r .ruby-version ]]; then
     rvm use
   elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to rvm default version"
+    info "Reverting to rvm default version"
     rvm use default
   fi
 }
