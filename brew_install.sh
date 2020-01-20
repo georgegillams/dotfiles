@@ -30,7 +30,6 @@ brew cask install colour-contrast-analyser
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
-brew cask install franz
 brew cask install gifox
 brew cask install google-chrome
 brew cask install grandperspective
@@ -51,6 +50,7 @@ brew cask install soundflower
 brew cask install sourcetree
 brew cask install spotify
 brew cask install the-unarchiver
+brew cask install whatsapp
 # brew cask install virtualbox
 # brew cask install virtualbox-extension-pack
 brew cask install parallels
