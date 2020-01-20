@@ -51,6 +51,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme nord
+set clipboard=unnamedplus
 set number
 set shell=/bin/zsh\ -l
 syntax on
