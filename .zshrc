@@ -257,59 +257,34 @@ alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-lates
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
-# ========================== MOZILLA =========================
-
-alias bedrock='cd ~/Documents/bedrock/'
-alias bedrock-setup='bedrock && virtualenv -p python2.7 venv && source venv/bin/activate &&  pip install -U pip && pip install -r requirements/test.txt && cp .env-dist .env &&  bin/sync-all.sh && npm i'
-alias bedrock-nuke='cd ~/Documents/ && sudo rm -rf bedrock && git clone git@github.com:georgegillams/bedrock.git'
-alias bedrock-nuke-setup='bedrock-nuke && bedrock-setup'
-alias bedrock-run-server='bedrock && ./manage.py runserver'
-alias bedrock-run-gulp='bedrock && npx gulp'
-alias bedrock-localize='bedrock && ./manage.py l10n_update'
-alias bedrock-test='bedrock && py.test lib bedrock'
-
-alias mozilla-central='cd ~/Documents/mozilla-central/'
-alias mozilla-central-setup='mozilla-central && ./mach build'
-alias mozilla-central-run='mozilla-central && ./mach run'
-alias mozilla-central-nuke='cd ~/Documents/ && sudo rm -rf mozilla-central && hg clone https://hg.mozilla.org/mozilla-central/'
-alias mozilla-central-nuke-setup='mozilla-central-nuke && mozilla-central-setup'
-
-alias activity-stream='cd ~/Documents/activity-stream/'
-alias activity-stream-setup='activity-stream && touch .mozconfig && echo "" > .mozconfig && echo "ac_add_options --enable-artifact-builds" >> .mozconfig && echo "mk_add_options MOZ_OBJDIR=./objdir-frontend" >> .mozconfig && npm i && npm run buildmc'
-alias activity-stream-run='activity-stream && npm run startmc'
-alias activity-stream-nuke='cd ~/Documents/ && sudo rm -rf activity-stream && git clone git@github.com:georgegillams/activity-stream.git'
-alias activity-stream-nuke-setup='activity-stream-nuke &&  activity-stream-setup'
-
-# ============================================================
-
 # ==================== PERSONAL PROJECTS =====================
 
-alias dotfiles='cd ~/Documents/dotfiles/'
-alias dotfiles-nuke='cd ~/Documents/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
+alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && git-add-all && git-commit-push "Update TMUX conf"'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && git-add-all && git-commit-push "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update VIMRC"'
 alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
 # alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
-alias academic-references='cd ~/Documents/react-component-academic-reference/'
-alias academic-references-nuke='cd ~/Documents/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
+alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
+alias academic-references-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
 alias academic-references-setup='academic-references && cd package && npm i && cd ../example && npm i && academic-references'
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
 alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
 
-alias browser-scripts='cd ~/Documents/browser-scripts/'
+alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && git-add-all && git-commit-push "Update scripts"'
-alias browser-scripts-nuke='cd ~/Documents/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
+alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
-alias georgegillams='cd ~/Documents/georgegillams.co.uk/'
-alias georgegillams-nuke='cd ~/Documents/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias georgegillams='cd ~/Documents/georgegillams/georgegillams.co.uk/'
+alias georgegillams-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
-alias georgegillams-rebase='cd ~/Documents/react-redux && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
+alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash'
@@ -339,12 +314,12 @@ function georgegillams-docker-copy-snapshots-to-host () {
 }
 alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
 
-alias reduxdefinitions='cd ~/Documents/redux-definitions/'
-alias reduxdefinitions-nuke='cd ~/Documents/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
+alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
+alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
 alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && npm run dev:install'
 
-alias ggcomponents='cd ~/Documents/gg-components/'
-alias ggcomponents-nuke='cd ~/Documents/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
+alias ggcomponents='cd ~/Documents/georgegillams/gg-components/'
+alias ggcomponents-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
 alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
 alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd gg-components-test bash'
@@ -373,8 +348,8 @@ function ggcomponents-docker-copy-snapshots-to-host () {
 }
 alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
 
-alias screen-reader-adventures='cd ~/Documents/screen-reader-adventures/'
-alias screen-reader-adventures-nuke='cd ~/Documents/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
+alias screen-reader-adventures='cd ~/Documents/georgegillams/screen-reader-adventures/'
+alias screen-reader-adventures-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
 alias screen-reader-adventures-backup='dotfiles && node screen-reader-adventures-backup.js && cd -'
 function screen-reader-adventures-copy-snapshots-from-docker () {
@@ -383,8 +358,8 @@ function screen-reader-adventures-copy-snapshots-from-docker () {
 }
 alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest . && docker run screen-reader-adventures-test && screen-reader-adventures-copy-snapshots-from-docker'
 
-alias epicc-ticket-sales='cd ~/Documents/epicc-ticket-sales/'
-alias epicc-ticket-sales-nuke='cd ~/Documents/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
+alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
+alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
 alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
 alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && cd -'
 
@@ -392,14 +367,14 @@ alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && 
 
 # ======================== SKYSCANNER ========================
 
-alias backpack-docs='cd ~/Documents/backpack-docs/'
+alias backpack-docs='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='backpack-docs && npm i && npm run build-backpack && git-submodules-init'
 alias backpack-docs-run-tests='backpack-docs && (pkill flow | true) && npm test'
 alias backpack-docs-git-submodules-reset='backpack-docs && git checkout origin/master backpack-docs-android backpack-docs-ios backpack-docs-react-native && git submodule update --init --recursive'
 alias backpack-docs-watch-tests='backpack-docs && npm run jest:watch'
 alias backpack-docs-run-flow='backpack-docs && (pkill flow | true) && npm run flow'
 alias backpack-docs-setup='backpack-docs && npm i'
-alias backpack-docs-nuke='cd ~/Documents/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
+alias backpack-docs-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
 alias backpack-docs-nuke-setup='backpack-docs-nuke && backpack-docs-setup'
 alias backpack-docs-run-docs='backpack-docs && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
 
@@ -408,14 +383,14 @@ alias backpack-publish-all-packages='backpack && cd packages && find . -maxdepth
 alias kr-disable-codesign='kr codesign off'
 alias kr-enable-codesign='kr codesign on'
 
-alias backpack='cd ~/Documents/backpack/'
+alias backpack='cd ~/Documents/Skyscanner/backpack/'
 alias backpack-fix-tests='backpack && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-run-tests='backpack && (pkill flow | true) && npm test'
 alias backpack-watch-tests='backpack && npm run jest:watch'
 alias backpack-release='backpack && kr-disable-codesign && npm run publish && kr-enable-codesign'
 alias backpack-run-flow='backpack && (pkill flow | true) && npm run flow'
 alias backpack-setup='backpack && npm i && npm run build'
-alias backpack-nuke='cd ~/Documents/ && sudo rm -rf backpack/ && git clone --recursive git@github.com:Skyscanner/backpack.git'
+alias backpack-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack/ && git clone --recursive git@github.com:Skyscanner/backpack.git'
 alias backpack-nuke-setup='backpack-nuke && backpack-setup'
 alias backpack-run-storybook='backpack && npm start'
 alias backpack-check-cross-dependencies='backpack && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js'
@@ -435,7 +410,7 @@ alias update-backpack-npm-dependencies='npx npm-check-updates -u "/^bpk-.*$/"'
 alias create-bpk-dep-pr='gco -b NO-JIRA-update-bpk-dependencies && git-add-all && git-commit-push "Update bpk dependencies" && open https://github.com/Skyscanner/$(basename "`pwd`")/pull/new/NO-JIRA-update-bpk-dependencies'
 alias backpack-propogate-changes='backpack-ios && update-backpack-npm-dependencies && backpack-android && update-backpack-npm-dependencies && backpack-rn && update-backpack-npm-dependencies && backpack-ios && npm i && backpack-ios-setup && create-bpk-dep-pr && backpack-rn-setup && create-bpk-dep-pr && backpack-android-setup && create-bpk-dep-pr'
 
-alias backpack-rn='cd ~/Documents/backpack-react-native/'
+alias backpack-rn='cd ~/Documents/Skyscanner/backpack-react-native/'
 alias backpack-rn-fix-tests='backpack-rn && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias backpack-rn-run-tests='backpack-rn && (pkill flow | true) && npm test'
 alias backpack-rn-watch-tests='backpack-rn && npm run jest:native:watch'
@@ -444,7 +419,7 @@ alias backpack-rn-copy-font-files='cp ./packages/react-native-bpk-component-icon
 alias backpack-rn-setup='backpack-rn && touch android/local.properties && npm i && cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update && backpack-rn && backpack-rn-copy-font-files'
 alias backpack-rn-release='backpack-rn && cp ~/Dropbox/secrets/backpack-rn-local-properties ./android/local.properties && npm run publish'
 alias backpack-rn-publish='backpack-rn-release'
-alias backpack-rn-nuke='cd ~/Documents/ && sudo rm -rf backpack-react-native/ && git clone git@github.com:Skyscanner/backpack-react-native.git'
+alias backpack-rn-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-react-native/ && git clone git@github.com:Skyscanner/backpack-react-native.git'
 alias backpack-rn-nuke-setup='backpack-rn-nuke && backpack-rn-setup'
 alias backpack-rn-run-android='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5X_API_28 || true) & npm run android'
 alias backpack-rn-run-android-old='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) & npm run android'
@@ -458,29 +433,29 @@ alias backpack-rn-fix-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscann
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
 
-alias backpack-react-scripts='cd ~/Documents/backpack-react-scripts/'
+alias backpack-react-scripts='cd ~/Documents/Skyscanner/backpack-react-scripts/'
 alias backpack-react-scripts-setup='backpack-react-scripts && yarn && cd packages/react-error-overlay && yarn && backpack-react-scripts'
-alias backpack-react-scripts-nuke='cd ~/Documents/ && sudo rm -rf backpack-react-scripts/ && git clone git@github.com:Skyscanner/backpack-react-scripts.git'
+alias backpack-react-scripts-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-react-scripts/ && git clone git@github.com:Skyscanner/backpack-react-scripts.git'
 alias backpack-react-scripts-nuke-setup='backpack-react-scripts-nuke && backpack-react-scripts-setup'
 alias backpack-react-scripts-publish='backpack-react-scripts && git-reset && npm run publish -- --scope backpack-react-scripts'
 alias backpack-react-scripts-release='backpack-react-scripts-publish'
 
-alias backpack-node-sass='cd ~/Documents/backpack-node-sass/'
+alias backpack-node-sass='cd ~/Documents/Skyscanner/backpack-node-sass/'
 alias backpack-node-sass-setup='backpack-node-sass && npm i'
-alias backpack-node-sass-nuke='cd ~/Documents/ && sudo rm -rf backpack-node-sass/ && git clone git@github.com:Skyscanner/backpack-node-sass.git'
+alias backpack-node-sass-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-node-sass/ && git clone git@github.com:Skyscanner/backpack-node-sass.git'
 alias backpack-node-sass-nuke-setup='backpack-node-sass-nuke && backpack-node-sass-setup'
 
-alias bpk-logos='cd ~/Documents/bpk-logos/'
+alias bpk-logos='cd ~/Documents/Skyscanner/bpk-logos/'
 alias bpk-logos-setup='bpk-logos && npm i && npx gulp'
-alias bpk-logos-nuke='cd ~/Documents/ && sudo rm -rf bpk-logos/ && git clone git@github.skyscannertools.net:backpack/bpk-logos.git'
+alias bpk-logos-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf bpk-logos/ && git clone git@github.skyscannertools.net:backpack/bpk-logos.git'
 alias bpk-logos-nuke-setup='bpk-logos-nuke && bpk-logos-setup'
 
-alias backpack-ios='cd ~/Documents/backpack-ios/'
+alias backpack-ios='cd ~/Documents/Skyscanner/backpack-ios/'
 alias backpack-ios-setup='backpack-ios && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
 alias backpack-ios-open='backpack-ios && open Example/Backpack.xcworkspace'
 alias backpack-ios-setup-open='backpack-ios-setup && backpack-ios-open'
 alias backpack-ios-setup-open-complete='git-clean && xcode-delete-derived-data && backpack-ios-setup-open'
-alias backpack-ios-nuke='cd ~/Documents/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
+alias backpack-ios-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-ios/ && git clone git@github.com:Skyscanner/backpack-ios.git'
 alias backpack-ios-nuke-setup='backpack-ios-nuke && backpack-ios-setup'
 alias backpack-ios-install-ruby-version='backpack-ios && rvm install ruby-$(cat .ruby-version)'
 alias backpack-ios-release='backpack-ios && BUILD_SDK=iphonesimulator13.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake release'
@@ -494,30 +469,30 @@ alias backpack-ios-take-screenshots-basic='backpack-ios && pkill Simulator && ra
 alias backpack-ios-keep-status-bar-clean='sleep 5 && for i in {1..30}; do backpack-ios-clean-status-bar; sleep 30; done'
 alias backpack-ios-take-screenshots='backpack-ios-take-screenshots-basic & backpack-ios-keep-status-bar-clean'
 
-alias backpack-android='cd ~/Documents/backpack-android/'
+alias backpack-android='cd ~/Documents/Skyscanner/backpack-android/'
 alias backpack-android-setup='backpack-android && npm i && npm run build'
 alias backpack-android-open='backpack-android && AndroidStudio ./'
 alias backpack-android-setup-open='backpack-android-setup && backpack-android-open'
-alias backpack-android-nuke='cd ~/Documents/ && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
+alias backpack-android-nuke='cd ~/Documents/Skyscanner && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
 alias backpack-android-nuke-setup='backpack-android-nuke && backpack-android-setup'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'
 
-alias fullstack='cd ~/Documents/full-stack-recruitment-test/'
+alias fullstack='cd ~/Documents/Skyscanner/full-stack-recruitment-test/'
 alias fullstack-run='fullstack && npm run client & node server/src/server.js'
 alias fullstack-setup='fullstack && npm i'
-alias fullstack-nuke='cd ~/Documents/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
+alias fullstack-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
 alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login pip -f'
 
-alias skyscanner-app='cd ~/Documents/skyscanner-app/ && npm-set-artifatory-registry'
+alias skyscanner-app='cd ~/Documents/apps-tribe/skyscanner-app/ && npm-set-artifatory-registry'
 alias skyscanner-app-rn-sanity-check='skyscanner-app && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
-alias skyscanner-app-nuke='cd ~/Documents/ && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
+alias skyscanner-app-nuke='cd ~/Documents/apps-tribe && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
 alias skyscanner-app-setup='skyscanner-app && gem install bundler && (cd ios && rvm use 2.6.3 && ./fullsetup) && skyscanner-app'
 alias skyscanner-app-open='skyscanner-app && open ios/Project/Working/Skyscanner.xcworkspace'
 alias skyscanner-app-setup-open='skyscanner-app-setup && skyscanner-app-open'
 alias skyscanner-app-login-to-npm='skyscanner-app && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
-alias skyscanner-app-update-backpack-dependency='skyscanner-app && (cd ios &&  bundle exec pod update Backpack)'
+alias skyscanner-app-update-backpack-dependency='skyscanner-app && (cd ios && bundle exec pod update Backpack)'
 alias skyscanner-app-fix-react-native-snapshots='skyscanner-app && (cd react-native && npx jest --detectOpenHandles -u)'
 
 alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
