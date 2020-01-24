@@ -72,7 +72,7 @@ alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && nvm install lts/erbium && nvm alias default lts/erbium'
 
 alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
-alias very-nice='vlc --play-and-exit ~/Documents/dotfiles/very-nice.mp3'
+alias very-nice='vlc --play-and-exit ~/Documents/georgegillams/dotfiles/very-nice.mp3'
 
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
@@ -426,7 +426,7 @@ alias backpack-rn-run-android-old='backpack-rn && ($ANDROID_SDK_ROOT/emulator/em
 alias backpack-rn-run-android-docs='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5_API_27 || true) & npm run android'
 alias backpack-rn-run-ios='backpack-rn && npx react-native run-ios --simulator="iPhone 11"'
 alias backpack-rn-run-ios-docs='backpack-rn && npx react-native run-ios --simulator="iPhone 8"'
-alias backpack-rn-run-storybook='backpack-rn && npm start'
+alias backpack-rn-run-storybook='backpack-rn && (npm start & npm run storybook)'
 alias backpack-rn-check-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js'
 alias backpack-rn-fix-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js --fix'
 
