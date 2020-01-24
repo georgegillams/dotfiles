@@ -196,7 +196,7 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }" | pbcopy'
-function git-prepend-branch-name() { node ~/Documents/dotfiles/prepend-ticket.js $@ }
+function git-prepend-branch-name() { node ~/Documents/georgegillams/dotfiles/prepend-ticket.js $@ }
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
@@ -206,7 +206,7 @@ alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develo
 alias git-develop-latest='git-master-latest'
 alias git-add-all-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
-alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
+alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
 alias git-reset='git-pre-push && git-add-all-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='git checkout -- .'
 alias git-fetch='git fetch --all'
@@ -241,7 +241,7 @@ function git-rename-branch() {
 alias git-clean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
 alias git-empty='rm -rf * && rm .*';
-alias git-pull-fork='node ~/Documents/dotfiles/pull-forked-branch.js'
+alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
