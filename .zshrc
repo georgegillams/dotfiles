@@ -159,6 +159,9 @@ alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushal
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
 alias finances='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
 
+alias wedding='cd ~/Dropbox/Wedding/'
+alias wedding-guest-list='wedding && open guestlist.xlsx'
+
 alias npm-clear-cache='npm cache clean --force && npm cache clear --force && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
 alias get-email-old='echo "georgegillams@hotmail.co.uk" | pbcopy'
