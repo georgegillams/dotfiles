@@ -78,8 +78,9 @@ alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
 
-alias personal-zoom='open $(cat ~/Dropbox/secrets/personalzoomrc)'
-alias backpack-zoom='open $(cat ~/Dropbox/secrets/backpackzoomrc)'
+alias open-zoom-app='open /Applications/zoom.us.app && sleep 1'
+alias personal-zoom='open-zoom-app && open $(cat ~/Dropbox/secrets/personalzoomrc)'
+alias backpack-zoom='open-zoom-app && open $(cat ~/Dropbox/secrets/backpackzoomrc)'
 alias zoom='personal-zoom'
 alias zoom-backpack='backpack-zoom'
 alias zoom-personal='personal-zoom'
