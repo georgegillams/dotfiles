@@ -78,8 +78,11 @@ alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
 
-alias personal-zoom='osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $(cat ~/Dropbox/secrets/personalzoomrc)'
-alias backpack-zoom='osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $(cat ~/Dropbox/secrets/backpackzoomrc)'
+function launch-zoom-meeting() {
+  osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
+}
+alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
+alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
 alias zoom='personal-zoom'
 alias zoom-backpack='backpack-zoom'
 alias zoom-personal='personal-zoom'
