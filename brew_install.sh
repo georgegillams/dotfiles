@@ -16,6 +16,7 @@ brew tap wix/brew
 # needed to make mas install work
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 
+brew cask install 1password
 brew cask install adobe-creative-cloud
 brew cask install alfred
 brew cask install android-platform-tools
