@@ -146,6 +146,7 @@ alias clang-all-the-things='clang-format -i **/*.h **/*.m'
 
 alias xcode='open'
 alias xcode-delete-derived-data='rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
+alias xcode-fix-AST-error='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex'
 alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
 alias AndroidStudio="open -a /Applications/Android\ Studio.app"
