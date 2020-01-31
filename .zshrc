@@ -310,7 +310,7 @@ function georgegillams-docker-run-tests () {
   docker cp package.json $containerId:/usr/src/tmp/
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp server $containerId:/usr/src/tmp/
-  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD npm i
+  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
@@ -344,7 +344,7 @@ function ggcomponents-docker-run-tests () {
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
-  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD npm i
+  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
