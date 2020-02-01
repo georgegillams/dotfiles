@@ -295,7 +295,7 @@ alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=tru
 alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
-alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
+alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
 function georgegillams-docker-run-tests () {
   georgegillams
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
@@ -327,7 +327,7 @@ alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i 
 alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
 alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
 alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
-alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd cgwedding-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
+alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
 function cgwedding-docker-run-tests () {
   cgwedding
   containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
@@ -361,7 +361,7 @@ alias ggcomponents='cd ~/Documents/georgegillams/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
 alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
-alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd gg-components-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
+alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true gg-components-test bash'
 function ggcomponents-docker-run-tests () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
