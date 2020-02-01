@@ -295,7 +295,7 @@ alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=tru
 alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
-alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash'
+alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd georgegillams-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
 function georgegillams-docker-run-tests () {
   georgegillams
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
@@ -310,7 +310,7 @@ function georgegillams-docker-run-tests () {
   docker cp package.json $containerId:/usr/src/tmp/
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp server $containerId:/usr/src/tmp/
-  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
+  docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
@@ -322,6 +322,39 @@ function georgegillams-docker-copy-snapshots-to-host () {
 }
 alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
 
+alias cgwedding='cd ~/Documents/georgegillams/cgwedding/'
+alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
+alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
+alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
+alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
+alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
+alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd cgwedding-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
+function cgwedding-docker-run-tests () {
+  cgwedding
+  containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
+  docker cp .babelrc $containerId:/usr/src/tmp/
+  docker cp app $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp build $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp helpers $containerId:/usr/src/tmp/
+  docker cp jest.config.js $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp server $containerId:/usr/src/tmp/
+  docker exec -it $containerId npm i
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
+}
+function cgwedding-docker-copy-snapshots-to-host () {
+  cgwedding
+  containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias cgwedding-regenerate-snapshots='cgwedding && docker-reset && cgwedding-docker-create-and-run-container && cgwedding-docker-run-tests && cgwedding-docker-copy-snapshots-to-host'
+
 alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
 alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && npm run dev:install'
@@ -330,7 +363,7 @@ alias ggcomponents='cd ~/Documents/georgegillams/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
 alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
-alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd gg-components-test bash'
+alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd gg-components-test bash -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
 function ggcomponents-docker-run-tests () {
   ggcomponents
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
@@ -344,7 +377,7 @@ function ggcomponents-docker-run-tests () {
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
-  docker exec -it $containerId PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
+  docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
