@@ -369,7 +369,6 @@ function ggcomponents-docker-run-tests () {
   docker cp babel.config.js $containerId:/usr/src/tmp/
   docker cp backstop_data $containerId:/usr/src/tmp/
   docker cp config $containerId:/usr/src/tmp/
-  docker cp dist $containerId:/usr/src/tmp/
   docker cp package-lock.json $containerId:/usr/src/tmp/
   docker cp package.json $containerId:/usr/src/tmp/
   docker cp scripts $containerId:/usr/src/tmp/
