@@ -302,7 +302,6 @@ function georgegillams-docker-run-tests () {
   docker cp .babelrc $containerId:/usr/src/tmp/
   docker cp app $containerId:/usr/src/tmp/
   docker cp backstop_data $containerId:/usr/src/tmp/
-  docker cp build $containerId:/usr/src/tmp/
   docker cp config $containerId:/usr/src/tmp/
   docker cp helpers $containerId:/usr/src/tmp/
   docker cp jest.config.js $containerId:/usr/src/tmp/
@@ -335,7 +334,6 @@ function cgwedding-docker-run-tests () {
   docker cp .babelrc $containerId:/usr/src/tmp/
   docker cp app $containerId:/usr/src/tmp/
   docker cp backstop_data $containerId:/usr/src/tmp/
-  docker cp build $containerId:/usr/src/tmp/
   docker cp config $containerId:/usr/src/tmp/
   docker cp helpers $containerId:/usr/src/tmp/
   docker cp jest.config.js $containerId:/usr/src/tmp/
