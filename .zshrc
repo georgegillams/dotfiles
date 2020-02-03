@@ -160,7 +160,7 @@ alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numb
 alias finances='cd ~/Dropbox/Year\ Plan/ && open Financej.numbers'
 
 alias wedding='cd ~/Dropbox/Wedding/'
-alias wedding-guest-list='wedding && open guestlist.xlsx'
+alias wedding-guest-list='wedding && open guestlist.numbers'
 
 alias npm-clear-cache='npm cache clean --force && npm cache clear --force && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
