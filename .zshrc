@@ -157,7 +157,7 @@ alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
 
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
-alias finances='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
+alias finances='cd ~/Dropbox/Year\ Plan/ && open Financej.numbers'
 
 alias wedding='cd ~/Dropbox/Wedding/'
 alias wedding-guest-list='wedding && open guestlist.xlsx'
