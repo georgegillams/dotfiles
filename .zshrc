@@ -249,9 +249,9 @@ alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 
-alias docker-reset='docker rm $(docker ps -a -q) --force'
+alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
 alias docker-reset-hard='docker-reset && docker system prune -a'
-alias docker-reset-images='docker rmi $(docker images -a -q) --force'
+alias docker-reset-images='docker ps -a -q | xargs -L1 docker rmi --force'
 alias docker-reset-complete='docker-reset && docker-reset-images'
 alias docker-list-processes='docker ps -a'
 alias docker-list-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $(docker ps -aq)'
