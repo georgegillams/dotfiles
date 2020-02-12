@@ -119,8 +119,10 @@ mas install 957734279 # Toggl
 mas install 961632517 # Be Focused Pro - Focus Timer
 mas install 980577198 # Tunacan - Image concatenator
 
-echo "Sign in to LastPass. Hit enter when complete."
-open /Applications/LastPass.app
+echo "Sign in to 1Password. Hit enter when complete."
+open /Applications/1Password\ 7.app
+read
+echo "Expose 1Password entries to Alfred. Hit enter when complete."
 read
 
 # Setup default nvm
@@ -238,14 +240,6 @@ open /Applications/Spotify.app/
 open ./resources/Network\ Link\ Conditioner.prefPane
 
 echo "NOW INSTALL MANUALLY ☹️"
-# echo "Logitech gaming software => http://support.logitech.com/en_gb/software/lgs"
-# cd ~/Downloads && wget https://download01.logi.com/web/ftp/pub/techsupport/gaming/LogitechSetup_8.98.306.zip && open LogitechSetup_8.98.306.zip && sleep 30 && open LogitechGamingInstaller.app
-# echo "Node version"
-# cd ~/Downloads && wget https://nodejs.org/download/release/v8.12.0/node-v8.12.0.pkg && sudo installer -store -pkg "./node-v8.12.0.pkg" -target /
-echo "Secure password character extractor => https://www.georgegillams.co.uk/apps/password-character-extractor"
-cd ~/Downloads && wget https://raw.githubusercontent.com/georgegillams/SecurePasswordCharacterExtractor/master/release/Secure_Password_Character_Extractor.zip && open Secure_Password_Character_Extractor.zip && sleep 10 && mv Secure\ Password\ Character\ Extractor.app/ /Applications/
-rm -rf Secure_Password_Character_Extractor.zip
-
 echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
 open /usr/local/Caskroom/canon-eos-utility/*/*.app
 
