@@ -209,7 +209,6 @@ alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias git-master-latest-actual='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git-reset'
 alias git-develop-latest-actual='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
 alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest-actual; else git-master-latest-actual; fi'
-alias git-develop-latest='git-master-latest'
 alias git-add-all-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
 alias git-add-all='git-pre-push && git-add-all-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && git-add-all-no-image-optimisation'
@@ -219,7 +218,6 @@ alias git-fetch='git fetch --all'
 alias git-rebase-master-actual='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
 alias git-rebase-develop-actual='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
 alias git-rebase-master=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-rebase-develop-actual; else git-rebase-master-actual; fi'
-alias git-rebase-develop='git-rebase-master'
 alias git-rebase-upstream='echo "ensure upstream is set using `git remote add upstream <URL>`" && git fetch upstream && git merge upstream/master && git push origin origin/master'
 alias git-pre-push='git status && sleep 3'
 alias git-rename-last-commit='git commit --amend'
@@ -237,7 +235,6 @@ function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master-actual() { git checkout origin/master $@ }
 function git-revert-to-develop-actual() { git checkout origin/develop $@ }
 function git-revert-to-master() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then git-revert-to-develop-actual $@ ; else git-revert-to-master-actual $@ ; fi }
-function git-revert-to-develop() { git-revert-to-master $@ }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
