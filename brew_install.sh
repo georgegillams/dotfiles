@@ -40,6 +40,7 @@ brew cask install imageoptim
 brew cask install iterm2
 brew cask install muzzle
 brew cask install nordvpn
+brew cask install nightowl
 brew cask install oracle-jdk
 brew cask install pock
 brew cask install postman
