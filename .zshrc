@@ -178,6 +178,7 @@ alias travis-fold-end='echo -e "\ntravis_fold:end:$1\r"'
 alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 
 alias gh-prs='gh pr list'
+alias gh-create-pr='gh pr create'
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
