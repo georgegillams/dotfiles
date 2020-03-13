@@ -59,6 +59,7 @@ brew cask install parallels
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
+brew install chisel
 brew install clang-format
 brew install cloc # count lines of code
 brew install cmake
