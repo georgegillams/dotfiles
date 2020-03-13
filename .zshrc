@@ -111,6 +111,8 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias web-browser='w3m'
 
+alias improve-vpn-connection='cd ~/Documents/scripts && .tunnel_vpn.py'
+
 function tmux-create-session() { tmux new -s $@ }
 function tmux-attach-session() { tmux attach -t $@ }
 alias tmux-detach="tmux detach"
