@@ -110,7 +110,7 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias web-browser='w3m'
 
-alias improve-vpn-connection='cd ~/Documents/scripts && sudo ./tunnel_vpn.py'
+alias improve-vpn-connection='cd ~/Documents/lazarlazarov/local-vpn-routing && sudo ./tunnel_vpn.py'
 alias tunnel-vpn-connection='improve-vpn-connection'
 
 function tmux-create-session() { tmux new -s $@ }
