@@ -79,6 +79,7 @@ function launch-zoom-meeting() {
 }
 alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
 alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
+alias fika-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/fikazoomrc)'
 alias zoom='personal-zoom'
 alias zoom-backpack='backpack-zoom'
 alias zoom-personal='personal-zoom'
