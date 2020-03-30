@@ -139,37 +139,37 @@ sudo chown -R $USER:$GROUP ~/.config
 
 git config --global user.name "George Gillams" && git config --global user.email george.gillams@skyscanner.net
 
-# Set up Krypt.co SSH/GPG keys:
-echo "Enter dev mode in the app to get started"
-echo "Remember to add the new keys to all GitHub instances"
-curl https://krypt.co/kr | sh
-kr pair
-kr github
-read
-kr codesign
-read
-
-# # Set up Git SSH
-# ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
-# echo "Now go to Github, select Add SSH key and paste the public file contents"
-# pbcopy < ~/.ssh/id_rsa.pub
-# sleep 10
-# echo "Press any key once complete"
+# # Set up Krypt.co SSH/GPG keys:
+# echo "Enter dev mode in the app to get started"
+# echo "Remember to add the new keys to all GitHub instances"
+# curl https://krypt.co/kr | sh
+# kr pair
+# kr github
+# read
+# kr codesign
 # read
 
-# # Set up Git commit signing
-# gpg --gen-key
-# echo "Configuring git to use the new GPG key"
-# gpg --list-secret-keys --keyid-format LONG
-# echo "Please copy the sec key and enter it"
-# read keyLong
-# git config --global user.signingkey $(keyLong)
-# git config --global commit.gpgSign true
-# echo "Now go to Github, select New GPG key and paste the exported data"
-# gpg --export -a $(keyLong) | pbcopy
-# sleep 10
-# echo "Press any key once complete"
-# read
+# Set up Git SSH
+ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
+echo "Now go to Github, select Add SSH key and paste the public file contents"
+pbcopy < ~/.ssh/id_rsa.pub
+sleep 10
+echo "Press any key once complete"
+read
+
+# Set up Git commit signing
+gpg --gen-key
+echo "Configuring git to use the new GPG key"
+gpg --list-secret-keys --keyid-format LONG
+echo "Please copy the sec key and enter it"
+read keyLong
+git config --global user.signingkey $(keyLong)
+git config --global commit.gpgSign true
+echo "Now go to Github, select New GPG key and paste the exported data"
+gpg --export -a $(keyLong) | pbcopy
+sleep 10
+echo "Press any key once complete"
+read
 
 echo "Logging in to NPM"
 npm login
