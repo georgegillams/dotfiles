@@ -562,6 +562,8 @@ function iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
+system-fix-ssh
+
 info "Loading NVM"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh --no-use # This loads nvm
