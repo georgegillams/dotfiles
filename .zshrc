@@ -29,6 +29,7 @@ export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery root_indicator background_jobs history time)
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
