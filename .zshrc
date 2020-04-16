@@ -509,7 +509,7 @@ alias backpack-ios-release='backpack-ios && BUILD_SDK=iphonesimulator13.2 DESTIN
 alias backpack-ios-publish='backpack-ios-release'
 alias backpack-ios-build-ipa='backpack-ios && sh ~/Dropbox/secrets/backpack-ios/backpack-build-ipa && git-reset'
 alias backpack-ios-test='backpack-ios && BUILD_SDK=iphonesimulator13.2 DESTINATION="platform=iOS Simulator,name=iPhone 8" bundle exec rake test && Example/Pods/SwiftLint/swiftlint lint --strict'
-alias backpack-ios-lint='backpack-ios && rake lint && Example/Pods/SwiftLint/swiftlint lint --strict --config Example/.swiftlint.yml'
+alias backpack-ios-lint='backpack-ios && rake lint && (cd Example && Pods/SwiftLint/swiftlint lint --strict --config .swiftlint.yml)'
 alias backpack-ios-clang-format='backpack-ios && (cd Backpack && clang-all-the-things) && (cd Example && clang-all-the-things)'
 alias backpack-ios-clean-status-bar='xcrun simctl status_bar "iPhone 8" override --time "0941" --wifiBars 3 --cellularBars 4 --batteryLevel 100'
 alias backpack-ios-take-screenshots-basic='backpack-ios && rake take_screenshots'
