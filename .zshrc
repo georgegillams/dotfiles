@@ -298,6 +298,7 @@ alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillam
 alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
+alias georgegillams-ssh-ec2='ssh ubuntu@ec2-3-10-224-23.eu-west-2.compute.amazonaws.com'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
 function georgegillams-docker-run-tests () {
@@ -330,6 +331,7 @@ alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && 
 alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
 alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
+alias cgwedding-ssh-ec2='ssh ubuntu@ec2-35-179-96-88.eu-west-2.compute.amazonaws.com'
 alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
 alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
 function cgwedding-docker-run-tests () {
