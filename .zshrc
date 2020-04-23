@@ -334,7 +334,7 @@ alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && 
 alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
 alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
-alias cgwedding-ssh-ec2='ssh ubuntu@ec2-35-179-96-88.eu-west-2.compute.amazonaws.com'
+alias cgwedding-ssh-ec2='ssh ubuntu@ec2-35-176-10-10.eu-west-2.compute.amazonaws.com'
 alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
 alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
 function cgwedding-docker-run-tests () {
