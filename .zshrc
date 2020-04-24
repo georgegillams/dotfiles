@@ -268,7 +268,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 
 # ==================== PERSONAL PROJECTS =====================
 
-alias daily-backup="georgegillams-backup && cgwedding-backup"
+alias daily-backup="(georgegillams-backup) && (cgwedding-backup)"
 
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
