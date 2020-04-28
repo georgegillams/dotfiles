@@ -111,6 +111,7 @@ alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotli
 alias system-disable-indexing='sudo mdutil -a -i off'
 alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm -rf ~/Library/Containers/io.canarymail.mac/'
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
+alias system-fix-rvm-openssl='brew rm openssl --ignore-dependencies && brew cleanup openssl && brew install openssl && rvm reinstall ruby'
 alias web-browser='w3m'
 
 alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && git-master-latest && sudo ./tunnel_vpn.py'
