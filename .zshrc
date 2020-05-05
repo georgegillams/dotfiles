@@ -271,6 +271,8 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 
 alias daily-backup="(georgegillams-backup) && (cgwedding-backup)"
 
+alias aws-config='cd ~/Documents/georgegillams/aws/'
+
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && git-add-all && git-commit-push "Update TMUX conf"'
