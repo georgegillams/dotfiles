@@ -175,13 +175,17 @@ npm login
 pod trunk register george.gillams@skyscanner.net
 
 cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cd ~/Documents && git clone https://github.com/georgegillams/dotfiles.git
+mkdir ~/Documents/georgegillams
+cd ~/Documents/georgegillams && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc
 cp dotfiles/.zshrc ~/.zshrc
 cp dotfiles/.tmux.conf ~/.tmux.conf
 . ~/.zshrc
 vim +"source ~/.vimrc" +PluginInstall +qall
 defaults write com.apple.finder AppleShowAllFiles YES
+
+sudo mkdir /Library/Filters/
+sudo cp dotfiles/resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 
 # Install powerline fonts:
 cd ~/Documents/
@@ -206,22 +210,15 @@ cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
 # Clone common guithub repos
-cd ~/Documents && rm -rf dotfiles
-cd ~/Documents && git clone git@github.com:georgegillams/dotfiles.git
+cd ~/Documents/georgegillams && git clone git@github.com:georgegillams/dotfiles.git
 cd dotfiles && npm i
-cd ~/Documents && git clone git@github.com:georgegillams/georgegillams.co.uk.git
-cd ~/Documents && git clone git@github.com:Skyscanner/backpack.git
-cd ~/Documents && git clone git@github.com:Skyscanner/backpack-ios.git
-cd ~/Documents && git clone git@github.com:Skyscanner/backpack-android.git
-cd ~/Documents && git clone git@github.com:Skyscanner/backpack-react-native.git
-backpack-setup && backpack-ios-setup && georgegillams-setup && backpack-rn-setup
 
 # Copy firefox chrome.css to profile directories:
 open /Applications/Firefox\ Developer\ Edition.app/
 open /Applications/Firefox.app/
 sleep 10
 cd /Users/georgegillams/Library/Application\ Support/Firefox/Profiles/
-find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Documents/dotfiles/chrome ./" \;
+find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Documents/georgegillams/dotfiles/chrome ./" \;
 cd -
 sleep 10
 pkill firefox
