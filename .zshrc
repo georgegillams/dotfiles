@@ -353,6 +353,7 @@ function cgwedding-docker-run-tests () {
   docker cp package.json $containerId:/usr/src/tmp/
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp server $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
@@ -386,6 +387,7 @@ function ggcomponents-docker-run-tests () {
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
@@ -415,22 +417,18 @@ function screen-reader-adventures-docker-run-tests () {
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
   docker exec -it $containerId npm i
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
-}
-function screen-reader-adventures-docker-delete-existing-snapshots () {
-  screen-reader-adventures
-  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
-  docker exec -it $containerId rm -rf backstop_data
 }
 function screen-reader-adventures-docker-copy-snapshots-to-host () {
   screen-reader-adventures
   containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker-reset && screen-reader-adventures-docker-create-and-run-container && screen-reader-adventures-docker-delete-existing-snapshots && screen-reader-adventures-docker-run-tests && screen-reader-adventures-docker-copy-snapshots-to-host'
+alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker-reset && screen-reader-adventures-docker-create-and-run-container && screen-reader-adventures-docker-run-tests && screen-reader-adventures-docker-copy-snapshots-to-host'
 
 alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
