@@ -330,7 +330,7 @@ function georgegillams-docker-copy-snapshots-to-host () {
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias georgegillams-docker-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
+alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
 
 alias cgwedding='cd ~/Documents/georgegillams/cgwedding/'
 alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
@@ -363,7 +363,7 @@ function cgwedding-docker-copy-snapshots-to-host () {
   containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias cgwedding-docker-regenerate-snapshots='cgwedding && docker-reset && cgwedding-docker-create-and-run-container && cgwedding-docker-run-tests && cgwedding-docker-copy-snapshots-to-host'
+alias cgwedding-regenerate-snapshots='cgwedding && docker-reset && cgwedding-docker-create-and-run-container && cgwedding-docker-run-tests && cgwedding-docker-copy-snapshots-to-host'
 
 alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
@@ -396,17 +396,36 @@ function ggcomponents-docker-copy-snapshots-to-host () {
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias ggcomponents-docker-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
+alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
 
 alias screen-reader-adventures='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
-alias screen-reader-adventures-backup='dotfiles && node screen-reader-adventures-backup.js && cd -'
-function screen-reader-adventures-copy-snapshots-from-docker () {
+alias screen-reader-adventures-docker-build-image='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
+alias screen-reader-adventures-docker-create-and-run-container='screen-reader-adventures && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
+function screen-reader-adventures-docker-run-tests () {
+  screen-reader-adventures
   containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
-  screen-reader-adventures && docker cp $containerId:/usr/src/tmp/backstop_data ./
+  docker cp .storybook $containerId:/usr/src/tmp/
+  docker cp babel.config.js $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp src $containerId:/usr/src/tmp/
+  docker cp test $containerId:/usr/src/tmp/
+  docker exec -it $containerId npm i
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
-alias screen-reader-adventures-docker-regenerate-snapshots='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest . && docker run screen-reader-adventures-test && screen-reader-adventures-copy-snapshots-from-docker'
+function screen-reader-adventures-docker-copy-snapshots-to-host () {
+  screen-reader-adventures
+  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker-reset && screen-reader-adventures-docker-create-and-run-container && screen-reader-adventures-docker-run-tests && screen-reader-adventures-docker-copy-snapshots-to-host'
 
 alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
