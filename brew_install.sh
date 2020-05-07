@@ -38,8 +38,8 @@ brew cask install handbrake
 brew cask install homebrew/cask-versions/firefox-developer-edition
 brew cask install imageoptim
 brew cask install iterm2
-brew cask install nordvpn
 brew cask install nightowl
+brew cask install nordvpn
 brew cask install oracle-jdk
 brew cask install pock
 brew cask install postman
@@ -50,6 +50,7 @@ brew cask install slack
 brew cask install soundflower
 brew cask install sourcetree
 brew cask install the-unarchiver
+brew cask install visual-studio-code
 brew cask install whatsapp
 # brew cask install virtualbox
 # brew cask install virtualbox-extension-pack
