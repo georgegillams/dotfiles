@@ -298,13 +298,15 @@ alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme &&
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
+alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-10-224-23.eu-west-2.compute.amazonaws.com'
+
 alias georgegillams='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
-alias georgegillams-ssh-ec2='ssh ubuntu@ec2-3-10-224-23.eu-west-2.compute.amazonaws.com'
+alias georgegillams-ssh-ec2='chewbacca-ssh-ec2'
 alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
 function georgegillams-docker-run-tests () {
@@ -337,7 +339,6 @@ alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && 
 alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
 alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
 alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
-alias cgwedding-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
 alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
 function cgwedding-docker-run-tests () {
