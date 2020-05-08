@@ -298,7 +298,7 @@ alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme &&
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
-alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-10-224-23.eu-west-2.compute.amazonaws.com'
+alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 
 alias georgegillams='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
