@@ -75,8 +75,11 @@ alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
 alias weather='weather-london';
 
-function launch-zoom-meeting() {
+function launch-zoom-meeting-legacy() {
   osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
+}
+function launch-zoom-meeting() {
+  open https://skyscanner.zoom.us/j/$@
 }
 alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
 alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
