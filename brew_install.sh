@@ -36,6 +36,7 @@ brew cask install google-chrome
 brew cask install grandperspective
 brew cask install handbrake
 brew cask install homebrew/cask-versions/firefox-developer-edition
+brew cask install hopper-debugger-server
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install nightowl
