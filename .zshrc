@@ -258,8 +258,8 @@ alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
-alias git-disable-gpg='git config --global commit.gpgSign false'
-alias git-enable-gpg='git config --global commit.gpgSign true'
+alias git-disable-gpg='open ~/.gitconfig and update gpg values'
+alias git-enable-gpg='revert your changes to ~/.gitconfig'
 
 alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
 alias docker-reset-hard='docker-reset && docker system prune -a'
