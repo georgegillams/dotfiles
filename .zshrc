@@ -258,7 +258,7 @@ alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
-alias git-disable-gpg='open ~/.gitconfig and update gpg values'
+alias git-disable-gpg='open ~/.gitconfig and remove signingKey and gpg values'
 alias git-enable-gpg='revert your changes to ~/.gitconfig'
 
 alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
@@ -293,7 +293,7 @@ alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "U
 
 alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
-alias academic-references-setup='academic-references && cd package && npm i && cd ../example && npm i && academic-references'
+alias academic-references-setup='academic-references && cd package && npm ci && cd ../example && npm i && academic-references'
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
@@ -310,7 +310,7 @@ alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com
 alias georgegillams='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias georgegillams-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
-alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
+alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
 alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
 alias georgegillams-ssh-ec2='r2d2-ssh-ec2'
@@ -329,7 +329,7 @@ function georgegillams-docker-run-tests () {
   docker cp package.json $containerId:/usr/src/tmp/
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp server $containerId:/usr/src/tmp/
-  docker exec -it $containerId npm i
+  docker exec -it $containerId npm ci
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
@@ -343,7 +343,7 @@ alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georg
 
 alias cgwedding='cd ~/Documents/georgegillams/cgwedding/'
 alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
-alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i && npm run prebuild'
+alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
 alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
 alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
@@ -362,7 +362,7 @@ function cgwedding-docker-run-tests () {
   docker cp scripts $containerId:/usr/src/tmp/
   docker cp server $containerId:/usr/src/tmp/
   docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
-  docker exec -it $containerId npm i
+  docker exec -it $containerId npm ci
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
@@ -376,11 +376,11 @@ alias cgwedding-regenerate-snapshots='cgwedding && docker-reset && cgwedding-doc
 
 alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
-alias reduxdefinitions-setup='reduxdefinitions && npm i && npm run transpile && npm run dev:install'
+alias reduxdefinitions-setup='reduxdefinitions && npm ci && npm run transpile && npm run dev:install'
 
 alias ggcomponents='cd ~/Documents/georgegillams/gg-components/'
 alias ggcomponents-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
-alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i'
+alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
 alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
 alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true gg-components-test bash'
 function ggcomponents-docker-run-tests () {
@@ -396,7 +396,7 @@ function ggcomponents-docker-run-tests () {
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
   docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
-  docker exec -it $containerId npm i
+  docker exec -it $containerId npm ci
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
@@ -410,7 +410,7 @@ alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcompo
 
 alias screen-reader-adventures='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias screen-reader-adventures-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
-alias screen-reader-adventures-setup='screen-reader-adventures && npm i'
+alias screen-reader-adventures-setup='screen-reader-adventures && npm ci'
 alias screen-reader-adventures-docker-build-image='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
 alias screen-reader-adventures-docker-create-and-run-container='screen-reader-adventures && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
 function screen-reader-adventures-docker-run-tests () {
@@ -426,7 +426,7 @@ function screen-reader-adventures-docker-run-tests () {
   docker cp src $containerId:/usr/src/tmp/
   docker cp test $containerId:/usr/src/tmp/
   docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
-  docker exec -it $containerId npm i
+  docker exec -it $containerId npm ci
   docker exec -it $containerId npm run build
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
