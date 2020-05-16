@@ -289,7 +289,7 @@ alias brew-edit-install-script='dotfiles && vim brew_install.sh && cd -'
 function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew install $@ }
 function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && git-add-all && git-commit-push "Update brew script" && cd - && brew cask install $@ }
 alias dotfiles-commit-brew-script='dotfiles && git-add-all && git-commit-push "Update brew install script"'
-alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application Support/Code/User/settings.json ./vscode_settings.json && git-add-all && git-commit-push "Update vscode settings"'
+alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/settings.json ./vscode_settings.json && git-add-all && git-commit-push "Update vscode settings"'
 # alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && git-add-all && git-commit-push "Update NVIMRC"'
 
 alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
