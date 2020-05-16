@@ -119,10 +119,13 @@ endfunction
 "Prettier
 let g:prettier#autoformat = 0
 
+" ES6 imports highlight
+let g:es6_imports_gui_bg_color = 'black'
+let g:es6_imports_excludes = ['React']
 autocmd BufWinEnter *.js execute "ES6ImportsHighlight"
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue Prettier
-autocmd BufWritePre *.m,*.h ClangFormat
+" autocmd BufWritePre *.m,*.h ClangFormat
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
