@@ -47,6 +47,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'joom/vim-commentary'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
