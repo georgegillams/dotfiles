@@ -1,0 +1,9 @@
+{
+    "window.autoDetectColorScheme": true,
+    "window.nativeTabs": true,
+    "eslint.lintTask.enable": true,
+    "window.zoomLevel": 1,
+    "editor.fontFamily": "Fira Mono For Powerline",
+    "terminal.integrated.fontFamily": "Fira Mono For Powerline",
+    "editor.fontLigatures": null
+}
