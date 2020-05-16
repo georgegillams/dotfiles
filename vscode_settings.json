@@ -5,5 +5,34 @@
     "window.zoomLevel": 1,
     "editor.fontFamily": "Fira Mono For Powerline",
     "terminal.integrated.fontFamily": "Fira Mono For Powerline",
-    "editor.fontLigatures": null
+    "editor.fontLigatures": null,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["H"],
+        "after": ["h", "h", "h", "h", "h"]
+      },
+      {
+        "before": ["J"],
+        "after": ["j", "j", "j", "j", "j"]
+      },
+      {
+        "before": ["K"],
+        "after": ["k", "k", "k", "k", "k"]
+      },
+      {
+        "before": ["L"],
+        "after": ["l", "l", "l", "l", "l"]
+      }
+    ]
 }
