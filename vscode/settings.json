@@ -34,5 +34,11 @@
         "before": ["L"],
         "after": ["l", "l", "l", "l", "l"]
       }
-    ]
+    ],
+    "prettier.jsxSingleQuote": true,
+    "eslint.format.enable": true,
+    "scssLint.runOnTextChange": true,
+    "scssLint.showHighlights": true,
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Visual Studio Dark"
 }
