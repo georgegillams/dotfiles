@@ -119,6 +119,8 @@ endfunction
 "Prettier
 let g:prettier#autoformat = 0
 
+autocmd BufWinEnter *.js execute "ES6ImportsHighlight"
+
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue Prettier
 autocmd BufWritePre *.m,*.h ClangFormat
 
