@@ -121,7 +121,7 @@ let g:prettier#autoformat = 0
 
 " ES6 imports highlight
 let g:es6_imports_gui_bg_color = 'black'
-let g:es6_imports_excludes = ['React']
+" let g:es6_imports_excludes = ['React']
 autocmd BufWinEnter *.js execute "ES6ImportsHighlight"
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue Prettier
