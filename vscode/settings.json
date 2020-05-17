@@ -39,19 +39,19 @@
     },
     {
       "before": ["H"],
-      "after": ["6h"]
+      "after": ["h", "h", "h", "h", "h", "h"]
     },
     {
       "before": ["J"],
-      "after": ["6j"]
+      "after": ["j", "j", "j", "j", "j", "j"]
     },
     {
       "before": ["K"],
-      "after": ["6k"]
+      "after": ["k", "k", "k", "k", "k", "k"]
     },
     {
       "before": ["L"],
-      "after": ["6l"]
+      "after": ["l", "l", "l", "l", "l", "l"]
     }
   ],
   "vim.leader": "<space>",
