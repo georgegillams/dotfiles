@@ -51,6 +51,8 @@ fi
 
 # ========================== SYSTEM ==========================
 
+alias whence-function='echo "use declare -f FUNC"'
+
 alias duplicate-tab='open . -a iterm'
 
 alias zsh-remove-api-keys-from-history='zsh-remove-term-from-history APIKEY && zsh-remove-term-from-history API_KEY'
