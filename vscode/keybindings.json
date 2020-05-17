@@ -58,5 +58,13 @@
   {
     "key": "shift+cmd+p",
     "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "workbench.action.findInFiles"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "-workbench.action.findInFiles"
   }
 ]

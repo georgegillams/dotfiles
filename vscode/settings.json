@@ -18,6 +18,18 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["?"],
+      "commands": ["actions.find"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["actions.find"]
+    },
+    {
       "before": ["<leader>", "v"],
       "commands": [":vsplit"]
     },
