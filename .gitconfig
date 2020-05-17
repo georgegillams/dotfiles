@@ -7,6 +7,7 @@
 [core]
 	attributesfile = ~/.gitattributes
 	excludesfile = /Users/georgegillams/.gitignore_global
+	ignorecase = false
 [alias]
 	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
 [diff "image"]

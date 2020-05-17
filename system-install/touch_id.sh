@@ -1,0 +1,1 @@
+sudo cp ../sudo.config /etc/pam.d/sudo
