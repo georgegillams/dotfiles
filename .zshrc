@@ -271,6 +271,8 @@ alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkS
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
 
+alias c='code ./'
+
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
 # ==================== PERSONAL PROJECTS =====================
