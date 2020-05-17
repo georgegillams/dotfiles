@@ -275,7 +275,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 
 # ==================== PERSONAL PROJECTS =====================
 
-alias daily-backup="(georgegillams-backup) && (cgwedding-backup)"
+alias daily-backup="(ge-backup) && (cg-backup)"
 
 alias aws-config='cd ~/Documents/georgegillams/aws/'
 
@@ -298,8 +298,6 @@ alias academic-references-setup='academic-references && cd package && npm ci && 
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
-alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
-
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
@@ -308,17 +306,16 @@ alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 
-alias georgegillams='cd ~/Documents/georgegillams/georgegillams.co.uk/'
-alias georgegillams-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
-alias georgegillams-container-docs='georgegillams && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
-alias georgegillams-setup='georgegillams && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
-alias georgegillams-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && georgegillams && cp -R ../react-redux/* ./'
-alias georgegillams-backup='georgegillams && node scripts/backup-production-data.js'
-alias georgegillams-ssh-ec2='r2d2-ssh-ec2'
-alias georgegillams-docker-build-image='georgegillams && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
-alias georgegillams-docker-create-and-run-container='georgegillams && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
-function georgegillams-docker-run-tests () {
-  georgegillams
+alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
+alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias ge-container-docs='ge && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
+alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias ge-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && ge && cp -R ../react-redux/* ./'
+alias ge-backup='ge && node scripts/backup-production-data.js'
+alias ge-docker-build-image='ge && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
+alias ge-docker-create-and-run-container='ge && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
+function ge-docker-run-tests () {
+  ge
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
   docker cp .babelrc $containerId:/usr/src/tmp/
   docker cp app $containerId:/usr/src/tmp/
@@ -335,22 +332,22 @@ function georgegillams-docker-run-tests () {
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
-function georgegillams-docker-copy-snapshots-to-host () {
-  georgegillams
+function ge-docker-copy-snapshots-to-host () {
+  ge
   containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias georgegillams-regenerate-snapshots='georgegillams && docker-reset && georgegillams-docker-create-and-run-container && georgegillams-docker-run-tests && georgegillams-docker-copy-snapshots-to-host'
+alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-container && ge-docker-run-tests && ge-docker-copy-snapshots-to-host'
 
-alias cgwedding='cd ~/Documents/georgegillams/cgwedding/'
-alias cgwedding-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
-alias cgwedding-setup='cgwedding && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
-alias cgwedding-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cgwedding && cp -R ../react-redux/* ./'
-alias cgwedding-backup='cgwedding && node scripts/backup-production-data.js'
-alias cgwedding-docker-build-image='cgwedding && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
-alias cgwedding-docker-create-and-run-container='cgwedding && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
-function cgwedding-docker-run-tests () {
-  cgwedding
+alias cg='cd ~/Documents/georgegillams/cgwedding/'
+alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
+alias cg-setup='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cg-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cg && cp -R ../react-redux/* ./'
+alias cg-backup='cg && node scripts/backup-production-data.js'
+alias cg-docker-build-image='cg && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
+alias cg-docker-create-and-run-container='cg && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
+function cg-docker-run-tests () {
+  cg
   containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
   docker cp .babelrc $containerId:/usr/src/tmp/
   docker cp app $containerId:/usr/src/tmp/
@@ -368,12 +365,12 @@ function cgwedding-docker-run-tests () {
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
-function cgwedding-docker-copy-snapshots-to-host () {
-  cgwedding
+function cg-docker-copy-snapshots-to-host () {
+  cg
   containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias cgwedding-regenerate-snapshots='cgwedding && docker-reset && cgwedding-docker-create-and-run-container && cgwedding-docker-run-tests && cgwedding-docker-copy-snapshots-to-host'
+alias cg-regenerate-snapshots='cg && docker-reset && cg-docker-create-and-run-container && cg-docker-run-tests && cg-docker-copy-snapshots-to-host'
 
 alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
