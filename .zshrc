@@ -239,9 +239,9 @@ alias gpf-with-verification='ggf && git push --set-upstream $(git remote) $(git 
 alias gpf='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function gcp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
-function gcp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
-function git-make-mr() { touch remove.txt && gaa && gcp $@ && rm remove.txt && gaa && gcp "squash me" }
+function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
+function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
+function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
 function git-rebase-i() { git rebase -i $@ }
 function git-revert-to-master-actual() { git checkout origin/master $@ }
 function git-revert-to-develop-actual() { git checkout origin/develop $@ }
@@ -281,16 +281,16 @@ alias aws-config='cd ~/Documents/georgegillams/aws/'
 
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
-alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcp "Update TMUX conf"'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcp "Update ZSHRC"'
-alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcp "Update VIMRC"'
+alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmp "Update TMUX conf"'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcmp "Update ZSHRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
 alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && rm -rf ~/.ssh/* && cd ~/Desktop && ./brew_install.sh'
 alias brew-edit-install-script='dotfiles && vim brew_install.sh && cd -'
-function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && gaa && gcp "Update brew script" && cd - && brew install $@ }
-function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && gaa && gcp "Update brew script" && cd - && brew cask install $@ }
-alias dotfiles-commit-brew-script='dotfiles && gaa && gcp "Update brew install script"'
-alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcp "Update vscode settings"'
-# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && gaa && gcp "Update NVIMRC"'
+function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew install $@ }
+function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew cask install $@ }
+alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
+alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmp "Update vscode settings"'
+# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update NVIMRC"'
 
 alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
 alias academic-references-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
@@ -301,7 +301,7 @@ alias academic-references-publish='academic-references && cd package && npm publ
 alias georgegillams-old-backup='dotfiles && node georgegillams-backup.js && cd -'
 
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
-alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcp "Update scripts"'
+alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
@@ -483,35 +483,35 @@ do
 done'
 alias backpack-check-outdated-top-level='npm outdated'
 alias backpack-output-all-outdated='backpack && (backpack-check-outdated-top-level > ~/Desktop/outdated.txt) & (sleep 5 && backpack-check-outdated-npm-packages >> ~/Desktop/outdated.txt && backpack-check-outdated-npm-packages-native >> ~/Desktop/outdated_native.txt) && cat ~/Desktop/outdated.txt | less'
-alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-setup && backpack-run-tests && gco -b no-jira-update-dependencies && gaa && gcp "[NO-JIRA] Update dependencies"'
+alias backpack-create-pr-for-manual-update-dependencies='git-clean && backpack-setup && backpack-run-tests && gco -b no-jira-update-dependencies && gaa && gcmp "[NO-JIRA] Update dependencies"'
 
 alias backpack-release-tokens-beta='backpack && npm run build:tokens && gaa && gap && (cd packages/bpk-tokens && npm publish --tag beta)'
 
 alias update-backpack-npm-dependencies='npx npm-check-updates -u "/^bpk-.*$/"'
-alias create-bpk-dep-pr='gco -b NO-JIRA-update-bpk-dependencies && gaa && gcp "Update bpk dependencies" && open https://github.com/Skyscanner/$(basename "`pwd`")/pull/new/NO-JIRA-update-bpk-dependencies'
-alias backpack-propogate-changes='bi && update-backpack-npm-dependencies && ba && update-backpack-npm-dependencies && backpack-rn && update-backpack-npm-dependencies && bi && npm i && bis && create-bpk-dep-pr && backpack-rn-setup && create-bpk-dep-pr && bas && create-bpk-dep-pr'
+alias create-bpk-dep-pr='gco -b NO-JIRA-update-bpk-dependencies && gaa && gcmp "Update bpk dependencies" && open https://github.com/Skyscanner/$(basename "`pwd`")/pull/new/NO-JIRA-update-bpk-dependencies'
+alias backpack-propogate-changes='bi && update-backpack-npm-dependencies && ba && update-backpack-npm-dependencies && brn && update-backpack-npm-dependencies && bi && npm i && bis && create-bpk-dep-pr && brs && create-bpk-dep-pr && bas && create-bpk-dep-pr'
 
-alias backpack-rn='cd ~/Documents/Skyscanner/backpack-react-native/'
-alias backpack-rn-fix-tests='backpack-rn && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
-alias backpack-rn-run-tests='backpack-rn && (pkill flow | true) && npm test'
-alias backpack-rn-watch-tests='backpack-rn && npm run jest:native:watch'
-alias backpack-rn-run-flow='backpack-rn && (pkill flow | true) && npm run flow'
-alias backpack-rn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
-alias backpack-rn-setup='backpack-rn && touch android/local.properties && npm ci && cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update && backpack-rn && backpack-rn-copy-font-files'
-alias backpack-rn-open='backpack-rn && open ios/native.xcworkspace'
-alias backpack-rn-setup-open='backpack-rn-setup && backpack-rn-open'
-alias backpack-rn-release='backpack-rn && cp ~/Dropbox/secrets/backpack-rn-local-properties ./android/local.properties && npm run release'
-alias backpack-rn-publish='backpack-rn-release'
-alias backpack-rn-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-react-native/ && git clone git@github.com:Skyscanner/backpack-react-native.git'
-alias backpack-rn-nuke-setup='backpack-rn-nuke && backpack-rn-setup'
-alias backpack-rn-run-android='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5X_API_28 || true) & npm run android'
-alias backpack-rn-run-android-old='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) & npm run android'
-alias backpack-rn-run-android-docs='backpack-rn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5_API_27 || true) & npm run android'
-alias backpack-rn-run-ios='backpack-rn && npx react-native run-ios --simulator="iPhone 11"'
-alias backpack-rn-run-ios-docs='backpack-rn && npx react-native run-ios --simulator="iPhone 8"'
-alias backpack-rn-run-storybook='backpack-rn && (npm start & npm run storybook)'
-alias backpack-rn-check-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js'
-alias backpack-rn-fix-cross-dependencies='backpack-rn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js --fix'
+alias brn='cd ~/Documents/Skyscanner/backpack-react-native/'
+alias brn-fix-tests='brn && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
+alias brn-run-tests='brn && (pkill flow | true) && npm test'
+alias brn-watch-tests='brn && npm run jest:native:watch'
+alias brn-run-flow='brn && (pkill flow | true) && npm run flow'
+alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
+alias brns='brn && touch android/local.properties && npm ci && cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update && brn && brn-copy-font-files'
+alias brno='brn && open ios/native.xcworkspace'
+alias brnso='brns && brno'
+alias brn-release='brn && cp ~/Dropbox/secrets/brn-local-properties ./android/local.properties && npm run release'
+alias brn-publish='brn-release'
+alias brn-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-react-native/ && git clone git@github.com:Skyscanner/backpack-react-native.git'
+alias brn-nuke-setup='brn-nuke && brs'
+alias brn-run-android='brn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5X_API_28 || true) & npm run android'
+alias brn-run-android-old='brn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_4_API_24 || true) & npm run android'
+alias brn-run-android-docs='brn && ($ANDROID_SDK_ROOT/emulator/emulator -avd NEXUS_5_API_27 || true) & npm run android'
+alias brn-run-ios='brn && npx react-native run-ios --simulator="iPhone 11"'
+alias brn-run-ios-docs='brn && npx react-native run-ios --simulator="iPhone 8"'
+alias brn-run-storybook='brn && (npm start & npm run storybook)'
+alias brn-check-cross-dependencies='brn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js'
+alias brn-fix-cross-dependencies='brn && node ~/Dropbox/Skyscanner/Backpack/check-bpk-dependencies.js --fix'
 
 alias backpack-install-android-device='$ANDROID_SDK_ROOT/tools/bin/sdkmanager "system-images;android-24;google_apis;x86" && $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --name "bpk-avd" --package "system-images;android-24;google_apis;x86" --device "Nexus 5X"'
 alias backpack-install-ruby-version='backpack && rbenv install $(cat native/ios/.ruby-version)'
