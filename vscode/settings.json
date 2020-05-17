@@ -1,44 +1,53 @@
 {
-    "window.autoDetectColorScheme": true,
-    "window.nativeTabs": true,
-    "eslint.lintTask.enable": true,
-    "window.zoomLevel": 1,
-    "editor.fontFamily": "Fira Mono For Powerline",
-    "terminal.integrated.fontFamily": "Fira Mono For Powerline",
-    "editor.fontLigatures": null,
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-      {
-        "before": ["j", "j"],
-        "after": ["<Esc>"]
-      }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": ["H"],
-        "after": ["h", "h", "h", "h", "h"]
-      },
-      {
-        "before": ["J"],
-        "after": ["j", "j", "j", "j", "j"]
-      },
-      {
-        "before": ["K"],
-        "after": ["k", "k", "k", "k", "k"]
-      },
-      {
-        "before": ["L"],
-        "after": ["l", "l", "l", "l", "l"]
-      }
-    ],
-    "prettier.jsxSingleQuote": true,
-    "eslint.format.enable": true,
-    "scssLint.runOnTextChange": true,
-    "scssLint.showHighlights": true,
-    "editor.formatOnSave": true,
-    "workbench.colorTheme": "Visual Studio Dark"
+  "window.autoDetectColorScheme": true,
+  "window.nativeTabs": true,
+  "eslint.lintTask.enable": true,
+  "window.zoomLevel": 1,
+  "editor.fontFamily": "Fira Mono For Powerline",
+  "terminal.integrated.fontFamily": "Fira Mono For Powerline",
+  "editor.fontLigatures": null,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":split"]
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": [":vsplit"]
+    },
+    {
+      "before": ["H"],
+      "after": ["6h"]
+    },
+    {
+      "before": ["J"],
+      "after": ["6j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["6k"]
+    },
+    {
+      "before": ["L"],
+      "after": ["6l"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "prettier.jsxSingleQuote": true,
+  "eslint.format.enable": true,
+  "scssLint.runOnTextChange": true,
+  "scssLint.showHighlights": true,
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Visual Studio Dark"
 }
