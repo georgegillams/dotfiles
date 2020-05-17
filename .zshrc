@@ -445,16 +445,16 @@ alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && 
 
 # ======================== SKYSCANNER ========================
 
-alias backpack-docs='cd ~/Documents/Skyscanner/backpack-docs/'
-alias backpack-setup='backpack-docs && npm i && npm run build-backpack && git-submodules-init'
-alias backpack-docs-run-tests='backpack-docs && (pkill flow | true) && npm test'
-alias backpack-docs-git-submodules-reset='backpack-docs && git checkout origin/master backpack-docs-android backpack-docs-ios backpack-docs-react-native && git submodule update --init --recursive'
-alias backpack-docs-watch-tests='backpack-docs && npm run jest:watch'
-alias backpack-docs-run-flow='backpack-docs && (pkill flow | true) && npm run flow'
-alias backpack-docs-setup='backpack-docs && npm i'
-alias backpack-docs-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
-alias backpack-docs-nuke-setup='backpack-docs-nuke && backpack-docs-setup'
-alias backpack-docs-run-docs='backpack-docs && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
+alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
+alias backpack-setup='bd && npm i && npm run build-backpack && git-submodules-init'
+alias bd-run-tests='bd && (pkill flow | true) && npm test'
+alias bd-git-submodules-reset='bd && git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
+alias bd-watch-tests='bd && npm run jest:watch'
+alias bd-run-flow='bd && (pkill flow | true) && npm run flow'
+alias bds='bd && npm i'
+alias bd-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
+alias bd-nuke-setup='bd-nuke && bds'
+alias bd-run-docs='bd && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
 
 alias backpack-publish-all-packages='backpack && cd packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;'
 
