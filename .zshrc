@@ -254,9 +254,8 @@ function git-rename-branch() {
   newBranchName=$1
   git-branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
 }
-alias git-clean='git clean -xdf'
+alias gclean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
-alias git-empty='rm -rf * && rm .*';
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
