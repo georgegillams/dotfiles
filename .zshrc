@@ -120,7 +120,7 @@ alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFile
 alias system-fix-rvm-openssl='brew reinstall openssl --ignore-dependencies && brew upgrade ruby-build rbenv'
 alias web-browser='w3m'
 
-alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && git-master-latest && sudo ./tunnel_vpn.py'
+alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && gml && sudo ./tunnel_vpn.py'
 alias tunnel-vpn-connection='improve-vpn-connection'
 
 function tmux-create-session() { tmux new -s $@ }
@@ -221,7 +221,7 @@ alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git r
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias git-master-latest-actual='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git-reset'
 alias git-develop-latest-actual='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
-alias git-master-latest=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest-actual; else git-master-latest-actual; fi'
+alias gml=' if [[ $(pwd) == *"skyscanner-app"* ]]; then git-develop-latest-actual; else git-master-latest-actual; fi'
 alias gaa-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
 alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
@@ -255,7 +255,7 @@ function git-rename-branch() {
   git-branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
 }
 alias gclean='git clean -xdf'
-alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && git-master-latest && mv ~/Desktop/back/* ./'
+alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && gml && mv ~/Desktop/back/* ./'
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
@@ -313,7 +313,7 @@ alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ge-container-docs='ge && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
-alias ge-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && ge && cp -R ../react-redux/* ./'
+alias ge-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && gml && ge && cp -R ../react-redux/* ./'
 alias ge-backup='ge && node scripts/backup-production-data.js'
 alias ge-docker-build-image='ge && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias ge-docker-create-and-run-container='ge && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
@@ -345,7 +345,7 @@ alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-co
 alias cg='cd ~/Documents/georgegillams/cgwedding/'
 alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
 alias cg-setup='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
-alias cg-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && git-master-latest && cg && cp -R ../react-redux/* ./'
+alias cg-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && gml && cg && cp -R ../react-redux/* ./'
 alias cg-backup='cg && node scripts/backup-production-data.js'
 alias cg-docker-build-image='cg && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
 alias cg-docker-create-and-run-container='cg && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
