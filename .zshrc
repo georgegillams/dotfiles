@@ -60,7 +60,7 @@ function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.z
 alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
 alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
-alias zsh-edit-config='vim ~/.zshrc'
+alias zsh-edit-config='code ~/.zshrc'
 alias tmux-edit-config='vim ~/.tmux.conf'
 alias dropbox-link-desktop='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
 alias dropbox='cd ~/Dropbox'
@@ -90,7 +90,7 @@ alias zoom='personal-zoom'
 alias zoom-backpack='backpack-zoom'
 alias zoom-personal='personal-zoom'
 
-alias vim-edit-config='vim ~/.vimrc'
+alias vim-edit-config='code ~/.vimrc'
 alias season-ticket='open ~/Desktop/season_ticket.jpg'
 
 function list-processes-on-port() { sudo lsof -i :$@ }
@@ -287,8 +287,8 @@ alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && gi
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmp "Update TMUX conf"'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcmp "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
-alias brew-test-install-script='dotfiles && cp ./brew_install.sh ~/Desktop/ && cd .. && rm -rf dotfiles && rm -rf ~/.ssh/* && cd ~/Desktop && ./brew_install.sh'
-alias brew-edit-install-script='dotfiles && vim brew_install.sh && cd -'
+alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
+alias brew-edit-install-script='dotfiles-edit-install-script'
 function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew install $@ }
 function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew cask install $@ }
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
