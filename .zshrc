@@ -409,13 +409,13 @@ function ggcomponents-docker-copy-snapshots-to-host () {
 }
 alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
 
-alias screen-reader-adventures='cd ~/Documents/georgegillams/screen-reader-adventures/'
-alias screen-reader-adventures-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
-alias screen-reader-adventures-setup='screen-reader-adventures && npm ci'
-alias screen-reader-adventures-docker-build-image='screen-reader-adventures && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
-alias screen-reader-adventures-docker-create-and-run-container='screen-reader-adventures && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
-function screen-reader-adventures-docker-run-tests () {
-  screen-reader-adventures
+alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
+alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
+alias sras='sra && npm ci'
+alias sra-docker-build-image='sra && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
+alias sra-docker-create-and-run-container='sra && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
+function sra-docker-run-tests () {
+  sra
   containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
   docker cp .storybook $containerId:/usr/src/tmp/
   docker cp babel.config.js $containerId:/usr/src/tmp/
@@ -432,12 +432,12 @@ function screen-reader-adventures-docker-run-tests () {
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
-function screen-reader-adventures-docker-copy-snapshots-to-host () {
-  screen-reader-adventures
+function sra-docker-copy-snapshots-to-host () {
+  sra
   containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias screen-reader-adventures-regenerate-snapshots='screen-reader-adventures && docker-reset && screen-reader-adventures-docker-create-and-run-container && screen-reader-adventures-docker-run-tests && screen-reader-adventures-docker-copy-snapshots-to-host'
+alias sra-regenerate-snapshots='sra && docker-reset && sra-docker-create-and-run-container && sra-docker-run-tests && sra-docker-copy-snapshots-to-host'
 
 alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
