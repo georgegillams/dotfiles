@@ -60,6 +60,8 @@
   "scssLint.runOnTextChange": true,
   "scssLint.showHighlights": true,
   "editor.formatOnSave": true,
-  "workbench.colorTheme": "Visual Studio Dark",
-  "window.nativeTabs": true
+  "workbench.colorTheme": "Nord",
+  "window.nativeTabs": true,
+  "firefox.executable": "/Applications/Firefox\\ Developer\\ Edition.app",
+  "workbench.iconTheme": "vscode-great-icons"
 }
