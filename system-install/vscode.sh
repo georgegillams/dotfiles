@@ -14,3 +14,5 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension adamwalzer.scss-lint
 code --install-extension kasik96.swift
 code --install-extension vscodevim.vim
+code --install-extension flowtype.flow-for-vscode
+
