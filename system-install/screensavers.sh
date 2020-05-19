@@ -1,0 +1,1 @@
+open ../resources/screensavers/*.saver

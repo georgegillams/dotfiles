@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. ./screensavers.sh
 . ./touch_id.sh
 . ./zsh.sh
 . ./brew.sh
