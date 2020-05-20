@@ -15,7 +15,6 @@ code --install-extension flowtype.flow-for-vscode
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension kasik96.swift
-code --install-extension len-84.sass-lint
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension tylelint.vscode-stylelint
 code --install-extension vscodevim.vim
