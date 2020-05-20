@@ -95,8 +95,9 @@ alias season-ticket='open ~/Desktop/season_ticket.jpg'
 
 function list-processes-on-port() { sudo lsof -i :$@ }
 function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
-function kill-process() { sudo kill -9 $@ }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
+alias kill-process='sudo kill -9'
+
 alias system-flush-dns-cache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias system-sleep="pmset sleepnow"
 alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
@@ -123,8 +124,8 @@ alias web-browser='w3m'
 alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && gml && sudo ./tunnel_vpn.py'
 alias tunnel-vpn-connection='improve-vpn-connection'
 
-function tmux-create-session() { tmux new -s $@ }
-function tmux-attach-session() { tmux attach -t $@ }
+alias tmux-create-session='tmux new -s'
+alias tmux-attach-session='tmux attach -t'
 alias tmux-detach="tmux detach"
 alias tmux-detatch="tmux-detach"
 alias tmux-split="tmux split-window"
@@ -215,7 +216,7 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }" | pbcopy'
-function git-prepend-branch-name() { node ~/Documents/georgegillams/dotfiles/prepend-ticket.js $@ }
+alias git-prepend-branch-name='node ~/Documents/georgegillams/dotfiles/prepend-ticket.js'
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
@@ -289,8 +290,6 @@ alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcmp "Update ZSH
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
 alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
 alias brew-edit-install-script='dotfiles-edit-install-script'
-function brew-install() { dotfiles && echo "\nbrew install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew install $@ }
-function brew-cask-install() { dotfiles && echo "\nbrew cask install $@" >> brew_install.sh && gaa && gcmp "Update brew script" && cd - && brew cask install $@ }
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmp "Update vscode settings"'
 # alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update NVIMRC"'
