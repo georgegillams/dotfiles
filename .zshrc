@@ -379,13 +379,13 @@ alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
 alias reduxdefinitions-setup='reduxdefinitions && npm ci && npm run transpile && npm run dev:install'
 
-alias ggcomponents='cd ~/Documents/georgegillams/gg-components/'
-alias ggcomponents-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
-alias ggcomponents-setup='ggcomponents && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
-alias ggcomponents-docker-build-image='ggcomponents && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
-alias ggcomponents-docker-create-and-run-container='ggcomponents && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true gg-components-test bash'
-function ggcomponents-docker-run-tests () {
-  ggcomponents
+alias ggc='cd ~/Documents/georgegillams/gg-components/'
+alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
+alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
+alias ggc-docker-build-image='ggc && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
+alias ggc-docker-create-and-run-container='ggc && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true gg-components-test bash'
+function ggc-docker-run-tests () {
+  ggc
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp .storybook $containerId:/usr/src/tmp/
   docker cp babel.config.js $containerId:/usr/src/tmp/
@@ -402,12 +402,12 @@ function ggcomponents-docker-run-tests () {
   docker exec -it $containerId npm run test
   docker exec -it $containerId npm run backstopjs:test:allow-failure
 }
-function ggcomponents-docker-copy-snapshots-to-host () {
-  ggcomponents
+function ggc-docker-copy-snapshots-to-host () {
+  ggc
   containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
   docker cp $containerId:/usr/src/tmp/backstop_data ./
 }
-alias ggcomponents-regenerate-snapshots='ggcomponents && docker-reset && ggcomponents-docker-create-and-run-container && ggcomponents-docker-run-tests && ggcomponents-docker-copy-snapshots-to-host'
+alias ggc-regenerate-snapshots='ggc && docker-reset && ggc-docker-create-and-run-container && ggc-docker-run-tests && ggc-docker-copy-snapshots-to-host'
 
 alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
