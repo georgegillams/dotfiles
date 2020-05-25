@@ -552,11 +552,11 @@ alias bi-take-screenshots-basic='bi && rake take_screenshots'
 alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-bar; sleep 30; done'
 alias bi-take-screenshots='bi-take-screenshots-basic & bi-keep-status-bar-clean'
 
-alias ba='cd ~/Documents/Skyscanner/ba/'
+alias ba='cd ~/Documents/Skyscanner/backpack-android/'
 alias bas='ba && npm i && npm run build'
 alias bao='ba && AndroidStudio ./'
 alias baso='bas && bao'
-alias ba-nuke='cd ~/Documents/Skyscanner && sudo rm -rf ba/ && git clone git@github.com:Skyscanner/ba.git'
+alias ba-nuke='cd ~/Documents/Skyscanner && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
 alias ba-nuke-setup='ba-nuke && bas'
 
 alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E6E4EB,#252033,#524C61,#FFFFFF,#00D775,#FFBB00\`"'

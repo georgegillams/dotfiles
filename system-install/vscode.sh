@@ -23,3 +23,5 @@ code --install-extension wayou.vscode-todo-highlight
 code --install-extension wmaurer.change-case
 code --install-extension yler.sass-indented
 
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
