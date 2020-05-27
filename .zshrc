@@ -548,7 +548,9 @@ alias bi-swiftlint='(cd Example && Pods/SwiftLint/swiftlint lint --strict --conf
 alias bi-lint='bi && rake lint && bi-swiftlint'
 alias bi-clang-format='bi && (cd Backpack && clang-all-the-things) && (cd Example && clang-all-the-things)'
 alias bi-clean-status-bar='xcrun simctl status_bar "iPhone 8" override --time "09:41" --wifiBars 3 --cellularBars 4 --batteryLevel 100 --operatorName Backpack'
-alias bi-take-screenshots='bi && bi-clean-status-bar && rake take_screenshots'
+alias bi-take-screenshots-basic='bi && rake take_screenshots'
+alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-bar; sleep 30; done'
+alias bi-take-screenshots='bi-take-screenshots-basic & bi-keep-status-bar-clean'
 
 alias ba='cd ~/Documents/Skyscanner/backpack-android/'
 alias bas='ba && npm i && npm run build'
