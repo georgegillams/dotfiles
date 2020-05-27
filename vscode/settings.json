@@ -63,5 +63,31 @@
   "workbench.colorTheme": "Nord",
   "window.nativeTabs": true,
   "firefox.executable": "/Applications/Firefox\\ Developer\\ Edition.app",
-  "workbench.iconTheme": "vscode-great-icons"
+  "workbench.iconTheme": "vscode-great-icons",
+  "eslint.alwaysShowStatus": true,
+  "prettier.useEditorConfig": false,
+  "sass.lint.enable": true,
+  "stylelint.reportNeedlessDisables": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.renderControlCharacters": false,
+  "cSpell.userWords": [
+    "Flickr",
+    "Gillams",
+    "Monzo",
+    "UNAUTHORISED",
+    "Uname",
+    "fileupload",
+    "flowtype",
+    "georgegillams",
+    "greasemonkey",
+    "middlewares",
+    "progressbar",
+    "skyscanner",
+    "stylelint",
+    "translatey",
+    "valuenow"
+  ],
+  "flow.coverageSeverity": "warn",
+  "flow.lazyMode": "off",
+  "editor.minimap.enabled": false
 }
