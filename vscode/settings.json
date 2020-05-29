@@ -71,11 +71,15 @@
   "diffEditor.renderSideBySide": false,
   "editor.renderControlCharacters": false,
   "cSpell.userWords": [
+    "Categorised",
     "Flickr",
     "Gillams",
     "Monzo",
     "UNAUTHORISED",
     "Uname",
+    "apikey",
+    "asdfghjkl",
+    "authorised",
     "fileupload",
     "flowtype",
     "georgegillams",
@@ -89,5 +93,6 @@
   ],
   "flow.coverageSeverity": "warn",
   "flow.lazyMode": "off",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "eslint.nodePath": "./server/api:./app"
 }
