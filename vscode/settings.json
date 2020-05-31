@@ -80,6 +80,7 @@
     "apikey",
     "asdfghjkl",
     "authorised",
+    "blogs",
     "fileupload",
     "flowtype",
     "georgegillams",
@@ -94,5 +95,8 @@
   "flow.coverageSeverity": "warn",
   "flow.lazyMode": "off",
   "editor.minimap.enabled": false,
-  "eslint.nodePath": "./server/api:./app"
+  "eslint.nodePath": "./server/api:./app",
+  "jest.autoEnable": false,
+  "jest.pathToConfig": "jest.config.js",
+  "cSpell.language": "en-GB"
 }
