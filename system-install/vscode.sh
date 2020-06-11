@@ -4,6 +4,7 @@ code --install extension dnlytras.nord-wave
 code --install extension emmanuelbeziat.vscode-great-icons
 code --install extension vscode-icons-team.vscode-icons
 code --install-extension adamwalzer.scss-lint
+code --install-extension aymondcamden.htmlescape-vscode-extension
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension chrmarti.regex
 code --install-extension cssho.vscode-svgviewer
@@ -14,6 +15,7 @@ code --install-extension firefox-devtools.vscode-firefox-debug
 code --install-extension flowtype.flow-for-vscode
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
+code --install-extension hd101wyy.markdown-preview-enhanced
 code --install-extension kasik96.swift
 code --install-extension orta.vscode-jest
 code --install-extension rwu823.open-folder

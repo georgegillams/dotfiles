@@ -13,9 +13,7 @@ brew cask install alfred
 brew cask install android-platform-tools
 brew cask install android-studio
 brew cask install atom
-brew cask install authy
 brew cask install avibrazil-rdm
-brew cask install caret
 brew cask install charles
 brew cask install coconutbattery
 brew cask install colour-contrast-analyser
@@ -28,6 +26,7 @@ brew cask install grandperspective
 brew cask install handbrake
 brew cask install homebrew/cask-versions/firefox-developer-edition
 brew cask install imageoptim
+brew cask install intel-power-gadget
 brew cask install iterm2
 brew cask install nightowl
 brew cask install nordvpn
@@ -39,13 +38,12 @@ brew cask install reflector
 brew cask install sketch
 brew cask install slack
 brew cask install soundflower
-brew cask install sourcetree
 brew cask install the-unarchiver
 brew cask install visual-studio-code
 brew cask install whatsapp
 # brew cask install virtualbox
 # brew cask install virtualbox-extension-pack
-brew cask install parallels
+# brew cask install parallels
 brew cask install vlc
 brew install ack # CLI search
 brew install applesimutils # detox
