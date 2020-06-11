@@ -81,7 +81,7 @@ function launch-zoom-meeting-legacy() {
   osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
 }
 function launch-zoom-meeting() {
-  open https://skyscanner.zoom.us/j/$1
+  open /Applications/zoom.us.app && sleep 3 && https://skyscanner.zoom.us/j/$1
 }
 alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
 alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
