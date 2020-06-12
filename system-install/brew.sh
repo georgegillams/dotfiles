@@ -35,6 +35,7 @@ brew cask install pock
 brew cask install postman
 brew cask install qbittorrent
 brew cask install reflector
+brew cask install signal
 brew cask install sketch
 brew cask install slack
 brew cask install soundflower
