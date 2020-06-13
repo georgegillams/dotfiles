@@ -410,7 +410,7 @@ alias ggc-regenerate-snapshots='ggc && docker-reset && ggc-docker-create-and-run
 
 alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
-alias sras='sra && npm ci'
+alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
 alias sra-docker-build-image='sra && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
 alias sra-docker-create-and-run-container='sra && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
 function sra-docker-run-tests () {
