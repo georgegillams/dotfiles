@@ -585,23 +585,16 @@ alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 info "Aliases ready"
 
 export PATH=$HOME/.fastlane/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
-info "PATH defined"
-
-# added by travis gem
-[ -f /Users/georgegillams/.travis/travis.sh ] && source /Users/georgegillams/.travis/travis.sh
-info "Travis integration done"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-info "iTerm shell integration tested"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
-  iterm2_set_user_var nodeVersion $(node -v)
+  iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
-
-system-fix-ssh
 
 info "Loading NVM"
 export NVM_DIR=~/.nvm
