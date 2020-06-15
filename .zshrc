@@ -281,7 +281,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 
 alias daily-backup="(ge-backup) && (cg-backup)"
 
-alias aws-config='cd ~/Documents/georgegillams/aws/'
+alias aws='cd ~/Documents/georgegillams/aws/'
 
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
@@ -581,7 +581,7 @@ function sa-bump-ruby-version() {
   sa
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
-alias sas='sa && sa-bump-ruby-version && gem install bundler && (cd ios && rvm use 2.6.4 && ./fullsetup) && sa'
+alias sas='sa && sa-bump-ruby-version && rvm use && gem install bundler && (cd ios && rvm use 2.6.4 && ./fullsetup) && sa'
 alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
