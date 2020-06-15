@@ -246,9 +246,9 @@ alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git
 function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
 function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
 function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
-function git-revert-to-main-actual() { git checkout origin/master $@ }
-function git-revert-to-develop-actual() { git checkout origin/develop $@ }
-function git-revert-to-main() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then git-revert-to-develop-actual $@ ; else git-revert-to-main-actual $@ ; fi }
+function IMPLEMENTATION-git-revert-to-main() { git checkout origin/master $@ }
+function IMPLEMENTATION-git-revert-to-develop-actual() { git checkout origin/develop $@ }
+function git-revert-to-main() {  if [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-revert-to-develop $@ ; else -actualgit-revert-to-main $@ ; fi }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
