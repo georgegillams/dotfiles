@@ -308,6 +308,12 @@ alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 
+alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
+alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
+alias gwas='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias gwa-docker-build-image='ge && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
+alias gwa-docker-create-and-run-container='ge && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
+
 alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ge-container-docs='ge && open ~/Dropbox/georgegillams.co.uk/Containers.numbers'
