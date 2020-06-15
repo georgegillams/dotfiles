@@ -577,7 +577,11 @@ alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login p
 alias sa='cd ~/Documents/apps-tribe/skyscanner-app/ && npm-set-artifatory-registry'
 alias sarn-sanity-check='sa && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
 alias sa-nuke='cd ~/Documents/apps-tribe && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
-alias sas='sa && gem install bundler && (cd ios && rvm use 2.6.4 && ./fullsetup) && sa'
+function sa-bump-ruby-version() {
+  sa
+  sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
+}
+alias sas='sa && sa-bump-ruby-version && gem install bundler && (cd ios && rvm use 2.6.4 && ./fullsetup) && sa'
 alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
