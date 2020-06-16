@@ -222,7 +222,7 @@ alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git r
 alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias IMPLEMENTATION-git-main-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git-reset'
 alias IMPLEMENTATION-git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git-reset'
-alias gml=' if [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-develop-latest; else git-main-latest; fi'
+alias gml=' if [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-develop-latest; else IMPLEMENTATION-git-main-latest; fi'
 alias gaa-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
 alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
