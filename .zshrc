@@ -545,9 +545,9 @@ alias bl-nuke-setup='bl-nuke && bls'
 alias bi='cd ~/Documents/Skyscanner/backpack-ios/'
 function bi-bump-ruby-version() {
   bi
-  sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
+  echo "2.6.4" > .ruby-version
 }
-alias bis='bi && bi-bump-ruby-version && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
+alias bis='bi && bi-bump-ruby-version && rvm use && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
 alias bio='bi && open Example/Backpack.xcworkspace'
 alias biso='bis && bio'
 alias biso-complete='git-clean && xcode-delete-derived-data && biso'
