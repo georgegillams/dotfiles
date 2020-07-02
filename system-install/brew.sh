@@ -39,6 +39,7 @@ brew cask install signal
 brew cask install sketch
 brew cask install slack
 brew cask install soundflower
+brew cask install telegram
 brew cask install the-unarchiver
 brew cask install visual-studio-code
 brew cask install whatsapp
