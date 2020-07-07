@@ -308,6 +308,10 @@ alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme &&
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
+alias bt='cd ~/Documents/georgegillams/backpack-transpiled/'
+alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
+alias bt-ship='bt && npm run pull-backpack && npm run release'
+
 alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 
