@@ -1,7 +1,12 @@
 RED='\033[0;31m'
+YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 NC='\033[0m'
+
+function yellow() {
+  echo "${YELLOW}$@${NC}"
+}
 
 function red() {
   echo "${RED}$@${NC}"
@@ -227,8 +232,8 @@ alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-g
 alias gaa-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
 alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
-alias git-reset='git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
-alias git-reset-unstaged='git checkout -- .'
+alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
+alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
 alias git-fetch='git fetch --all'
 alias IMPLEMENTATION-git-rebase-main='git-fetch && (git rebase origin/main | grep CONFLICT || true) && git-submodules-pull'
 alias IMPLEMENTATION-git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
