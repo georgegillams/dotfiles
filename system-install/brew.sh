@@ -22,6 +22,7 @@ brew cask install docker
 brew cask install dropbox
 brew cask install gifox
 brew cask install google-chrome
+brew cask install gpg-suite
 brew cask install grandperspective
 brew cask install handbrake
 brew cask install homebrew/cask-versions/firefox-developer-edition
