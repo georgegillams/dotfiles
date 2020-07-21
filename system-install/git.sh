@@ -19,15 +19,17 @@ echo "Press any key once complete"
 read
 
 # Set up Git commit signing
-gpg --gen-key
-echo "Configuring git to use the new GPG key"
+echo "Open GPG Keychain and configure a new GPG key for Git signing"
+open /Applications/GPG\ Keychain.app/
+echo "Press enter when complete"
+read
 gpg --list-secret-keys --keyid-format LONG
-echo "Please copy the sec key and enter it"
+echo "Please copy the sec key from the Git GPG key and enter it"
 read keyLong
-git config --global user.signingkey $(keyLong)
+git config --global user.signingkey $keyLong
 git config --global commit.gpgSign true
 echo "Now go to Github, select New GPG key and paste the exported data"
-gpg --export -a $(keyLong) | pbcopy
+gpg --export -a $keyLong | pbcopy
 sleep 10
 echo "Press any key once complete"
 read
