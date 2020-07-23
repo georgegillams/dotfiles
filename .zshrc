@@ -616,7 +616,7 @@ alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
 # ============================================================
 info "Aliases ready"
 
-export PATH=$HOME/.fastlane/bin:$HOME/.rvm/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/Users/georgegillams/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
+export PATH=$HOME/.fastlane/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -624,16 +624,19 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
   iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
-  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+  # iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
-info "Loading NVM"
+info "Initialising NVM"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh --no-use # This loads nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm - disabled as it does the same as the line above
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion - disabled as it is too slow!
 info "NVM ready"
+
+info "Initialising rbenv"
+eval "$(rbenv init -)"
 
 #Auto switch nvm versions:
 # place this after nvm initialization!
@@ -649,12 +652,12 @@ load-nvmrc() {
 }
 load-ruby-version() {
   info "Loading Ruby version"
-  if [[ -f .ruby-version && -r .ruby-version ]]; then
-    rvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    info "Reverting to rvm default version"
-    rvm use default
-  fi
+#   if [[ -f .ruby-version && -r .ruby-version ]]; then
+#     rvm use
+#   elif [[ $(nvm version) != $(nvm version default)  ]]; then
+#     info "Reverting to rvm default version"
+#     rvm use default
+#   fi
 }
 add-zsh-hook chpwd npm-set-normal-registry
 add-zsh-hook chpwd load-nvmrc
