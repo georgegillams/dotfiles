@@ -6,7 +6,7 @@
 . ./brew.sh
 . ./git.sh
 . ./nvm.sh
-. ./rvm.sh
+. ./rbenv.sh
 . ./zsh.sh
 . ./vim.sh
 . ./vscode.sh
