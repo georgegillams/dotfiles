@@ -268,8 +268,8 @@ alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clea
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
-alias git-disable-gpg='open ~/.gitconfig and remove signingKey and gpg values'
-alias git-enable-gpg='revert your changes to ~/.gitconfig'
+alias git-disable-gpg='code ~/.gitconfig && echo "remove signingKey and gpg values" && read'
+alias git-enable-gpg='echo "revert your changes to ~/.gitconfig" && read'
 
 alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
 alias docker-reset-hard='docker-reset && docker system prune -a'
