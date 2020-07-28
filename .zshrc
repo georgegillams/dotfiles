@@ -270,8 +270,8 @@ alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 # alias git-disable-gpg='code ~/.gitconfig && echo "remove signingKey and gpg values" && echo "Press any key when done" && read'
 # alias git-enable-gpg='echo "revert your changes to ~/.gitconfig" && echo "Press any key when done" && read'
-alias git-disable-gpg='git config --global commit.gpgsign false && git config --global --unset gpg.program'
-alias git-enable-gpg='git config --global commit.gpgsign true && git config --global gpg.program gpg'
+alias git-disable-gpg='git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program'
+alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
 
 alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
 alias docker-reset-hard='docker-reset && docker system prune -a'
@@ -317,6 +317,7 @@ alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 
 alias bt='cd ~/Documents/georgegillams/backpack-transpiled/'
 alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
+alias bts='bt && npm ci'
 alias bt-ship='bt && npm run pull-backpack && npm run release'
 
 alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
