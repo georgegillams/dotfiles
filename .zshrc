@@ -330,14 +330,6 @@ alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebu
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-docker-create-and-run-container='gwa && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true webapp-boilerplate-test bash'
 
-alias gwa-deploy='gwa && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/webapp-boilerplate/'
-alias ge-beta-deploy='ge && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/beta.georgegillams.co.uk/'
-alias cg-beta-deploy='cg && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/beta.cgwedding/'
-
-alias geb='cd ~/Documents/georgegillams/beta.georgegillams.co.uk/'
-alias geb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.georgegillams.co.uk && git clone git@github.com:georgegillams/beta.georgegillams.co.uk.git'
-alias gebs='geb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
-
 alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
