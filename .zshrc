@@ -617,7 +617,7 @@ alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 alias sa-update-backpack-dependency='sa && (cd ios && bundle exec pod update Backpack)'
-alias sa-fix-react-native-snapshots='sa && (cd react-native && npx jest --detectOpenHandles -u)'
+alias sa-fix-react-native-snapshots='sa && (cd react-native && npx jest --detectOpenHandles --coverage -u)'
 
 alias pecha-kucha='cd ~/Dropbox/Skyscanner/Pecha\ Kucha/'
 alias pecha-kucha-open='pecha-kucha && open pecha_kucha.key'
