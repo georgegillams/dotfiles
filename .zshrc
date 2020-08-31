@@ -80,7 +80,7 @@ alias very-nice='vlc --play-and-exit ~/Documents/georgegillams/dotfiles/very-nic
 
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
-alias weather='weather-london';
+alias weather='weather-portsmouth';
 
 function launch-zoom-meeting-legacy() {
   osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
@@ -361,6 +361,10 @@ function ge-docker-copy-snapshots-to-host () {
 }
 alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-container && ge-docker-run-tests && ge-docker-copy-snapshots-to-host'
 
+alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
+alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
+alias cgb-setup='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+
 alias cg='cd ~/Documents/georgegillams/cgwedding/'
 alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
 alias cg-setup='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
@@ -484,6 +488,7 @@ alias kr-disable-codesign='kr codesign off'
 alias kr-enable-codesign='kr codesign on'
 
 alias bw='cd ~/Documents/Skyscanner/backpack/'
+alias bw-start='bw && npm run storybook'
 alias bw-fix-tests='bw && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
 alias bw-run-tests='bw && (pkill flow | true) && npm test'
 alias bw-watch-tests='bw && npm run jest:watch'
