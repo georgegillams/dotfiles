@@ -602,6 +602,7 @@ alias fullstack-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf full-stack-recru
 alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login pip -f'
 
 alias sa='cd ~/Documents/apps-tribe/skyscanner-app/ && npm-set-artifatory-registry'
+alias sa-need-for-speed='sa && cp .git/hooks/fsmonitor-watchman.sample .git/hooks/watchman-query && git config --local core.fsmonitor .git/hooks/watchman-query'
 alias sarn-sanity-check='sa && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
 alias sa-nuke='cd ~/Documents/apps-tribe && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
 function sa-bump-ruby-version() {
@@ -609,7 +610,7 @@ function sa-bump-ruby-version() {
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
 alias sa-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.3.1.app'
-alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup) && sa'
+alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup) && sa-need-for-speed'
 alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
