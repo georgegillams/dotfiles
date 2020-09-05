@@ -290,7 +290,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 
 # ==================== PERSONAL PROJECTS =====================
 
-alias daily-backup="(ge-backup) && (cg-backup)"
+alias daily-backup="(ge-backup) && (cgb-backup)"
 
 alias aws='cd ~/Documents/georgegillams/aws/'
 
@@ -364,6 +364,7 @@ alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-co
 alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
 alias cgb-setup='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cgb-backup='cgb && node scripts/backup-production-data.js'
 
 alias cg='cd ~/Documents/georgegillams/cgwedding/'
 alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
