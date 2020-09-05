@@ -363,12 +363,12 @@ alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-co
 
 alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
-alias cgb-setup='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cgbs='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias cgb-backup='cgb && node scripts/backup-production-data.js'
 
 alias cg='cd ~/Documents/georgegillams/cgwedding/'
 alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
-alias cg-setup='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cgs='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias cg-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && gml && cg && cp -R ../react-redux/* ./'
 alias cg-backup='cg && node scripts/backup-production-data.js'
 alias cg-docker-build-image='cg && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
