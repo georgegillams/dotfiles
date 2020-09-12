@@ -334,6 +334,7 @@ alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias ge-backup='ge && node scripts/backup-production-data.js'
+alias ge-deploy='ge && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
 alias ge-docker-build-image='ge && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
 alias ge-docker-create-and-run-container='ge && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
 function ge-docker-run-tests () {
@@ -474,6 +475,7 @@ alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && 
 
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='bd && npm i && npm run build-backpack && git-submodules-init'
+alias bd-start='bd && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
 alias bd-run-tests='bd && (pkill flow | true) && npm test'
 alias bd-git-submodules-reset='bd && git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias bd-watch-tests='bd && npm run jest:watch'
