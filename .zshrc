@@ -327,6 +327,7 @@ alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com
 alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
 alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias gwas-deploy='gwas && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/webapp-boilerplate/'
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-docker-create-and-run-container='gwa && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true webapp-boilerplate-test bash'
 
