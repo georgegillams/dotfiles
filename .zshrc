@@ -527,7 +527,7 @@ alias brn-run-flow='brn && (pkill flow | true) && npm run flow'
 alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
 alias brn-run-start-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"brn && npm start\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias brn-start='brn && brn-run-start-in-new-tab && npm run storybook'
-alias brn-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.6.app'
+alias brn-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
 alias brns='brn && brn-select-xcode && touch android/local.properties && npm ci && (cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update) && brn-copy-font-files'
 alias brno='brn && open ios/native.xcworkspace'
 alias brnso='brns && brno'
@@ -569,7 +569,7 @@ function bi-bump-ruby-version() {
   bi
   echo "2.6.4" > .ruby-version
 }
-alias bi-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.6.app'
+alias bi-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
 alias bis='bi && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
 alias bio='bi && open Example/Backpack.xcworkspace'
 alias biso='bis && bio'
