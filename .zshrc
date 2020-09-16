@@ -614,7 +614,7 @@ function sa-bump-ruby-version() {
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
 alias sa-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
-alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup) && sa-need-for-speed'
+alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup)'
 alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
