@@ -147,8 +147,9 @@ alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 
 # ========================== NPM ==========================
 
+alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
 npm-set-normal-registry() {
-  npm config set registry https://registry.npmjs.org/
+  npm-set-normal-registry
 }
 alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 alias npm-upgrade-major-dependencies='npx npm-check-updates -u'
@@ -367,6 +368,7 @@ alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
 alias cgbs='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias cgb-backup='cgb && node scripts/backup-production-data.js'
+alias cgb-deploy='cgb && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/beta.cgwedding/'
 
 alias cg='cd ~/Documents/georgegillams/cgwedding/'
 alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
