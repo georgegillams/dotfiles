@@ -164,7 +164,6 @@ alias clang-all-the-things='clang-format -i **/*.h **/*.m'
 alias xcode='open'
 alias xcode-delete-derived-data='rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
 alias xcode-fix-AST-error='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex'
-alias xcode-fix-select='sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/'
 
 alias AndroidStudio="open -a /Applications/Android\ Studio.app"
 
@@ -526,7 +525,7 @@ alias brn-run-flow='brn && (pkill flow | true) && npm run flow'
 alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
 alias brn-run-start-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"brn && npm start\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias brn-start='brn && brn-run-start-in-new-tab && npm run storybook'
-alias brn-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
+alias brn-select-xcode='sudo xcode-select -switch /Applications/Xcode_12.app'
 alias brns='brn && brn-select-xcode && touch android/local.properties && npm ci && (cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update) && brn-copy-font-files'
 alias brno='brn && open ios/native.xcworkspace'
 alias brnso='brns && brno'
@@ -568,7 +567,7 @@ function bi-bump-ruby-version() {
   bi
   echo "2.6.4" > .ruby-version
 }
-alias bi-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
+alias bi-select-xcode='sudo xcode-select -switch /Applications/Xcode_12.app'
 alias bis='bi && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
 alias bio='bi && open Example/Backpack.xcworkspace'
 alias biso='bis && bio'
@@ -612,7 +611,7 @@ function sa-bump-ruby-version() {
   sa
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
-alias sa-select-xcode='sudo xcode-select -switch /Applications/Xcode_11.7.app'
+alias sa-select-xcode='sudo xcode-select -switch /Applications/Xcode_12.app'
 alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup)'
 alias sao='sa && open ios/Project/Working/Skyscanner.xcworkspace'
 alias saso='sas && sao'
