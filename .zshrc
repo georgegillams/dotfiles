@@ -148,6 +148,9 @@ alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
 # ========================== NPM ==========================
 
 alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
+function npm-set-normal-registry-function() {
+  npm-set-normal-registry
+}
 alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 alias npm-upgrade-major-dependencies='npx npm-check-updates -u'
 alias npm-upgrade-minor-dependencies='npx npm-check-updates -u --semverLevel major'
@@ -669,6 +672,6 @@ load-ruby-version() {
 #     rvm use default
 #   fi
 }
-add-zsh-hook chpwd npm-set-normal-registry
+add-zsh-hook chpwd npm-set-normal-registry-function
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
