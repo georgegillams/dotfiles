@@ -23,6 +23,9 @@ echo "NOW INSTALL MANUALLY ☹️"
 echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
 open /usr/local/Caskroom/canon-eos-utility/*/*.app
 
+echo "Aerial Screensaver => https://github.com/glouel/AerialCompanion/releases"
+open https://github.com/glouel/AerialCompanion/releases
+
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
 open https://github.com/arcticicestudio/nord-iterm2
