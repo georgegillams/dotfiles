@@ -98,10 +98,10 @@ alias zoom-personal='personal-zoom'
 alias vim-edit-config='code ~/.vimrc'
 alias season-ticket='open ~/Desktop/season_ticket.jpg'
 
+alias kill-process='sudo kill -9'
 function list-processes-on-port() { sudo lsof -i :$@ }
 function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
 function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
-alias kill-process='sudo kill -9'
 
 alias system-flush-dns-cache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias system-sleep="pmset sleepnow"
