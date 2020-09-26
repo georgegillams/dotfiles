@@ -20,6 +20,7 @@ brew cask install colour-contrast-analyser
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
+brew cask install figma
 brew cask install gifox
 brew cask install google-chrome
 brew cask install gpg-suite
@@ -37,17 +38,19 @@ brew cask install postman
 brew cask install qbittorrent
 brew cask install reflector
 brew cask install signal
+brew cask install sim-daltonism
 brew cask install sketch
 brew cask install slack
 brew cask install soundflower
 brew cask install telegram
 brew cask install the-unarchiver
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
 brew cask install whatsapp
-# brew cask install virtualbox
-# brew cask install virtualbox-extension-pack
 # brew cask install parallels
 brew cask install vlc
+brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install ack # CLI search
 brew install applesimutils # detox
 brew install chisel
@@ -57,12 +60,12 @@ brew install cmake
 brew install cowsay
 brew install docker
 brew install docker-compose
-brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install exiftool
 brew install git
 brew install github/gh/gh
+brew install gnupg gnupg2
 brew install golang
-brew install gpg
+brew install gpg gpg2
 brew install htop
 brew install hub
 brew install imagemagick
