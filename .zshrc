@@ -251,7 +251,7 @@ alias gpf-with-verification='ggf && git push --set-upstream $(git remote) $(git 
 alias gpf='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
+function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh pr view --web }
 function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
 function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
