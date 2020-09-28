@@ -198,6 +198,16 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 
 alias gh-prs='gh pr list'
 alias gh-create-pr='gh pr create'
+alias gh-create-pr-web='gh pr create --web'
+alias gh-view-pr-web='gh pr view --web'
+function gh-view-or-create-pr-web() {
+  # If a PR exists, open it:
+  gh-view-pr-web
+  if [[ $? != 0 ]] then;
+    # If a PR didn't exist, create it:
+    gh-create-pr-web
+  fi;
+}
 
 alias git-branch='git branch'
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
@@ -251,7 +261,7 @@ alias gpf-with-verification='ggf && git push --set-upstream $(git remote) $(git 
 alias gpf='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh pr view --web }
+function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh-view-or-create-pr-web }
 function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
 function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
