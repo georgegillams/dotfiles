@@ -1,0 +1,116 @@
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+function yellow() {
+  echo "${YELLOW}$@${NC}"
+}
+
+function red() {
+  echo "${RED}$@${NC}"
+}
+
+function cyan() {
+  echo "${CYAN}$@${NC}"
+}
+
+function blue() {
+  echo "${BLUE}$@${NC}"
+}
+
+function info() {
+  blue $@
+}
+
+# ========================== SYSTEM ==========================
+
+alias whence-function='echo "use declare -f FUNC"'
+
+alias duplicate-tab='open . -a iterm'
+
+alias zsh-remove-api-keys-from-history='zsh-remove-term-from-history APIKEY && zsh-remove-term-from-history API_KEY'
+function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
+alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
+alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
+alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
+alias zsh-edit-config='code /Users/georgegillams/.zsh && code ~/.zshrc'
+alias tmux-edit-config='vim ~/.tmux.conf'
+alias dropbox-link-desktop='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
+alias dropbox='cd ~/Dropbox'
+alias documents='cd ~/Documents'
+alias desktop='cd ~/Desktop'
+alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
+
+alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && nvm install lts/erbium && nvm alias default lts/erbium'
+
+alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
+alias very-nice='vlc --play-and-exit ~/Documents/georgegillams/dotfiles/very-nice.mp3'
+
+alias weather-portsmouth='curl wttr.in/Portsmouth'
+alias weather-london='curl wttr.in/London'
+alias weather='weather-portsmouth';
+
+function launch-zoom-meeting-legacy() {
+  osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
+}
+function launch-zoom-meeting() {
+  open https://skyscanner.zoom.us/j/$1
+}
+alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
+alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
+alias fika-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/fikazoomrc)'
+alias zoom='personal-zoom'
+alias zoom-backpack='backpack-zoom'
+alias zoom-personal='personal-zoom'
+
+alias vim-edit-config='code ~/.vimrc'
+alias season-ticket='open ~/Desktop/season_ticket.jpg'
+
+alias kill-process='sudo kill -9'
+function list-processes-on-port() { sudo lsof -i :$@ }
+function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
+function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
+
+alias system-flush-dns-cache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias system-sleep="pmset sleepnow"
+alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
+alias system-clean-desktop="mv ~/Desktop/* ~/.Trash/ && mv ~/.Trash/season_ticket* ~/Desktop/"
+alias system-fix-audio="sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
+alias system-fix-touch-id="(dotfiles && cd system-install && . ./touch_id.sh)"
+alias system-fix-finder-lagging="mv ~/Library/Preferences/com.apple.finder.plist ~/Desktop/ && echo \"NOW RESTART. IF EVERYTHING IS FINE, DELETE ~/Desktop/com.apple.finder.plist\""
+alias system-fix-sound="system-fix-audio"
+alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
+alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app"
+alias system-open-sketch-updater="open /Applications/Sketch.app"
+alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ Creative\ Cloud"
+alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew cask outdated && brew cask upgrade"
+alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-open-ms-updater & system-open-sketch-updater & system-open-cc-updater"
+alias system-fix-spotlight='sudo mdutil -E'
+alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null'
+alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
+alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotlight.plist /System/Library/LaunchAgents/com.apple.Spotlight.plist.BAK && mv /System/Library/LaunchDaemons/com.apple.metadata.mds.plist /System/Library/LaunchDaemons/com.apple.metadata.mds.plist.BAK'
+alias system-disable-indexing='sudo mdutil -a -i off'
+alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm -rf ~/Library/Containers/io.canarymail.mac/'
+alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
+alias system-fix-rvm-openssl='brew reinstall openssl --ignore-dependencies && brew upgrade ruby-build rbenv'
+alias web-browser='w3m'
+
+alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && gml && sudo ./tunnel_vpn.py'
+alias tunnel-vpn-connection='improve-vpn-connection'
+
+alias tmux-create-session='tmux new -s'
+alias tmux-attach-session='tmux attach -t'
+alias tmux-detach="tmux detach"
+alias tmux-detatch="tmux-detach"
+alias tmux-split="tmux split-window"
+alias tmux-split-vertical="tmux-split"
+alias tmux-split-horizontal="tmux split-window -h"
+alias tmux-close="tmux kill-pane"
+alias tmux-exit="tmux-close"
+
+alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
+alias android-shake-twice='android-shake && sleep 3 && android-shake'
+
+alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'

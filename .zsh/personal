@@ -1,0 +1,208 @@
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+function yellow() {
+  echo "${YELLOW}$@${NC}"
+}
+
+function red() {
+  echo "${RED}$@${NC}"
+}
+
+function cyan() {
+  echo "${CYAN}$@${NC}"
+}
+
+function blue() {
+  echo "${BLUE}$@${NC}"
+}
+
+function info() {
+  blue $@
+}
+
+# ==================== PERSONAL PROJECTS =====================
+
+alias daily-backup="(ge-backup) && (cgb-backup)"
+
+alias aws='cd ~/Documents/georgegillams/aws/'
+
+alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
+alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmp "Update TMUX conf"'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcmp "Update ZSHRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
+alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
+alias brew-edit-install-script='dotfiles-edit-install-script'
+alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
+alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmp "Update vscode settings"'
+# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update NVIMRC"'
+
+alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
+alias academic-references-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
+alias academic-references-setup='academic-references && cd package && npm ci && cd ../example && npm i && academic-references'
+alias academic-references-run-web-app='academic-references && cd example && npm run start'
+alias academic-references-publish='academic-references && cd package && npm publish'
+
+alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
+alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
+alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
+alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
+
+alias bt='cd ~/Documents/georgegillams/backpack-transpiled/'
+alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
+alias bts='bt && npm ci'
+alias bt-ship='bt && gclean && bts && npm run pull-backpack && npm run release'
+
+alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
+alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
+
+alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
+alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
+alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias gwa-deploy='gwa && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/webapp-boilerplate/'
+alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
+alias gwa-docker-create-and-run-container='gwa && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true webapp-boilerplate-test bash'
+
+alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
+alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias ge-backup='ge && node scripts/backup-production-data.js'
+alias ge-deploy='ge && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
+alias ge-docker-build-image='ge && docker build -t georgegillams-test -f Dockerfile.backstopjstest .'
+alias ge-docker-create-and-run-container='ge && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true georgegillams-test bash'
+function ge-docker-run-tests () {
+  ge
+  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
+  docker cp .babelrc $containerId:/usr/src/tmp/
+  docker cp app $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp helpers $containerId:/usr/src/tmp/
+  docker cp jest.config.js $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp server $containerId:/usr/src/tmp/
+  docker exec -it $containerId npm ci
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
+}
+function ge-docker-copy-snapshots-to-host () {
+  ge
+  containerId=$(docker ps -a | grep georgegillams-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias ge-regenerate-snapshots='ge && docker-reset && ge-docker-create-and-run-container && ge-docker-run-tests && ge-docker-copy-snapshots-to-host'
+
+alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
+alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
+alias cgbs='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cgb-backup='cgb && node scripts/backup-production-data.js'
+alias cgb-deploy='cgb && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/beta.cgwedding/'
+
+alias cg='cd ~/Documents/georgegillams/cgwedding/'
+alias cg-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf cgwedding && git clone git@github.com:georgegillams/cgwedding.git'
+alias cgs='cg && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias cg-rebase='cd ~/Documents/flexdinesh/react-redux-boilerplate && gml && cg && cp -R ../react-redux/* ./'
+alias cg-backup='cg && node scripts/backup-production-data.js'
+alias cg-docker-build-image='cg && docker build -t cgwedding-test -f Dockerfile.backstopjstest .'
+alias cg-docker-create-and-run-container='cg && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true cgwedding-test bash'
+function cg-docker-run-tests () {
+  cg
+  containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
+  docker cp .babelrc $containerId:/usr/src/tmp/
+  docker cp app $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp helpers $containerId:/usr/src/tmp/
+  docker cp jest.config.js $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp server $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
+  docker exec -it $containerId npm ci
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
+}
+function cg-docker-copy-snapshots-to-host () {
+  cg
+  containerId=$(docker ps -a | grep cgwedding-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias cg-regenerate-snapshots='cg && docker-reset && cg-docker-create-and-run-container && cg-docker-run-tests && cg-docker-copy-snapshots-to-host'
+
+alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
+alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
+alias reduxdefinitions-setup='reduxdefinitions && npm ci && npm run transpile && npm run dev:install'
+
+alias ggc='cd ~/Documents/georgegillams/gg-components/'
+alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
+alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
+alias ggc-docker-build-image='ggc && docker build -t gg-components-test -f Dockerfile.backstopjstest .'
+alias ggc-docker-create-and-run-container='ggc && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true gg-components-test bash'
+function ggc-docker-run-tests () {
+  ggc
+  containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
+  docker cp .storybook $containerId:/usr/src/tmp/
+  docker cp babel.config.js $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp src $containerId:/usr/src/tmp/
+  docker cp test $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
+  docker exec -it $containerId npm ci
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
+}
+function ggc-docker-copy-snapshots-to-host () {
+  ggc
+  containerId=$(docker ps -a | grep gg-components-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias ggc-regenerate-snapshots='ggc && docker-reset && ggc-docker-create-and-run-container && ggc-docker-run-tests && ggc-docker-copy-snapshots-to-host'
+
+alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
+alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
+alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
+alias sra-docker-build-image='sra && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
+alias sra-docker-create-and-run-container='sra && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
+function sra-docker-run-tests () {
+  sra
+  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
+  docker cp .storybook $containerId:/usr/src/tmp/
+  docker cp babel.config.js $containerId:/usr/src/tmp/
+  docker cp backstop_data $containerId:/usr/src/tmp/
+  docker cp config $containerId:/usr/src/tmp/
+  docker cp package-lock.json $containerId:/usr/src/tmp/
+  docker cp package.json $containerId:/usr/src/tmp/
+  docker cp scripts $containerId:/usr/src/tmp/
+  docker cp src $containerId:/usr/src/tmp/
+  docker cp test $containerId:/usr/src/tmp/
+  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
+  docker exec -it $containerId npm ci
+  docker exec -it $containerId npm run build
+  docker exec -it $containerId npm run test
+  docker exec -it $containerId npm run backstopjs:test:allow-failure
+}
+function sra-docker-copy-snapshots-to-host () {
+  sra
+  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
+  docker cp $containerId:/usr/src/tmp/backstop_data ./
+}
+alias sra-regenerate-snapshots='sra && docker-reset && sra-docker-create-and-run-container && sra-docker-run-tests && sra-docker-copy-snapshots-to-host'
+
+alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
+alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
+alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
+alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && cd -'

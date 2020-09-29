@@ -1,0 +1,113 @@
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+function yellow() {
+  echo "${YELLOW}$@${NC}"
+}
+
+function red() {
+  echo "${RED}$@${NC}"
+}
+
+function cyan() {
+  echo "${CYAN}$@${NC}"
+}
+
+function blue() {
+  echo "${BLUE}$@${NC}"
+}
+
+function info() {
+  blue $@
+}
+
+alias gh-prs='gh pr list'
+alias gh-create-pr='gh pr create'
+alias gh-create-pr-web='gh pr create --web'
+alias gh-view-pr-web='gh pr view --web'
+function gh-view-or-create-pr-web() {
+  # If a PR exists, open it:
+  gh-view-pr-web
+  if [[ $? != 0 ]] then;
+    # If a PR didn't exist, create it:
+    gh-create-pr-web
+  fi;
+}
+
+alias git-branch='git branch'
+alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
+alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.querySelectorAll(\`[aria-label=\"Display the rich diff\"]\`);
+for (let i = toClick.length - 1; i >= 0; i -= 1){
+toClick[i].click();
+}" | pbcopy'
+alias git-show-me-how-to-unfold-all-gh-long-diffs='echo "const toClick = document.getElementsByClassName(\"load-diff-button btn-link width-full\");
+for (let i = toClick.length - 1; i >= 0; i -= 1){
+toClick[i].click();
+}" | pbcopy'
+alias git-show-me-how-to-unfold-all-gh-comments='echo "const toClick = document.getElementsByClassName(\"btn-link text-gray float-right f6 outdated-comment-label show-outdated-button js-details-target\");
+for (let i = toClick.length - 1; i >= 0; i -= 1){
+toClick[i].click();
+}" | pbcopy'
+alias show-me-how-to-click-all-the-buttons='echo "const buttons = document.getElementsByTagType(\"BUTTON\");
+for (let i = buttons.length - 1; i >= 0; i -= 1){
+  const button = buttons[i];
+  if(button.getAttribute(\"aria-label\") === \"Move rule down: FORWARD TO GEORGEGILLAMS.CO.UK\"){
+   console.log(button)
+    button.click();
+    console.log(\"clicked\");
+  }
+}" | pbcopy'
+alias git-prepend-branch-name='node ~/Documents/georgegillams/dotfiles/prepend-ticket.js'
+alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
+alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
+alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
+alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard origin/main && git pull && (git branch -D $(git-branch | grep -v "main") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
+alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
+alias IMPLEMENTATION-git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
+alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-develop-latest; else IMPLEMENTATION-git-master-latest; fi'
+alias gaa-no-image-optimisation='git add .'
+alias git-partial-add='git-pre-push && git add -p'
+alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
+alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
+alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
+alias git-fetch='git fetch --all'
+alias IMPLEMENTATION-git-rebase-main='git-fetch && (git rebase origin/main | grep CONFLICT || true) && git-submodules-pull'
+alias IMPLEMENTATION-git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
+alias IMPLEMENTATION-git-rebase-develop='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
+alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-rebase-develop; else IMPLEMENTATION-git-rebase-master; fi'
+alias gri='git rebase -i'
+alias git-rebase-upstream='echo "ensure upstream is set using `git remote add upstream <URL>`" && git fetch upstream && git merge upstream/master && git push origin origin/master'
+alias git-pre-push='git status && sleep 3'
+alias git-rename-last-commit='git commit --amend'
+alias gamp='git-pre-push && gcn! --no-verify && gpf'
+alias gamp-with-verification='git-pre-push && gcn! && gpf-with-verification'
+alias git-test-amend-push='fixtest && git add . && gitamendpush'
+alias gpf-with-verification='ggf && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
+alias gpf='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
+alias git-yolo='gpf'
+alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
+function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
+function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
+function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
+function IMPLEMENTATION-git-revert-to-master() { git checkout origin/master $@ }
+function IMPLEMENTATION-git-revert-to-develop() { git checkout origin/develop $@ }
+function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-revert-to-develop $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
+function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
+function git-rename-branch() {
+  oldBranchName=$(git branch | grep \* | cut -d " " -f2)
+  newBranchName=$1
+  git-branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
+}
+alias gclean='git clean -xdf'
+alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && gml && mv ~/Desktop/back/* ./'
+alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
+alias git-submodules-init='git submodule update --init --recursive'
+alias git-submodules-pull='git submodule update --recursive --remote'
+# alias git-disable-gpg='code ~/.gitconfig && echo "remove signingKey and gpg values" && echo "Press any key when done" && read'
+# alias git-enable-gpg='echo "revert your changes to ~/.gitconfig" && echo "Press any key when done" && read'
+alias git-disable-gpg='git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program'
+alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
