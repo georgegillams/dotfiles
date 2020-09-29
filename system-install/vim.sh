@@ -2,9 +2,7 @@ cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/b
 mkdir ~/Documents/georgegillams
 cd ~/Documents/georgegillams && git clone https://github.com/georgegillams/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc
-cp dotfiles/.zshrc ~/.zshrc
 cp dotfiles/.tmux.conf ~/.tmux.conf
-. ~/.zshrc
 vim +"source ~/.vimrc" +PluginInstall +qall
 defaults write com.apple.finder AppleShowAllFiles YES
 

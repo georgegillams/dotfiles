@@ -56,14 +56,135 @@ fi
 # set -o vi
 
 source $USER_ZSH/system_aliases
-source $USER_ZSH/npm_aliases
-source $USER_ZSH/lang_aliases
+
+# ========================== SYSTEM ==========================
+
+alias whence-function='echo "use declare -f FUNC"'
+
+alias duplicate-tab='open . -a iterm'
+
+alias zsh-remove-api-keys-from-history='zsh-remove-term-from-history APIKEY && zsh-remove-term-from-history API_KEY'
+function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
+alias zsh-rebuild='dotfiles-save-zshrc && cd - && . ~/.zshrc'
+alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
+alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
+alias zsh-edit-config='code ~/.zshrc'
+alias tmux-edit-config='vim ~/.tmux.conf'
+alias dropbox-link-desktop='ln -s /Users/georgegillams/Dropbox/Desktop ./Desktop'
+alias dropbox='cd ~/Dropbox'
+alias documents='cd ~/Documents'
+alias desktop='cd ~/Desktop'
+alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
+
+alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && nvm install lts/erbium && nvm alias default lts/erbium'
+
+alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
+alias very-nice='vlc --play-and-exit ~/Documents/georgegillams/dotfiles/very-nice.mp3'
+
+alias weather-portsmouth='curl wttr.in/Portsmouth'
+alias weather-london='curl wttr.in/London'
+alias weather='weather-portsmouth';
+
+function launch-zoom-meeting-legacy() {
+  osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
+}
+function launch-zoom-meeting() {
+  open https://skyscanner.zoom.us/j/$1
+}
+alias personal-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/personalzoomrc)'
+alias backpack-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/backpackzoomrc)'
+alias fika-zoom='launch-zoom-meeting $(cat ~/Dropbox/secrets/fikazoomrc)'
+alias zoom='personal-zoom'
+alias zoom-backpack='backpack-zoom'
+alias zoom-personal='personal-zoom'
+
+alias vim-edit-config='code ~/.vimrc'
+alias season-ticket='open ~/Desktop/season_ticket.jpg'
+
+alias kill-process='sudo kill -9'
+function list-processes-on-port() { sudo lsof -i :$@ }
+function list-process-pids-on-port() { list-processes-on-port $@ | grep -v PID | awk '{print $2}' }
+function kill-processes-on-port() { for pid in $(list-process-pids-on-port $@); do kill-process $pid; done }
+
+alias system-flush-dns-cache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias system-sleep="pmset sleepnow"
+alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
+alias system-clean-desktop="mv ~/Desktop/* ~/.Trash/ && mv ~/.Trash/season_ticket* ~/Desktop/"
+alias system-fix-audio="sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
+alias system-fix-touch-id="(dotfiles && cd system-install && . ./touch_id.sh)"
+alias system-fix-finder-lagging="mv ~/Library/Preferences/com.apple.finder.plist ~/Desktop/ && echo \"NOW RESTART. IF EVERYTHING IS FINE, DELETE ~/Desktop/com.apple.finder.plist\""
+alias system-fix-sound="system-fix-audio"
+alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
+alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app"
+alias system-open-sketch-updater="open /Applications/Sketch.app"
+alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ Creative\ Cloud"
+alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew cask outdated && brew cask upgrade"
+alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-open-ms-updater & system-open-sketch-updater & system-open-cc-updater"
+alias system-fix-spotlight='sudo mdutil -E'
+alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null'
+alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
+alias system-disable-spotlight='mv /System/Library/LaunchAgents/com.apple.Spotlight.plist /System/Library/LaunchAgents/com.apple.Spotlight.plist.BAK && mv /System/Library/LaunchDaemons/com.apple.metadata.mds.plist /System/Library/LaunchDaemons/com.apple.metadata.mds.plist.BAK'
+alias system-disable-indexing='sudo mdutil -a -i off'
+alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm -rf ~/Library/Containers/io.canarymail.mac/'
+alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
+alias system-fix-rvm-openssl='brew reinstall openssl --ignore-dependencies && brew upgrade ruby-build rbenv'
+alias web-browser='w3m'
+
+alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && gml && sudo ./tunnel_vpn.py'
+alias tunnel-vpn-connection='improve-vpn-connection'
+
+alias tmux-create-session='tmux new -s'
+alias tmux-attach-session='tmux attach -t'
+alias tmux-detach="tmux detach"
+alias tmux-detatch="tmux-detach"
+alias tmux-split="tmux split-window"
+alias tmux-split-vertical="tmux-split"
+alias tmux-split-horizontal="tmux split-window -h"
+alias tmux-close="tmux kill-pane"
+alias tmux-exit="tmux-close"
+
+alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
+alias android-shake-twice='android-shake && sleep 3 && android-shake'
+
+alias npm-check-unused-dependencies='npm install depcheck -g && depcheck'
+
+# ========================== NPM ==========================
+
+alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
+function npm-set-normal-registry-function() {
+  npm-set-normal-registry
+}
+alias npm-set-artifatory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
+alias npm-upgrade-major-dependencies='npx npm-check-updates -u'
+alias npm-upgrade-minor-dependencies='npx npm-check-updates -u --semverLevel major'
+alias npm-upgrade-patch-dependencies='npx npm-check-updates -u --semverLevel minor'
+
+# ============================================================
+
+# ========================= CLANG =========================
+
+alias clang-all-the-things='clang-format -i **/*.h **/*.m'
+
+# ============================================================
+
+alias xcode='open'
+alias xcode-delete-derived-data='rm -rf ~/Library/Developer/Xcode/DerivedData/ && mkdir ~/Library/Developer/Xcode/DerivedData'
+alias xcode-fix-AST-error='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex'
+
+alias AndroidStudio="open -a /Applications/Android\ Studio.app"
+
+alias jest-run-specific-tests='npx jest BpkBannerAlert'
+alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
+
+alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'
 
 alias budget='cd ~/Dropbox/Year\ Plan/2017\ -\ 2018/ && open Budgetting_new.numbers'
 alias finances='cd ~/Dropbox/Year\ Plan/ && open Financej.numbers'
 
 alias wedding='cd ~/Dropbox/Wedding/'
 alias wedding-guest-list='wedding && open guestlist.numbers'
+
+alias npm-clear-cache='npm cache clean --force && npm cache clear --force && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
 alias get-email-old='echo "georgegillams@hotmail.co.uk" | pbcopy'
 alias get-email='echo "g@georgegillams.co.uk" | pbcopy'
@@ -189,7 +310,7 @@ alias aws='cd ~/Documents/georgegillams/aws/'
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmp "Update TMUX conf"'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp /Users/georgegillams/.zsh/* ./.zsh/ && gaa && gcmp "Update ZSHRC"'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && gaa && gcmp "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
 alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
 alias brew-edit-install-script='dotfiles-edit-install-script'

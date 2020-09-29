@@ -12,3 +12,7 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+
+cp -R dotfiles/.zsh /Users/georgegillams/
+cp dotfiles/.zshrc ~/.zshrc
+. ~/.zshrc
