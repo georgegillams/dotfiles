@@ -1,29 +1,3 @@
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-CYAN='\033[0;36m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-
-function yellow() {
-  echo "${YELLOW}$@${NC}"
-}
-
-function red() {
-  echo "${RED}$@${NC}"
-}
-
-function cyan() {
-  echo "${CYAN}$@${NC}"
-}
-
-function blue() {
-  echo "${BLUE}$@${NC}"
-}
-
-function info() {
-  blue $@
-}
-
 # ========================== NPM ==========================
 
 alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'

@@ -1,29 +1,3 @@
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-CYAN='\033[0;36m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-
-function yellow() {
-  echo "${YELLOW}$@${NC}"
-}
-
-function red() {
-  echo "${RED}$@${NC}"
-}
-
-function cyan() {
-  echo "${CYAN}$@${NC}"
-}
-
-function blue() {
-  echo "${BLUE}$@${NC}"
-}
-
-function info() {
-  blue $@
-}
-
 alias gh-prs='gh pr list'
 alias gh-create-pr='gh pr create'
 alias gh-create-pr-web='gh pr create --web'
