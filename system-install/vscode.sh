@@ -17,6 +17,7 @@ code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension hd101wyy.markdown-preview-enhanced
 code --install-extension kasik96.swift
+code --install-extension mrmlnc.vscode-scss
 code --install-extension orta.vscode-jest
 code --install-extension rwu823.open-folder
 code --install-extension streetsidesoftware.code-spell-checker
