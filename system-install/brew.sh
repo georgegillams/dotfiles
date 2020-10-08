@@ -14,6 +14,7 @@ brew cask install android-platform-tools
 brew cask install android-studio
 brew cask install atom
 brew cask install avibrazil-rdm
+brew cask install burp-suite
 brew cask install charles
 brew cask install coconutbattery
 brew cask install colour-contrast-analyser
