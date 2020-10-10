@@ -117,6 +117,8 @@ alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
 alias reduxdefinitions-setup='reduxdefinitions && npm ci && npm run transpile && npm run dev:install'
 
+alias ggc-try-local-version='(ggc && npm run transpile) && rm -rf node_modules/gg-components/* && cp -R ../gg-components/dist/* ./node_modules/gg-components/'
+
 alias ggc='cd ~/Documents/georgegillams/gg-components/'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
