@@ -54,6 +54,8 @@ brew cask install vlc
 brew cask install homebrew/cask-drivers/canon-eos-utility
 brew install ack # CLI search
 brew install applesimutils # detox
+brew install bat
+brew install broot
 brew install chisel
 brew install clang-format
 brew install cloc # count lines of code
