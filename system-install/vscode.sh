@@ -8,9 +8,9 @@ code --install-extension aymondcamden.htmlescape-vscode-extension
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension chrmarti.regex
 code --install-extension cssho.vscode-svgviewer
-code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
+code --install-extension evolution-gaming.evolution-gaming--vscode-eslint
 code --install-extension firefox-devtools.vscode-firefox-debug
 code --install-extension flowtype.flow-for-vscode
 code --install-extension formulahendry.auto-close-tag

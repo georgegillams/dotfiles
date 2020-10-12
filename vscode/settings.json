@@ -74,6 +74,7 @@
     "Categorised",
     "Charlie's",
     "Checkbox",
+    "Covid",
     "Emoji",
     "Flickr",
     "GSUITE",
@@ -90,6 +91,7 @@
     "Skyscanner's",
     "Skyscanner’s",
     "Subsubsections",
+    "Tigger",
     "UNAUTHORISED",
     "Uname",
     "VPNs",
@@ -156,5 +158,14 @@
   "explorer.confirmDragAndDrop": false,
   "editor.columnSelection": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "breadcrumbs.enabled": true
+  "breadcrumbs.enabled": true,
+  "sass.disableUnitCompletion": false,
+  "flow.useBundledFlow": false,
+  "editor.accessibilitySupport": "off",
+  "eslint.onIgnoredFiles": "warn",
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  }
 }
