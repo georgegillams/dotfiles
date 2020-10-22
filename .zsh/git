@@ -76,6 +76,9 @@ function git-rename-branch() {
   newBranchName=$1
   git-branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
 }
+function git-delete-tag() {
+  git push --delete origin $@ & git tag -d $@
+}
 alias gclean='git clean -xdf'
 alias git-move-changes-to-clean-branch='sudo rm -rf ~/Desktop/back/* && git-clean && mv ./* ~/Desktop/back/ && git-reset && gml && mv ~/Desktop/back/* ./'
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
