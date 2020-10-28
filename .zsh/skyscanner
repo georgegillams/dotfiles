@@ -1,13 +1,13 @@
 # ======================== SKYSCANNER ========================
 
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
-alias backpack-setup='bd && npm i && npm run build-backpack && git-submodules-init'
+alias backpack-setup='bd && npm ci && npm run build-backpack && git-submodules-init'
 alias bd-start='bd && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
 alias bd-run-tests='bd && (pkill flow | true) && npm test'
 alias bd-git-submodules-reset='bd && git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias bd-watch-tests='bd && npm run jest:watch'
 alias bd-run-flow='bd && (pkill flow | true) && npm run flow'
-alias bds='bd && npm i'
+alias bds='bd && npm ci'
 alias bd-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-docs/ && git clone --recursive git@github.com:Skyscanner/backpack-docs.git'
 alias bd-nuke-setup='bd-nuke && bds'
 alias bdr='bd && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
@@ -24,7 +24,7 @@ alias bw-run-tests='bw && (pkill flow | true) && npm test'
 alias bw-watch-tests='bw && npm run jest:watch'
 alias bw-release='bw && system-fix-ssh && git-disable-gpg && npx lerna publish && git-enable-gpg && echo "Now run npm run publish:css"'
 alias bw-run-flow='bw && (pkill flow | true) && npm run flow'
-alias bws='bw && npm i && npm run build'
+alias bws='bw && npm ci && npm run build'
 alias bw-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack/ && git clone --recursive git@github.com:Skyscanner/backpack.git'
 alias bw-nuke-setup='bw-nuke && bws'
 alias bwr='bw && npm start'
@@ -82,12 +82,12 @@ alias backpack-react-scripts-publish='backpack-react-scripts && git-reset && npm
 alias backpack-react-scripts-release='backpack-react-scripts-publish'
 
 alias backpack-node-sass='cd ~/Documents/Skyscanner/backpack-node-sass/'
-alias backpack-node-sass-setup='backpack-node-sass && npm i'
+alias backpack-node-sass-setup='backpack-node-sass && npm ci'
 alias backpack-node-sass-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-node-sass/ && git clone git@github.com:Skyscanner/backpack-node-sass.git'
 alias backpack-node-sass-nuke-setup='backpack-node-sass-nuke && backpack-node-sass-setup'
 
 alias bl='cd ~/Documents/Skyscanner/bl/'
-alias bls='bl && npm i && npx gulp'
+alias bls='bl && npm ci && npx gulp'
 alias bl-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf bl/ && git clone git@github.skyscannertools.net:backpack/bl.git'
 alias bl-nuke-setup='bl-nuke && bls'
 
@@ -121,7 +121,7 @@ alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-
 alias bi-take-screenshots='bi-take-screenshots-basic & bi-keep-status-bar-clean'
 
 alias ba='cd ~/Documents/Skyscanner/backpack-android/'
-alias bas='ba && npm i && npm run build'
+alias bas='ba && npm ci && npm run build'
 alias bao='ba && AndroidStudio ./'
 alias baso='bas && bao'
 alias ba-nuke='cd ~/Documents/Skyscanner && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
@@ -131,14 +131,14 @@ alias backpack-get-slack-theme='echo "Backpack Slack theme: \`#252033,#524C61,#E
 
 alias fullstack='cd ~/Documents/Skyscanner/full-stack-recruitment-test/'
 alias fullstack-run='fullstack && npm run client & node server/src/server.js'
-alias fullstack-setup='fullstack && npm i'
+alias fullstack-setup='fullstack && npm ci'
 alias fullstack-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf full-stack-recruitment-test/ && git clone git@github.com:Skyscanner/full-stack-recruitment-test.git'
 
 alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login pip -f'
 
 alias sa='cd ~/Documents/apps-tribe/skyscanner-app/ && npm-set-artifatory-registry'
 alias sa-need-for-speed='sa && cp .git/hooks/fsmonitor-watchman.sample .git/hooks/watchman-query && git config --local core.fsmonitor .git/hooks/watchman-query'
-alias sarn-sanity-check='sa && (cd react-native && npm run pkglock:validate && npm i && npm run lint && npm run test)'
+alias sarn-sanity-check='sa && (cd react-native && npm run pkglock:validate && npm ci && npm run lint && npm run test)'
 alias sa-nuke='cd ~/Documents/apps-tribe && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
 function sa-bump-ruby-version() {
   sa
