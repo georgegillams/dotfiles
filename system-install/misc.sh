@@ -2,10 +2,11 @@ echo "Expose 1Password entries to Alfred. Hit enter when complete."
 read
 
 # Export PDF option
-sudo mkdir /Library/Filters/
-sudo cp dotfiles/resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
+sudo mkdir -p /Library/Filters/
+sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 
 # Sign in to apps
+echo "Sign in to NPM"
 npm login
 pod trunk register george.gillams@skyscanner.net
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
