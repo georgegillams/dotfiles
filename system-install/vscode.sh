@@ -7,6 +7,7 @@ code --install-extension adamwalzer.scss-lint
 code --install-extension aymondcamden.htmlescape-vscode-extension
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension chrmarti.regex
+code --install-extension cschleiden.vscode-github-actions
 code --install-extension cssho.vscode-svgviewer
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode

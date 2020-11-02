@@ -7,7 +7,17 @@ sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 
 # Sign in to apps
 echo "Sign in to NPM"
+echo "npm login"
 npm login
+
+echo "Sign in to GH CLI - public"
+echo "gh auth login"
+gh auth login
+
+echo "Sign in to GH CLI - enterprise"
+echo "gh auth login"
+gh auth login
+
 pod trunk register george.gillams@skyscanner.net
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 open /Applications/Docker.app/
