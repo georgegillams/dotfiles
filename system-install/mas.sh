@@ -1,8 +1,8 @@
 echo "Sign in to the AppStore. Press enter when complete"
-open /Applications/App\ Store.app
+open '/System/Applications/App Store.app'
 read
 
- sudo chown -R $(whoami) /usr/local/lib/pkgconfig
+sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 
 mas install 1039705526 # Grabbie
 mas install 1236045954 # Canary Mail
