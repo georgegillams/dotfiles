@@ -5,6 +5,7 @@
 (. ./zsh.sh)
 (. ./brew.sh)
 (. ./firefox.sh)
+(. ./alfred.sh)
 (. ./git.sh)
 (. ./nvm.sh)
 (. ./rbenv.sh)
