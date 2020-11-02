@@ -2,7 +2,7 @@
 
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='bd && npm ci && npm run build-backpack && git-submodules-init'
-alias bd-start='bd && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
+alias bd-start='bd && npm run generate-markdown-pages && BPK_BUILT_AT=$( date -u +%s ) webpack-dev-server --open'
 alias bd-run-tests='bd && (pkill flow | true) && npm test'
 alias bd-git-submodules-reset='bd && git checkout origin/master backpack-android backpack-ios backpack-react-native && git submodule update --init --recursive'
 alias bd-watch-tests='bd && npm run jest:watch'
