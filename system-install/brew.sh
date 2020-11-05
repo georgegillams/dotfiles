@@ -93,3 +93,5 @@ brew install watchman
 brew install wget
 brew install yarn
 brew install zsh zsh-completions
+
+brew unlink gnupg && brew link --overwrite gnupg2

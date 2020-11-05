@@ -1,7 +1,7 @@
 [user]
 	name = George Gillams
 	email = george.gillams@skyscanner.net
-	signingkey = 146DF8B56C3E8D02
+	signingkey = C19BDD12F1F2E7A3
 [tag]
 	forceSignAnnotated = true
 [core]
