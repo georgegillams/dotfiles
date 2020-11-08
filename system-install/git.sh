@@ -1,4 +1,5 @@
 cp ../.gitconfig ~/.gitconfig
+sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # # Set up Krypt.co SSH/GPG keys:
 # echo "Enter dev mode in the app to get started"
