@@ -23,6 +23,7 @@ brew cask install docker
 brew cask install dropbox
 brew cask install figma
 brew cask install gifox
+brew cask install github
 brew cask install google-chrome
 brew cask install gpg-suite
 brew cask install grandperspective
