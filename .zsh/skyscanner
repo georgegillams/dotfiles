@@ -54,8 +54,8 @@ alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/
 alias brn-run-start-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"brn && npm start\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias brn-start='brn && brn-run-start-in-new-tab && npm run storybook'
 function brn-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.1.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.1.app
   fi
 }
 alias brns='brn && brn-select-xcode && touch android/local.properties && npm ci && (cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update) && brn-copy-font-files'
@@ -97,8 +97,8 @@ function bi-bump-ruby-version() {
   echo "2.6.4" > .ruby-version
 }
 function bi-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.1.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.1.app
   fi
 }
 alias bis='bi && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
