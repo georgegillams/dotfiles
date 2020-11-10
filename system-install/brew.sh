@@ -9,6 +9,7 @@ brew tap wix/brew
 
 brew cask install 1password
 brew cask install adobe-creative-cloud
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 brew cask install alfred
 brew cask install android-platform-tools
 brew cask install android-studio
