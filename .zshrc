@@ -53,13 +53,13 @@ else
   export EDITOR='vim'
 fi
 
-source $USER_ZSH/system
-source $USER_ZSH/npm
-source $USER_ZSH/lang
-source $USER_ZSH/git
 source $USER_ZSH/docker
+source $USER_ZSH/git
+source $USER_ZSH/lang
+source $USER_ZSH/npm
 source $USER_ZSH/personal
 source $USER_ZSH/skyscanner
+source $USER_ZSH/system
 
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
 
