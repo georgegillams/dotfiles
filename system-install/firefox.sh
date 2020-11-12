@@ -6,3 +6,6 @@ find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Doc
 cd -
 sleep 10
 pkill firefox
+echo "Open Firefox about:config and enable toolkit.legacyUserProfileCustomizations.stylesheets"
+echo "Press any key once complete"
+read
