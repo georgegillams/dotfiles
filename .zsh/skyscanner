@@ -118,7 +118,7 @@ alias bi-clang-format='bi && (cd Backpack && clang-all-the-things) && (cd Exampl
 alias bi-clean-status-bar='xcrun simctl status_bar "iPhone 8" override --time "09:41" --wifiBars 3 --cellularBars 4 --batteryLevel 100 --operatorName Backpack'
 alias bi-take-screenshots-basic='bi && rake take_screenshots'
 alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-bar; sleep 30; done'
-alias bi-take-screenshots='bi-take-screenshots-basic & bi-keep-status-bar-clean'
+alias bi-take-screenshots='red "MAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\n" && bi-take-screenshots-basic & bi-keep-status-bar-clean'
 
 alias ba='cd ~/Documents/Skyscanner/backpack-android/'
 alias bas='ba && npm ci && npm run build'
