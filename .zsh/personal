@@ -31,7 +31,7 @@ alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled 
 alias bts='bt && npm ci'
 alias bt-fix-permissions='sudo chown -R $(whoami) ./'
 alias bt-pull-backpack='npm run pull-backpack:clean && git clone https://github.com/Skyscanner/backpack.git && npm run pull-backpack:changelog && (cd backpack && npm ci && npm run build && (find packages -name "node_modules" -exec rm -rf {} \; || true))'
-alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to release. Run `npm run release:TYPE`"'
+alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to release, Please run $(blue "npm run release:TYPE")"'
 
 alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
