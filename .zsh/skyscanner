@@ -121,8 +121,9 @@ alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-
 alias bi-take-screenshots='red "MAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\n" && bi-take-screenshots-basic & bi-keep-status-bar-clean'
 
 alias ba='cd ~/Documents/Skyscanner/backpack-android/'
-alias ba-copy-fonts='mkdir -p Backpack/src/internal/res/font && cp ../../Backpack/bpk-fonts/Android/skyscanner_relative_android_* ./Backpack/src/internal/res/font/'
+alias ba-copy-fonts='ba && mkdir -p Backpack/src/internal/res/font && cp ../../Backpack/bpk-fonts/Android/skyscanner_relative_android_* ./Backpack/src/internal/res/font/'
 alias bas='ba && npm ci && npm run build && ba-copy-fonts'
+alias ba-take-screenshots='ba && ($ANDROID_SDK_ROOT/emulator/emulator -avd bpk-droid-docs-avd || true) && ./scripts/generate_screenshots.sh'
 alias bao='ba && AndroidStudio ./'
 alias baso='bas && bao'
 alias ba-nuke='cd ~/Documents/Skyscanner && sudo rm -rf backpack-android/ && git clone git@github.com:Skyscanner/backpack-android.git'
