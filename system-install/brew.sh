@@ -46,6 +46,7 @@ brew cask install sketch
 brew cask install slack
 brew cask install soundflower
 brew cask install telegram
+brew cask install toggl-track
 brew cask install the-unarchiver
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
