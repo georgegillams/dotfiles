@@ -7,5 +7,6 @@ cd -
 sleep 10
 pkill firefox
 echo "Open Firefox about:config and enable toolkit.legacyUserProfileCustomizations.stylesheets"
+echo "Also create browser.in-content.dark-mode=true"
 echo "Press any key once complete"
 read
