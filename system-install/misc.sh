@@ -5,6 +5,9 @@ read
 sudo mkdir -p /Library/Filters/
 sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 
+# Add heic to jpg workflow
+open ../resources/HEIC\ to\ JPG.workflow
+
 # Sign in to apps
 echo "Sign in to NPM"
 echo "npm login"
