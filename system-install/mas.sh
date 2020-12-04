@@ -4,6 +4,7 @@ read
 
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 
+mas install 1176895641 # Spark Email
 mas install 1236045954 # Canary Mail
 mas install 1278508951 # Trello
 mas install 409183694 # Keynote
