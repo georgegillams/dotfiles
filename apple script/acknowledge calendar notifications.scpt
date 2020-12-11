@@ -8,7 +8,7 @@ on run argv
       repeat while radio button "OK" of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1 exists
         # UI elements of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1
         click radio button "OK" of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1
-        delay 1
+        delay 0.4
       end repeat
       key code 53
     end tell
