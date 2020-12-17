@@ -7,6 +7,11 @@
   display: none !important;
 }
 
+#urlbar:not(.hidden-focus)[focused="true"],
+.searchbar-textbox[focused="true"] {
+  border-color: var(--toolbar-field-focus-border-color) !important;
+}
+
 /* Make the page loading background not flash white */
 @-moz-document url("about:newtab") {
   body {
