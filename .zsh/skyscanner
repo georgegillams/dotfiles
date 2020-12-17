@@ -121,6 +121,7 @@ alias bi-clean-status-bar='xcrun simctl status_bar "iPhone 8" override --time "0
 alias bi-take-screenshots-basic='bi && rake take_screenshots'
 alias bi-keep-status-bar-clean='sleep 5 && for i in {1..30}; do bi-clean-status-bar; sleep 30; done'
 alias bi-take-screenshots='red "MAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\nMAKE SURE RELATIVE IS CONFIGURED\!\n" && bi-take-screenshots-basic & bi-keep-status-bar-clean'
+alias bi-copy-fonts='bi && mkdir -p ./Example/Backpack/Resources/ cp ../../Backpack/bpk-fonts/iOS/* ./Example/Backpack/Resources/'
 
 alias ba='cd ~/Documents/Skyscanner/backpack-android/'
 alias ba-copy-fonts='ba && mkdir -p Backpack/src/internal/res/font && cp ../../Backpack/bpk-fonts/Android/skyscanner_relative_android_* ./Backpack/src/internal/res/font/'
