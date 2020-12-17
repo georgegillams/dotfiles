@@ -12,9 +12,9 @@
   border-color: var(--toolbar-field-focus-border-color) !important;
 }
 
-/* Make the page loading background not flash white */
 @-moz-document url("about:newtab") {
   body {
+    background: #011326 !important;
     background-color: #011326 !important;
   }
 }
@@ -23,6 +23,7 @@
 {
   browser[type="content-primary"] {
     background: #011326 !important;
+    background-color: #011326 !important;
   }
 }
 
@@ -30,5 +31,6 @@
 {
   browser[type="content-primary"] {
     background: #011326 !important;
+    background-color: #011326 !important;
   }
 }

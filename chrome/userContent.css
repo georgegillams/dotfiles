@@ -1,0 +1,11 @@
+/* Apply mac style focus outlines */
+*:focus {
+   outline-offset: 4px;
+   outline: rgba(0,125,250,0.6) solid 4px;
+}
+
+/* Make the page loading background not flash white */
+body {
+  background: #161616;
+  background-color: #161616;
+}
