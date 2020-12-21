@@ -1,6 +1,6 @@
 /* Apply mac style focus outlines */
 *:focus {
-  outline: rgba(0, 125, 250, 0.6) solid 4px;
+  outline: rgba(0, 125, 250, 0.6) auto 4px;
 }
 
 /* Make the page loading background not flash white */
