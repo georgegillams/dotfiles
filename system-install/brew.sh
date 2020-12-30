@@ -3,59 +3,59 @@
 brew update
 
 brew tap homebrew/cask
-brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
-brew tap homebrew/cask-versions && brew cask install java8
+brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
+brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
-brew cask install 1password
-brew cask install adobe-creative-cloud
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
-brew cask install alfred
-brew cask install android-platform-tools
-brew cask install android-studio
-brew cask install atom
-brew cask install avibrazil-rdm
-brew cask install burp-suite
-brew cask install charles
-brew cask install coconutbattery
-brew cask install colour-contrast-analyser
-brew cask install dash
-brew cask install docker
-brew cask install dropbox
-brew cask install figma
-brew cask install gifox
-brew cask install github
-brew cask install google-chrome
-brew cask install gpg-suite
-brew cask install grandperspective
-brew cask install handbrake
-brew cask install homebrew/cask-versions/firefox-developer-edition
-brew cask install imageoptim
-brew cask install intel-power-gadget
-brew cask install iterm2
-brew cask install nightowl
-brew cask install nordvpn
-brew cask install oracle-jdk
-brew cask install pock
-brew cask install postman
-brew cask install qbittorrent
-brew cask install reflector
-brew cask install signal
-brew cask install sim-daltonism
-brew cask install sketch
-brew cask install slack
-brew cask install soundflower
-brew cask install spectacle
-brew cask install telegram
-brew cask install the-unarchiver
-brew cask install toggl-track
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
-brew cask install visual-studio-code
-brew cask install whatsapp
-# brew cask install parallels
-brew cask install vlc
-brew cask install homebrew/cask-drivers/canon-eos-utility
+brew install --cask 1password
+brew install --cask adobe-creative-cloud
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+brew install --cask alfred
+brew install --cask android-platform-tools
+brew install --cask android-studio
+brew install --cask atom
+brew install --cask avibrazil-rdm
+brew install --cask burp-suite
+brew install --cask charles
+brew install --cask coconutbattery
+brew install --cask colour-contrast-analyser
+brew install --cask dash
+brew install --cask docker
+brew install --cask dropbox
+brew install --cask figma
+brew install --cask gifox
+brew install --cask github
+brew install --cask google-chrome
+brew install --cask gpg-suite
+brew install --cask grandperspective
+brew install --cask handbrake
+brew install --cask homebrew/cask-versions/firefox-developer-edition
+brew install --cask imageoptim
+brew install --cask intel-power-gadget
+brew install --cask iterm2
+brew install --cask nightowl
+brew install --cask nordvpn
+brew install --cask oracle-jdk
+brew install --cask pock
+brew install --cask postman
+brew install --cask qbittorrent
+brew install --cask reflector
+brew install --cask signal
+brew install --cask sim-daltonism
+brew install --cask sketch
+brew install --cask slack
+brew install --cask soundflower
+brew install --cask spectacle
+brew install --cask telegram
+brew install --cask the-unarchiver
+brew install --cask toggl-track
+brew install --cask virtualbox
+brew install --cask virtualbox-extension-pack
+brew install --cask visual-studio-code
+brew install --cask whatsapp
+# brew install --cask parallels
+brew install --cask vlc
+brew install --cask homebrew/cask-drivers/canon-eos-utility
 brew install ack # CLI search
 brew install applesimutils # detox
 brew install bat
