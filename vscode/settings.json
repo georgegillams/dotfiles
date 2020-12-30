@@ -144,8 +144,6 @@
     "valuenow",
     "viewports"
   ],
-  "flow.coverageSeverity": "warn",
-  "flow.lazyMode": "off",
   "editor.minimap.enabled": false,
   "eslint.nodePath": "./server/api:./app",
   "jest.autoEnable": false,
@@ -167,5 +165,26 @@
   "eslint.autoFixOnSave": true,
   "eslint.codeAction.showDocumentation": {
     "enable": true
-  }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "extensions.ignoreRecommendations": false,
+  "gitlens.remotes": [{
+    "domain": "github.skyscannertools.net",
+    "type": "Custom",
+    "name": "My Company",
+    "protocol": "https",
+    "urls": {
+        "repository": "https://github.skyscannertools.net/${repoBase}/${repoPath}",
+        "branches": "https://github.skyscannertools.net/${repoBase}/${repoPath}/branches",
+        "branch": "https://github.skyscannertools.net/${repoBase}/${repoPath}/commits/${branch}",
+        "commit": "https://github.skyscannertools.net/${repoBase}/${repoPath}/commit/${id}",
+        "file": "https://github.skyscannertools.net/${repoBase}/${repoPath}?path=${file}${line}",
+        "fileInBranch": "https://github.skyscannertools.net/${repoBase}/${repoPath}/blob/${branch}/${file}${line}",
+        "fileInCommit": "https://github.skyscannertools.net/${repoBase}/${repoPath}/blob/${id}/${file}${line}",
+        "fileLine": "#L${line}",
+        "fileRange": "#L${start}-L${end}"
+        }
+    }]
 }
