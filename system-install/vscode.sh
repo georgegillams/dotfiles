@@ -28,6 +28,7 @@ code --install-extension wakatime.vscode-wakatime
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension wmaurer.change-case
 code --install-extension yler.sass-indented
+code --install-extension rebornix.ruby
 
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
