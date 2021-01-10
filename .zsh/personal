@@ -21,6 +21,10 @@ alias academic-references-setup='academic-references && cd package && npm ci && 
 alias academic-references-run-web-app='academic-references && cd example && npm run start'
 alias academic-references-publish='academic-references && cd package && npm publish'
 
+alias rl='cd ~/Documents/georgegillams/rails_learning'
+alias rls='rl'
+alias rl-start='rl && bin/rails server'
+
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
