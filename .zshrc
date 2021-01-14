@@ -115,7 +115,7 @@ load-ruby-version() {
 #     rvm use default
 #   fi
 }
-add-zsh-hook chpwd npm-set-normal-registry-function
+# add-zsh-hook chpwd npm-set-normal-registry-function
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
 

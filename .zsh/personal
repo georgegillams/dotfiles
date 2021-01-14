@@ -22,7 +22,7 @@ alias academic-references-run-web-app='academic-references && cd example && npm 
 alias academic-references-publish='academic-references && cd package && npm publish'
 
 alias rl='cd ~/Documents/georgegillams/rails_learning'
-alias rls='rl'
+alias rls='rl && yarn'
 alias rl-start='rl && bin/rails server'
 
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
