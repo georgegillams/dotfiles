@@ -118,5 +118,7 @@ load-ruby-version() {
 # add-zsh-hook chpwd npm-set-normal-registry-function
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
+load-nvmrc
+load-ruby-version
 
 source /Users/georgegillams/.config/broot/launcher/bash/br

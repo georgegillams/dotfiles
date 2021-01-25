@@ -1,5 +1,9 @@
 # ======================== SKYSCANNER ========================
 
+alias lyrebird='cd ~/Documents/georgegillams/lyrebird'
+alias lyrebird-setup='lyrebird && npm ci'
+alias lyrebird-run='lyrebird && npm run dev:app'
+
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='bd && npm ci && npm run build-backpack && git-submodules-init'
 alias bd-start='bd && npm run generate-markdown-pages && BPK_BUILT_AT=$( date -u +%s ) npx webpack-dev-server --open'
