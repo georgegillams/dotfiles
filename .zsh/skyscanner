@@ -1,8 +1,8 @@
 # ======================== SKYSCANNER ========================
 
 alias lyrebird='cd ~/Documents/georgegillams/lyrebird'
-alias lyrebird-setup='lyrebird && npm ci'
-alias lyrebird-run='lyrebird && npm run dev:app'
+alias lyrebird-setup='lyrebird && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true PUPPETEER_SKIP_FIREFOX_DOWNLOAD=true npm ci'
+alias lyrebird-run='docker-compose up --build'
 
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='bd && npm ci && npm run build-backpack && git-submodules-init'
@@ -145,7 +145,7 @@ alias fullstack-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf full-stack-recru
 
 alias artifactory-login='artifactory-cli-login npm -f && artifactory-cli-login pip -f'
 
-alias sa='cd ~/Documents/apps-tribe/skyscanner-app/ && npm-set-artifatory-registry'
+alias sa='cd ~/Documents/apps-tribe/skyscanner-app/'
 alias sa-need-for-speed='sa && cp .git/hooks/fsmonitor-watchman.sample .git/hooks/watchman-query && git config --local core.fsmonitor .git/hooks/watchman-query'
 alias sarn-sanity-check='sa && (cd react-native && npm run pkglock:validate && npm ci && npm run lint && npm run test)'
 alias sa-nuke='cd ~/Documents/apps-tribe && rm -rf skyscanner-app && git clone git@github.skyscannertools.net:apps-tribe/skyscanner-app.git'
