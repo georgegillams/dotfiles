@@ -1,7 +1,6 @@
 # ========================== SYSTEM ==========================
 
 # override cat with bat:
-alias cat='bat'
 
 alias whence-function='echo "use declare -f FUNC"'
 

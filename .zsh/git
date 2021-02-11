@@ -41,7 +41,7 @@ alias git-gc-prune-aggressive='git gc --prune=now --aggressive && git repack'
 alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard origin/main && git pull && (git branch -D $(git-branch | grep -v "main") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git-branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias IMPLEMENTATION-git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git-branch | grep -v "develop") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-develop-latest; else IMPLEMENTATION-git-master-latest; fi'
+alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-develop-latest; else IMPLEMENTATION-git-master-latest; fi'
 alias gaa-no-image-optimisation='git add .'
 alias git-partial-add='git-pre-push && git add -p'
 alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
@@ -51,7 +51,7 @@ alias git-fetch='git fetch --all'
 alias IMPLEMENTATION-git-rebase-main='git-fetch && (git rebase origin/main | grep CONFLICT || true) && git-submodules-pull'
 alias IMPLEMENTATION-git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
 alias IMPLEMENTATION-git-rebase-develop='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
-alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-rebase-develop; else IMPLEMENTATION-git-rebase-master; fi'
+alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-rebase-develop; else IMPLEMENTATION-git-rebase-master; fi'
 alias gri='git rebase -i'
 alias git-rebase-upstream='echo "ensure upstream is set using `git remote add upstream <URL>`" && git fetch upstream && git merge upstream/master && git push origin origin/master'
 alias git-pre-push='git status && sleep 3'
@@ -70,7 +70,7 @@ function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && 
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { git checkout origin/master $@ }
 function IMPLEMENTATION-git-revert-to-develop() { git checkout origin/develop $@ }
-function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-revert-to-develop $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
+function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-revert-to-develop $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
