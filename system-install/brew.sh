@@ -25,6 +25,7 @@ brew install --cask dropbox
 brew install --cask figma
 brew install --cask gifox
 brew install --cask github
+brew install --cask gitify
 brew install --cask google-chrome
 brew install --cask gpg-suite
 brew install --cask grandperspective
@@ -33,6 +34,7 @@ brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask intel-power-gadget
 brew install --cask iterm2
+brew install --cask meetingbar
 brew install --cask nightowl
 brew install --cask nordvpn
 brew install --cask oracle-jdk
