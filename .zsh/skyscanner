@@ -103,8 +103,8 @@ function bi-bump-ruby-version() {
   echo "2.6.4" > .ruby-version
 }
 function bi-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.0.1.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.0.1.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.4.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.4.app
   fi
 }
 alias bis='bi && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
@@ -154,8 +154,8 @@ function sa-bump-ruby-version() {
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
 function sa-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.0.1.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.0.1.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.4.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.4.app
   fi
 }
 alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup --cocoapods)'
