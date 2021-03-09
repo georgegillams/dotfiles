@@ -1,15 +1,18 @@
 on run argv
   tell application "/System/Applications/Calendar.app" to activate
   tell application "System Events" to tell process "Calendar"
-      click menu item "Show Notifications" of menu 1 of menu bar item "View" of menu bar 1
-  end tell
-  delay 2
-    tell application "System Events" to tell process "Calendar"
-      repeat while radio button "OK" of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1 exists
-        # UI elements of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1
-        click radio button "OK" of radio group 1 of UI element 1 of row 1 of table 1 of scroll area 1 of pop over 1 of window 1
-        delay 0.4
+      # Select inbox:
+      if value of radio button 2 of radio group 1 of group 1 of toolbar 1 of window 1 is not 1 then
+        click radio button 2 of radio group 1 of group 1 of toolbar 1 of window 1
+      end if
+      
+      # Select New
+      click radio button "New" of radio group 1 of scroll area 1 of splitter group 1 of splitter group 1 of window 1
+
+      # Acknowledge all
+      repeat while button "OK" of UI element 1 of row 1 of table 1 of scroll area 1 of scroll area 1 of splitter group 1 of splitter group 1 of window 1 exists
+        click button "OK" of UI element 1 of row 1 of table 1 of scroll area 1 of scroll area 1 of splitter group 1 of splitter group 1 of window 1
+        delay 0.2
       end repeat
-      key code 53
-    end tell
+  end tell
 end run
