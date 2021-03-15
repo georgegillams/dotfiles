@@ -30,6 +30,7 @@ export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=/Users/georgegillams/.oh-my-zsh
 export USER_ZSH=/Users/georgegillams/.zsh
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export ANDROID_HOME="$ANDROID_SDK_ROOT"
 export TERM="xterm-256color"
