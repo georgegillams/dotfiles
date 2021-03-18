@@ -2,7 +2,7 @@
 
 alias lyrebird='cd ~/Documents/georgegillams/lyrebird'
 alias lyrebird-setup='lyrebird && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true PUPPETEER_SKIP_FIREFOX_DOWNLOAD=true npm ci'
-alias lyrebird-run='open http://localhost:5000/about-us/sustainability && docker-compose up --build'
+alias lyrebird-run='lyrebird && open http://localhost:5000/about-us/accessibility && docker-compose up --build'
 
 alias bd='cd ~/Documents/Skyscanner/backpack-docs/'
 alias backpack-setup='bd && npm ci && npm run build-backpack && git-submodules-init'
