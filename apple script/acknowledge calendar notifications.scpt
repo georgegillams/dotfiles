@@ -12,7 +12,6 @@ on run argv
       # Acknowledge all
       repeat while button "OK" of UI element 1 of row 1 of table 1 of scroll area 1 of scroll area 1 of splitter group 1 of splitter group 1 of window 1 exists
         click button "OK" of UI element 1 of row 1 of table 1 of scroll area 1 of scroll area 1 of splitter group 1 of splitter group 1 of window 1
-        delay 0.2
       end repeat
   end tell
 end run
