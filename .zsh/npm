@@ -10,6 +10,8 @@ function npm-set-correct-registry-function() {
     npm-set-artifactory-registry
   elif [[ $(pwd) == *"footer"* ]]; then 
     npm-set-artifactory-registry
+  elif [[ $(pwd) == *"banana"* ]]; then 
+    npm-set-artifactory-registry
   else
     npm-set-normal-registry
   fi
