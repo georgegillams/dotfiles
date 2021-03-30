@@ -54,6 +54,7 @@ alias IMPLEMENTATION-git-rebase-develop='git-fetch && (git rebase origin/develop
 alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"skyscanner-app"* ]]; then IMPLEMENTATION-git-rebase-develop; else IMPLEMENTATION-git-rebase-master; fi'
 alias gri='git rebase -i'
 alias git-pull-master-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/master && git remote remove upstream && git push origin origin/master'
+alias git-pull-main-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/main && git remote remove upstream && git push origin origin/main'
 alias git-pre-push='git status && sleep 3'
 alias git-rename-last-commit='git commit --amend'
 alias gamp='git-pre-push && gcn! --no-verify && gpf'
