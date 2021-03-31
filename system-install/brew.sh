@@ -1,5 +1,8 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
 brew update
 
 brew tap homebrew/cask
@@ -64,6 +67,7 @@ brew install chisel
 brew install clang-format
 brew install cloc # count lines of code
 brew install cmake
+brew install coreutils
 brew install cowsay
 brew install docker
 brew install docker-compose
@@ -83,7 +87,6 @@ brew install lynx
 brew install macvim
 brew install mas # CLI apps store
 brew install mitmproxy
-brew install nvm
 brew install python3
 brew install rbenv
 brew install redis
