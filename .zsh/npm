@@ -3,7 +3,7 @@
 alias npm-set-normal-registry='npm config set registry https://registry.npmjs.org/'
 alias npm-set-artifactory-registry='npm config set registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
 function npm-set-correct-registry-function() {
-  info "Setting appropriate npm registry"
+  startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ $(pwd) == *"apps-tribe/skyscanner-app"* ]]; then 
     npm-set-artifactory-registry
   elif [[ $(pwd) == *"lyrebird"* ]]; then 
@@ -15,6 +15,8 @@ function npm-set-correct-registry-function() {
   else
     npm-set-normal-registry
   fi
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  info "NPM registry selected ($((endTime-startTime))ms)"
 }
 alias npm-upgrade-major-dependencies='npx npm-check-updates -u'
 alias npm-upgrade-minor-dependencies='npx npm-check-updates -u --semverLevel major'
