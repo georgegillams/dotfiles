@@ -1,3 +1,4 @@
+startTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 RED='\033[0;31m'
@@ -150,3 +151,6 @@ add-zsh-hook chpwd load-ruby-version
 npm-set-correct-registry-function
 load-nvmrc
 load-ruby-version
+
+endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
+info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
