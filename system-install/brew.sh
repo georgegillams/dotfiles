@@ -45,7 +45,6 @@ brew install --cask sim-daltonism
 brew install --cask sketch
 brew install --cask slack
 brew install --cask soundflower
-brew install --cask spectacle
 brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask toggl-track
