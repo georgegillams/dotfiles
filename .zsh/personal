@@ -46,6 +46,7 @@ alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebu
 alias gwa-deploy='gwa && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/webapp-boilerplate/'
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
+alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
 alias cardc='cd ~/Documents/georgegillams/card-challenge/'
 alias cardc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf card-challenge && git clone git@github.com:georgegillams/card-challenge.git'
@@ -58,6 +59,7 @@ alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuil
 alias ge-backup='ge && node scripts/backup-production-data.js'
 alias ge-deploy='ge && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
 alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
+alias ge-update-snapshots-skip-npm='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
 alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
@@ -65,6 +67,7 @@ alias cgbs='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebu
 alias cgb-backup='cgb && node scripts/backup-production-data.js'
 alias cgb-deploy='cgb && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/beta.cgwedding/'
 alias cgb-update-snapshots='cgb && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
+alias cgb-update-snapshots-skip-npm='cgb && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
 alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
 alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
@@ -76,6 +79,7 @@ alias ggc='cd ~/Documents/georgegillams/gg-components/'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
 alias ggc-update-snapshots='ggc && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
+alias ggc-update-snapshots-skip-npm='ggc && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
 alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
