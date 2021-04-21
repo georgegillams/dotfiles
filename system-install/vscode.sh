@@ -17,9 +17,11 @@ code --install-extension flowtype.flow-for-vscode
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension hd101wyy.markdown-preview-enhanced
+code --install-extension jasonnutter.vscode-codeowners
 code --install-extension kasik96.swift
 code --install-extension mrmlnc.vscode-scss
 code --install-extension orta.vscode-jest
+code --install-extension rebornix.ruby
 code --install-extension rwu823.open-folder
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension tylelint.vscode-stylelint
@@ -28,7 +30,6 @@ code --install-extension wakatime.vscode-wakatime
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension wmaurer.change-case
 code --install-extension yler.sass-indented
-code --install-extension rebornix.ruby
 
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
