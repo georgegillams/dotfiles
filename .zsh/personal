@@ -84,32 +84,8 @@ alias ggc-update-snapshots-skip-npm='ggc && ./scripts/docker/prepare.sh && ./scr
 alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
-alias sra-docker-build-image='sra && docker build -t screen-reader-adventures-test -f Dockerfile.backstopjstest .'
-alias sra-docker-create-and-run-container='sra && docker run -itd -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true screen-reader-adventures-test bash'
-function sra-docker-run-tests () {
-  sra
-  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
-  docker cp .storybook $containerId:/usr/src/tmp/
-  docker cp babel.config.js $containerId:/usr/src/tmp/
-  docker cp backstop_data $containerId:/usr/src/tmp/
-  docker cp config $containerId:/usr/src/tmp/
-  docker cp package-lock.json $containerId:/usr/src/tmp/
-  docker cp package.json $containerId:/usr/src/tmp/
-  docker cp scripts $containerId:/usr/src/tmp/
-  docker cp src $containerId:/usr/src/tmp/
-  docker cp test $containerId:/usr/src/tmp/
-  docker exec -it $containerId rm -rf backstop_data/bitmaps_reference
-  docker exec -it $containerId npm ci
-  docker exec -it $containerId npm run build
-  docker exec -it $containerId npm run test
-  docker exec -it $containerId npm run backstopjs:test:allow-failure
-}
-function sra-docker-copy-snapshots-to-host () {
-  sra
-  containerId=$(docker ps -a | grep screen-reader-adventures-test | awk '{print $1}')
-  docker cp $containerId:/usr/src/tmp/backstop_data ./
-}
-alias sra-regenerate-snapshots='sra && docker-reset && sra-docker-create-and-run-container && sra-docker-run-tests && sra-docker-copy-snapshots-to-host'
+alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
+alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
 alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
 alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
