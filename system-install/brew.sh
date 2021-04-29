@@ -35,6 +35,7 @@ brew install --cask imageoptim
 brew install --cask intel-power-gadget
 brew install --cask iterm2
 brew install --cask meetingbar
+brew install --cask nightowl
 brew install --cask nordvpn
 brew install --cask oracle-jdk
 brew install --cask postman
