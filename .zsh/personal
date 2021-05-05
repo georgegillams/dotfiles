@@ -4,7 +4,7 @@ alias daily-backup="(ge-backup) && (cgb-backup)"
 
 alias aws='cd ~/Documents/georgegillams/aws/'
 
-alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e)"'
+alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
