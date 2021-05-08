@@ -44,7 +44,9 @@ alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com
 
 alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
-alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
+alias gwa-start-transpile-watch-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"gwa && npm run gg-webapp-transpile:watch\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
+alias gwa-start='gwa && gwa-start-transpile-watch-in-new-tab && npm run dev'
+alias gwas='gwa && npm run gg-webapp-install && npm run gg-webapp-transpile && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
 alias gwa-deploy='gwa && npm run build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/webapp-boilerplate/'
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
