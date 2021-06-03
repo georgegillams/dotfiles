@@ -158,7 +158,7 @@ function sa-select-xcode() {
     sudo xcode-select -switch /Applications/Xcode_12.3.app
   fi
 }
-alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup --cocoapods)'
+alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup)'
 alias sao='sa && open ios/Skyscanner.xcworkspace'
 alias saso='sas && sao'
 alias sa-login-to-npm='sa && npm login --registry https://artifactory.skyscannertools.net/artifactory/api/npm/npm/'
