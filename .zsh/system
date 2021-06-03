@@ -77,6 +77,7 @@ alias system-reset-canary='sudo rm -rf /Applications/Canary\ Mail.app && sudo rm
 alias system-show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES'
 alias system-fix-rvm-openssl='brew reinstall openssl --ignore-dependencies && brew upgrade ruby-build rbenv'
 alias web-browser='w3m'
+alias system-fix-dyld='brew update && brew upgrade && brew link --overwrite ruby && brew reinstall ruby vim'
 
 alias improve-vpn-connection='cd ~/Documents/laz_l/local-vpn-routing && git-reset && gml && sudo ./tunnel_vpn.py'
 alias tunnel-vpn-connection='improve-vpn-connection'
