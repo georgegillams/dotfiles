@@ -29,9 +29,10 @@ alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && 
 alias pingu='open https://www.youtube.com/watch?v=Nozh1zDj8_o'
 alias very-nice='vlc --play-and-exit ~/Documents/georgegillams/dotfiles/very-nice.mp3'
 
+alias weather-shirrell-heath='curl wttr.in/Shirrell-Heath'
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
-alias weather='weather-portsmouth';
+alias weather='weather-shirrell-heath';
 
 function launch-zoom-meeting-legacy() {
   osascript ~/Documents/georgegillams/dotfiles/apple\ script/launch-zoom.scpt $@
