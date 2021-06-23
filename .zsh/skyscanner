@@ -108,7 +108,7 @@ function bi-select-xcode() {
     sudo xcode-select -switch /Applications/Xcode_12.4.app
   fi
 }
-alias bis='bi && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
+alias bis='bi && bi-copy-fonts && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
 alias bio='bi && open Example/Backpack.xcworkspace'
 alias biso='bis && bio'
 alias biso-complete='git-clean && xcode-delete-derived-data && biso'
@@ -116,6 +116,7 @@ alias bi-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-ios/ && git cl
 alias bi-nuke-setup='bi-nuke && bis'
 alias bi-install-ruby-version='bi && rvm install ruby-$(cat .ruby-version)'
 alias bi-release='bi && bundle exec rake release'
+
 alias bi-publish='bi-release'
 alias bi-build-ipa='bi && sh ~/Dropbox/secrets/backpack-ios/backpack-build-ipa && git-reset'
 alias bi-test='bi && bundle exec rake test && Example/Pods/SwiftLint/swiftlint lint --strict'
