@@ -155,8 +155,8 @@ function sa-bump-ruby-version() {
   sed -i -e "s/ruby '2.6.3'/ruby '2.6.4'/g" ./Gemfile
 }
 function sa-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.3.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.3.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.5.1.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.5.1.app
   fi
 }
 alias sas='sa && sa-select-xcode && (cd ios && gem install bundler && ./fullsetup --cocoapods)'
