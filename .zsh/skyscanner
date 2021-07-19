@@ -104,8 +104,8 @@ function bi-bump-ruby-version() {
   echo "2.6.4" > .ruby-version
 }
 function bi-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.4.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.4.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.5.1.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.5.1.app
   fi
 }
 alias bis='bi && bi-copy-fonts && bi-select-xcode && bundle install && nvm use && npm ci && (cd Example && bundle install && bundle exec pod update) && npx gulp'
