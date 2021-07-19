@@ -61,8 +61,8 @@ alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/
 alias brn-run-start-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"brn && npm start\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias brn-start='brn && brn-run-start-in-new-tab && npm run storybook'
 function brn-select-xcode() {
-  if [[ $(xcode-select -p) != "/Applications/Xcode_12.4.app/Contents/Developer" ]]; then
-    sudo xcode-select -switch /Applications/Xcode_12.4.app
+  if [[ $(xcode-select -p) != "/Applications/Xcode_12.5.app/Contents/Developer" ]]; then
+    sudo xcode-select -switch /Applications/Xcode_12.5.app
   fi
 }
 alias brns='brn && brn-select-xcode && touch android/local.properties && npm ci && (cd ios/ && bundle exec pod repo update && bundle exec pod install --repo-update) && brn-copy-font-files'
