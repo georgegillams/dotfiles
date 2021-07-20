@@ -57,7 +57,7 @@ alias brn-fix-tests='brn && find . -name "*.js.snap" -exec rm -rf {} \; && npm t
 alias brn-run-tests='brn && (pkill flow | true) && npm test'
 alias brn-watch-tests='brn && npm run jest:native:watch'
 alias brn-run-flow='brn && (pkill flow | true) && npm run flow'
-alias brn-copy-font-files='cp ./node_modules/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
+alias brn-copy-font-files='cp ./node_modules/@skyscanner/bpk-svgs/dist/font/* ./android/app/src/main/assets/fonts/'
 alias brn-run-start-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"brn && npm start\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias brn-start='brn && brn-run-start-in-new-tab && npm run storybook'
 function brn-select-xcode() {
