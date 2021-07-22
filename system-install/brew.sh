@@ -41,6 +41,7 @@ brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask qbittorrent
 brew install --cask reflector
+brew install --cask rocket
 brew install --cask signal
 brew install --cask sim-daltonism
 brew install --cask sketch
