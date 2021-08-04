@@ -21,6 +21,12 @@ alias backpack-publish-all-packages='bw && cd packages && find . -maxdepth 1 -ty
 alias kr-disable-codesign='kr codesign off'
 alias kr-enable-codesign='kr codesign on'
 
+alias bf='cd ~/Documents/Skyscanner/backpack-foundations/'
+alias bf-release='bf && system-fix-ssh && git-disable-gpg && npm run release'
+alias bfs='bf && npm ci && npm run build'
+alias bf-nuke='cd ~/Documents/Skyscanner/ && sudo rm -rf backpack-foundations/ && git clone --recursive git@github.com:Skyscanner/backpack-foundations.git'
+alias bf-nuke-setup='bf-nuke && bfs'
+
 alias bw='cd ~/Documents/Skyscanner/backpack/'
 alias bw-start='bw && npm run storybook'
 alias bw-fix-tests='bw && find . -name "*.js.snap" -exec rm -rf {} \; && npm test'
