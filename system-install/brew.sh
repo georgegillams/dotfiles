@@ -58,7 +58,7 @@ brew install --cask whatsapp
 brew install --cask vlc
 brew install --cask homebrew/cask-drivers/canon-eos-utility
 brew install ack # CLI search
-brew install applesimutils # detox
+brew install applesimutils # For detox testing
 brew install bat
 brew install broot
 brew install chisel

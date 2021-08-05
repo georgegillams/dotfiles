@@ -40,8 +40,8 @@ open /usr/local/Caskroom/canon-eos-utility/*/*.app
 echo "Clean My Mac X => https://cleanmymac.com"
 open https://macpaw.com/download/cleanmymac
 
-echo "Aerial Screensaver => https://aerialscreensaver.github.io"
-open https://github.com/glouel/AerialCompanion/releases/latest/download/AerialInstaller.dmg
+# echo "Aerial Screensaver => https://aerialscreensaver.github.io"
+# open https://github.com/glouel/AerialCompanion/releases/latest/download/AerialInstaller.dmg
 
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
