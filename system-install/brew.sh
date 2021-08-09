@@ -7,6 +7,8 @@ brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
+brew tap clementtsang/bottom && brew install bottom
+
 brew install --cask 1password
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
@@ -69,13 +71,17 @@ brew install coreutils
 brew install cowsay
 brew install docker
 brew install docker-compose
+brew install duf
 brew install exiftool
 brew install git
+brew install git-delta
 brew install github/gh/gh
+brew install glances
 brew install gnupg gnupg2
 brew install golang
 brew install gpg gpg2
 brew install htop
+brew install httpie
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli
@@ -86,6 +92,7 @@ brew install macvim
 brew install mas # CLI apps store
 brew install mitmproxy
 brew install nvm
+brew install procs
 brew install python3
 brew install rbenv
 brew install redis
