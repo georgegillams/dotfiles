@@ -19,6 +19,7 @@ brew install --cask atom
 brew install --cask avibrazil-rdm
 brew install --cask burp-suite
 brew install --cask charles
+brew install --cask clocker
 brew install --cask coconutbattery
 brew install --cask colour-contrast-analyser
 brew install --cask dash
