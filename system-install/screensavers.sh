@@ -1,1 +1,1 @@
-open ../resources/screensavers/*.saver
+# open ../resources/screensavers/*.saver

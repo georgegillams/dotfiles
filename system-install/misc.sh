@@ -1,5 +1,5 @@
-echo "Expose 1Password entries to Alfred. Hit enter when complete."
-read
+# echo "Expose 1Password entries to Alfred. Hit enter when complete."
+# read
 
 # Export PDF option
 sudo mkdir -p /Library/Filters/
@@ -21,7 +21,6 @@ echo "Sign in to GH CLI - enterprise"
 echo "gh auth login"
 gh auth login
 
-pod trunk register george.gillams@skyscanner.net
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/
@@ -50,8 +49,8 @@ echo "Open iTerm preferences, select profiles, colours and import the NORD theme
 read
 rm -rf Nord.itermcolors
 
-echo "Snap camera"
-open https://snapcamera.snapchat.com/download/
-sleep 10
-echo "Press any key once complete"
-read
+# echo "Snap camera"
+# open https://snapcamera.snapchat.com/download/
+# sleep 10
+# echo "Press any key once complete"
+# read

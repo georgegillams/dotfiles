@@ -13,9 +13,9 @@ brew install --cask 1password
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 brew install --cask alfred
-brew install --cask android-platform-tools
-brew install --cask android-studio
-brew install --cask atom
+# brew install --cask android-platform-tools
+# brew install --cask android-studio
+# brew install --cask atom
 brew install --cask avibrazil-rdm
 brew install --cask burp-suite
 brew install --cask charles
@@ -31,23 +31,22 @@ brew install --cask github
 brew install --cask gitify
 brew install --cask google-chrome
 brew install --cask gpg-suite
-brew install --cask grandperspective
+# brew install --cask grandperspective
 brew install --cask handbrake
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
-brew install --cask intel-power-gadget
+# brew install --cask intel-power-gadget
 brew install --cask iterm2
 brew install --cask meetingbar
 brew install --cask nightowl
-brew install --cask nordvpn
+# brew install --cask nordvpn
 brew install --cask oracle-jdk
 brew install --cask postman
-brew install --cask qbittorrent
 brew install --cask reflector
 brew install --cask rocket
 brew install --cask signal
 brew install --cask sim-daltonism
-brew install --cask sketch
+# brew install --cask sketch
 brew install --cask slack
 brew install --cask soundflower
 brew install --cask telegram
@@ -80,7 +79,7 @@ brew install github/gh/gh
 brew install glances
 brew install gnupg gnupg2
 brew install golang
-brew install gpg gpg2
+brew install gpg gpg2 gnupg gnupg2
 brew install htop
 brew install httpie
 brew install hub

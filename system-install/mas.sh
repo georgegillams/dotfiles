@@ -12,6 +12,5 @@ mas install 409183694 # Keynote
 mas install 409201541 # Pages
 mas install 409203825 # Numbers
 mas install 585829637 # Todoist
-mas install 909566003 # iHex - Hex Editor
 mas install 937984704 # Amphetamine
-mas install 497799835 # XCode 
+# mas install 497799835 # XCode 
