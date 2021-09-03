@@ -111,6 +111,7 @@
     "flowtype",
     "georgegillams",
     "greasemonkey",
+    "hanzi",
     "konami",
     "leveraging",
     "linkedin",
@@ -186,5 +187,26 @@
         "fileLine": "#L${line}",
         "fileRange": "#L${start}-L${end}"
         }
-    }]
+    }
+  ],
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
+  "workbench.welcomePage.hiddenCategories": [
+    "Setup",
+    "Beginner"
+  ],
+  "editor.tabSize": 8,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  }
 }
