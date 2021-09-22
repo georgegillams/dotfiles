@@ -20,6 +20,7 @@ code --install-extension hd101wyy.markdown-preview-enhanced
 code --install-extension jasonnutter.vscode-codeowners
 code --install-extension kasik96.swift
 code --install-extension mrmlnc.vscode-scss
+code --install-extension ms-azuretools.vscode-docker
 code --install-extension orta.vscode-jest
 code --install-extension rebornix.ruby
 code --install-extension rwu823.open-folder
