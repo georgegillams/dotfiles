@@ -28,8 +28,8 @@ function info() {
 }
 
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-export ZSH=/Users/georgegillams/.oh-my-zsh
-export USER_ZSH=/Users/georgegillams/.zsh
+export ZSH=$HOME/.oh-my-zsh
+export USER_ZSH=$HOME/.zsh
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
@@ -43,7 +43,8 @@ else
   export EDITOR='vim'
 fi
 
-export PATH=$HOME/.fastlane/bin:/usr/local/go/bin:/Users/georgegillams/bin:/Users/georgegillams/Library/Python/3.6/bin:/Users/georgegillams/.rvm/gems/ruby-2.3.1@global/bin:/usr/local/sbin:/Users/georgegillams/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/georgegillams/.rvm/bin:/Users/georgegillams/.vimpkg/bin
+# export PATH=$HOME/.fastlane/bin:/usr/local/go/bin:$HOME/bin:$HOME/Library/Python/3.6/bin:$HOME/.rvm/gems/ruby-2.3.1@global/bin:/usr/local/sbin:$HOME/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:$HOME/.rvm/bin:$HOME/.vimpkg/bin
+export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -67,15 +68,15 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-source $USER_ZSH/docker
-source $USER_ZSH/git
-source $USER_ZSH/lang
-source $USER_ZSH/npm
-source $USER_ZSH/personal
-source $USER_ZSH/skyscanner
-source $USER_ZSH/system
+source $USER_ZSH/gh_docker
+source $USER_ZSH/gh_git
+source $USER_ZSH/gh_lang
+source $USER_ZSH/gh_npm
+source $USER_ZSH/gh_personal
+source $USER_ZSH/gh_system
+source $USER_ZSH/typeform
 
-source /Users/georgegillams/.config/broot/launcher/bash/br
+# source $HOME/.config/broot/launcher/bash/br
 
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
 
@@ -96,9 +97,8 @@ info "rbenv ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh --no-use # This loads nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm - disabled as it does the same as the line above
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion - disabled as it is too slow!
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "nvm ready ($((endTime-startTime))ms)"

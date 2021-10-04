@@ -17,10 +17,6 @@ echo "Sign in to GH CLI - public"
 echo "gh auth login"
 gh auth login
 
-echo "Sign in to GH CLI - enterprise"
-echo "gh auth login"
-gh auth login
-
 open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/

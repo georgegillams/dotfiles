@@ -1,5 +1,9 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+echo "Ensure you do anything that brew has asked following installation"
+echo "Press enter when complete"
+read
+
 brew update
 
 brew tap homebrew/cask

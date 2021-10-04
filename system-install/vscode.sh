@@ -27,7 +27,6 @@ code --install-extension rwu823.open-folder
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension tylelint.vscode-stylelint
 code --install-extension vscodevim.vim
-code --install-extension wakatime.vscode-wakatime
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension wmaurer.change-case
 code --install-extension yler.sass-indented

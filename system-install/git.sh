@@ -12,7 +12,7 @@ sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # read
 
 # Set up Git SSH
-ssh-keygen -t rsa -b 4096 -C "george.gillams@skyscanner.net"
+ssh-keygen -t rsa -b 4096 -C "code@georgegillams.co.uk"
 echo "Now go to Github, select Add SSH key and paste the public file contents"
 pbcopy < ~/.ssh/id_rsa.pub
 sleep 10
@@ -25,7 +25,7 @@ open /Applications/GPG\ Keychain.app/
 echo "Press enter when complete"
 read
 gpg --list-secret-keys --keyid-format LONG
-echo "Please copy the sec key from the Git GPG key and enter it"
+echo "Please copy the sec key (long string) from the Git GPG key and enter it"
 read keyLong
 git config --global user.signingkey $keyLong
 git config --global commit.gpgSign true
