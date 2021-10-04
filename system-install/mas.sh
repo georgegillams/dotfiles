@@ -14,4 +14,5 @@ mas install 409203825 # Numbers
 mas install 585829637 # Todoist
 mas install 937984704 # Amphetamine
 mas install 1501114405 # Eufy Security
+mas install 1297781381 # Barcode Grabber
 # mas install 497799835 # XCode 
