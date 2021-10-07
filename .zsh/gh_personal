@@ -2,7 +2,7 @@
 
 alias daily-backup="(ge-backup) && (cgb-backup)"
 
-alias aws='cd ~/Documents/georgegillams/aws/'
+alias gg-aws='cd ~/Documents/georgegillams/aws/'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
