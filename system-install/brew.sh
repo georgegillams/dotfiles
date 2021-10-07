@@ -72,6 +72,7 @@ brew install chisel
 brew install clang-format
 brew install cloc # count lines of code
 brew install cmake
+brew install cookiecutter
 brew install coreutils
 brew install cowsay
 brew install docker
