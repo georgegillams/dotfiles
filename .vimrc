@@ -42,7 +42,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vimwiki/vimwiki'
-Plugin 'wakatime/vim-wakatime'
 "requires different colour scheme https://github.com/aseom/dotfiles/blob/master/osx/iterm2/iceberg.itermcolors
 Plugin 'cocopon/iceberg.vim'
 Plugin 'arcticicestudio/nord-vim'
