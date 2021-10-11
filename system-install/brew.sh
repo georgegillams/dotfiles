@@ -57,8 +57,10 @@ brew install --cask soundflower
 brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask toggl-track
-brew install --cask virtualbox
-brew install --cask virtualbox-extension-pack
+brew install --cask microsoft-edge
+brew install --cask utm
+# brew install --cask virtualbox
+# brew install --cask virtualbox-extension-pack
 brew install --cask visual-studio-code
 brew install --cask whatsapp
 # brew install --cask parallels
