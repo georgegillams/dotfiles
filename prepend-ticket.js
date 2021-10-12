@@ -3,7 +3,7 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-const BRANCH_TICKET_REGEX = /([A-Z][A-Z][A-Z][A-Z]?-[0-9]+)\-.*/g
+const BRANCH_TICKET_REGEX = /([A-Z][A-Z][A-Z][A-Z]?-[0-9]+)[\-\/].*/g
 
 const getCurrentBranchName = () => {
    return execSync(' git symbolic-ref --short HEAD').toString();
