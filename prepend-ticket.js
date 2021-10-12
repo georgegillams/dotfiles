@@ -19,11 +19,12 @@ const getAppendedBranchName = () => {
     return commitMessage; 
   }
 
-  const match =BRANCH_TICKET_REGEX.exec(branchName);
+  const match = BRANCH_TICKET_REGEX.exec(branchName);
+  const changeType = process.argv[3] || 'feat';
   if(match){
-    return `[${match[1]}] ${commitMessage}`
+    return `${changeType}(${match[1]}): ${commitMessage}`
   }else{
-    return `[NO-JIRA] ${commitMessage}`
+    return `${changeType}: ${commitMessage}`
   }
 }
 

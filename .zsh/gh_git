@@ -65,7 +65,14 @@ alias gpf='(ggf --no-verify || true) && git push --set-upstream $(git remote) $(
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 alias gam='yellow "Did you mean $(blue "gamp")?"'
-function gcmp() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpfix() { gcmpWithType $@ fix }
+function gcmpfeat() { gcmpWithType $@ feat }
+function gcmpchore() { gcmpWithType $@ chore }
+function gcmpdocs() { gcmpWithType $@ docs }
+function gcmpbreaking() { gcmpWithType $@ "BREAKING CHANGE" }
+function gcmpfeat() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpchore() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ chore)" --no-verify && gpf && gh-view-or-create-pr-web }
 function gcmp-with-verification() { git-pre-push && git commit -m $@ && gpf-with-verification }
 function git-make-mr() { touch remove.txt && gaa && gcmp $@ && rm remove.txt && gaa && gcmp "squash me" }
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
