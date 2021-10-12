@@ -15,17 +15,6 @@ alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
 alias brew-edit-install-script='dotfiles-edit-install-script'
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmp "Update vscode settings"'
-# alias dotfiles-save-greasemonkey='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update NVIMRC"'
-
-alias academic-references='cd ~/Documents/georgegillams/react-component-academic-reference/'
-alias academic-references-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf react-component-academic-reference && git clone git@github.com:georgegillams/react-component-academic-reference.git'
-alias academic-references-setup='academic-references && cd package && npm ci && cd ../example && npm i && academic-references'
-alias academic-references-run-web-app='academic-references && cd example && npm run start'
-alias academic-references-publish='academic-references && cd package && npm publish'
-
-alias rl='cd ~/Documents/georgegillams/rails_learning'
-alias rls='rl && yarn'
-alias rl-start='rl && bin/rails server'
 
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
@@ -39,7 +28,6 @@ alias bt-fix-permissions='sudo chown -R $(whoami) ./'
 alias bt-pull-backpack='npm run pull-backpack:clean && git clone https://github.com/Skyscanner/backpack.git && npm run pull-backpack:changelog && (cd backpack && npm ci && npm run build && (find packages -name "node_modules" -exec rm -rf {} \; || true))'
 alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to release, Please run $(blue "npm run release:TYPE")"'
 
-alias chewbacca-ssh-ec2='ssh ubuntu@ec2-3-9-19-209.eu-west-2.compute.amazonaws.com'
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 
 alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
@@ -73,10 +61,6 @@ alias cgb-deploy='cgb && npm run build && zip -r build build && scp -o "StrictHo
 alias cgb-update-snapshots='cgb && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias cgb-update-snapshots-skip-npm='cgb && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias reduxdefinitions='cd ~/Documents/georgegillams/redux-definitions/'
-alias reduxdefinitions-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf redux-definitions && git clone git@github.com:georgegillams/redux-definitions.git'
-alias reduxdefinitions-setup='reduxdefinitions && npm ci && npm run transpile && npm run dev:install'
-
 alias ggc-try-local-version='(ggc && npm run transpile) && rm -rf node_modules/gg-components/* && cp -R ../gg-components/dist/* ./node_modules/gg-components/'
 
 alias ggc='cd ~/Documents/georgegillams/gg-components/'
@@ -90,8 +74,3 @@ alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adven
 alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci'
 alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
-
-alias epicc-ticket-sales='cd ~/Documents/georgegillams/epicc-ticket-sales/'
-alias epicc-ticket-sales-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf epicc-ticket-sales && git clone git@github.com:georgegillams/epicc-ticket-sales.git'
-alias epicc-ticket-sales-setup='epicc-ticket-sales && npm i'
-alias epicc-ticket-sales-backup='dotfiles && node epicc-conference-backup.js && cd -'

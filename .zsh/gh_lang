@@ -14,11 +14,6 @@ alias be='bundle exec'
 
 alias AndroidStudio="open -a /Applications/Android\ Studio.app"
 
-# ========================= JEST =========================
-
-alias jest-run-specific-tests='npx jest BpkBannerAlert'
-alias jest-fix-specific-tests='npx jest -u BpkBannerAlert'
-
 # ========================= REDIS =========================
 
 alias redis-reset='redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall && redis-cli flushall'

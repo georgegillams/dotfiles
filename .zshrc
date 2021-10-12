@@ -147,7 +147,6 @@ load-ruby-version() {
 
 autoload -U add-zsh-hook
 
-add-zsh-hook chpwd npm-set-correct-registry-function
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
 
