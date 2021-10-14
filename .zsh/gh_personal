@@ -8,16 +8,16 @@ alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr 
 
 alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
-alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmp "Update TMUX conf"'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform ~/Google\ Drive/My\ Drive/.zsh/ && gaa && gcmp "Update ZSHRC"'
-alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmp "Update VIMRC"'
+alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform ~/Google\ Drive/My\ Drive/.zsh/ && gaa && gcmpchore "Update ZSHRC"'
+alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmpchore "Update VIMRC"'
 alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
 alias brew-edit-install-script='dotfiles-edit-install-script'
-alias dotfiles-commit-brew-script='dotfiles && gaa && gcmp "Update brew install script"'
-alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmp "Update vscode settings"'
+alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew install script"'
+alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
-alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmp "Update scripts"'
+alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmpfeat "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
 

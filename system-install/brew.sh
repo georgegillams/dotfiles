@@ -41,6 +41,7 @@ brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 # brew install --cask intel-power-gadget
 brew install --cask iterm2
+brew install --cask keycastr
 brew install --cask meetingbar
 brew install --cask notion
 brew install --cask nightowl
