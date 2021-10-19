@@ -26,6 +26,7 @@ alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && 
 alias weather-southampton='curl wttr.in/Southampton'
 alias weather-portsmouth='curl wttr.in/Portsmouth'
 alias weather-london='curl wttr.in/London'
+alias weather-barcelona='curl wttr.in/Barcelona'
 alias weather='weather-southampton';
 
 function launch-zoom-meeting() {
