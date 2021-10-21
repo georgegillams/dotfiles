@@ -75,3 +75,9 @@ alias tmux-exit="tmux-close"
 
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 3 && android-shake'
+
+function merge-pdfs () {
+  first_arg=$1
+  shift 1 # Shifts the input arguments 1 place to the left to give all args except the first
+  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="$first_arg" $@
+}
