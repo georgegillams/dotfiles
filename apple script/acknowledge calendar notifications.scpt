@@ -1,3 +1,4 @@
+#!/usr/bin/osascript
 on run argv
   tell application "/System/Applications/Calendar.app" to activate
   tell application "System Events" to tell process "Calendar"

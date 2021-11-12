@@ -19,6 +19,9 @@ alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 
+alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
+alias inthisphoto='in-this-photo'
+
 alias calendar-acknowledge-calendar-notifications='(dotfiles && osascript ./apple\ script/acknowledge\ calendar\ notifications.scpt)'
 
 alias nvm-fix-erbium-npm-version='nvm use 13.0.0 && nvm uninstall lts/erbium && nvm install lts/erbium && nvm alias default lts/erbium'

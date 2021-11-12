@@ -43,7 +43,6 @@ else
   export EDITOR='vim'
 fi
 
-# export PATH=$HOME/.fastlane/bin:/usr/local/go/bin:$HOME/bin:$HOME/Library/Python/3.6/bin:$HOME/.rvm/gems/ruby-2.3.1@global/bin:/usr/local/sbin:$HOME/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:$HOME/.rvm/bin:$HOME/.vimpkg/bin
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

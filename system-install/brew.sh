@@ -38,6 +38,7 @@ brew install --cask gpg-suite
 # brew install --cask grandperspective
 brew install --cask handbrake
 brew install --cask homebrew/cask-versions/firefox-developer-edition
+brew install --cask homebrew/cask-drivers/garmin-express
 brew install --cask imageoptim
 # brew install --cask intel-power-gadget
 brew install --cask iterm2

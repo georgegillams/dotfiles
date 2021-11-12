@@ -5,6 +5,8 @@ const path = require("path");
 
 // Note that for `git status -s` to identify an image file, it must be tracked. New files will not be included until they are added.
 const optimiseImages = async () => {
+  // imageoptim is not currently working
+  return;
   const changedFiles = execSync("git status -s | cut -c4-")
     .toString()
     .split("\n")
