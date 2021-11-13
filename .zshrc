@@ -58,7 +58,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(git osx)
+plugins=(git macos)
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
