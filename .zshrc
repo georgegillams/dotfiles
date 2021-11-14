@@ -44,6 +44,7 @@ else
 fi
 
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=$PATH:`cat $HOME/Library/Application\ Support/Garmin/ConnectIQ/current-sdk.cfg`/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
