@@ -30,6 +30,10 @@ alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to
 
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 
+alias tgi='cd ~/Documents/georgegillams/tg-intervals/'
+alias tgis='tgi'
+alias tgio='tgi && connectiq && make compile && make run'
+
 alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
 alias gwa-start-transpile-watch-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"gwa && npm run gg-webapp-transpile:watch\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
