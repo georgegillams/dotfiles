@@ -32,7 +32,7 @@ alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com
 
 alias tgi='cd ~/Documents/georgegillams/tg-intervals/'
 alias tgis='tgi'
-alias tgio='tgi && connectiq && make compile && make run'
+alias tgio='tgi && make dev'
 
 alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
