@@ -47,6 +47,7 @@ alias system-flush-dns-cache="sudo dscacheutil -flushcache; sudo killall -HUP mD
 alias system-sleep="pmset sleepnow"
 alias system-clear-asl="sudo rm -rf /private/var/log/asl/*.asl"
 alias system-clean-desktop="mv ~/Desktop/* ~/.Trash/ && mv ~/.Trash/season_ticket* ~/Desktop/"
+alias system-fix-quick-previews="pkill QuickLookUIService"
 alias system-fix-audio="sudo killall coreaudiod & sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`"
 alias system-fix-sound="system-fix-audio"
 alias system-fix-touch-id="(dotfiles && cd system-install && . ./touch_id.sh)"

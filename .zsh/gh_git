@@ -38,7 +38,7 @@ alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git r
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard origin/main && git pull && (git branch -D $(git branch | grep -v "main") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"Typeform/kitt"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-main-latest; else IMPLEMENTATION-git-master-latest; fi'
+alias gml='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"Documents/Typeform"* ]]; then IMPLEMENTATION-git-main-latest; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-main-latest; else IMPLEMENTATION-git-master-latest; fi'
 alias gaa-no-image-optimisation='git add .'
 alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
 alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
@@ -46,7 +46,7 @@ alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHAN
 alias git-fetch='git fetch --all'
 alias IMPLEMENTATION-git-rebase-main='git-fetch && (git rebase origin/main | grep CONFLICT || true) && git-submodules-pull'
 alias IMPLEMENTATION-git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
-alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Typeform/kitt"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-rebase-main; else IMPLEMENTATION-git-rebase-master; fi'
+alias grm='if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Documents/Typeform"* ]]; then IMPLEMENTATION-git-rebase-main; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-rebase-main; else IMPLEMENTATION-git-rebase-master; fi'
 alias gri='git rebase -i'
 alias git-pull-master-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/master && git remote remove upstream && git push origin origin/master'
 alias git-pull-main-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/main && git remote remove upstream && git push origin origin/main'
@@ -69,7 +69,7 @@ function gcmpfeat() { git-pre-push && git commit -m "$(git-prepend-branch-name $
 function gcmpchore() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ chore)" --no-verify && gpf && gh-view-or-create-pr-web }
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { git checkout origin/master $@ }
-function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Typeform/kitt"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
+function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Documents/Typeform"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
