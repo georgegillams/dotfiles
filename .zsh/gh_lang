@@ -1,6 +1,6 @@
 # ========================= CLANG =========================
 
-alias clang-all-the-things='clang-format -i **/*.h **/*.m'
+alias clang-all-the-things='clang-format -i **/*.h **/*.m **/*.mc'
 
 # ========================= XCODE =========================
 
