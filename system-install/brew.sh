@@ -12,6 +12,7 @@ brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
 brew tap clementtsang/bottom && brew install bottom
+brew tap jakehilborn/jakehilborn && brew install displayplacer
 
 brew install --cask 1password
 brew install --cask adobe-creative-cloud
