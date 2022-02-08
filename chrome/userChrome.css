@@ -1,10 +1,48 @@
-/* hides the native tabs */
-#TabsToolbar {
-  visibility: collapse !important;
+/* Start: Hide tabs whilst preserving window controls */
+/* https://github.com/Timvde/UserChrome-Tweaks/blob/master/tabs/hide-tabs-macos.css */
+#titlebar {
+  visibility: collapse;
+}
+
+/* Position window controls */
+#TabsToolbar .titlebar-buttonbox-container {
+  display: block;
+  position: absolute;
+  visibility: visible;
+}
+
+/* Reposition the close/maximize/minimize buttons for the "normal" toolbar density  */
+/* When the UI density is set to "normal", the `uidensity` attribute is undefined.  */
+/* `window.document.documentElement.getAttribute("uidensity")` will be null.        */
+:root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+/* Reposition the close/maximize/minimize buttons for the "compact" toolbar density */
+:root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 10px;
+  margin-top: 9px;
+}
+
+#TabsToolbar .titlebar-buttonbox.titlebar-color {
+  margin-left: 0px !important;
+}
+/* End: Hide tabs whilst preserving window controls */
+
+/* move nav panel in to prevent covering window controls */
+#nav-bar-customization-target {
+  padding-left: 68px;
 }
 
 #sidebar-header {
   display: none !important;
+}
+
+/* center URL bar */
+#urlbar:not([focused]) {
+  text-align: center !important;
+  transition: text-align 0.2s;
 }
 
 #urlbar:not(.hidden-focus)[focused="true"],
@@ -12,25 +50,16 @@
   border-color: var(--toolbar-field-focus-border-color) !important;
 }
 
-@-moz-document url("about:newtab") {
-  body {
-    background: #011326 !important;
-    background-color: #011326 !important;
-  }
+/* color menu button to mark private browsing windows */
+#main-window[privatebrowsingmode="temporary"]
+  #PanelUI-menu-button:not(:hover)
+  > .toolbarbutton-badge-stack {
+  background-color: #500184;
+  fill: white;
 }
-
-@-moz-document url(chrome://browser/content/browser.xhtml)
-{
-  browser[type="content-primary"] {
-    background: #011326 !important;
-    background-color: #011326 !important;
-  }
-}
-
-@-moz-document url(chrome://browser/content/browser.xul)
-{
-  browser[type="content-primary"] {
-    background: #011326 !important;
-    background-color: #011326 !important;
-  }
+#main-window[privatebrowsingmode="temporary"]
+  #PanelUI-menu-button:hover
+  > .toolbarbutton-badge-stack {
+  background-color: #25003e !important;
+  fill: white;
 }

@@ -2,9 +2,3 @@
 *:focus {
   outline: rgba(0, 125, 250, 0.6) auto 4px;
 }
-
-/* Make the page loading background not flash white */
-/* body {
-  background: #161616;
-  background-color: #161616;
-} */
