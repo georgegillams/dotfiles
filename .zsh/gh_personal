@@ -17,9 +17,12 @@ alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew ins
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
 alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
+alias browser-scriptss='browser-scripts && npm run setup'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmpfeat "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && npm run build:readme'
+alias browser-scripts-extension='browser-scripts && cd src/Notion\ Sidebar\ Expander/'
+alias browser-scripts-extensiono='browser-scripts-extension && npx web-ext run --firefox=/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin'
 
 alias bt='cd ~/Documents/georgegillams/backpack-transpiled/'
 alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
