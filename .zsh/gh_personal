@@ -47,6 +47,11 @@ alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f 
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
+alias cl='cd ~/Documents/georgegillams/contentful-links'
+alias cls='cl && echo "No setup required"'
+alias clo='cl && (cd src && npx web-ext run --firefox=/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin)'
+alias clbuild='cl && yarn build'
+
 alias cardc='cd ~/Documents/georgegillams/card-challenge/'
 alias cardc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf card-challenge && git clone git@github.com:georgegillams/card-challenge.git'
 alias cardcs='cardc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci && npm run prebuild'
