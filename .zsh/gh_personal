@@ -49,7 +49,7 @@ alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scr
 
 alias cl='cd ~/Documents/georgegillams/contentful-links'
 alias cls='cl && echo "No setup required"'
-alias clo='cl && (cd src && npx web-ext run --firefox=/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin)'
+alias clo='cl && yarn dev'
 alias clbuild='cl && yarn build'
 
 alias cardc='cd ~/Documents/georgegillams/card-challenge/'
