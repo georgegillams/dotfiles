@@ -85,7 +85,8 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias c='code ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
-alias copy-SD-card-images='cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 ~/Dropbox/Pictures/import/ && mv cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ && sleep 10 && diskutil eject EOS_DIGITAL'
+alias try-eject-SD-card='diskutil eject EOS_DIGITAL || true'
+alias copy-SD-card-images='cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 ~/Dropbox/Pictures/import/ && mv /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ && open ~/Dropbox/Pictures/import/ && sleep 10 && try-eject-SD-card && sleep 30 && try-eject-SD-card && sleep 60 && try-eject-SD-card'
 alias copy-images-from-SD-card='copy-SD-card-images'
 
 endTime="$(gdate +%s%N | cut -b1-13)"

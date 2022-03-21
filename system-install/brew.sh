@@ -20,8 +20,8 @@ brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 brew install --cask alfred
 # brew install --cask android-platform-tools
 # brew install --cask android-studio
-# brew install --cask atom
 brew install --cask avibrazil-rdm
+brew install --cask blender
 brew install --cask burp-suite
 brew install --cask charles
 brew install --cask clocker
@@ -36,39 +36,38 @@ brew install --cask github
 brew install --cask gitify
 brew install --cask google-chrome
 brew install --cask gpg-suite
-# brew install --cask grandperspective
+brew install --cask grandperspective
 brew install --cask handbrake
-brew install --cask homebrew/cask-versions/firefox-developer-edition
+brew install --cask homebrew/cask-drivers/canon-eos-utility
 brew install --cask homebrew/cask-drivers/garmin-express
+brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
-# brew install --cask intel-power-gadget
 brew install --cask iterm2
 brew install --cask keycastr
 brew install --cask meetingbar
-brew install --cask notion
+brew install --cask microsoft-edge
 brew install --cask nightowl
-# brew install --cask nordvpn
+brew install --cask nordvpn
+brew install --cask notion
 brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask reflector
 brew install --cask rocket
 brew install --cask signal
 brew install --cask sim-daltonism
-# brew install --cask sketch
 brew install --cask slack
 brew install --cask soundflower
+brew install --cask spectacle
 brew install --cask telegram
 brew install --cask the-unarchiver
+brew install --cask ticktick
 brew install --cask toggl-track
-brew install --cask microsoft-edge
 brew install --cask utm
-# brew install --cask virtualbox
-# brew install --cask virtualbox-extension-pack
+brew install --cask utm
 brew install --cask visual-studio-code
-brew install --cask whatsapp
-# brew install --cask parallels
 brew install --cask vlc
-brew install --cask homebrew/cask-drivers/canon-eos-utility
+brew install --cask whatsapp
+brew install --cask wireshark
 brew install ack # CLI search
 brew install applesimutils # For detox testing
 brew install bat
