@@ -32,6 +32,7 @@ alias bt-pull-backpack='npm run pull-backpack:clean && git clone https://github.
 alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to release, Please run $(blue "npm run release:TYPE")"'
 
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
+alias zendog-ssh-ec2='ssh ubuntu@ec2-13-40-134-151.eu-west-2.compute.amazonaws.com'
 
 alias tgi='cd ~/Documents/georgegillams/tg-intervals/'
 alias tgis='tgi'
