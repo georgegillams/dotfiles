@@ -133,19 +133,22 @@ load-nvmrc() {
     nvm use default
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
-  info "Node version set ($((endTime-startTime))ms)"
+  info "Node version $(node -v) set ($((endTime-startTime))ms)"
 }
 load-ruby-version() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   rbenv local
   endTime="$(gdate +%s%N | cut -b1-13)"
-  info "Ruby version set ($((endTime-startTime))ms)"
+  info "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
 #   if [[ -f .ruby-version && -r .ruby-version ]]; then
 #     rvm use
 #   elif [[ $(nvm version) != $(nvm version default)  ]]; then
 #     info "Reverting to rvm default version"
 #     rvm use default
 #   fi
+}
+print-ip-address() {
+  info "IP address $(ipconfig getifaddr en0)"
 }
 
 autoload -U add-zsh-hook
@@ -156,6 +159,7 @@ add-zsh-hook chpwd load-ruby-version
 npm-set-correct-registry-function
 load-nvmrc
 load-ruby-version
+print-ip-address
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"

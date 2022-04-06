@@ -16,3 +16,6 @@ rm -rf fonts
 cp -R dotfiles/.zsh /Users/georgegillams/
 cp dotfiles/.zshrc ~/.zshrc
 . ~/.zshrc
+
+mkdir -p ~/.warp/themes
+cp -R dotfiles/warp-themes/* ~/.warp/themes/
