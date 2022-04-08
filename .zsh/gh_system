@@ -67,6 +67,9 @@ alias system-fix-rvm-openssl='brew reinstall openssl --ignore-dependencies && br
 alias web-browser='w3m'
 alias system-fix-dyld='brew update && brew upgrade && brew link --overwrite ruby && brew reinstall ruby vim'
 
+alias system-hide-macos-dock='defaults write com.apple.dock autohide-delay -float 1000; killall Dock'
+alias system-restore-macos-dock='defaults delete com.apple.dock autohide-delay; killall Dock'
+
 alias tmux-create-session='tmux new -s'
 alias tmux-attach-session='tmux attach -t'
 alias tmux-detach="tmux detach"
