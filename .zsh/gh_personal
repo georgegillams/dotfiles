@@ -1,6 +1,6 @@
 # ==================== PERSONAL PROJECTS =====================
 
-alias daily-backup="(ge-backup) && (cgb-backup)"
+alias daily-backup="(ge-backup)"
 
 alias gg-aws='cd ~/Documents/georgegillams/aws/'
 
