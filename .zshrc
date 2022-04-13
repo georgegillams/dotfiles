@@ -86,7 +86,7 @@ alias c='code ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 alias try-eject-SD-card='diskutil eject EOS_DIGITAL || true'
-alias copy-SD-card-images='cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 ~/Dropbox/Pictures/import/ && mv /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ && open ~/Dropbox/Pictures/import/ && sleep 10 && try-eject-SD-card && sleep 30 && try-eject-SD-card && sleep 60 && try-eject-SD-card'
+alias copy-SD-card-images='mkdir -p /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT && cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 ~/Dropbox/Pictures/import/ && mv /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ && open ~/Dropbox/Pictures/import/ && sleep 10 && try-eject-SD-card && sleep 30 && try-eject-SD-card && sleep 60 && try-eject-SD-card'
 alias copy-images-from-SD-card='copy-SD-card-images'
 
 endTime="$(gdate +%s%N | cut -b1-13)"
