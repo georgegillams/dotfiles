@@ -17,9 +17,6 @@ brew tap jakehilborn/jakehilborn && brew install displayplacer
 brew install --cask 1password
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
-brew install --cask alfred
-# brew install --cask android-platform-tools
-# brew install --cask android-studio
 brew install --cask avibrazil-rdm
 brew install --cask blender
 brew install --cask burp-suite
@@ -27,13 +24,10 @@ brew install --cask charles
 brew install --cask clocker
 brew install --cask coconutbattery
 brew install --cask colour-contrast-analyser
-brew install --cask dash
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask figma
-brew install --cask gifox
 brew install --cask github
-brew install --cask gitify
 brew install --cask google-chrome
 brew install --cask gpg-suite
 brew install --cask grandperspective
@@ -45,12 +39,11 @@ brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask keycastr
 brew install --cask meetingbar
-brew install --cask microsoft-edge
 brew install --cask nightowl
 brew install --cask nordvpn
-brew install --cask notion
 brew install --cask oracle-jdk
 brew install --cask postman
+brew install --cask raycast
 brew install --cask reflector
 brew install --cask rocket
 brew install --cask signal
@@ -62,7 +55,6 @@ brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask toggl-track
-brew install --cask utm
 brew install --cask utm
 brew install --cask visual-studio-code
 brew install --cask vlc
@@ -95,6 +87,7 @@ brew install httpie
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli
+brew install lazydocker
 brew install libdvdcss
 brew install lolcat
 brew install lynx
