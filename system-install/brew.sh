@@ -55,6 +55,7 @@ brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask toggl-track
+brew install --cask trailer
 brew install --cask utm
 brew install --cask visual-studio-code
 brew install --cask vlc
