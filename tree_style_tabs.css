@@ -1,43 +1,47 @@
 .tab {
-  height: 25px;
-  color: #E6E4EB !important;
-  background-color: #252033;
+  height: 5.2rem;
+  margin: -1.2rem 0rem;
   transition: height .2s ease-in-out;
 }
 
-.tab .label {
-  color: #E6E4EC;
+.tab:first-of-type {
+  margin-top: 0rem;
 }
 
-.tab.active {
-  background-color: #FFFFFF;
+.tab:last-of-type {
+  margin-bottom: 0rem;
 }
 
-.tab.active .label {
-  color: #252033;
+tab-item-substance {
+  padding: 1.2rem .8rem;
 }
 
-.tab.unread .label {
-  color: darkorange !important;
-  font-weight: bolder;
+tab-item-substance > span {
+  margin: .4rem;
 }
 
-.tab:hover {
-  color: white !important;
-  background-color: #524C61;
+tab-item-substance > tab-label {
+  max-width: 80%;
 }
 
-.tab.active:hover {
-  background-color: #FFFFFF;
+tab-item-substance > tab-counter {
+  right: .8rem;
 }
 
+.contextual-identity-marker {
+  border-radius: 1rem;
+  right: calc(-.4rem + -.3rem) !important;
+  width: .6rem !important;
+}
 
 .tab.private-browsing .label:before {
   content: " 🕶 ";
 }
 
 .tab.private-browsing {
-  background-color: red;
+  color: purple !important;
 }
 
-
+#tabbar tab-item tab-item-substance tab-closebox {
+  display: none;
+}
