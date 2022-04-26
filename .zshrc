@@ -156,7 +156,6 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 add-zsh-hook chpwd load-ruby-version
 
-npm-set-correct-registry-function
 load-nvmrc
 load-ruby-version
 print-ip-address
