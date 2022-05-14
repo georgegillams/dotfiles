@@ -81,6 +81,8 @@ alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && gi
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
 alias ggco='ggc && yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'
+alias ggc-live-build='(ggc && yarn transpile:js:live)'
+alias ggc-link-live='(cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && cd dist && yarn link react && yarn link react-dom && yarn link) && yarn link @george-gillams/components && yellow "Now you can run ggc-live-build alongside this app"'
 
 alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
