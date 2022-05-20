@@ -15,6 +15,7 @@ brew tap clementtsang/bottom && brew install bottom
 brew tap jakehilborn/jakehilborn && brew install displayplacer
 
 brew install --cask 1password
+brew install --cask 1password/tap/1password-cli
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 brew install --cask avibrazil-rdm
