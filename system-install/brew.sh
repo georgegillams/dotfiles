@@ -59,6 +59,7 @@ brew install --cask toggl-track
 brew install --cask trailer
 brew install --cask utm
 brew install --cask visual-studio-code
+brew install --cask vanilla
 brew install --cask vlc
 brew install --cask whatsapp
 brew install --cask wireshark
