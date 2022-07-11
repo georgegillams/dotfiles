@@ -55,7 +55,7 @@ brew install --cask spectacle
 brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
-brew install --cask toggl-track
+brew install --cask timing
 brew install --cask trailer
 brew install --cask utm
 brew install --cask visual-studio-code
@@ -90,6 +90,7 @@ brew install httpie
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli
+brew install kubectx
 brew install lazydocker
 brew install libdvdcss
 brew install lolcat
