@@ -64,9 +64,7 @@ function gcmpfix() { gcmpWithType $@ fix }
 function gcmpfeat() { gcmpWithType $@ feat }
 function gcmpchore() { gcmpWithType $@ chore }
 function gcmpdocs() { gcmpWithType $@ docs }
-function gcmpbreaking() { gcmpWithType $@ "BREAKING CHANGE" }
-function gcmpfeat() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat)" --no-verify && gpf && gh-view-or-create-pr-web }
-function gcmpchore() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ chore)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat)" -m "BREAKING CHANGE: $@" --no-verify && gpf && gh-view-or-create-pr-web }
 function IMPLEMENTATION-git-revert-to-main() { git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { git checkout origin/master $@ }
 function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Documents/Typeform"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
