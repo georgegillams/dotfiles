@@ -1,13 +1,13 @@
 alias gh-prs='gh pr list'
-alias gh-create-pr='gh pr create'
-alias gh-create-pr-web='gh pr create --web'
+alias IMPLEMENTATION-gh-create-pr='gh pr create'
+alias IMPLEMENTATION-gh-create-pr-web='gh pr create --web'
 alias gh-view-pr-web='gh pr view --web'
 function gh-view-or-create-pr-web() {
   # If a PR exists, open it:
-  gh-view-pr-web
+  IMPLEMENTATION-gh-view-pr-web
   if [[ $? != 0 ]] then;
     # If a PR didn't exist, create it:
-    gh-create-pr-web
+    IMPLEMENTATION-gh-create-pr-web
   fi;
 }
 
