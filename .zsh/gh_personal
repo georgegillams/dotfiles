@@ -91,3 +91,7 @@ alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adven
 alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install'
 alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
+
+alias contrastchecker='cd ~/Documents/georgegillams/speedy-colour-contrast-checker'
+alias contrastchecker='contrastchecker && echo "No setup required"'
+alias contrastcheckero='contrastchecker && open SpeedyColourContrastChecker.xcodeproj'
