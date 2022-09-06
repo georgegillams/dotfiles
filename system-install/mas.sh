@@ -4,6 +4,7 @@ read
 
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 
+mas install 1254981365 # Contrast — Color Accessibility
 mas install 1444383602 # GoodNotes 5
 mas install 1043270657 # GIF Keyboard
 mas install 1176895641 # Spark Email

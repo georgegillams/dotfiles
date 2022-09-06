@@ -24,7 +24,6 @@ brew install --cask burp-suite
 brew install --cask charles
 brew install --cask clocker
 brew install --cask coconutbattery
-brew install --cask colour-contrast-analyser
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask figma
@@ -40,7 +39,6 @@ brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask keycastr
 brew install --cask meetingbar
-brew install --cask nightowl
 brew install --cask nordvpn
 brew install --cask oracle-jdk
 brew install --cask postman
