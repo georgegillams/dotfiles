@@ -2,11 +2,11 @@
 
 alias daily-backup="(ge-backup)"
 
-alias gg-aws='cd ~/Documents/georgegillams/aws/'
+alias gg-aws='clone-and-cd georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
-alias dotfiles='cd ~/Documents/georgegillams/dotfiles/'
+alias dotfiles='clone-and-cd georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform ~/Google\ Drive/My\ Drive/.zsh/ && gaa && gcmpchore "Update ZSHRC"'
@@ -16,7 +16,7 @@ alias brew-edit-install-script='dotfiles-edit-install-script'
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew install script"'
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
-alias browser-scripts='cd ~/Documents/georgegillams/browser-scripts/'
+alias browser-scripts='clone-and-cd georgegillams browser-scripts'
 alias browser-scriptss='browser-scripts && yarn setup'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmpfeat "Update scripts"'
 alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
@@ -24,7 +24,7 @@ alias browser-scripts-build-readme='browser-scripts && yarn build:readme'
 alias browser-scripts-extension='browser-scripts && cd src/Notion\ Sidebar\ Expander/'
 alias browser-scripts-extensiono='browser-scripts-extension && npx web-ext run --firefox=/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin'
 
-alias bt='cd ~/Documents/georgegillams/backpack-transpiled/'
+alias bt='clone-and-cd georgegillams backpack-transpiled'
 alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
 alias bts='bt && yarn install'
 alias bt-fix-permissions='sudo chown -R $(whoami) ./'
@@ -34,11 +34,11 @@ alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 alias zendog-ssh-ec2='ssh ubuntu@ec2-13-40-134-151.eu-west-2.compute.amazonaws.com'
 
-alias tgi='cd ~/Documents/georgegillams/tg-intervals/'
+alias tgi='clone-and-cd georgegillams tg-intervals'
 alias tgis='tgi'
 alias tgio='tgi && make dev'
 
-alias gwa='cd ~/Documents/georgegillams/webapp-boilerplate/'
+alias gwa='clone-and-cd georgegillams webapp-boilerplate'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
 alias gwa-start-transpile-watch-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"gwa && yarn gg-webapp-transpile:watch\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias gwa-start='gwa && gwa-start-transpile-watch-in-new-tab && yarn dev'
@@ -49,17 +49,17 @@ alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f 
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias cl='cd ~/Documents/georgegillams/contentful-links'
+alias cl='clone-and-cd georgegillams contentful-links'
 alias cls='cl && echo "No setup required"'
 alias clo='cl && yarn dev'
 alias clbuild='cl && yarn build'
 
-alias cardc='cd ~/Documents/georgegillams/card-challenge/'
+alias cardc='clone-and-cd georgegillams card-challenge'
 alias cardc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf card-challenge && git clone git@github.com:georgegillams/card-challenge.git'
 alias cardcs='cardc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias cardc-deploy='cardc && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/card-challenge/'
 
-alias ge='cd ~/Documents/georgegillams/georgegillams.co.uk/'
+alias ge='clone-and-cd georgegillams georgegillams.co.uk/'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias geo='ge && yarn dev'
@@ -68,7 +68,7 @@ alias ge-deploy='ge && yarn build && zip -r build build && scp -o "StrictHostKey
 alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias ge-update-snapshots-skip-npm='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias cgb='cd ~/Documents/georgegillams/beta.cgwedding/'
+alias cgb='clone-and-cd georgegillams beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
 alias cgbs='cgb && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias cgb-backup='cgb && node scripts/backup-production-data.js'
@@ -78,7 +78,7 @@ alias cgb-update-snapshots-skip-npm='cgb && ./scripts/docker/prepare.sh && ./scr
 
 alias ggc-try-local-version='(ggc && yarn transpile) && rm -rf node_modules/gg-components/* && cp -R ../gg-components/dist/* ./node_modules/gg-components/'
 
-alias ggc='cd ~/Documents/georgegillams/gg-components/'
+alias ggc='clone-and-cd georgegillams gg-components'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
 alias ggco='ggc && yarn dev'
@@ -86,12 +86,12 @@ alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && 
 alias ggc-live-build='(ggc && yarn transpile:js:live)'
 alias ggc-link-live='(cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && cd dist && yarn link react && yarn link react-dom && yarn link) && yarn link @george-gillams/components && yellow "Now you can run ggc-live-build alongside this app"'
 
-alias sra='cd ~/Documents/georgegillams/screen-reader-adventures/'
+alias sra='clone-and-cd georgegillams screen-reader-adventures'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install'
 alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias contrastchecker='cd ~/Documents/georgegillams/speedy-colour-contrast-checker'
+alias contrastchecker='clone-and-cd georgegillams speedy-colour-contrast-checker'
 alias contrastcheckers='contrastchecker && echo "No setup required"'
 alias contrastcheckero='contrastchecker && open SpeedyColourContrastChecker.xcodeproj'
