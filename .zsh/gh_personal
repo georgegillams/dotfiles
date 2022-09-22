@@ -95,3 +95,7 @@ alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scr
 alias contrastchecker='clone-and-cd georgegillams speedy-colour-contrast-checker'
 alias contrastcheckers='contrastchecker && echo "No setup required"'
 alias contrastcheckero='contrastchecker && open SpeedyColourContrastChecker.xcodeproj'
+
+alias meg='clone-and-cd georgegillams my-event-guide'
+alias megs='meg && echo "No setup required"'
+alias mego='meg && open MyEventGuide.xcodeproj'
