@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
 startTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
@@ -76,6 +74,7 @@ source $USER_ZSH/gh_lang
 source $USER_ZSH/gh_npm
 source $USER_ZSH/gh_personal
 source $USER_ZSH/gh_system
+
 source $USER_ZSH/typeform
 
 # source $HOME/.config/broot/launcher/bash/br
@@ -167,5 +166,3 @@ endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
