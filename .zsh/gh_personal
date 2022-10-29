@@ -8,6 +8,8 @@ alias gg-aws='clone-and-cd georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
+alias sort-phone-photos='cd ~/Documents/georgegillams/image-meta-fixer && yarn action /Users/george.gillams/Dropbox/Camera\ Uploads/ ~/Dropbox/iPhone\ photos'
+
 alias dotfiles='clone-and-cd georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
