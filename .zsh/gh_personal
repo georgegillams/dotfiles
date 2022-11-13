@@ -64,7 +64,7 @@ alias cardc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf card-challenge &&
 alias cardcs='cardc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias cardc-deploy='cardc && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/card-challenge/'
 
-alias ge='clone-and-cd georgegillams georgegillams.co.uk/'
+alias ge='clone-and-cd georgegillams georgegillams.co.uk'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias geo='ge && yarn dev'
@@ -72,6 +72,10 @@ alias ge-backup='ge && 1p-personal && node scripts/backup-production-data.js --a
 alias ge-deploy='ge && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
 alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias ge-update-snapshots-skip-npm='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
+
+alias ihh='clone-and-cd georgegillams isithappyhour.net'
+alias ihhs='ihh && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
+alias ihho='ihh && yarn dev'
 
 alias cgb='clone-and-cd georgegillams beta.cgwedding/'
 alias cgb-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf beta.cgwedding && git clone git@github.com:georgegillams/beta.cgwedding.git'
