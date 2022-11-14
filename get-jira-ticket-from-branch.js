@@ -11,10 +11,13 @@ const getCurrentBranchName = () => {
 const getTicket = () => {
   const branchName = getCurrentBranchName();
   if (!branchName) {
-    throw new Error("No URL base provided");
+    throw new Error("No branch name found. Are you in a git repo?");
   }
 
   const match = BRANCH_TICKET_REGEX.exec(branchName);
+  if (!match) {
+    throw new Error("No ticket found in branch name");
+  }
   return match[1];
 };
 
