@@ -53,6 +53,7 @@ alias gwa-deploy='gwa && yarn build && zip -r build build && scp -o "StrictHostK
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
+alias gwa-link-live-to-this-project='yellow "Ensure you are already running gwa-live-build alongside this app" && (gwa && cd gg-webapp/dist && yarn link) && yarn link @george-gillams/webapp'
 
 alias cl='clone-and-cd georgegillams contentful-links'
 alias cls='cl && echo "No setup required"'
@@ -91,7 +92,7 @@ alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
 alias ggco='ggc && yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'
 alias ggc-live-build='ggc && yarn transpile && yarn transpile:js:live'
-alias ggc-link-live-to-this-project='yellow "Ensure you are already running ggc-live-build alongside this app" && (ggc && cd dist && yarn link) && yarn link @george-gillams/components'
+alias ggc-link-live-to-this-project='yellow "Ensure you are already running ggc-live-build alongside this app" && (cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && yarn link react && yarn link react-dom && cd dist && yarn link) && yarn link @george-gillams/components'
 
 alias sra='clone-and-cd georgegillams screen-reader-adventures'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
