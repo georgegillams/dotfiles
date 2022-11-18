@@ -19,6 +19,7 @@ alias dropbox='cd ~/Dropbox'
 alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
+alias system-clear-caches='rm -rf /Users/george.gillams/Library/Caches'
 
 alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
 alias inthisphoto='in-this-photo'
