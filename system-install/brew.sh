@@ -37,6 +37,7 @@ brew install --cask homebrew/cask-drivers/garmin-express
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
+brew install --cask jetbrains-toolbox
 brew install --cask keycastr
 brew install --cask meetingbar
 brew install --cask nordvpn
