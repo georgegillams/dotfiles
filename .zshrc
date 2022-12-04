@@ -85,7 +85,7 @@ function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
 alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 
-alias c='webstorm ./'
+alias c='code ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 alias try-eject-SD-card='diskutil eject EOS_DIGITAL || true'
