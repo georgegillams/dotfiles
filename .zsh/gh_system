@@ -12,7 +12,7 @@ function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.z
 alias zsh-rebuild='(dotfiles-save-zshrc || true) && source ~/.zshrc'
 alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
-alias zsh-edit-config='webstorm ~/.zsh && webstorm ~/.zshrc'
+alias zsh-edit-config='open-code-editor ~/.zsh && open-code-editor ~/.zshrc'
 alias tmux-edit-config='vim ~/.tmux.conf'
 alias dropbox-link-desktop='ln -s ~/Dropbox/Desktop ./Desktop'
 alias dropbox='cd ~/Dropbox'
@@ -38,7 +38,7 @@ function launch-zoom-meeting() {
   open https://typeform.zoom.us/j/$1
 }
 
-alias vim-edit-config='webstorm ~/.vimrc'
+alias vim-edit-config='open-code-editor ~/.vimrc'
 
 alias kill-process='sudo kill -9'
 function list-processes-on-port() { sudo lsof -i :$@ }
