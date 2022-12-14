@@ -4,7 +4,7 @@ alias whence-function='echo "use declare -f FUNC"'
 
 alias duplicate-tab='open . -a iterm'
 
-a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lias system-wifi-off='networksetup -setairportpower Wi-Fi off'
+alias system-wifi-off='networksetup -setairportpower Wi-Fi off'
 alias system-wifi-on='networksetup -setairportpower Wi-Fi on'
 alias system-wifi-reboot='system-wifi-off && sleep 2 && system-wifi-on'
 alias system-display-link-reset='pkill DisplayLinkUserAgent && sleep 14 && open /Applications/DisplayLink\ Manager.app'
