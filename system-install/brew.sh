@@ -40,10 +40,7 @@ brew install --cask iterm2
 brew install --cask jetbrains-toolbox
 brew install --cask keycastr
 brew install --cask meetingbar
-brew install --cask microsoft-excel
-brew install --cask microsoft-word
 brew install --cask nordvpn
-brew install --cask onedrive
 brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask raycast
@@ -60,8 +57,8 @@ brew install --cask ticktick
 brew install --cask timing
 brew install --cask trailer
 brew install --cask utm
-brew install --cask vanilla
 brew install --cask visual-studio-code
+brew install --cask vanilla
 brew install --cask vlc
 brew install --cask whatsapp
 brew install --cask wireshark
