@@ -60,7 +60,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(git macos)
+plugins=(
+  git macos
+  zsh-autosuggestions
+)
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
@@ -164,7 +167,8 @@ load-nvmrc
 load-ruby-version
 print-ip-address
 
+eval "$(starship init zsh)"
+
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
