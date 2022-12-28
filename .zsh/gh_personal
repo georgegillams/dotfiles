@@ -109,5 +109,5 @@ alias megs='meg && echo "No setup required"'
 alias mego='meg && open MyEventGuide.xcodeproj'
 
 alias boiler'clone-and-cd georgegillams boiler-server'
-alias boilers='boiler-server && yarn'
-alias boiler-deploy='boiler-server && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/boiler-server'
+alias boilers='boiler && yarn'
+alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/boiler-server'
