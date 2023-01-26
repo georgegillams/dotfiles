@@ -121,7 +121,7 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
   iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
-  # iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
@@ -147,12 +147,12 @@ load-ruby-version() {
   rbenv local
   endTime="$(gdate +%s%N | cut -b1-13)"
   info "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-#   if [[ -f .ruby-version && -r .ruby-version ]]; then
-#     rvm use
-#   elif [[ $(nvm version) != $(nvm version default)  ]]; then
-#     info "Reverting to rvm default version"
-#     rvm use default
-#   fi
+  if [[ -f .ruby-version && -r .ruby-version ]]; then
+    rvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    info "Reverting to rvm default version"
+    rvm use default
+  fi
 }
 print-ip-address() {
   info "IP address $(ipconfig getifaddr en0)"
@@ -172,3 +172,6 @@ eval "$(starship init zsh)"
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
