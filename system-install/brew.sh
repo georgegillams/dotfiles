@@ -49,6 +49,7 @@ brew install --cask postman
 brew install --cask raycast
 brew install --cask reflector
 brew install --cask rocket
+brew install --cask rode-central
 brew install --cask signal
 brew install --cask sim-daltonism
 brew install --cask slack
