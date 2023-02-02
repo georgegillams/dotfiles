@@ -89,8 +89,8 @@ alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
 alias system-reset-displays='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-617,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(1943,-1440) degree:0"'
 
-alias airpods='SwitchAudioSource -s "George’s AirPods Pro" -t input && SwitchAudioSource -s "George’s AirPods Pro" -t output'
-alias mic-and-airpods='SwitchAudioSource -s "RØDE VideoMic GO II" -t input && SwitchAudioSource -s "George’s AirPods Pro" -t output'
+alias airpods='SwitchAudioSource -s "George’s AirPods Pro" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
+alias mic-and-airpods='SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
 
 function merge-pdfs () {
   first_arg=$1
