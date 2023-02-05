@@ -84,8 +84,8 @@ alias git-submodules-pull='git submodule update --recursive --remote'
 alias git-disable-gpg='(git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program) || true'
 alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
 
-alias git-auto-merge='gh pr merge --auto --squash'
-alias git-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
+alias gh-auto-merge='gh pr merge --auto --squash'
+alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
 
 function clone-and-cd() {
   orgPath="$HOME/Documents/$1"
