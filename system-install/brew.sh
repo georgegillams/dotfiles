@@ -37,7 +37,6 @@ brew install --cask homebrew/cask-drivers/garmin-express
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
-brew install --cask jetbrains-toolbox
 brew install --cask keycastr
 brew install --cask meetingbar
 brew install --cask microsoft-excel
@@ -107,6 +106,7 @@ brew install rbenv
 brew install redis
 brew install sl
 brew install swiftlint
+brew install switchaudio-osx
 brew install the_silver_searcher
 brew install tree
 brew install vim

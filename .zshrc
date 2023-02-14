@@ -83,6 +83,8 @@ source $USER_ZSH/typeform
 
 # source $HOME/.config/broot/launcher/bash/br
 
+alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
+
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
 
 alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
