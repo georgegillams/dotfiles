@@ -81,8 +81,8 @@ alias ihhs='ihh && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn pr
 alias ihho='ihh && yarn dev'
 alias ihh-fix-all='ihh && (yarn test -u & yarn lint)'
 
-alias ggc='clone-and-cd georgegillams gg-components'
-alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf gg-components && git clone git@github.com:georgegillams/gg-components.git'
+alias ggc='clone-and-cd georgegillams components'
+alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
 alias ggco='ggc && yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'

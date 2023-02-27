@@ -41,6 +41,7 @@ brew install --cask keycastr
 brew install --cask meetingbar
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
+brew install --cask neat
 brew install --cask nordvpn
 brew install --cask onedrive
 brew install --cask oracle-jdk
