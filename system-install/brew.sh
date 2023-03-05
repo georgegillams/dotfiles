@@ -27,6 +27,7 @@ brew install --cask coconutbattery
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask figma
+brew install --cask flux
 brew install --cask github
 brew install --cask google-chrome
 brew install --cask gpg-suite
