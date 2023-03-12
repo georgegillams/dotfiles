@@ -95,8 +95,10 @@ alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 alias try-eject-SD-card='diskutil eject EOS_DIGITAL || true'
-alias copy-SD-card-images='open ~/Dropbox/Pictures/import/ && mkdir -p /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT && cp /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 ~/Dropbox/Pictures/import/ && mv /Volumes/EOS_DIGITAL/DCIM/100EOS_R/*.CR3 /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ && sleep 10 && try-eject-SD-card && sleep 30 && try-eject-SD-card && sleep 60 && try-eject-SD-card && sleep 300 && try-eject-SD-card'
+alias try-eject-drone-SD-card='diskutil eject DJI_DIGITAL || true'
+alias copy-SD-card-images='open ~/Dropbox/Pictures/import/ && mkdir -p /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT && find /Volumes/EOS_DIGITAL/DCIM/100EOS_R -type f -maxdepth 1 -execdir cp "{}" ~/Dropbox/Pictures/import/ ";" -execdir  mv "{}" /Volumes/EOS_DIGITAL/DCIM/100EOS_R/GOT/ ";" && sleep 10 && try-eject-SD-card && sleep 30 && try-eject-SD-card && sleep 60 && try-eject-SD-card && sleep 300 && try-eject-SD-card'
 alias copy-images-from-SD-card='copy-SD-card-images'
+alias copy-drone-SD-card-images='open ~/Dropbox/Pictures/import/ && mkdir -p /Volumes/DJI_DIGITAL/DCIM/100MEDIA/GOT && find /Volumes/DJI_DIGITAL/DCIM/100MEDIA -type f -maxdepth 1 -execdir cp "{}" ~/Dropbox/Pictures/import/ ";" -execdir  mv "{}" /Volumes/DJI_DIGITAL/DCIM/100MEDIA/GOT/ ";" && sleep 10 && try-eject-drone-SD-card && sleep 30 && try-eject-drone-SD-card && sleep 60 && try-eject-drone-SD-card && sleep 300 && try-eject-drone-SD-card'
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
