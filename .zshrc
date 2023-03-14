@@ -95,22 +95,22 @@ alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
-function try-eject-SD-cards() {
-if [[ -d /Volumes/EOS_DIGITAL/DCIM/100EOS_R ]]
+function try-eject-SD-card() {
+if [[ -d /Volumes/$@ ]]
 then
-  diskutil eject EOS_DIGITAL || true
-fi
-if [[ -d /Volumes/DJI_DIGITAL/DCIM/100MEDIA ]]
-then
-  diskutil eject DJI_DIGITAL || true
-fi
-if [[ -d /Volumes/DJI_DIGITAL_2/DCIM/100MEDIA ]]
-then
-  diskutil eject DJI_DIGITAL_2 || true
+  diskutil eject $@ || true
 fi
 }
 
+function try-eject-SD-cards() {
+  try-eject-SD-card EOS_DIGITAL
+  try-eject-SD-card DJI_DIGITAL
+  try-eject-SD-card DJI_DIGITAL_2
+}
+
 function copy-images-from-SD-given-directory() {
+if [[ -d $@ ]]
+then
   open ~/Dropbox/Pictures/import/
   mkdir -p $@/GOT
   find $@ -type f -maxdepth 1 -execdir cp "{}" ~/Dropbox/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
@@ -122,21 +122,13 @@ function copy-images-from-SD-given-directory() {
   try-eject-SD-cards
   sleep 300
   try-eject-SD-cards
+fi
 }
 
 function copy-SD-card-images() {
-if [[ -d /Volumes/EOS_DIGITAL/DCIM/100EOS_R ]]
-then
   copy-images-from-SD-given-directory /Volumes/EOS_DIGITAL/DCIM/100EOS_R
-fi
-if [[ -d /Volumes/DJI_DIGITAL/DCIM/100MEDIA ]]
-then
   copy-images-from-SD-given-directory /Volumes/DJI_DIGITAL/DCIM/100MEDIA
-fi
-if [[ -d /Volumes/DJI_DIGITAL_2/DCIM/100MEDIA ]]
-then
   copy-images-from-SD-given-directory /Volumes/DJI_DIGITAL_2/DCIM/100MEDIA
-fi
 }
 
 endTime="$(gdate +%s%N | cut -b1-13)"
