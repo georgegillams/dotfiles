@@ -105,7 +105,6 @@ fi
 function try-eject-SD-cards() {
   try-eject-SD-card "EOS_DIGITAL"
   try-eject-SD-card "DJI_DIGITAL"
-  try-eject-SD-card "DJI_DIGITAL_2"
 }
 
 function copy-images-from-SD-given-directory() {
@@ -128,7 +127,6 @@ fi
 function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/100EOS_R"
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
-  copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL_2/DCIM/100MEDIA"
 }
 
 endTime="$(gdate +%s%N | cut -b1-13)"
