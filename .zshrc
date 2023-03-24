@@ -47,6 +47,9 @@ export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:`cat $HOME/Library/Application\ Support/Garmin/ConnectIQ/current-sdk.cfg`/bin
 export PATH=$PATH:/Users/george.gillams/Library/Application\ Support/JetBrains/Toolbox/scripts
 
+# Set a default Node path so that we can access node without calling `nvm use default`
+export PATH=~/.nvm/versions/node/v18.12.1/bin:$PATH
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -60,12 +63,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd/mm/yyyy"
 
-export NVM_LAZY=1
-
 plugins=(
   git macos
   zsh-autosuggestions
-  nvm
 )
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -142,14 +142,14 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "rbenv ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
-# # export NVM_LAZY=1
-# # export NVM_DIR="$HOME/.nvm"
-# # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_LAZY=1
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# endTime="$(gdate +%s%N | cut -b1-13)"
-# info "nvm ready ($((endTime-startTime))ms)"
-# startTime="$(gdate +%s%N | cut -b1-13)"
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "nvm ready ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
@@ -164,7 +164,6 @@ info "iTerm user variables set ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 #Auto switch nvm versions:
-# place this after nvm initialization!
 load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
