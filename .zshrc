@@ -169,9 +169,6 @@ load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    info "Reverting to nvm default version"
-    nvm use default
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
   info "Node version $(node -v) set ($((endTime-startTime))ms)"
