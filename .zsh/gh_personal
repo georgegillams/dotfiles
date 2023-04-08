@@ -111,3 +111,7 @@ alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.16
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/network-monitor'
+
+alias sck='clone-and-cd georgegillams software-chording-keyboard'
+alias scks='sck'
+alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
