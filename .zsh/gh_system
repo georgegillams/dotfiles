@@ -60,7 +60,8 @@ alias system-open-ms-updater="open /Library/Application\ Support/Microsoft/MAU2.
 alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ Creative\ Cloud"
 alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew outdated --cask && brew upgrade --cask"
 alias system-open-topaz='open /Applications/Topaz\ Photo\ AI.app/'
-alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-open-cc-updater & system-open-topaz"
+alias system-update-displaylink='open https://www.synaptics.com/products/displaylink-graphics/downloads/macos'
+alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-open-cc-updater & system-open-topaz & system-update-displaylink"
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null && echo "Host *\n    UseKeychain yes" > ~/.ssh/config'
 alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
@@ -73,6 +74,7 @@ alias system-fix-dyld='brew update && brew upgrade && brew link --overwrite ruby
 
 alias system-dock-hide-forever='defaults write com.apple.dock autohide-delay -float 1000; killall Dock'
 alias system-dock-make-stickier='defaults write com.apple.dock autohide-delay -float 5.0; killall Dock'
+alias system-dock-move-back='system-dock-restore-defaults && sleep 1 && system-dock-make-stickier'
 alias system-dock-restore-defaults='defaults delete com.apple.dock autohide-delay; killall Dock'
 
 alias tmux-create-session='tmux new -s'
@@ -88,7 +90,8 @@ alias tmux-exit="tmux-close"
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
-alias system-reset-displays='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1774,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(786,-1440) degree:0"'
+alias system-displays-RL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1774,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(786,-1440) degree:0"'
+alias system-displays-VR='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:on origin:(-1508,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(2972,-1442) degree:0" "id:4644437E-402F-9B56-9DE9-0966D8C1CFC8 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(1052,-1260) degree:0"'
 
 alias airpods='SwitchAudioSource -s "George’s AirPods Pro" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
 alias mic-and-airpods='SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
