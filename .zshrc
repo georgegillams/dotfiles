@@ -75,6 +75,8 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
+source $HOME/.rvm/scripts/rvm
+
 source $USER_ZSH/gh_docker
 source $USER_ZSH/gh_git
 source $USER_ZSH/gh_lang
