@@ -27,7 +27,6 @@ brew install --cask coconutbattery
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask figma
-brew install --cask flux
 brew install --cask github
 brew install --cask google-chrome
 brew install --cask gpg-suite
@@ -43,26 +42,20 @@ brew install --cask meetingbar
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
 brew install --cask neat
-brew install --cask nordvpn
-brew install --cask onedrive
 brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask raycast
-brew install --cask reflector
 brew install --cask rocket
 brew install --cask rode-central
 brew install --cask signal
 brew install --cask sim-daltonism
 brew install --cask slack
-brew install --cask soundflower
+# brew install --cask soundflower
 brew install --cask spectacle
 brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask timing
-brew install --cask trailer
-brew install --cask utm
-brew install --cask vanilla
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
@@ -80,8 +73,8 @@ brew install coreutils
 brew install cowsay
 brew install docker
 brew install docker-compose
-brew install duf
-brew install exiftool
+brew install duf # disk usage
+brew install exiftool # photo meta-data editing
 brew install git
 brew install git-delta
 brew install github/gh/gh
@@ -90,7 +83,6 @@ brew install gnupg gnupg2
 brew install golang
 brew install gpg gpg2 gnupg gnupg2
 brew install htop
-brew install httpie
 brew install hub
 brew install imagemagick
 brew install imageoptim-cli

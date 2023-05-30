@@ -8,7 +8,6 @@ mas install 1254981365 # Contrast — Color Accessibility
 mas install 1444383602 # GoodNotes 5
 mas install 1043270657 # GIF Keyboard
 mas install 1176895641 # Spark Email
-mas install 1278508951 # Trello
 mas install 409183694 # Keynote
 mas install 409201541 # Pages
 mas install 409203825 # Numbers
@@ -16,5 +15,4 @@ mas install 585829637 # Todoist
 mas install 937984704 # Amphetamine
 mas install 1501114405 # Eufy Security
 mas install 1297781381 # Barcode Grabber
-mas install 1447415753 # Quests
-# mas install 497799835 # XCode 
+# mas install 497799835 # XCode
