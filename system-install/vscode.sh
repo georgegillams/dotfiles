@@ -30,6 +30,7 @@ code --install-extension vscodevim.vim
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension wmaurer.change-case
 code --install-extension yler.sass-indented
+code --install-extension AmazonWebServices.aws-toolkit-vscode
 
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 

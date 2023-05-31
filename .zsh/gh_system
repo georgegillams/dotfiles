@@ -96,7 +96,7 @@ alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
 alias arrange-displays-RL-with-displaylink='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1774,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(786,-1440) degree:0"'
 alias arrange-displays-RL-no-displaylink='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1652,-1440) degree:0"'
-alias arrange-displays-VR-at-desk='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:on origin:(-434,-1440) degree:0" "id:4644437E-402F-9B56-9DE9-0966D8C1CFC8 res:1920x1200 hz:60 color_depth:4 scaling:off origin:(2126,-1320) degree:0" "id:FC6F39C0-0678-20F0-9DE9-0966D8C1CFC8 res:1920x1200 hz:60 color_depth:4 scaling:off origin:(-2354,-1320) degree:0"'
+alias arrange-displays-VR-at-desk='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:on origin:(-385,-1440) degree:0" "id:4644437E-402F-9B56-9DE9-0966D8C1CFC8 res:1920x1200 hz:60 color_depth:4 scaling:off origin:(2175,-1320) degree:0" "id:FC6F39C0-0678-20F0-9DE9-0966D8C1CFC8 res:1920x1200 hz:60 color_depth:4 scaling:off origin:(-2305,-1320) degree:0"'
 alias arrange-displays-VR-away-from-desk='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:4644437E-402F-9B56-9DE9-0966D8C1CFC8 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(-153,-1080) degree:0" "id:FC6F39C0-0678-20F0-9DE9-0966D8C1CFC8 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(1767,-1080) degree:0" "id:29DE0002-F2AD-C014-9894-1410B1601597 res:1440x900 hz:60 color_depth:4 scaling:off origin:(-1593,-990) degree:0"'
 
 function immersed () {
@@ -120,6 +120,40 @@ function immersed () {
 
 function immersed-end () {
   pkill Immersed
+  open /Applications/DisplayLink\ Manager.app
+  sleep 4
+
+  system-light-mode
+  
+  displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-0857-D6964E3302DB"
+  hdmiMonitor=$?
+  displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-C90B-A2661D91F570"
+  displayLinkMonitor=$?
+
+  if [[ "$hdmiMonitor" -eq 0 && "$displayLinkMonitor" -eq 0 ]]; then
+    echo "Arranging RL displays for at desk, with display link"
+    arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink
+  elif [[ "$hdmiMonitor" -eq 0 ]]; then
+    echo "Arranging RL displays for at desk, without display link"
+    arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink
+  else
+    echo "Arranging RL displays away from desk"
+  fi
+}
+
+function vr-workspace () {
+  pkill DisplayLinkUserAgent
+  sleep 2
+  
+  displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-0857-D6964E3302DB"
+  hdmiMonitor=$?
+  
+  open /Applications/Meta\ Quest\ Remote\ Desktop.app
+  system-dark-mode
+}
+
+function vr-workspace-end () {
+  pkill Meta\ Quest\ Remote\ Desktop
   open /Applications/DisplayLink\ Manager.app
   sleep 4
 
