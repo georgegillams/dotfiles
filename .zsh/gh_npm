@@ -10,3 +10,5 @@ alias npm-clear-cache='npm cache clean --force && npm cache clear --force && wat
 alias yarn-upgrade='yarn set version stable'
 alias yarn-linked="find . -type l | grep -v .bin | sed 's/^\.\/node_modules\///'"
 alias yarn-unlink-all="rm -f .link && yarn-linked | xargs yarn unlink && yarn install --check-files"
+
+alias npx-update-browserlist-db='npx -y update-browserslist-db@latest'

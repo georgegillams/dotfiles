@@ -54,7 +54,7 @@ alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f 
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 alias gwa-link-live-to-this-project='yellow "Ensure you are already running gwa-live-build alongside this app" && (gwa && cd gg-webapp/dist && yarn link) && yarn link @george-gillams/webapp'
-alias gwa-fix-all='gwa && (yarn test:update & yarn lint)'
+alias gwa-fix-all='gwa && (yarn test:update & yarn lint) & npx-update-browserlist-db'
 
 alias cl='clone-and-cd georgegillams contentful-links'
 alias cls='cl && echo "No setup required"'
@@ -74,12 +74,12 @@ alias ge-backup='ge && 1p-personal && node scripts/backup-production-data.js --a
 alias ge-deploy='ge && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
 alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias ge-update-snapshots-skip-npm='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
-alias ge-fix-all='ge && (yarn test -u & yarn lint)'
+alias ge-fix-all='ge && (yarn test -u & yarn lint) & npx-update-browserlist-db'
 
 alias ihh='clone-and-cd georgegillams isithappyhour.net'
 alias ihhs='ihh && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias ihho='ihh && yarn dev'
-alias ihh-fix-all='ihh && (yarn test -u & yarn lint)'
+alias ihh-fix-all='ihh && (yarn test -u & yarn lint) & npx-update-browserlist-db'
 
 alias ggc='clone-and-cd georgegillams components'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
@@ -88,7 +88,7 @@ alias ggco='ggc && yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'
 alias ggc-live-build='ggc && yarn transpile && yarn transpile:js:live'
 alias ggc-link-live-to-this-project='yellow "Ensure you are already running ggc-live-build alongside this app" && (cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && yarn link react && yarn link react-dom && cd dist && yarn link) && yarn link @george-gillams/components'
-alias ggc-fix-all='ggc && (yarn test -u & yarn lint:fix)'
+alias ggc-fix-all='ggc && (yarn test -u & yarn lint:fix) & npx-update-browserlist-db'
 
 alias sra='clone-and-cd georgegillams screen-reader-adventures'
 alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'

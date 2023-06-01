@@ -61,8 +61,7 @@ alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ C
 alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew outdated --cask && brew upgrade --cask"
 alias system-open-topaz='open /Applications/Topaz\ Photo\ AI.app/'
 alias system-update-displaylink='open https://www.synaptics.com/products/displaylink-graphics/downloads/macos'
-alias system-update-browserlist-db='npx -y update-browserslist-db@latest'
-alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-update-browserlist-db & system-open-cc-updater & system-open-topaz & system-update-displaylink"
+alias system-update-apps="system-update-brew-apps & (mas outdated && mas upgrade) & system-open-cc-updater & system-open-topaz & system-update-displaylink"
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null && echo "Host *\n    UseKeychain yes" > ~/.ssh/config'
 alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
@@ -111,10 +110,10 @@ function immersed () {
 
   if [[ "$hdmiMonitor" -eq 0 ]]; then
     echo "Arranging VR displays for at desk"
-    arrange-displays-VR-at-desk && sleep 10 && arrange-displays-VR-at-desk && sleep 10 && arrange-displays-VR-at-desk
+    (arrange-displays-VR-at-desk || true) && sleep 10 && (arrange-displays-VR-at-desk || true) && sleep 10 && arrange-displays-VR-at-desk
   else
     echo "Arranging VR displays for away from desk"
-    arrange-displays-VR-away-from-desk && sleep 10 && arrange-displays-VR-away-from-desk && sleep 10 && arrange-displays-VR-away-from-desk
+    (arrange-displays-VR-away-from-desk || true) && sleep 10 && (arrange-displays-VR-away-from-desk || true) && sleep 10 && arrange-displays-VR-away-from-desk
   fi
 }
 
@@ -132,10 +131,10 @@ function immersed-end () {
 
   if [[ "$hdmiMonitor" -eq 0 && "$displayLinkMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, with display link"
-    arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink
+    (arrange-displays-RL-with-displaylink || true) && sleep 10 && (arrange-displays-RL-with-displaylink || true) && sleep 10 && arrange-displays-RL-with-displaylink
   elif [[ "$hdmiMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, without display link"
-    arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink
+    (arrange-displays-RL-no-displaylink || true) && sleep 10 && (arrange-displays-RL-no-displaylink || true) && sleep 10 && arrange-displays-RL-no-displaylink
   else
     echo "Arranging RL displays away from desk"
   fi
@@ -166,10 +165,10 @@ function vr-workspace-end () {
 
   if [[ "$hdmiMonitor" -eq 0 && "$displayLinkMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, with display link"
-    arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink && sleep 10 && arrange-displays-RL-with-displaylink
+    (arrange-displays-RL-with-displaylink || true) && sleep 10 && (arrange-displays-RL-with-displaylink || true) && sleep 10 && arrange-displays-RL-with-displaylink
   elif [[ "$hdmiMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, without display link"
-    arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink && sleep 10 && arrange-displays-RL-no-displaylink
+    (arrange-displays-RL-no-displaylink || true) && sleep 10 && (arrange-displays-RL-no-displaylink || true) && sleep 10 && arrange-displays-RL-no-displaylink
   else
     echo "Arranging RL displays away from desk"
   fi
