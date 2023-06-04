@@ -63,6 +63,7 @@ brew install --cask wireshark
 brew install ack # CLI search
 brew install applesimutils # For detox testing
 brew install bat
+brew install brightness
 brew install broot
 brew install chisel
 brew install clang-format
