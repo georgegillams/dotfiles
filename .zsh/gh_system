@@ -104,10 +104,10 @@ function arrange-displays-RL () {
 
   if [[ "$hdmiMonitor" -eq 0 && "$displayLinkMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, with display link"
-    (arrange-displays-RL-with-displaylink || true) && sleep 10 && (arrange-displays-RL-with-displaylink || true) && sleep 10 && arrange-displays-RL-with-displaylink
+    arrange-displays-RL-with-displaylink
   elif [[ "$hdmiMonitor" -eq 0 ]]; then
     echo "Arranging RL displays for at desk, without display link"
-    (arrange-displays-RL-no-displaylink || true) && sleep 10 && (arrange-displays-RL-no-displaylink || true) && sleep 10 && arrange-displays-RL-no-displaylink
+    arrange-displays-RL-no-displaylink
   else
     echo "Arranging RL displays away from desk"
   fi
