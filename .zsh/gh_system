@@ -93,13 +93,13 @@ alias tmux-exit="tmux-close"
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
-alias arrange-displays-RL-with-displaylink='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1774,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(786,-1440) degree:0"'
+alias arrange-displays-RL-with-displaylink='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1774,-1440) degree:0" "id:5768F6DE-C603-B581-9DE9-0966D8C1CFC8 res:2560x1440 hz:75 color_depth:4 scaling:off origin:(786,-1440) degree:0"'
 alias arrange-displays-RL-no-displaylink='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 scaling:off origin:(-1652,-1440) degree:0"'
 
 function arrange-displays-RL () {
   displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-0857-D6964E3302DB"
   hdmiMonitor=$?
-  displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-C90B-A2661D91F570"
+  displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-9DE9-0966D8C1CFC8"
   displayLinkMonitor=$?
 
   if [[ "$hdmiMonitor" -eq 0 && "$displayLinkMonitor" -eq 0 ]]; then
@@ -121,8 +121,8 @@ alias brighten-macbook-screen='(dotfiles && osascript ./apple\ script/increase\ 
 
 alias immersed='quit-display-link && sleep 2 && open /Applications/Immersed.app && system-dark-mode'
 alias immersed-end='quit-immersed && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && system-light-mode && arrange-displays-RL'
-alias meta-workspaces='quit-display-link && sleep 2 && open /Applications/Meta\ Quest\ Remote\ Desktop.app && system-dark-mode'
-alias meta-workspaces-end='quit-meta-workspaces && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && system-light-mode && arrange-displays-RL'
+alias workspaces='quit-display-link && sleep 2 && open /Applications/Meta\ Quest\ Remote\ Desktop.app && dim-macbook-screen && system-dark-mode'
+alias workspaces-end='quit-meta-workspaces && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && system-light-mode && arrange-displays-RL'
 
 alias airpods='SwitchAudioSource -s "George’s AirPods Pro" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
 alias mic-and-airpods='SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
