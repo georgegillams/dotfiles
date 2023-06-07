@@ -8,7 +8,7 @@ alias gg-aws='clone-and-cd georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
-alias sort-phone-photos='cd ~/Documents/georgegillams/image-meta-fixer && yarn action /Users/george.gillams/Dropbox/Camera\ Uploads/ ~/Dropbox/iPhone\ photos --fix --move'
+alias sort-phone-photos='cd ~/Documents/georgegillams/image-meta-fixer && yarn action /Users/george.gillams/Library/CloudStorage/Dropbox/Camera\ Uploads/ ~/Dropbox/iPhone\ photos --fix --move'
 
 alias dotfiles='clone-and-cd georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
