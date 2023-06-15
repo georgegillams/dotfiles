@@ -11,8 +11,9 @@ brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
-brew tap clementtsang/bottom && brew install bottom
+brew tap clementtsang/bottom && brew install bottom # graphical process/system monitor
 brew tap jakehilborn/jakehilborn && brew install displayplacer
+brew tap samwho/spacer && brew install spacer
 
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
