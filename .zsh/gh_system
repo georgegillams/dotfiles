@@ -19,7 +19,7 @@ alias dropbox='cd ~/Dropbox'
 alias documents='cd ~/Documents'
 alias desktop='cd ~/Desktop'
 alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
-alias system-clear-caches='rm -rf /Users/george.gillams/Library/Caches'
+alias system-clear-caches='(open /Applications/Docker.app & rm -rf /Users/george.gillams/Library/Caches) & (sleep 60 && docker-reset-prune)'
 alias system-clear-adobe-caches='rm -rf /Users/george.gillams/Library/Caches/Adobe'
 
 alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
