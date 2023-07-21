@@ -119,10 +119,10 @@ alias quit-meta-workspaces='osascript -e "quit app \"Meta Quest Remote Desktop\"
 alias dim-macbook-screen='(dotfiles && osascript ./apple\ script/decrease\ brightness.scpt)'
 alias brighten-macbook-screen='(dotfiles && osascript ./apple\ script/increase\ brightness.scpt)'
 
-alias immersed='quit-display-link && sleep 2 && open /Applications/Immersed.app && system-dark-mode'
-alias immersed-end='quit-immersed && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && system-light-mode && arrange-displays-RL'
-alias workspaces='quit-display-link && sleep 2 && open /Applications/Meta\ Quest\ Remote\ Desktop.app && dim-macbook-screen && system-dark-mode'
-alias workspaces-end='quit-meta-workspaces && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && system-light-mode && arrange-displays-RL'
+alias immersed='quit-display-link && sleep 2 && open /Applications/Immersed.app'
+alias immersed-end='quit-immersed && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && arrange-displays-RL'
+alias workspaces='quit-display-link && sleep 2 && open /Applications/Meta\ Quest\ Remote\ Desktop.app && dim-macbook-screen'
+alias workspaces-end='quit-meta-workspaces && brighten-macbook-screen && open /Applications/DisplayLink\ Manager.app && sleep 4 && arrange-displays-RL'
 
 alias airpods='SwitchAudioSource -s "George’s AirPods Pro" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
 alias mic-and-airpods='SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output'
