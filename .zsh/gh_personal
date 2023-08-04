@@ -2,7 +2,7 @@
 
 alias 1p-personal='op signin --account my.1password.com'
 
-alias daily-backup="(ge-backup)"
+alias daily-backup="ge-backup && boiler-backup && netmon-backup"
 
 alias gg-aws='clone-and-cd georgegillams aws'
 
@@ -107,10 +107,12 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
 alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/boiler-server'
+alias boiler-backup='curl http://192.168.0.95:3000/logs > "/Users/george.gillams/Library/CloudStorage/Dropbox/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/network-monitor'
+alias netmon-backup='curl http://192.168.0.95:3001/logs > "/Users/george.gillams/Library/CloudStorage/Dropbox/Network/Network logs/$(date).txt"'
 
 alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'

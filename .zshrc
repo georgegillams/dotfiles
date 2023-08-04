@@ -118,6 +118,7 @@ then
   open ~/Dropbox/Pictures/import/
   mkdir -p $@/GOT
   find $@ -type f -maxdepth 1 -execdir cp "{}" ~/Dropbox/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
+  echo "Ejecting card..."
   sleep 10
   try-eject-SD-cards
   sleep 30
