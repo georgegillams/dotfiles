@@ -7,7 +7,7 @@ alias duplicate-tab='open . -a iterm'
 alias system-wifi-off='networksetup -setairportpower Wi-Fi off'
 alias system-wifi-on='networksetup -setairportpower Wi-Fi on'
 alias system-wifi-reboot='system-wifi-off && sleep 2 && system-wifi-on'
-alias system-display-link-reset='pkill DisplayLinkUserAgent && sleep 14 && open /Applications/DisplayLink\ Manager.app'
+alias system-display-link-reset='pkill DisplayLinkUserAgent && sleep 8 && open /Applications/DisplayLink\ Manager.app'
 function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
 alias zsh-rebuild='(dotfiles-save-zshrc || true) && source ~/.zshrc'
 alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
