@@ -22,7 +22,7 @@ alias gradle-clear-cache='rm -rf $HOME/.gradle/caches/'
 alias system-clear-caches='(open /Applications/Docker.app & rm -rf /Users/george.gillams/Library/Caches) & (sleep 60 && docker-reset-prune)'
 alias system-delete-message-attachements='rm -rf /Users/george.gillams/Library/Messages/Attachments/*'
 alias system-delete-ios-backups='rm -rf /Users/george.gillams/Library/Application\ Support/MobileSync/Backup/*'
-alias system-clean='open ~/Desktop && open ~/Downloads && open /Applications && system-clear-caches && system-delete-message-attachements && system-delete-ios-backups'
+alias system-clean='open ~/Desktop && open ~/Downloads && open ~/Documents && open /Applications && system-clear-caches && system-delete-message-attachements && system-delete-ios-backups'
 alias system-clear-adobe-caches='rm -rf /Users/george.gillams/Library/Caches/Adobe'
 
 alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
