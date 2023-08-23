@@ -23,12 +23,11 @@ brew install --cask avibrazil-rdm
 brew install --cask blender
 brew install --cask burp-suite
 brew install --cask charles
-brew install --cask clocker
 brew install --cask coconutbattery
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask figma
-brew install --cask github
+# brew install --cask github
 brew install --cask google-chrome
 brew install --cask gpg-suite
 brew install --cask grandperspective
@@ -48,19 +47,19 @@ brew install --cask postman
 brew install --cask raycast
 brew install --cask rocket
 brew install --cask rode-central
-brew install --cask signal
+# brew install --cask signal
 brew install --cask sim-daltonism
 brew install --cask slack
 # brew install --cask soundflower
 brew install --cask spectacle
-brew install --cask telegram
+# brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask timing
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
-brew install --cask wireshark
+# brew install --cask wireshark
 brew install ack # CLI search
 brew install applesimutils # For detox testing
 brew install bat
