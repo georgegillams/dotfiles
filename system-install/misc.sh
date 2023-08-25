@@ -48,6 +48,13 @@ echo "Open iTerm preferences, select profiles, colours and import the NORD theme
 read
 rm -rf Nord.itermcolors
 
+echo "Obs Studio => https://obsproject.com/download"
+open https://obsproject.com/download
+open https://obsproject.com/forum/resources/move.913/
+
+echo "Obsbot => https://www.obsbot.com/download/"
+open https://www.obsbot.com/download/
+
 # echo "Snap camera"
 # open https://snapcamera.snapchat.com/download/
 # sleep 10

@@ -187,9 +187,6 @@ load-ruby-version() {
     rvm use default
   fi
 }
-print-ip-address() {
-  info "IP address $(ipconfig getifaddr en0)"
-}
 
 autoload -U add-zsh-hook
 
