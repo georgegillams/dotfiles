@@ -87,14 +87,20 @@ alias git-enable-gpg='git config --global commit.gpgsign true && git config --gl
 alias gh-auto-merge='gh pr merge --auto --squash'
 alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
 
+function cd-if-necessary() {
+  if [[ "$(pwd)" != "$1" ]]; then
+    cd $1
+  fi
+}
+
 function clone-and-cd() {
   orgPath="$HOME/Documents/$1"
   repoPath="$orgPath/$2"
   echo $repoPath
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
-    cd $orgPath
+    cd-if-necessary $orgPath
     git clone git@github.com:$1/$2.git
   fi
-  cd $repoPath
+  cd-if-necessary $repoPath
 }
