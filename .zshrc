@@ -195,6 +195,7 @@ function on-change-dir() {
   load-nvmrc &
   load-rvmrc &
   wait
+  info "Directory-specific variables set"
 }
 
 #Auto switch nvm versions:
