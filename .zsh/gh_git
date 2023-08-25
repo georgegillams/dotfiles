@@ -96,7 +96,6 @@ function cd-if-necessary() {
 function clone-and-cd() {
   orgPath="$HOME/Documents/$1"
   repoPath="$orgPath/$2"
-  echo $repoPath
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
     cd-if-necessary $orgPath
