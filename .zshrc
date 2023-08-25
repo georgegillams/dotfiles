@@ -5,6 +5,7 @@ RED='\033[0;31m'
 YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
 NC='\033[0m'
 
 function yellow() {
@@ -23,12 +24,16 @@ function blue() {
   echo "${BLUE}$@${NC}"
 }
 
+function purple() {
+  echo "${PURPLE}$@${NC}"
+}
+
 function info() {
   blue $@
 }
 
-function info-sync() {
-  yellow $@
+function info-secondary() {
+  purple $@
 }
 
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
@@ -145,7 +150,7 @@ function load-nvmrc() {
     nvm use
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
-  info-sync "Node version $(node -v) set ($((endTime-startTime))ms)"
+  info-secondary "Node version $(node -v) set ($((endTime-startTime))ms)"
   iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
 }
 
@@ -153,11 +158,11 @@ function load-rvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   rbenv local
   endTime="$(gdate +%s%N | cut -b1-13)"
-  info-sync "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
+  info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
   if [[ -f .ruby-version && -r .ruby-version ]]; then
     rvm use
   elif [[ $(rvm version) != $(rvm version default)  ]]; then
-    info-sync "Reverting to rvm default version"
+    info-secondary "Reverting to rvm default version"
     rvm use default
   fi
   iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
@@ -192,10 +197,8 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "nvm initialised ($((endTime-startTime))ms)"
 
 function on-change-dir() {
-  load-nvmrc &
-  load-rvmrc &
-  wait
-  info "Directory-specific variables set"
+  load-nvmrc
+  load-rvmrc
 }
 
 #Auto switch nvm versions:
