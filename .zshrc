@@ -139,23 +139,6 @@ function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
 }
 
-function rbenv-init() {
-  startTimeSync="$(gdate +%s%N | cut -b1-13)"
-  eval "$(rbenv init -)"
-  endTimeSync="$(gdate +%s%N | cut -b1-13)"
-  info-sync "rbenv ready ($((endTimeSync-startTimeSync))ms)"
-}
-
-function nvm-init() {
-  startTimeSync="$(gdate +%s%N | cut -b1-13)"
-  export NVM_LAZY=1
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  endTimeSync="$(gdate +%s%N | cut -b1-13)"
-  info-sync "nvm ready ($((endTimeSync-startTimeSync))ms)"
-}
-
 function load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
@@ -166,7 +149,7 @@ function load-nvmrc() {
   iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
 }
 
-function load-ruby-version() {
+function load-rvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   rbenv local
   endTime="$(gdate +%s%N | cut -b1-13)"
@@ -194,20 +177,29 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "iTerm user variables set ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
-rbenv-init &
-
-nvm-init &
-
-# Wait for sync initialisations to be complete
-wait
+eval "$(rbenv init -)"
 
 endTime="$(gdate +%s%N | cut -b1-13)"
-info "Synchronous stuff complete ($((endTime-startTime))ms)"
+info "rvm initialised ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
+
+export NVM_LAZY=1
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "nvm initialised ($((endTime-startTime))ms)"
+
+function on-change-dir() {
+  load-nvmrc &
+  load-rvmrc &
+  wait
+}
 
 #Auto switch nvm versions:
 autoload -U add-zsh-hook
-add-zsh-hook chpwd load-nvmrc & load-ruby-version & wait
-load-nvmrc & load-ruby-version & wait
+add-zsh-hook chpwd on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
