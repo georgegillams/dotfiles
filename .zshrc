@@ -27,6 +27,10 @@ function info() {
   blue $@
 }
 
+function info-sync() {
+  yellow $@
+}
+
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=$HOME/.oh-my-zsh
 export USER_ZSH=$HOME/.zsh
@@ -135,30 +139,54 @@ function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
 }
 
+function rbenv-init() {
+  startTimeSync="$(gdate +%s%N | cut -b1-13)"
+  eval "$(rbenv init -)"
+  endTimeSync="$(gdate +%s%N | cut -b1-13)"
+  info-sync "rbenv ready ($((endTimeSync-startTimeSync))ms)"
+}
+
+function nvm-init() {
+  startTimeSync="$(gdate +%s%N | cut -b1-13)"
+  export NVM_LAZY=1
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  endTimeSync="$(gdate +%s%N | cut -b1-13)"
+  info-sync "nvm ready ($((endTimeSync-startTimeSync))ms)"
+}
+
+function load-nvmrc() {
+  startTime="$(gdate +%s%N | cut -b1-13)"
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  fi
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  info-sync "Node version $(node -v) set ($((endTime-startTime))ms)"
+  iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+}
+
+function load-ruby-version() {
+  startTime="$(gdate +%s%N | cut -b1-13)"
+  rbenv local
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  info-sync "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
+  if [[ -f .ruby-version && -r .ruby-version ]]; then
+    rvm use
+  elif [[ $(rvm version) != $(rvm version default)  ]]; then
+    info-sync "Reverting to rvm default version"
+    rvm use default
+  fi
+  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+}
+
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-eval "$(rbenv init -)"
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "rbenv ready ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-export NVM_LAZY=1
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "nvm ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 # iTerm custom commands:
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
-  iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
-  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
@@ -166,38 +194,20 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "iTerm user variables set ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
+rbenv-init &
+
+nvm-init &
+
+# Wait for sync initialisations to be complete
+wait
+
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "Synchronous stuff complete ($((endTime-startTime))ms)"
+
 #Auto switch nvm versions:
-load-nvmrc() {
-  startTime="$(gdate +%s%N | cut -b1-13)"
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  fi
-  endTime="$(gdate +%s%N | cut -b1-13)"
-  info "Node version $(node -v) set ($((endTime-startTime))ms)"
-}
-load-ruby-version() {
-  startTime="$(gdate +%s%N | cut -b1-13)"
-  rbenv local
-  endTime="$(gdate +%s%N | cut -b1-13)"
-  info "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-  if [[ -f .ruby-version && -r .ruby-version ]]; then
-    rvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    info "Reverting to rvm default version"
-    rvm use default
-  fi
-}
-
 autoload -U add-zsh-hook
-
-add-zsh-hook chpwd load-nvmrc
-add-zsh-hook chpwd load-ruby-version
-
-load-nvmrc
-load-ruby-version
-print-ip-address
-
-eval "$(starship init zsh)"
+add-zsh-hook chpwd load-nvmrc & load-ruby-version & wait
+load-nvmrc & load-ruby-version & wait
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
