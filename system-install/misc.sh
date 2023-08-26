@@ -1,6 +1,3 @@
-# echo "Expose 1Password entries to Alfred. Hit enter when complete."
-# read
-
 # Export PDF option
 sudo mkdir -p /Library/Filters/
 sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
@@ -35,12 +32,6 @@ echo "NOW INSTALL MANUALLY ☹️"
 echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
 open /usr/local/Caskroom/canon-eos-utility/*/*.app
 
-echo "Clean My Mac X => https://cleanmymac.com"
-open https://macpaw.com/download/cleanmymac
-
-# echo "Aerial Screensaver => https://aerialscreensaver.github.io"
-# open https://github.com/glouel/AerialCompanion/releases/latest/download/AerialInstaller.dmg
-
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
 open https://github.com/arcticicestudio/nord-iterm2
@@ -54,9 +45,3 @@ open https://obsproject.com/forum/resources/move.913/
 
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
-
-# echo "Snap camera"
-# open https://snapcamera.snapchat.com/download/
-# sleep 10
-# echo "Press any key once complete"
-# read
