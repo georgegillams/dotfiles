@@ -19,3 +19,6 @@ cp dotfiles/.zshrc ~/.zshrc
 
 # mkdir -p ~/.warp/themes
 # cp -R dotfiles/warp-themes/* ~/.warp/themes/
+
+mkdir -p ~/.oh-my-zsh/custom
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
