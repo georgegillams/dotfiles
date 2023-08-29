@@ -26,6 +26,7 @@ brew install --cask charles
 brew install --cask coconutbattery
 brew install --cask docker
 brew install --cask dropbox
+brew install --cask fig
 brew install --cask figma
 # brew install --cask github
 brew install --cask google-chrome
@@ -41,6 +42,7 @@ brew install --cask keycastr
 brew install --cask meetingbar
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
+brew install brightness
 brew install --cask neat
 brew install --cask oracle-jdk
 brew install --cask postman

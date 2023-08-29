@@ -172,6 +172,13 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "Fig pre ready ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
+
 # iTerm custom commands:
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
@@ -195,6 +202,7 @@ export NVM_DIR="$HOME/.nvm"
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "nvm initialised ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
   load-nvmrc
@@ -205,11 +213,21 @@ function on-change-dir() {
 autoload -U add-zsh-hook
 add-zsh-hook chpwd on-change-dir
 
-endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
-info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "chpwd hooks initialised ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
+
+source /Users/george.gillams/.config/broot/launcher/bash/br
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "fig post ready ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-source /Users/george.gillams/.config/broot/launcher/bash/br
+endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
+info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"

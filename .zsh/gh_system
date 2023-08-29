@@ -24,6 +24,7 @@ alias system-delete-message-attachements='rm -rf /Users/george.gillams/Library/M
 alias system-delete-ios-backups='rm -rf /Users/george.gillams/Library/Application\ Support/MobileSync/Backup/*'
 alias system-clean='open ~/Desktop && open ~/Downloads && open ~/Documents && open /Applications && system-clear-caches && system-delete-message-attachements && system-delete-ios-backups'
 alias system-clear-adobe-caches='rm -rf /Users/george.gillams/Library/Caches/Adobe'
+alias system-read-mail='open-code-editor /var/mail/george.gillams'
 
 alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
 alias inthisphoto='in-this-photo'
