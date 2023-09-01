@@ -96,9 +96,9 @@ alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install'
 alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias contrastchecker='clone-and-cd georgegillams speedy-colour-contrast-checker'
-alias contrastcheckers='contrastchecker && echo "No setup required"'
-alias contrastcheckero='contrastchecker && open SpeedyColourContrastChecker.xcodeproj'
+alias contraster='clone-and-cd georgegillams contraster'
+alias contrasters='contraster && echo "No setup required"'
+alias contrastero='contraster && open Contraster.xcodeproj'
 
 alias meg='clone-and-cd georgegillams my-event-guide'
 alias megs='meg && echo "No setup required"'
