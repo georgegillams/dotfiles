@@ -156,15 +156,12 @@ function load-nvmrc() {
 
 function load-rvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
-  rbenv local
+  if [[ -f .ruby-version && -r .ruby-version ]]; then
+    rbenv local
+    rvm use
+  fi
   endTime="$(gdate +%s%N | cut -b1-13)"
   info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-  if [[ -f .ruby-version && -r .ruby-version ]]; then
-    rvm use
-  elif [[ $(rvm version) != $(rvm version default)  ]]; then
-    info-secondary "Reverting to rvm default version"
-    rvm use default
-  fi
   iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
 }
 
@@ -215,6 +212,7 @@ add-zsh-hook chpwd on-change-dir
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "chpwd hooks initialised ($((endTime-startTime))ms)"
+
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 source /Users/george.gillams/.config/broot/launcher/bash/br
@@ -228,6 +226,8 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
