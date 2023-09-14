@@ -201,6 +201,17 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "nvm initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
+# bun completions
+[ -s "/Users/george.gillams/.bun/_bun" ] && source "/Users/george.gillams/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "bun initialised ($((endTime-startTime))ms)"
+startTime="$(gdate +%s%N | cut -b1-13)"
+
 function on-change-dir() {
   load-nvmrc
   load-rvmrc

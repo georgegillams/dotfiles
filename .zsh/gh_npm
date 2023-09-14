@@ -11,4 +11,11 @@ alias yarn-upgrade='yarn set version stable'
 alias yarn-linked="find . -type l | grep -v .bin | sed 's/^\.\/node_modules\///'"
 alias yarn-unlink-all="rm -f .link && yarn-linked | xargs yarn unlink && yarn install --check-files"
 
-alias npx-update-browserlist-db='npx -y update-browserslist-db@latest'
+function npx-update-browserlist-db() {
+  yarnLockChangedSinceMain=$(git diff main --name-status | grep yarn.lock | cut -d\, -f1)
+
+  if [ -n "$yarnLockChangedSinceMain" ]
+  then
+    npx -y update-browserslist-db@latest
+  fi
+}
