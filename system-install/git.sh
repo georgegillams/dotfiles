@@ -1,4 +1,4 @@
-cp ../.gitconfig ~/.gitconfig
+# cp ../.gitconfig ~/.gitconfig
 sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # # Set up Krypt.co SSH/GPG keys:

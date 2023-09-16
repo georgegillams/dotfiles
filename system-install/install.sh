@@ -1,6 +1,6 @@
 #!/bin/bash
 
-(. ./screensavers.sh)
+# (. ./screensavers.sh)
 (. ./touch_id.sh)
 (. ./zsh.sh)
 (. ./brew.sh)
@@ -9,7 +9,6 @@
 (. ./git.sh)
 (. ./nvm.sh)
 (. ./rbenv.sh)
-(. ./zsh.sh)
 (. ./vim.sh)
 # (. ./vscode.sh)
 (. ./misc.sh)

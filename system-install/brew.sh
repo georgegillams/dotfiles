@@ -1,4 +1,4 @@
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Ensure you do anything that brew has asked following installation"
 echo "Press enter when complete"
@@ -13,15 +13,15 @@ brew tap wix/brew
 
 brew tap clementtsang/bottom && brew install bottom # graphical process/system monitor. Run with `btm`
 brew tap jakehilborn/jakehilborn && brew install displayplacer
-brew tap samwho/spacer && brew install spacer
+brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
 
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
-brew install --cask avibrazil-rdm
+brew install --cask avibrazil-rdm # for forcing monitor resolution
 brew install --cask blender
-brew install --cask burp-suite
+# brew install --cask burp-suite
 brew install --cask charles
 brew install --cask coconutbattery
 brew install --cask docker
@@ -39,11 +39,10 @@ brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask keycastr
-brew install --cask meetingbar
+# brew install --cask meetingbar
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
-brew install brightness
-brew install --cask neat
+brew install --cask neat # github notifications
 brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask raycast
@@ -63,8 +62,9 @@ brew install --cask vlc
 brew install --cask whatsapp
 # brew install --cask wireshark
 brew install ack # CLI search
-brew install applesimutils # For detox testing
+# brew install applesimutils # For detox testing
 brew install bat
+brew install brightness
 brew install broot
 brew install chisel
 brew install clang-format
@@ -96,6 +96,7 @@ brew install lynx
 brew install macvim
 brew install mas # CLI apps store
 brew install mitmproxy
+brew install nvm
 brew install procs
 brew install python3
 brew install rbenv

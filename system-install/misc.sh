@@ -21,11 +21,9 @@ open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/
 open /Applications/Utilities/Adobe\ Creative\ Cloud/ACC/Creative\ Cloud.app/
-open /Applications/Alfred\ 3.app/
 open /Applications/Dropbox.app
-open /Applications/NordVPN.app/
-open /Applications/Todoist.app/
-open /Applications/1Password\ 7.app
+open /Applications/TickTick.app/
+open /Applications/1Password.app
 open ./resources/Network\ Link\ Conditioner.prefPane
 
 echo "NOW INSTALL MANUALLY ☹️"
