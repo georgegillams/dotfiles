@@ -15,23 +15,31 @@ brew tap clementtsang/bottom && brew install bottom # graphical process/system m
 brew tap jakehilborn/jakehilborn && brew install displayplacer
 brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
 
+# brew install --cask burp-suite
+# brew install --cask github
+# brew install --cask grandperspective
+# brew install --cask meetingbar
+# brew install --cask signal
+# brew install --cask soundflower
+# brew install --cask spectacle
+# brew install --cask telegram
+# brew install --cask wireshark
+# brew install applesimutils # For detox testing
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 brew install --cask avibrazil-rdm # for forcing monitor resolution
 brew install --cask blender
-# brew install --cask burp-suite
 brew install --cask charles
 brew install --cask coconutbattery
+brew install --cask daisydisk
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask fig
 brew install --cask figma
-# brew install --cask github
 brew install --cask google-chrome
 brew install --cask gpg-suite
-brew install --cask grandperspective
 brew install --cask handbrake
 brew install --cask homebrew/cask-drivers/canon-eos-utility
 brew install --cask homebrew/cask-drivers/garmin-express
@@ -39,30 +47,24 @@ brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask keycastr
-# brew install --cask meetingbar
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
 brew install --cask neat # github notifications
 brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask raycast
+brew install --cask rectangle-pro
 brew install --cask rocket
 brew install --cask rode-central
-# brew install --cask signal
 brew install --cask sim-daltonism
 brew install --cask slack
-# brew install --cask soundflower
-brew install --cask spectacle
-# brew install --cask telegram
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask timing
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
-# brew install --cask wireshark
 brew install ack # CLI search
-# brew install applesimutils # For detox testing
 brew install bat
 brew install brightness
 brew install broot
