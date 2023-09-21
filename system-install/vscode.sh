@@ -1,36 +1,48 @@
 # VSCode extensions
-code --install extension arcticicestudio.nord-visual-studio-code
-code --install extension dnlytras.nord-wave
-code --install extension emmanuelbeziat.vscode-great-icons
-code --install extension vscode-icons-team.vscode-icons
-code --install-extension adamwalzer.scss-lint
-code --install-extension aymondcamden.htmlescape-vscode-extension
+
+code --install-extension amazonwebservices.aws-toolkit-vscode
+code --install-extension anseki.vscode-color
 code --install-extension christian-kohler.npm-intellisense
-code --install-extension chrmarti.regex
-code --install-extension cschleiden.vscode-github-actions
 code --install-extension cssho.vscode-svgviewer
+code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
-code --install-extension evolution-gaming.evolution-gaming--vscode-eslint
-code --install-extension firefox-devtools.vscode-firefox-debug
-code --install-extension flowtype.flow-for-vscode
+code --install-extension expo.vscode-expo-tools
+code --install-extension fabiospampinato.vscode-diff
+code --install-extension fenkinet.swiftui
+code --install-extension figma.figma-vscode-extension
+code --install-extension firsttris.vscode-jest-runner
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
-code --install-extension hd101wyy.markdown-preview-enhanced
-code --install-extension jasonnutter.vscode-codeowners
-code --install-extension kasik96.swift
-code --install-extension mrmlnc.vscode-scss
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension orta.vscode-jest
-code --install-extension rebornix.ruby
+code --install-extension Garmin.monkey-c
+code --install-extension github.vscode-github-actions
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension iulian-radu-at.find-unused-exports
+code --install-extension JannisX11.batch-rename-extension
+code --install-extension Kasik96.swift
+code --install-extension kisstkondoros.vscode-codemetrics
+code --install-extension mateocerquetella.xcode-12-theme
+code --install-extension matthizou.translation-keys-lookup
+code --install-extension mquandalle.graphql
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.makefile-tools
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension mskelton.npm-outdated
+code --install-extension naumovs.color-highlight
+code --install-extension raymondcamden.htmlescape-vscode-extension
+code --install-extension redhat.vscode-xml
 code --install-extension rwu823.open-folder
+code --install-extension shd101wyy.markdown-preview-enhanced
 code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension tylelint.vscode-stylelint
+code --install-extension styled-components.vscode-styled-components
+code --install-extension stylelint.vscode-stylelint
+code --install-extension usernamehw.search
+code --install-extension vknabel.vscode-apple-swift-format
 code --install-extension vscodevim.vim
-code --install-extension wayou.vscode-todo-highlight
+code --install-extension weijunyu.vscode-json-path
+code --install-extension withfig.fig
+code --install-extension wix.vscode-import-cost
 code --install-extension wmaurer.change-case
-code --install-extension yler.sass-indented
-code --install-extension AmazonWebServices.aws-toolkit-vscode
+code --install-extension ZainChen.json
 
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
