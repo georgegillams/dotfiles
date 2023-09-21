@@ -7,7 +7,6 @@ code --install-extension cssho.vscode-svgviewer
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
-code --install-extension expo.vscode-expo-tools
 code --install-extension fabiospampinato.vscode-diff
 code --install-extension fenkinet.swiftui
 code --install-extension figma.figma-vscode-extension

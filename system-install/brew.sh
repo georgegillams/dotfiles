@@ -88,7 +88,6 @@ brew install gnupg gnupg2
 brew install golang
 brew install gpg gpg2 gnupg gnupg2
 brew install htop
-brew install hub
 brew install imagemagick
 brew install imageoptim-cli
 brew install kubectx
