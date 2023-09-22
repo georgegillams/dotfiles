@@ -4,6 +4,9 @@ echo "Ensure you do anything that brew has asked following installation"
 echo "Press enter when complete"
 read
 
+# Note: This command is an instruction from the brew install process. It may change in the future.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 brew update
 
 brew tap homebrew/cask
