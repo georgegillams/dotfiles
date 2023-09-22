@@ -33,7 +33,7 @@ brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
 brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
-brew install --cask avibrazil-rdm # for forcing monitor resolution
+brew install --cask usr-sse2-rdm # for forcing monitor resolution
 brew install --cask blender
 brew install --cask charles
 brew install --cask coconutbattery
