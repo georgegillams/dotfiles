@@ -1,5 +1,6 @@
 #!/bin/bash
 
+(. ./finder.sh)
 (. ./cldt.sh)
 # (. ./screensavers.sh)
 (. ./touch_id.sh)
