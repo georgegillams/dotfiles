@@ -8,7 +8,7 @@ brew update
 
 brew tap homebrew/cask
 brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
-brew tap homebrew/cask-versions && brew install --cask java8
+# brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
 brew tap clementtsang/bottom && brew install bottom # graphical process/system monitor. Run with `btm`
