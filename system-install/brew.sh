@@ -19,10 +19,12 @@ brew tap clementtsang/bottom && brew install bottom # graphical process/system m
 brew tap jakehilborn/jakehilborn && brew install displayplacer
 brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
 
+# brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 # brew install --cask burp-suite
 # brew install --cask github
 # brew install --cask grandperspective
 # brew install --cask meetingbar
+# brew install --cask oracle-jdk
 # brew install --cask signal
 # brew install --cask soundflower
 # brew install --cask spectacle
@@ -31,18 +33,15 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install applesimutils # For detox testing
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
-brew install --cask adobe-creative-cloud
-brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
-brew install --cask usr-sse2-rdm # for forcing monitor resolution
-brew install --cask blender
 brew install --cask charles
 brew install --cask coconutbattery
 brew install --cask daisydisk
 brew install --cask docker
-brew install --cask dropbox
 brew install --cask fig
 brew install --cask figma
+brew install --cask gh
 brew install --cask google-chrome
+brew install --cask google-drive
 brew install --cask gpg-suite
 brew install --cask handbrake
 brew install --cask homebrew/cask-drivers/canon-eos-utility
@@ -54,7 +53,6 @@ brew install --cask keycastr
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
 brew install --cask neat # github notifications
-brew install --cask oracle-jdk
 brew install --cask postman
 brew install --cask raycast
 brew install --cask rectangle-pro
@@ -66,13 +64,13 @@ brew install --cask slack
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask timing
+brew install --cask usr-sse2-rdm # for forcing monitor resolution
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
 brew install ack # CLI search
 brew install bat
 brew install brightness
-brew install broot
 brew install chisel
 brew install clang-format
 brew install cloc # count lines of code

@@ -53,11 +53,9 @@ else
 fi
 
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH=$PATH:`cat $HOME/Library/Application\ Support/Garmin/ConnectIQ/current-sdk.cfg`/bin
-export PATH=$PATH:/Users/george.gillams/Library/Application\ Support/JetBrains/Toolbox/scripts
 
 # Set a default Node path so that we can access node without calling `nvm use default`
-export PATH=~/.nvm/versions/node/v18.12.1/bin:$PATH
+export PATH=~/.nvm/versions/node/v20.7.0/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -84,8 +82,6 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-source $HOME/.rvm/scripts/rvm
-
 source $USER_ZSH/gh_docker
 source $USER_ZSH/gh_git
 source $USER_ZSH/gh_lang
@@ -94,8 +90,6 @@ source $USER_ZSH/gh_personal
 source $USER_ZSH/gh_system
 
 source $USER_ZSH/typeform
-
-# source $HOME/.config/broot/launcher/bash/br
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
@@ -150,8 +144,12 @@ function load-nvmrc() {
     nvm use
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
-  info-secondary "Node version $(node -v) set ($((endTime-startTime))ms)"
-  iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+  if [ $(which node) ]; then
+    info-secondary "Node version $(node -v) set ($((endTime-startTime))ms)"
+    if [ $(which iterm2_set_user_var) ]; then
+      iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+    fi
+  fi
 }
 
 function load-rvmrc() {
@@ -162,7 +160,9 @@ function load-rvmrc() {
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
   info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-  iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+  if [ $(which iterm2_set_user_var) ]; then
+    iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+  fi
 }
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -225,8 +225,6 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "chpwd hooks initialised ($((endTime-startTime))ms)"
 
 startTime="$(gdate +%s%N | cut -b1-13)"
-
-source /Users/george.gillams/.config/broot/launcher/bash/br
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

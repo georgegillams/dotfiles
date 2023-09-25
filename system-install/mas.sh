@@ -13,4 +13,3 @@ mas install 409203825 # Numbers
 mas install 937984704 # Amphetamine
 mas install 1524540481 # Widgy Widgets
 mas install 2125818515 # Contraster
-mas install 497799835 # XCode
