@@ -86,8 +86,8 @@ source $USER_ZSH/gh_docker
 source $USER_ZSH/gh_git
 source $USER_ZSH/gh_lang
 source $USER_ZSH/gh_npm
-source $USER_ZSH/gh_personal
 source $USER_ZSH/gh_system
+source $USER_ZSH/gh_personal
 
 source $USER_ZSH/typeform
 
@@ -103,50 +103,15 @@ alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
-function try-eject-SD-card() {
-if [[ -d /Volumes/$@ ]]
-then
-  diskutil eject $@ || true
-fi
-}
-
-function try-eject-SD-cards() {
-  try-eject-SD-card "EOS_DIGITAL"
-  try-eject-SD-card "DJI_DIGITAL"
-}
-
-function copy-images-from-SD-given-directory() {
-if [[ -d $@ ]]
-then
-  open ~/Dropbox/Pictures/import/
-  mkdir -p $@/GOT
-  find $@ -type f -maxdepth 1 -execdir cp "{}" ~/Dropbox/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
-  echo "Ejecting card..."
-  sleep 10
-  try-eject-SD-cards
-  sleep 30
-  try-eject-SD-cards
-  sleep 60
-  try-eject-SD-cards
-  sleep 300
-  try-eject-SD-cards
-fi
-}
-
-function copy-SD-card-images() {
-  copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/100EOS_R"
-  copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
-}
-
 function load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
-  if [ $(which node) ]; then
+  if [ -x "$(which node)" ]; then
     info-secondary "Node version $(node -v) set ($((endTime-startTime))ms)"
-    if [ $(which iterm2_set_user_var) ]; then
+    if [ -x "$(which iterm2_set_user_var)" ]; then
       iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
     fi
   fi
@@ -160,7 +125,7 @@ function load-rvmrc() {
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
   info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-  if [ $(which iterm2_set_user_var) ]; then
+  if [ -x "$(which iterm2_set_user_var)" ]; then
     iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
   fi
 }

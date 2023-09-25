@@ -1,4 +1,5 @@
 # ==================== PERSONAL PROJECTS =====================
+export MY_PERSONAL_DRIVE="/Users/george.gillams/Library/CloudStorage/GoogleDrive-g@georgegillams.co.uk/My Drive"
 
 alias 1p-personal='op signin --account my.1password.com'
 
@@ -8,12 +9,12 @@ alias gg-aws='clone-and-cd georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
-alias sort-phone-photos='cd ~/Documents/georgegillams/image-meta-fixer && yarn action /Users/george.gillams/Library/CloudStorage/Dropbox/Camera\ Uploads/ ~/Dropbox/iPhone\ photos --fix --move'
+alias sort-phone-photos='clone-or-cd georgegillams image-meta-fixer && yarn action $MY_PERSONAL_DRIVE/Camera\ Uploads/ $MY_PERSONAL_DRIVE/iPhone\ photos --fix --move'
 
 alias dotfiles='clone-and-cd georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform ~/Dropbox/Typeform/.zsh/ && gd && sleep 5 && gaa && gcmpchore "Update ZSHRC"'
+alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform $MY_TF_DRIVE/.zsh/typeform && gd && sleep 5 && gaa && gcmpchore "Update ZSHRC"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmpchore "Update VIMRC"'
 alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
 alias brew-edit-install-script='dotfiles-edit-install-script'
@@ -107,13 +108,50 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
 alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/boiler-server'
-alias boiler-backup='curl http://192.168.0.95:3000/logs > "/Users/george.gillams/Library/CloudStorage/Dropbox/Boiler hot water issue/Boiler restart logs/$(date).txt"'
+alias boiler-backup='curl http://192.168.0.95:3000/logs > "$MY_PERSONAL_DRIVE/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/network-monitor'
-alias netmon-backup='curl http://192.168.0.95:3001/logs > "/Users/george.gillams/Library/CloudStorage/Dropbox/Network/Network logs/$(date).txt"'
+alias netmon-backup='curl http://192.168.0.95:3001/logs > "$MY_PERSONAL_DRIVE/Network/Network logs/$(date).txt"'
 
 alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'
 alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
+
+# ========================== PHOTOGRAPHY ==========================
+
+function try-eject-SD-card() {
+if [[ -d /Volumes/$@ ]]
+then
+  diskutil eject $@ || true
+fi
+}
+
+function try-eject-SD-cards() {
+  try-eject-SD-card "EOS_DIGITAL"
+  try-eject-SD-card "DJI_DIGITAL"
+}
+
+function copy-images-from-SD-given-directory() {
+if [[ -d $@ ]]
+then
+  open $MY_PERSONAL_DRIVE/Pictures/import/
+  mkdir -p $@/GOT
+  find $@ -type f -maxdepth 1 -execdir cp "{}" $MY_PERSONAL_DRIVE/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
+  echo "Ejecting card..."
+  sleep 10
+  try-eject-SD-cards
+  sleep 30
+  try-eject-SD-cards
+  sleep 60
+  try-eject-SD-cards
+  sleep 300
+  try-eject-SD-cards
+fi
+}
+
+function copy-SD-card-images() {
+  copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/100EOS_R"
+  copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
+}

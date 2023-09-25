@@ -3,3 +3,4 @@ dotfiles
 cd ..
 rm -rf dotfiles
 dotfiles
+yarn
