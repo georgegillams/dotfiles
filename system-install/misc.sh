@@ -17,11 +17,8 @@ echo "Sign in to GH CLI - public"
 echo "gh auth login"
 gh auth login
 
-open /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 open /Applications/Docker.app/
 open /Applications/Firefox\ Developer\ Edition.app/
-open /Applications/Utilities/Adobe\ Creative\ Cloud/ACC/Creative\ Cloud.app/
-open /Applications/Dropbox.app
 open /Applications/TickTick.app/
 open /Applications/1Password.app
 open ./resources/Network\ Link\ Conditioner.prefPane
@@ -33,7 +30,7 @@ open /usr/local/Caskroom/canon-eos-utility/*/*.app
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
 open https://github.com/arcticicestudio/nord-iterm2
-echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select Powerline font under Text"
+echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select font Source Code Pro, size 12, under Text"
 read
 rm -rf Nord.itermcolors
 
