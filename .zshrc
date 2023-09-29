@@ -205,3 +205,4 @@ on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
+

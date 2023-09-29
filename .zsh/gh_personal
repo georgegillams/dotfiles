@@ -9,7 +9,7 @@ alias gg-aws='clone-and-cd georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
-alias sort-phone-photos='clone-and-cd georgegillams image-meta-fixer && [[ -d node_modules ]] || yarn && yarn action $MY_PERSONAL_DRIVE/Camera\ Uploads/ $MY_PERSONAL_DRIVE/iPhone\ photos --fix --move'
+alias sort-phone-photos='clone-and-cd georgegillams image-meta-fixer && [[ -d node_modules ]] || yarn && yarn action $MY_PERSONAL_DRIVE/2_Areas/Photography/Camera\ Uploads/ $MY_PERSONAL_DRIVE/2_Areas/Photography/iPhone\ photos --fix --move'
 
 alias dotfiles='clone-and-cd georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
@@ -108,12 +108,12 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
 alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/boiler-server'
-alias boiler-backup='curl http://192.168.0.95:3000/logs > "$MY_PERSONAL_DRIVE/Boiler hot water issue/Boiler restart logs/$(date).txt"'
+alias boiler-backup='curl http://192.168.0.95:3000/logs > "$MY_PERSONAL_DRIVE/2_Areas/Boiler\ hot\ water\ issue/Boiler restart logs/$(date).txt"'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.0.95:/home/pi/Documents/georgegillams/network-monitor'
-alias netmon-backup='curl http://192.168.0.95:3001/logs > "$MY_PERSONAL_DRIVE/Network/Network logs/$(date).txt"'
+alias netmon-backup='curl http://192.168.0.95:3001/logs > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt"'
 
 alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'
@@ -138,7 +138,7 @@ if [[ -d $@ ]]
 then
   open $MY_PERSONAL_DRIVE/Pictures/import/
   mkdir -p $@/GOT
-  find $@ -type f -maxdepth 1 -execdir cp "{}" $MY_PERSONAL_DRIVE/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
+  find $@ -type f -maxdepth 1 -execdir cp "{}" $MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/ ";" -execdir  mv "{}" $@/GOT/ ";"
   echo "Ejecting card..."
   sleep 10
   try-eject-SD-cards
