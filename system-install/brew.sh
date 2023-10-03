@@ -104,6 +104,7 @@ brew install nvm
 brew install procs
 brew install python3
 brew install rbenv
+brew install rclone
 brew install redis
 brew install sl
 brew install swiftlint
