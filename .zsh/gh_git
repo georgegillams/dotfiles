@@ -86,6 +86,7 @@ alias git-enable-gpg='git config --global commit.gpgsign true && git config --gl
 
 alias gh-auto-merge='gh pr merge --auto --squash'
 alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
+alias gh-pr-ready='gh pr ready'
 
 function cd-if-necessary() {
   if [[ "$(pwd)" != "$1" ]]; then
