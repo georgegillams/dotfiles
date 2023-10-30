@@ -55,7 +55,7 @@ fi
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # Set a default Node path so that we can access node without calling `nvm use default`
-export PATH=~/.nvm/versions/node/v20.7.0/bin:$PATH
+export PATH=~/.nvm/versions/node/v20.9.0/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -107,6 +107,12 @@ function load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
+
+    # if nvm use failed, run nvm install and try again
+    if [ $? -ne 0 ]; then
+      nvm install
+      nvm use
+    fi
   fi
   endTime="$(gdate +%s%N | cut -b1-13)"
   if [ -x "$(which node)" ]; then
