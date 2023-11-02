@@ -119,6 +119,8 @@ alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'
 alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
 
+alias goals-and-dreams='run-raycast-script goals'
+
 # ========================== PHOTOGRAPHY ==========================
 
 function try-eject-SD-card() {
