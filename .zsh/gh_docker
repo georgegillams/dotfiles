@@ -1,5 +1,5 @@
 alias docker-reset='docker ps -a -q | xargs -L1 docker rm --force'
-alias docker-reset-prune='docker system prune -a'
+alias docker-reset-prune='docker system prune -a -f'
 alias docker-reset-images='docker ps -a -q | xargs -L1 docker rmi --force'
 alias docker-reset-hard='docker-reset && docker-reset-images && docker-reset-prune'
 alias docker-list-processes='docker ps -a'
