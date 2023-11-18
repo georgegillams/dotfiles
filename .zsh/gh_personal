@@ -112,7 +112,7 @@ alias boiler-backup='curl http://192.168.1.95:3000/logs > "$MY_PERSONAL_DRIVE/2_
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
-alias netmono='netmon && (sleep 5 && open http://localhost:8080/logs) && yarn start'
+alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
 alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.1.95:/home/pi/Documents/georgegillams/network-monitor'
 alias netmon-backup='curl http://192.168.1.95:3001/logs > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt"'
 
