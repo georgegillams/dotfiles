@@ -107,13 +107,13 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
-alias boiler-deploy='boiler && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.1.95:/home/pi/Documents/georgegillams/boiler-server'
+alias boiler-deploy='boiler && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.95:/home/pi/Documents/georgegillams/boiler-server'
 alias boiler-backup='curl http://192.168.1.95:3000/logs > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
-alias netmon-deploy='netmon && scp -o "StrictHostKeyChecking=no" -r ./ pi@192.168.1.95:/home/pi/Documents/georgegillams/network-monitor'
+alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.95:/home/pi/Documents/georgegillams/network-monitor'
 alias netmon-backup='curl http://192.168.1.95:3001/logs > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt"'
 
 alias sck='clone-and-cd georgegillams software-chording-keyboard'
