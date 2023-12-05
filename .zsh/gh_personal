@@ -112,8 +112,9 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
+alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & yarn start'
 alias boiler-deploy='boiler && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.95:/home/pi/Documents/georgegillams/boiler-server'
-alias boiler-backup='curl http://192.168.1.95:3000/logs > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
+alias boiler-backup='curl http://192.168.1.95:3000/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
