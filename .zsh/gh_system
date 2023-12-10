@@ -112,6 +112,10 @@ function arrange-displays-RL () {
   fi
 }
 
+function edit-raycast-script() {
+  open-code-editor ~/Documents/georgegillams/dotfiles/raycast/scripts/$1.sh
+}
+
 function run-raycast-script() {
   . ~/Documents/georgegillams/dotfiles/raycast/scripts/$1.sh $2 $3
 }
