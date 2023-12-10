@@ -6,7 +6,7 @@ sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Add heic to jpg workflow
-open ../resources/HEIC\ to\ JPG.workflow
+# open ../resources/HEIC\ to\ JPG.workflow
 
 # Sign in to apps
 echo "Sign in to NPM"

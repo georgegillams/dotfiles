@@ -21,6 +21,9 @@ echo "Press any key once complete"
 read
 ssh-add ~/.ssh/id_rsa
 
+# Prevent system needing SSH password all the time
+echo "Host *\n  UseKeychain yes" > ~/.ssh/config
+
 # Set up Git commit signing
 echo "Open GPG Keychain and configure a new GPG key for Git signing"
 open /Applications/GPG\ Keychain.app/
