@@ -104,3 +104,5 @@ function clone-and-cd() {
   fi
   cd-if-necessary $repoPath
 }
+
+alias re-cd='cd "$(pwd)"'
