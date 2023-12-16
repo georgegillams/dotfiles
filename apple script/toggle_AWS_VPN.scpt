@@ -11,7 +11,7 @@ on run argv
   	set btnLabel to name of button 1 of window "AWS VPN Client"
   
   	-- hide the window as early as possible
-  	set visible to false
+  	-- set visible to false
   
   	-- connect or disconnect
   	click button 1 of window "AWS VPN Client"
@@ -32,10 +32,10 @@ on run argv
   		end repeat
   
   		-- hide the window as early as possible
-  		set visible to false
+  		-- set visible to false
   
   		-- close the window
-  		click button 2 of window "AWS VPN Client"
+  		-- click button 2 of window "AWS VPN Client"
   	else
   		-- if we're disconnecting, then
   		-- wait for some time and quit the client
