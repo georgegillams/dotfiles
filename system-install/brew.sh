@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
-brew tap homebrew/cask
+# brew tap homebrew/cask
 brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 # brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
@@ -21,10 +21,13 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 
 # brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 # brew install --cask burp-suite
+# brew install --cask fig
 # brew install --cask github
 # brew install --cask grandperspective
+# brew install --cask homebrew/cask-drivers/canon-eos-utility
 # brew install --cask meetingbar
 # brew install --cask oracle-jdk
+# brew install --cask rode-central
 # brew install --cask signal
 # brew install --cask soundflower
 # brew install --cask spectacle
@@ -37,14 +40,12 @@ brew install --cask charles
 brew install --cask coconutbattery
 brew install --cask daisydisk
 brew install --cask docker
-brew install --cask fig
 brew install --cask figma
 brew install --cask gh
 brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask gpg-suite
 brew install --cask handbrake
-brew install --cask homebrew/cask-drivers/canon-eos-utility
 brew install --cask homebrew/cask-drivers/garmin-express
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
@@ -57,7 +58,6 @@ brew install --cask postman
 brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask rocket
-brew install --cask rode-central
 brew install --cask screen-studio
 brew install --cask sim-daltonism
 brew install --cask slack
