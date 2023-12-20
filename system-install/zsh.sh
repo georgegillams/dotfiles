@@ -14,18 +14,20 @@ cd ..
 rm -rf fonts
 cd $installDir
 
+# Copy zsh config
 mkdir ~/secrets
 cp -R ../.zsh ~/
 cp ../.zshrc ~/
 
-echo "Copy typeform zsh file from drive to ~/.zsh/"
+echo "Copy typeform zsh file from Google Drive to ~/.zsh/"
 open ~/.zsh/
 echo "Press enter when complete"
 read
 
 # mkdir -p ~/.warp/themes
 # cp -R dotfiles/warp-themes/* ~/.warp/themes/
-↩️
+
+# Download zsh plugins
 mkdir -p ~/.oh-my-zsh/custom
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k

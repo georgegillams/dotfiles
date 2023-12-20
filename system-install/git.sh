@@ -16,6 +16,7 @@ ssh-agent
 ssh-keygen -t rsa -b 4096 -C "code@georgegillams.co.uk"
 echo "Now go to Github, select Add SSH key and paste the public file contents"
 pbcopy < ~/.ssh/id_rsa.pub
+open https://github.com/settings/keys
 sleep 10
 echo "Press any key once complete"
 read
