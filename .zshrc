@@ -55,7 +55,11 @@ fi
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # Set a default Node path so that we can access node without calling `nvm use default`
-export PATH=~/.nvm/versions/node/v20.9.0/bin:$PATH
+nodeDir='/Users/george.gillams/.nvm/versions/node/'
+if [[ -d "$nodeDir" ]]; then
+  latestNodeVersionInstalled=$(ls $nodeDir | tail -1)
+  export PATH=$nodeDir$latestNodeVersionInstalled/bin:$PATH
+fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
