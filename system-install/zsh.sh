@@ -18,6 +18,11 @@ mkdir ~/secrets
 cp -R ../.zsh ~/
 cp ../.zshrc ~/
 
+echo "Copy typeform zsh file from drive to ~/.zsh/"
+open ~/.zsh/
+echo "Press enter when complete"
+read
+
 # mkdir -p ~/.warp/themes
 # cp -R dotfiles/warp-themes/* ~/.warp/themes/
 ↩️
