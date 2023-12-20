@@ -1,10 +1,13 @@
 #!/bin/bash
 
 (. ./finder.sh)
-(. ./cldt.sh)
 # (. ./screensavers.sh)
 (. ./touch_id.sh)
 (. ./brew.sh)
+(. ./cldt.sh)
+
+# SWITCH TO ITERM
+
 (. ./zsh.sh)
 (. ./firefox.sh)
 (. ./git.sh)

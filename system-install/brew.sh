@@ -36,6 +36,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install applesimutils # For detox testing
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
+brew install --cask bartender
 brew install --cask charles
 brew install --cask coconutbattery
 brew install --cask daisydisk

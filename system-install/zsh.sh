@@ -5,12 +5,14 @@ curl -L https://iterm2.com/shell_integration/zsh \
 -o ~/.iterm2_shell_integration.zsh
 
 # Install powerline fonts:
+installDir=$(pwd)
 cd ~/Documents/
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+cd $installDir
 
 mkdir ~/secrets
 cp -R ../.zsh ~/
