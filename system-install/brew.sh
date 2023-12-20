@@ -118,5 +118,7 @@ brew install watchman
 brew install wget
 brew install yarn
 brew install zsh zsh-completions
+brew install awscli
+brew install kubernetes-cli kubectx
 
 brew unlink gnupg && brew link --overwrite gnupg2
