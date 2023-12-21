@@ -70,6 +70,7 @@ brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
 brew install ack # CLI search
+brew install awscli
 brew install bat
 brew install brightness
 brew install chisel
@@ -94,6 +95,7 @@ brew install htop
 brew install imagemagick
 brew install imageoptim-cli
 brew install kubectx
+brew install kubernetes-cli kubectx
 brew install lazydocker
 brew install libdvdcss
 brew install lolcat
@@ -118,7 +120,5 @@ brew install watchman
 brew install wget
 brew install yarn
 brew install zsh zsh-completions
-brew install awscli
-brew install kubernetes-cli kubectx
 
 brew unlink gnupg && brew link --overwrite gnupg2
