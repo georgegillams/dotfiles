@@ -17,10 +17,11 @@ echo "Sign in to GH CLI - public"
 echo "gh auth login"
 gh auth login
 
-open /Applications/Docker.app/
-open /Applications/Firefox\ Developer\ Edition.app/
-open /Applications/TickTick.app/
+open /Applications/Docker.app
+open /Applications/Firefox\ Developer\ Edition.app
+open /Applications/TickTick.app
 open /Applications/1Password.app
+open /Applications/Rectangle\ Pro.app
 open ./resources/Network\ Link\ Conditioner.prefPane
 
 # echo "NOW INSTALL MANUALLY ☹️"

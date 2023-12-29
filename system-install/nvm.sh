@@ -6,6 +6,6 @@ nvm use default
 sudo chown -R $USER:$GROUP ~/.npm
 sudo chown -R $USER:$GROUP ~/.config
 
-echo "Update the path in \`.zshrc\` to make a default version of Node available without using \`nvm\`"
+echo "Now open a new tab, and install some version of node to use as a default.\neg \`nvm install 20\`"
 echo "Press any key once complete"
 read
