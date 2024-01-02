@@ -24,3 +24,4 @@
 (. ./misc.sh)
 (. ./adobe-cc.sh)
 (. ./large-downloads.sh)
+(. ./login-items-and-permissions.sh)
