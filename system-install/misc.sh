@@ -17,12 +17,16 @@ echo "Sign in to GH CLI - public"
 echo "gh auth login"
 gh auth login
 
+open /Applications/1Password.app
+open /Applications/Bartender\ 5.app
+open /Applications/Dato.app
 open /Applications/Docker.app
 open /Applications/Firefox\ Developer\ Edition.app
-open /Applications/TickTick.app
-open /Applications/1Password.app
+open /Applications/Raycast.app
 open /Applications/Rectangle\ Pro.app
-open ./resources/Network\ Link\ Conditioner.prefPane
+open /Applications/Rocket.app
+open /Applications/TickTick.app
+open /Applications/Timing.app
 
 # echo "NOW INSTALL MANUALLY ☹️"
 # echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
