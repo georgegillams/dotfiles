@@ -88,6 +88,8 @@ alias system-dock-make-stickier='defaults write com.apple.dock autohide-delay -f
 alias system-dock-move-back='system-dock-restore-defaults && sleep 1 && system-dock-make-stickier'
 alias system-dock-restore-defaults='defaults delete com.apple.dock autohide-delay; killall Dock'
 
+alias system-backup-macbook='echo "BEFORE RUNNING THIS, ENSURE SECRETS ARE REMOVED FROM ZSH_HISTORY.\nPRESS ANY KEY IF THIS IS ALREADY DONE" && read && open "$MY_PERSONAL_DRIVE/2_Areas/Apps" && cp ~/.zsh_history "$MY_PERSONAL_DRIVE/2_Areas/Apps/" && echo "Save a screenshot of the dock + menubar\nBackup raycast settings\nBackup rectangle settings\nBackup widgets"'
+
 alias tmux-create-session='tmux new -s'
 alias tmux-attach-session='tmux attach -t'
 alias tmux-detach="tmux detach"
