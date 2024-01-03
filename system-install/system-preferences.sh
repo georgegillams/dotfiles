@@ -6,6 +6,10 @@ echo "\n\nTurn on auto appearance\nTurn on permanent scroll bars"
 open "x-apple.systempreferences:com.apple.Appearance-Settings.extension"
 echo "\nPress any key once complete"
 read
+echo "\n\nShow wifi and sound.\nHide others\nConfigure clock to show seconds"
+open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"
+echo "\nPress any key once complete"
+read
 echo "\n\nBlock Spotlight from indexing Documents"
 open "x-apple.systempreferences:com.apple.Siri-Settings.extension"
 echo "\nPress any key once complete"
