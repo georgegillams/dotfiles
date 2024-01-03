@@ -12,5 +12,4 @@ mas install 1444383602 # GoodNotes 6
 mas install 409183694 # Keynote
 mas install 409203825 # Numbers
 mas install 409201541 # Pages
-mas install 1186159417 # TP-Link Deco
 mas install 1524540481 # Widgy Widgets
