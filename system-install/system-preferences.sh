@@ -14,7 +14,7 @@ echo "\n\nBlock Spotlight from indexing Documents"
 open "x-apple.systempreferences:com.apple.Siri-Settings.extension"
 echo "\nPress any key once complete"
 read
-echo "\n\nMake dock auto hide\nDisable recent items\nTurn off automatically rearranging spaces"
+echo "\n\nMake dock auto hide\nDisable dock recent items\nDisable click wallpaper to reveal desktop\nTurn off automatically rearranging spaces"
 open "x-apple.systempreferences:com.apple.Desktop-Settings.extension"
 echo "\nPress any key once complete"
 read
