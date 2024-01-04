@@ -94,6 +94,7 @@ brew install gpg gpg2 gnupg gnupg2
 brew install htop
 brew install imagemagick
 brew install imageoptim-cli
+brew install jq # needed for tf-cli
 brew install kubectx
 brew install kubernetes-cli kubectx
 brew install lazydocker
