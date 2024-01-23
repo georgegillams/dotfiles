@@ -11,6 +11,11 @@ sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # kr codesign
 # read
 
+echo "Sign in to GitHub.com"
+echo "Press any key once complete"
+read
+open https://github.com/login
+
 # Set up Git SSH
 ssh-agent
 ssh-keygen -t rsa -b 4096 -C "code@georgegillams.co.uk"
@@ -46,9 +51,15 @@ echo "Press any key once complete"
 read
 
 # setup `git diff-image`
+installDir=$(pwd)
 cd ~/Documents
 git clone git@github.com:ewanmellor/git-diff-image.git
 cd git-diff-image
 ./install.sh
 cd ..
 rm -rf git-diff-image
+cd $installDir
+
+echo "Sign in to GH CLI - public"
+echo "gh auth login"
+gh auth login

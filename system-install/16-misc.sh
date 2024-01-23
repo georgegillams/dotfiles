@@ -9,24 +9,9 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 # open ../resources/HEIC\ to\ JPG.workflow
 
 # Sign in to apps
-echo "Sign in to NPM"
-echo "npm login"
-npm login
-
-echo "Sign in to GH CLI - public"
-echo "gh auth login"
-gh auth login
-
-open /Applications/1Password.app
-open /Applications/Bartender\ 5.app
-open /Applications/Dato.app
-open /Applications/Docker.app
-open /Applications/Firefox\ Developer\ Edition.app
-open /Applications/Raycast.app
-open /Applications/Rectangle\ Pro.app
-open /Applications/Rocket.app
-open /Applications/TickTick.app
-open /Applications/Timing.app
+# echo "Sign in to NPM"
+# echo "npm login"
+# npm login
 
 # echo "NOW INSTALL MANUALLY ☹️"
 # echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
@@ -40,9 +25,9 @@ echo "Press enter when complete"
 read
 rm -rf Nord.itermcolors
 
-echo "Obs Studio => https://obsproject.com/download"
-open https://obsproject.com/download
-open https://obsproject.com/forum/resources/move.913/
+# echo "Obs Studio => https://obsproject.com/download"
+# open https://obsproject.com/download
+# open https://obsproject.com/forum/resources/move.913/
 
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
