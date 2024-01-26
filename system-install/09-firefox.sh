@@ -8,3 +8,8 @@ read
 cd /Users/george.gillams/Library/Application\ Support/Firefox/Profiles/
 find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && cp -R ~/Documents/georgegillams/dotfiles/chrome ./" \;
 cd -
+
+echo "\nSet Firefox as the default browser"
+open "x-apple.systempreferences:com.apple.Desktop-Settings.extension"
+echo "Press any key once complete"
+read

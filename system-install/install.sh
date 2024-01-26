@@ -9,19 +9,21 @@
 
 # SWITCH TO ITERM
 
-(. ./07-zsh.sh)
-(. ./08-firefox.sh)
-(. ./09-git.sh)
-(. ./10-nvm.sh)
+(. ./07-onboard-key-apps.sh)
+(. ./08-zsh.sh)
+(. ./09-firefox.sh)
+(. ./10-git.sh)
+(. ./11-nvm.sh)
 
 # OPEN A NEW TAB
+# CHECK THAT ZSH IS LOADING PROPERLY
 
-(. ./11-clone-dotfiles.sh)
-(. ./12-rbenv.sh)
-(. ./13-vim.sh)
-(. ./14-mas.sh)
-(. ./15-misc.sh)
-(. ./16-adobe-cc.sh)
-(. ./17-large-downloads.sh)
-(. ./18-onboard-all-apps.sh)
-(. ./19-login-items-and-permissions.sh)
+(. ./12-clone-dotfiles.sh)
+(. ./13-rbenv.sh)
+(. ./14-vim.sh)
+(. ./15-mas.sh)
+(. ./16-misc.sh)
+(. ./17-adobe-cc.sh)
+(. ./18-large-downloads.sh)
+(bash ./19-onboard-all-apps.sh)
+(. ./20-login-items-and-permissions.sh)

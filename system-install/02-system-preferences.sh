@@ -6,6 +6,10 @@ echo "\n\nTurn on auto appearance\nTurn on permanent scroll bars"
 open "x-apple.systempreferences:com.apple.Appearance-Settings.extension"
 echo "\nPress any key once complete"
 read
+echo "\n\nOpen Zoom\nEnable trackpad gesture zoom"
+open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension"
+echo "\nPress any key once complete"
+read
 echo "\n\nShow wifi and sound.\nHide others\nConfigure clock to show seconds"
 open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"
 echo "\nPress any key once complete"
@@ -16,6 +20,10 @@ echo "\nPress any key once complete"
 read
 echo "\n\nMake dock auto hide\nDisable dock recent items\nDisable click wallpaper to reveal desktop\nTurn off automatically rearranging spaces"
 open "x-apple.systempreferences:com.apple.Desktop-Settings.extension"
+echo "\nPress any key once complete"
+read
+echo "\n\nArrange displays"
+open "x-apple.systempreferences:com.apple.Displays-Settings.extension"
 echo "\nPress any key once complete"
 read
 echo "\n\nAdd fingerprints"
