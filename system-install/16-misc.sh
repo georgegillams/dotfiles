@@ -31,3 +31,22 @@ rm -rf Nord.itermcolors
 
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
+
+# Set default apps for file types
+# Hint: to find the app id use:
+# osascript -e 'id of app "APP_NAME_HERE"'
+duti -s org.videolan.vlc .m4a all
+duti -s org.videolan.vlc .mp3 all
+duti -s org.videolan.vlc .acc all
+duti -s org.videolan.vlc .wav all
+duti -s com.microsoft.VSCode .css all
+duti -s com.microsoft.VSCode .scss all
+duti -s com.microsoft.VSCode .sh all
+duti -s com.microsoft.VSCode .js all
+duti -s com.microsoft.VSCode .ts all
+duti -s com.microsoft.VSCode .jsx all
+duti -s com.microsoft.VSCode .tsx all
+duti -s com.microsoft.VSCode .md all
+duti -s com.microsoft.VSCode .mdx all
+duti -s com.microsoft.VSCode .txt all
+duti -s com.microsoft.VSCode .json all

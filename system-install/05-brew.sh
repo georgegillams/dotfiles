@@ -84,6 +84,7 @@ brew install cowsay
 brew install docker
 brew install docker-compose
 brew install duf # disk usage
+brew install duti
 brew install exiftool # photo meta-data editing
 brew install git
 brew install git-delta
