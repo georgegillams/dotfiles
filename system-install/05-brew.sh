@@ -50,11 +50,13 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install glances
 # brew install golang
 # brew install lazydocker
+# brew install libdvdcss
 # brew install lolcat
 # brew install lynx
 # brew install macvim
 # brew install mitmproxy
 # brew install procs
+# brew install rbenv
 # brew install rclone
 # brew install sl
 # brew install swiftlint
@@ -68,7 +70,6 @@ brew install --cask charles
 brew install --cask daisydisk
 brew install --cask docker
 brew install --cask figma
-brew install --cask gh
 brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask gpg-suite
@@ -101,7 +102,7 @@ brew install docker-compose
 brew install duti
 brew install exiftool # photo meta-data editing
 brew install git
-brew install github/gh/gh
+brew install gh
 brew install gnupg gnupg2
 brew install gpg gpg2 gnupg gnupg2
 brew install htop
@@ -109,12 +110,10 @@ brew install imagemagick
 brew install imageoptim-cli
 brew install jq # needed for tf-cli
 brew install kubectx
-brew install kubernetes-cli kubectx
-brew install libdvdcss
+brew install kubernetes-cli
 brew install mas # CLI apps store
 brew install nvm
 brew install python3
-brew install rbenv
 brew install redis
 brew install switchaudio-osx
 brew install tree
