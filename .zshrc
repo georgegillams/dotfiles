@@ -127,18 +127,18 @@ function load-nvmrc() {
   fi
 }
 
-function load-rvmrc() {
-  startTime="$(gdate +%s%N | cut -b1-13)"
-  if [[ -f .ruby-version && -r .ruby-version ]]; then
-    rbenv local
-    rvm use
-  fi
-  endTime="$(gdate +%s%N | cut -b1-13)"
-  info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-  if [ -x "$(which iterm2_set_user_var)" ]; then
-    iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
-  fi
-}
+# function load-rvmrc() {
+#   startTime="$(gdate +%s%N | cut -b1-13)"
+#   if [[ -f .ruby-version && -r .ruby-version ]]; then
+#     rbenv local
+#     rvm use
+#   fi
+#   endTime="$(gdate +%s%N | cut -b1-13)"
+#   info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
+#   if [ -x "$(which iterm2_set_user_var)" ]; then
+#     iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
+#   fi
+# }
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
@@ -159,12 +159,12 @@ function iterm2_print_user_vars() {
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "iTerm user variables set ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
+# startTime="$(gdate +%s%N | cut -b1-13)"
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "rvm initialised ($((endTime-startTime))ms)"
+# endTime="$(gdate +%s%N | cut -b1-13)"
+# info "rvm initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 export NVM_LAZY=1
@@ -189,7 +189,7 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
   load-nvmrc
-  load-rvmrc
+  # load-rvmrc
 }
 
 #Auto switch nvm versions:
@@ -209,7 +209,7 @@ info "fig post ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 on-change-dir
 
