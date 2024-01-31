@@ -21,104 +21,103 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 
 # brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 # brew install --cask burp-suite
+# brew install --cask coconutbattery
 # brew install --cask fig
 # brew install --cask github
 # brew install --cask grandperspective
 # brew install --cask homebrew/cask-drivers/canon-eos-utility
+# brew install --cask homebrew/cask-drivers/garmin-express
+# brew install --cask keycastr
 # brew install --cask meetingbar
+# brew install --cask neat # github notifications
 # brew install --cask oracle-jdk
 # brew install --cask rode-central
 # brew install --cask signal
+# brew install --cask sim-daltonism
 # brew install --cask soundflower
 # brew install --cask spectacle
 # brew install --cask telegram
+# brew install --cask usr-sse2-rdm # for forcing monitor resolution
 # brew install --cask wireshark
+# brew install ack # CLI search
 # brew install applesimutils # For detox testing
+# brew install brightness
+# brew install chisel
+# brew install clang-format
+# brew install cowsay
+# brew install duf # disk usage
+# brew install git-delta
+# brew install glances
+# brew install golang
+# brew install lazydocker
+# brew install libdvdcss
+# brew install lolcat
+# brew install lynx
+# brew install macvim
+# brew install mitmproxy
+# brew install procs
+# brew install rbenv
+# brew install rclone
+# brew install sl
+# brew install swiftlint
+# brew install the_silver_searcher
+# brew install w3m
 brew install --cask 1password
 brew install --cask 1password/tap/1password-cli
 brew install --cask aws-vpn-client
 brew install --cask bartender
 brew install --cask charles
-brew install --cask coconutbattery
 brew install --cask daisydisk
 brew install --cask docker
 brew install --cask figma
-brew install --cask gh
 brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask gpg-suite
 brew install --cask handbrake
-brew install --cask homebrew/cask-drivers/garmin-express
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
-brew install --cask keycastr
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
-brew install --cask neat # github notifications
 brew install --cask postman
 brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask rocket
 brew install --cask screen-studio
-brew install --cask sim-daltonism
 brew install --cask slack
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask timing
-brew install --cask usr-sse2-rdm # for forcing monitor resolution
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
-brew install ack # CLI search
 brew install awscli
 brew install bat
-brew install brightness
-brew install chisel
-brew install clang-format
 brew install cloc # count lines of code
 brew install cmake
 brew install cookiecutter
 brew install coreutils
-brew install cowsay
 brew install docker
 brew install docker-compose
-brew install duf # disk usage
 brew install duti
 brew install exiftool # photo meta-data editing
 brew install git
-brew install git-delta
-brew install github/gh/gh
-brew install glances
+brew install gh
 brew install gnupg gnupg2
-brew install golang
 brew install gpg gpg2 gnupg gnupg2
 brew install htop
 brew install imagemagick
 brew install imageoptim-cli
 brew install jq # needed for tf-cli
 brew install kubectx
-brew install kubernetes-cli kubectx
-brew install lazydocker
-brew install libdvdcss
-brew install lolcat
-brew install lynx
-brew install macvim
+brew install kubernetes-cli
 brew install mas # CLI apps store
-brew install mitmproxy
 brew install nvm
-brew install procs
 brew install python3
-brew install rbenv
-brew install rclone
 brew install redis
-brew install sl
-brew install swiftlint
 brew install switchaudio-osx
-brew install the_silver_searcher
 brew install tree
 brew install vim
-brew install w3m
 brew install watchman
 brew install wget
 brew install yarn
