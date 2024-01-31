@@ -1,7 +1,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Ensure you do anything that brew has asked following installation"
-echo "Press enter when complete"
+echo "If brew is asking you to do the following, just press return and it will be done for you."
+echo "(echo; echo 'eval \"\$(/opt/homebrew/bin/brew shellenv)\"') >> /Users/george.gillams/.zprofile\neval \"\$(/opt/homebrew/bin/brew shellenv)\"\n\n"
+echo "If brew is asking for something else, abort this script and edit it."
+echo "Press enter to continue"
 read
 
 # Note: These commands are instructions from the brew install process which may change in the future.
