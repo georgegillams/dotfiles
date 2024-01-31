@@ -122,8 +122,9 @@ function run-raycast-script() {
   . ~/Documents/georgegillams/dotfiles/raycast/scripts/$1.sh $2 $3
 }
 
-function run-raycast-script-tf() {
-  . $MY_TF_DRIVE/raycast/scripts/$1.sh $2 $3
+function run-raycast-script-drive() {
+  # . $MY_TF_DRIVE/raycast/scripts/$1.sh $2 $3
+  . $MY_PERSONAL_DRIVE/2_Areas/Apps/raycast/scripts/$1.sh $2 $3
 }
 
 alias quit-immersed='osascript -e "quit app \"Immersed\""'
