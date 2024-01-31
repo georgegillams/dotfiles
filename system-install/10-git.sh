@@ -12,9 +12,9 @@ sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # read
 
 echo "Sign in to GitHub.com"
+open https://github.com/login
 echo "Press any key once complete"
 read
-open https://github.com/login
 
 # Set up Git SSH
 ssh-agent
@@ -51,14 +51,14 @@ echo "Press any key once complete"
 read
 
 # setup `git diff-image`
-installDir=$(pwd)
-cd ~/Documents
-git clone git@github.com:ewanmellor/git-diff-image.git
-cd git-diff-image
-./install.sh
-cd ..
-rm -rf git-diff-image
-cd $installDir
+# installDir=$(pwd)
+# cd ~/Documents
+# git clone git@github.com:ewanmellor/git-diff-image.git
+# cd git-diff-image
+# ./install.sh
+# cd ..
+# rm -rf git-diff-image
+# cd $installDir
 
 echo "Sign in to GH CLI - public"
 echo "gh auth login"

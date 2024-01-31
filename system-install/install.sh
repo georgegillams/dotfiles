@@ -8,6 +8,9 @@
 (. ./06-cldt.sh)
 
 # SWITCH TO ITERM
+# LOAD SETTINGS FROM FILE, DON'T OVERWRITE
+# RESTART ITERM
+# CHANGE TO SAVE SETTINGS ON QUIT
 
 (. ./07-onboard-key-apps.sh)
 (. ./08-zsh.sh)
