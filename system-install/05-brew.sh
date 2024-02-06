@@ -26,7 +26,6 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install --cask burp-suite
 # brew install --cask coconutbattery
 # brew install --cask fig
-# brew install --cask github
 # brew install --cask grandperspective
 # brew install --cask homebrew/cask-drivers/canon-eos-utility
 # brew install --cask homebrew/cask-drivers/garmin-express
@@ -38,7 +37,6 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install --cask signal
 # brew install --cask sim-daltonism
 # brew install --cask soundflower
-# brew install --cask spectacle
 # brew install --cask telegram
 # brew install --cask usr-sse2-rdm # for forcing monitor resolution
 # brew install --cask wireshark
