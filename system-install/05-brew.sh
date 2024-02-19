@@ -64,7 +64,6 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install the_silver_searcher
 # brew install w3m
 brew install --cask 1password
-brew install --cask 1password/tap/1password-cli
 brew install --cask aws-vpn-client
 brew install --cask bartender
 brew install --cask charles
@@ -92,6 +91,7 @@ brew install --cask timing
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
+brew install 1password-cli
 brew install awscli
 brew install bat
 brew install cloc # count lines of code
