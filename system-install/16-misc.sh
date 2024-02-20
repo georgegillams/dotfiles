@@ -37,7 +37,7 @@ open https://www.obsbot.com/download/
 # osascript -e 'id of app "APP_NAME_HERE"'
 duti -s org.videolan.vlc .m4a all
 duti -s org.videolan.vlc .mp3 all
-duti -s org.videolan.vlc .acc all
+duti -s org.videolan.vlc .aac all
 duti -s org.videolan.vlc .wav all
 duti -s com.microsoft.VSCode .css all
 duti -s com.microsoft.VSCode .scss all
