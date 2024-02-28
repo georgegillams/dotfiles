@@ -67,7 +67,7 @@ function gcmpdocs() { gcmpWithType $@ docs }
 function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat)" -m "BREAKING CHANGE: $@" --no-verify && gpf && gh-view-or-create-pr-web }
 function IMPLEMENTATION-git-revert-to-main() { rm -rf $@ && git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { rm -rf $@ && git checkout origin/master $@ }
-function git-revert-to-main() { if [[ $(pwd) == *"Documents/georgegillams"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Documents/Typeform"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; elif [[ $(pwd) == *"Skyscanner/backpack"* ]]; then IMPLEMENTATION-git-revert-to-main $@ ; else IMPLEMENTATION-git-revert-to-master $@ ; fi }
+function git-revert-to-main() { if [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; else IMPLEMENTATION-git-revert-to-main $@ ; fi }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
