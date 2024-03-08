@@ -3,7 +3,7 @@ export MY_PERSONAL_DRIVE="/Users/george.gillams/Library/CloudStorage/GoogleDrive
 
 alias 1p-personal='op signin --account my.1password.com'
 
-alias daily-backup="ge-backup && boiler-backup && netmon-backup"
+alias daily-backup="ge-backup && hrp-backup && boiler-backup && netmon-backup"
 
 alias gg-aws='clone-and-cd georgegillams aws'
 
@@ -87,6 +87,7 @@ alias hrp='clone-and-cd georgegillams hyroxrelayplanner.com'
 alias hrps='hrp && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias hrpo='hrp && yarn dev | spacer'
 alias hrp-fix-all='hrp && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
+alias hrp-backup='hrp && 1p-personal && node scripts/backup-production-data.js --apiKey $(op item get "AWS Private REST API Key" --vault Personal --field password --cache) --backupsLocation "$MY_PERSONAL_DRIVE/1_Projects/Hyrox Relay Planner/backups"'
 
 alias ggc='clone-and-cd georgegillams components'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
