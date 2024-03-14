@@ -79,6 +79,7 @@ brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
+brew install --cask notion
 brew install --cask postman
 brew install --cask raycast
 brew install --cask rectangle-pro
@@ -102,8 +103,8 @@ brew install docker
 brew install docker-compose
 brew install duti
 brew install exiftool # photo meta-data editing
-brew install git
 brew install gh
+brew install git
 brew install gnupg gnupg2
 brew install gpg gpg2 gnupg gnupg2
 brew install htop
@@ -116,6 +117,7 @@ brew install mas # CLI apps store
 brew install nvm
 brew install python3
 brew install redis
+brew install siege
 brew install switchaudio-osx
 brew install tree
 brew install vim

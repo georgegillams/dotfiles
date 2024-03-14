@@ -32,6 +32,9 @@ rm -rf Nord.itermcolors
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
 
+echo "Nebula => https://www.xreal.com/ar/"
+open https://www.xreal.com/ar/
+
 # Set default apps for file types
 # Hint: to find the app id use:
 # osascript -e 'id of app "APP_NAME_HERE"'
