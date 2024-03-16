@@ -66,6 +66,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 brew install --cask 1password
 brew install --cask aws-vpn-client
 brew install --cask bartender
+brew install --cask betterdisplay
 brew install --cask charles
 brew install --cask daisydisk
 brew install --cask docker
