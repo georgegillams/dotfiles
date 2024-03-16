@@ -132,16 +132,29 @@ alias goals-and-dreams='run-raycast-script goals'
 
 # ========================== PHOTOGRAPHY ==========================
 
-function try-eject-SD-card() {
+function repeat-until-success() {
+  local max_tries=24
+  local try=1
+  while [ $try -le $max_tries ]
+    do
+      if eval "$@"; then
+        break
+      else
+        sleep 5
+    fi
+  done
+}
+
+function eject-SD-card() {
 if [[ -d /Volumes/$@ ]]
 then
-  diskutil eject $@ || true
+  repeat-until-success "diskutil eject $@"
 fi
 }
 
 function try-eject-SD-cards() {
-  try-eject-SD-card "EOS_DIGITAL"
-  try-eject-SD-card "DJI_DIGITAL"
+  eject-SD-card "EOS_DIGITAL"
+  eject-SD-card "DJI_DIGITAL"
 }
 
 function copy-images-from-SD-given-directory() {
