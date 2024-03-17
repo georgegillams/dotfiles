@@ -108,13 +108,18 @@ alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 8
 alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
 alias arrange-displays-RL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 enabled:true scaling:off origin:(844,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 enabled:true scaling:off origin:(-1716,-1440) degree:0"'
+alias arrange-displays-XREAL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1169 hz:120 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:38E4C915-26AD-4F65-B1CB-2D438803227E res:1920x1080 hz:120 color_depth:8 enabled:true scaling:on origin:(-59,-1080) degree:0"'
 
-function arrange-displays-RL () {
+function arrange-displays () {
   hdmiMonitorPresent=$(displayplacer list | grep "Persistent screen id: 5768F6DE-C603-B581-0857-D6964E3302DB" | cut -d\, -f1)
+  xrealAirPresent=$(displayplacer list | grep "Persistent screen id: 38E4C915-26AD-4F65-B1CB-2D438803227E" | cut -d\, -f1)
 
   if [ -n "$hdmiMonitorPresent" ]; then
     echo "Arranging RL displays at desk"
     arrange-displays-RL
+  elif [ -n "$xrealAirPresent" ]; then
+    echo "Arranging virtual displays"
+    arrange-displays-XREAL
   fi
 }
 
@@ -137,9 +142,11 @@ alias dim-macbook-screen='(dotfiles && osascript ./apple\ script/decrease\ brigh
 alias brighten-macbook-screen='(dotfiles && osascript ./apple\ script/increase\ brightness.scpt)'
 
 alias immersed='open /Applications/Immersed.app'
-alias immersed-end='quit-immersed && brighten-macbook-screen && arrange-displays-RL'
+alias immersed-end='quit-immersed && brighten-macbook-screen && arrange-displays'
 alias workspaces='open /Applications/Meta\ Quest\ Remote\ Desktop.app && dim-macbook-screen'
-alias workspaces-end='quit-meta-workspaces && brighten-macbook-screen && arrange-displays-RL'
+alias workspaces-end='quit-meta-workspaces && brighten-macbook-screen && arrange-displays'
+alias xreal='arrange-displays && open /Applications/Nebula\ for\ Mac.app/ && sleep 10 && dim-macbook-screen'
+alias xreal-end='pkill Nebula\ for\ Mac && brighten-macbook-screen && arrange-displays'
 
 alias airpods='run-raycast-script airpods-only'
 alias mic-and-airpods='run-raycast-script mic-and-airpods'
