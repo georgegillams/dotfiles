@@ -21,10 +21,11 @@ const getAppendedBranchName = () => {
 
   const match = BRANCH_TICKET_REGEX.exec(branchName);
   const changeType = process.argv[3] || "feat";
+  const preColonText = process.argv[4] || "";
   if (match) {
-    return `${changeType}(${match[1]}): ${commitMessage}`;
+    return `${changeType}(${match[1]})${preColonText}: ${commitMessage}`;
   } else {
-    return `${changeType}: ${commitMessage}`;
+    return `${changeType}${preColonText}: ${commitMessage}`;
   }
 };
 
