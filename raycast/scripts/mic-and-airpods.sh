@@ -6,7 +6,7 @@
 # @raycast.mode compact
 
 # Optional parameters:
-# @raycast.icon 🎤
+# @raycast.icon ./mic-and-airpods.png
 
 # Documentation:
 # @raycast.author George Gillams
