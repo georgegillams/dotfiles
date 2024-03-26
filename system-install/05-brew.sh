@@ -89,7 +89,6 @@ brew install --cask screen-studio
 brew install --cask slack
 brew install --cask the-unarchiver
 brew install --cask ticktick
-brew install --cask timing
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
