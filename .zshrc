@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 startTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
@@ -36,7 +43,6 @@ function info-secondary() {
   purple $@
 }
 
-export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export ZSH=$HOME/.oh-my-zsh
 export USER_ZSH=$HOME/.zsh
 
@@ -67,10 +73,8 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "ZSH loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
+[[ ! -f ~/.zsh/gh_p10k ]] || source ~/.zsh/gh_p10k
 
 HIST_STAMPS="dd/mm/yyyy"
 
@@ -84,7 +88,6 @@ info "Plugins loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 source $USER_ZSH/gh_docker
 source $USER_ZSH/gh_git
@@ -154,7 +157,6 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 # iTerm custom commands:
 function iterm2_print_user_vars() {
   iterm2_set_user_var ipAddress $(ipconfig getifaddr en0)
-  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 }
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -215,3 +217,4 @@ on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
+
