@@ -74,7 +74,7 @@ info "ZSH loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-[[ ! -f ~/.zsh/gh_p10k ]] || source ~/.zsh/gh_p10k
+[[ ! -f ~/.zsh/gh_p10k.zsh ]] || source ~/.zsh/gh_p10k.zsh
 
 HIST_STAMPS="dd/mm/yyyy"
 
