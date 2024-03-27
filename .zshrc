@@ -89,14 +89,14 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 
 source $ZSH/oh-my-zsh.sh
 
-source $USER_ZSH/gh_docker
-source $USER_ZSH/gh_git
-source $USER_ZSH/gh_lang
-source $USER_ZSH/gh_npm
-source $USER_ZSH/gh_system
-source $USER_ZSH/gh_personal
+source $USER_ZSH/gh_docker.zsh
+source $USER_ZSH/gh_git.zsh
+source $USER_ZSH/gh_lang.zsh
+source $USER_ZSH/gh_npm.zsh
+source $USER_ZSH/gh_system.zsh
+source $USER_ZSH/gh_personal.zsh
 
-source $USER_ZSH/typeform
+source $USER_ZSH/typeform.zsh
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
