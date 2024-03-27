@@ -45,6 +45,7 @@ duti -s org.videolan.vlc .wav all
 duti -s com.microsoft.VSCode .css all
 duti -s com.microsoft.VSCode .scss all
 duti -s com.microsoft.VSCode .sh all
+duti -s com.microsoft.VSCode .zsh all
 duti -s com.microsoft.VSCode .js all
 duti -s com.microsoft.VSCode .ts all
 duti -s com.microsoft.VSCode .jsx all

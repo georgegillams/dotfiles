@@ -19,7 +19,7 @@ mkdir ~/secrets
 cp -R ../.zsh ~/
 cp ../.zshrc ~/
 
-echo "Copy typeform zsh file from Google Drive to ~/.zsh/"
+echo "Copy typeform.zsh file from Google Drive to ~/.zsh/"
 open ~/.zsh/
 echo "Press enter when complete"
 read
