@@ -1,0 +1,1 @@
+cp /Users/george.gillams/Library/CloudStorage/GoogleDrive-hello@georgegillams.co.uk/My\ Drive/2_Areas/Apps/Safari\ apps/apps/*.app /Users/george.gillams/Applications/
