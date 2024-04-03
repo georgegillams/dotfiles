@@ -15,7 +15,6 @@ rm -rf fonts
 cd $installDir
 
 # Copy zsh config
-mkdir ~/secrets
 cp -R ../.zsh ~/
 cp ../.zshrc ~/
 
