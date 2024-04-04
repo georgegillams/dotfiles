@@ -1,4 +1,4 @@
-# Prevent VS Code Terminal coming to party
+# Prevent VS Code Terminal trying to join the party
 if [[ $(env | grep VSCODE) ]]; then
   echo "VS Code terminal detected. ZSH will not be loaded."
   exit
