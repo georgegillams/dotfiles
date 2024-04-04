@@ -58,15 +58,15 @@ alias gamp='git-pre-push && gcn! --no-verify && gpf'
 alias gamp-with-verification='git-pre-push && gcn! && gpf-with-verification'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias gpf-with-verification='ggf && git push --no-verify --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
-alias gpf='(ggf --no-verify || true) && git push --no-verify --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
+alias gpf='git push --force --no-verify && gh-view-or-create-pr-web'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
 function gcmpfix() { gcmpWithType $@ fix }
 function gcmpfeat() { gcmpWithType $@ feat }
 function gcmpchore() { gcmpWithType $@ chore }
 function gcmpdocs() { gcmpWithType $@ docs }
-function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat !)" -m "BREAKING CHANGE: $@" --no-verify && gpf && gh-view-or-create-pr-web }
+function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat !)" -m "BREAKING CHANGE: $@" --no-verify && gpf }
 function IMPLEMENTATION-git-revert-to-main() { rm -rf $@ && git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { rm -rf $@ && git checkout origin/master $@ }
 function git-revert-to-main() { if [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; elif [[ $(pwd) == *"Documents/Typeform/k8s-manifests"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; else IMPLEMENTATION-git-revert-to-main $@ ; fi }

@@ -10,6 +10,11 @@ echo "Open 1Password and configure SSH"
 echo "Press any key once complete"
 read
 
+# git config setup
+git config --global user.name "George Gillams"
+git config --global user.email code@georgegillams.co.uk
+git config --global --add --bool push.autoSetupRemote true
+
 # # Set up Git SSH
 # ssh-agent
 # ssh-keygen -t rsa -b 4096 -C "code@georgegillams.co.uk"
