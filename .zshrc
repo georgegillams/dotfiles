@@ -1,9 +1,3 @@
-# Prevent VS Code Terminal trying to join the party
-if [[ $(env | grep VSCODE) ]]; then
-  echo "VS Code terminal detected. ZSH will not be loaded."
-  exit
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
