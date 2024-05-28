@@ -172,6 +172,7 @@ fi
 }
 
 function copy-SD-card-images() {
+  copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/100EOS_R"
   copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/101EOS_R"
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
 }
