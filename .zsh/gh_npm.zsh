@@ -8,7 +8,7 @@ alias npm-upgrade-patch-dependencies='npx npm-check-updates -u --semverLevel min
 alias npm-clear-cache='npm cache clean --force && npm cache clear --force && watchman watch-del-all && sudo rm -rf $TMPDIR/react-* && sudo rm -rf node_modules/'
 
 alias yarn-upgrade='yarn set version stable'
-alias yarn-linked="find . -type l | grep -v .bin | sed 's/^\.\/node_modules\///'"
+alias yarn-linked="find . -type l | grep -v .bin | grep -v puppeteer | sed 's/^\.\/node_modules\///'"
 alias yarn-unlink-all="rm -f .link && yarn-linked | xargs yarn unlink && yarn install --check-files"
 
 function npx-update-browserlist-db() {

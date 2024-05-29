@@ -110,8 +110,14 @@ alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
+alias set-nvmrc-version-from-tool-versions='echo $(grep "^nodejs " .tool-versions | cut -d " " -f 2) > .nvmrc'
+
 function load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
+  if [[ -f .tool-versions && -r .tool-versions ]]; then
+    set-nvmrc-version-from-tool-versions
+  fi
+
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
 
