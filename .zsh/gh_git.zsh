@@ -86,6 +86,9 @@ alias git-submodules-pull='git submodule update --recursive --remote'
 alias git-disable-gpg='(git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program) || true'
 alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
 
+# Allows us to use git diff with file-path autocomplete
+function git-diff() { eval "git diff $@" }
+
 alias gh-auto-merge='gh pr merge --auto --squash'
 alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
 alias gh-pr-ready='gh pr ready'
