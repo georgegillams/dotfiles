@@ -165,9 +165,9 @@ then
   echo "Copying photos..."
   find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
   echo "Moving copied files to GOT..."
-  find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
-  echo "Ejecting card..."
-  try-eject-SD-cards
+  # find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
+  # echo "Ejecting card..."
+  # try-eject-SD-cards
 fi
 }
 
