@@ -161,6 +161,7 @@ function copy-images-from-SD-given-directory() {
 if [[ -d $@ ]]
 then
   open "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/"
+  open $@/
   mkdir -p $@/GOT
   echo "Copying photos..."
   find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
