@@ -9,6 +9,7 @@ alias system-wifi-on='networksetup -setairportpower Wi-Fi on'
 alias system-wifi-reboot='run-raycast-script reset-wifi'
 function zsh-remove-term-from-history() { cat ~/.zsh_history | grep -v $@ > ~/.zsh_history_updated && sleep 2 && cp ~/.zsh_history_updated ~/.zsh_history && rm ~/.zsh_history_updated && echo "Quit iTerm to finish the job\!" }
 alias zsh-rebuild='(dotfiles-save-zshrc || true) && source ~/.zshrc'
+alias zsh-pull='(dotfiles-pull-zshrc || true) && source ~/.zshrc'
 alias tmux-rebuild='dotfiles-save-tmux-conf && cd - && tmux source-file ~/.tmux.conf'
 alias vim-rebuild='vim +"source ~/.vimrc" +PluginInstall +qall && dotfiles-save-vimrc && cd -'
 alias zsh-edit-config='open-code-editor ~/.zsh && open-code-editor ~/.zshrc'
