@@ -96,7 +96,7 @@ source $USER_ZSH/gh_npm.zsh
 source $USER_ZSH/gh_system.zsh
 source $USER_ZSH/gh_personal.zsh
 
-if [ -f $USER_ZSH/typeform.zsh ]; then
+if [[ -f $USER_ZSH/typeform.zsh ]]; then
   source $USER_ZSH/typeform.zsh
 fi
 
