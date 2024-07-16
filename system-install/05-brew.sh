@@ -1,5 +1,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+setup_type=$(cat ~/Desktop/setup_type.txt)
+
 echo "Ensure you do anything that brew has asked following installation"
 echo "If brew is asking you to do the following, just press return and it will be done for you."
 echo "(echo; echo 'eval \"\$(/opt/homebrew/bin/brew shellenv)\"') >> /Users/george.gillams/.zprofile\neval \"\$(/opt/homebrew/bin/brew shellenv)\"\n\n"
@@ -64,43 +66,29 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install the_silver_searcher
 # brew install w3m
 brew install --cask 1password
-brew install --cask aws-vpn-client
 brew install --cask bartender
-brew install --cask betterdisplay
-brew install --cask charles
 brew install --cask daisydisk
-brew install --cask docker
-brew install --cask figma
+brew install --cask firefox@developer-edition
 brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask gpg-suite
 brew install --cask handbrake
-brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
-brew install --cask notion
-brew install --cask postman
 brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask rocket
-brew install --cask screen-studio
-brew install --cask slack
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
 brew install 1password-cli
-brew install awscli
 brew install bat
 brew install cloc # count lines of code
-brew install cmake
-brew install cookiecutter
 brew install coreutils
-brew install docker
-brew install docker-compose
 brew install duti
 brew install exiftool # photo meta-data editing
 brew install gh
@@ -110,21 +98,42 @@ brew install gpg gpg2 gnupg gnupg2
 brew install htop
 brew install imagemagick
 brew install imageoptim-cli
-brew install jq # needed for tf-cli
-brew install kubectx
-brew install kubernetes-cli
 brew install mas # CLI apps store
 brew install nvm
 brew install python3
 brew install redis
-brew install siege
 brew install switchaudio-osx
-brew install tmux
 brew install tree
 brew install vim
-brew install watchman
 brew install wget
 brew install yarn
 brew install zsh zsh-completions
+
+if [[ $setup_type == "WORK" ]]; then
+  brew install --cask aws-vpn-client
+  brew install --cask betterdisplay
+  brew install --cask charles
+  brew install --cask docker
+  brew install --cask figma
+  brew install --cask notion
+  brew install --cask postman
+  brew install --cask screen-studio
+  brew install --cask slack
+  brew install awscli
+  brew install cmake
+  brew install cookiecutter
+  brew install docker
+  brew install docker-compose
+  brew install jq # needed for tf-cli
+  brew install kubectx
+  brew install kubernetes-cli
+  brew install siege
+  brew install tmux
+  brew install watchman
+fi
+
+if [[ $setup_type == "PERSONAL" ]]; then
+  brew install --cask utm
+fi
 
 brew unlink gnupg && brew link --overwrite gnupg2
