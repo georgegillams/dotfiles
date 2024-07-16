@@ -96,7 +96,9 @@ source $USER_ZSH/gh_npm.zsh
 source $USER_ZSH/gh_system.zsh
 source $USER_ZSH/gh_personal.zsh
 
-source $USER_ZSH/typeform.zsh
+if [ -f $USER_ZSH/typeform.zsh ]; then
+  source $USER_ZSH/typeform.zsh
+fi
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
