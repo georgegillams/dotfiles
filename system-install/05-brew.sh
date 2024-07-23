@@ -82,6 +82,7 @@ brew install --cask rectangle-pro
 brew install --cask rocket
 brew install --cask the-unarchiver
 brew install --cask ticktick
+brew install --cask topaz-photo-ai
 brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
