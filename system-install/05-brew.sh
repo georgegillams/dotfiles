@@ -68,6 +68,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 brew install --cask 1password
 brew install --cask bartender
 brew install --cask daisydisk
+brew install --cask figma
 brew install --cask firefox@developer-edition
 brew install --cask google-chrome
 brew install --cask google-drive
@@ -115,7 +116,6 @@ if [[ $setup_type == "WORK" ]]; then
   brew install --cask betterdisplay
   brew install --cask charles
   brew install --cask docker
-  brew install --cask figma
   brew install --cask notion
   brew install --cask postman
   brew install --cask screen-studio
