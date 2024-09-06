@@ -191,7 +191,9 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$BUN_INSTALL/bin" ]; then
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "bun initialised ($((endTime-startTime))ms)"
@@ -219,10 +221,16 @@ info "fig post ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+if [ -d "$HOME/.rvm/bin" ]; then
+  export PATH="$PATH:$HOME/.rvm/bin"
+fi
 
 on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 
+# PostgreSQL
+if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
