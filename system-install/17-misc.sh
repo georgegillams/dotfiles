@@ -56,3 +56,4 @@ duti -s com.microsoft.VSCode .md all
 duti -s com.microsoft.VSCode .mdx all
 duti -s com.microsoft.VSCode .txt all
 duti -s com.microsoft.VSCode .json all
+duti -s com.microsoft.VSCode .toml all

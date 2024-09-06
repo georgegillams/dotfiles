@@ -128,12 +128,14 @@ if [[ $setup_type == "WORK" ]]; then
   brew install jq # needed for tf-cli
   brew install kubectx
   brew install kubernetes-cli
+  brew install libpq && brew link --force libpq # postgresql
   brew install siege
   brew install tmux
   brew install watchman
 fi
 
 if [[ $setup_type == "PERSONAL" ]]; then
+  brew install --cask displaylink
   brew install --cask utm
 fi
 
