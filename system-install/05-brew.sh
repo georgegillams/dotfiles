@@ -136,6 +136,7 @@ fi
 
 if [[ $setup_type == "PERSONAL" ]]; then
   brew install --cask displaylink
+  brew install --cask mechvibes
   brew install --cask utm
 fi
 

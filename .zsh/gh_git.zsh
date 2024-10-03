@@ -1,10 +1,20 @@
 alias gh-prs='gh pr list'
+alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
 alias IMPLEMENTATION-gh-create-pr-web='gh pr create --web'
 alias IMPLEMENTATION-gh-view-pr-web='gh pr view --web'
 function gh-view-or-create-pr-web() {
   # If a PR exists, open it:
   IMPLEMENTATION-gh-view-pr-web
+  if [[ $? != 0 ]] then;
+    # If a PR didn't exist, create it:
+    IMPLEMENTATION-gh-create-pr-web
+  fi;
+}
+
+function gh-create-pr-web-if-none() {
+  # check if a PR exists
+  gh-check-if-pr-exists
   if [[ $? != 0 ]] then;
     # If a PR didn't exist, create it:
     IMPLEMENTATION-gh-create-pr-web
@@ -58,7 +68,7 @@ alias gamp='git-pre-push && gcn! --no-verify && gpf'
 alias gamp-with-verification='git-pre-push && gcn! && gpf-with-verification'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias gpf-with-verification='ggf && git push --no-verify --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
-alias gpf='git push --force --no-verify && gh-view-or-create-pr-web'
+alias gpf='git push --force --no-verify && gh-create-pr-web-if-none'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
