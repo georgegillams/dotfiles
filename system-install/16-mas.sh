@@ -14,6 +14,8 @@ mas install 1444383602 # GoodNotes 6
 mas install 409183694 # Keynote
 mas install 409203825 # Numbers
 mas install 409201541 # Pages
+mas install 1593408455 # Anybox
+mas install 1891057991 # Folder Preview
 # mas install 1524540481 # Widgy Widgets
 
 if [[ $setup_type == "WORK" ]]; then
