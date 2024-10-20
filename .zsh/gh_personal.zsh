@@ -119,6 +119,11 @@ alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & yarn sta
 alias boiler-deploy='boiler && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/boiler-server'
 alias boiler-backup='curl http://192.168.1.96:3000/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
+alias ant='clone-and-cd georgegillams ant-ics'
+alias ants='geant && yarn'
+alias anto='geant && (sleep 1 && open http://localhost:8080/logs) & yarn start'
+alias ant-deploy='geant && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/ant-ics'
+
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
