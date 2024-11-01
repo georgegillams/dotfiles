@@ -1,4 +1,5 @@
 #
-5 14 * * 5 osascript -e 'tell application "System Events" to key down 63' -e 'tell application "System Events" to key down "n"' -e 'tell application "System Events" to key up "n"' -e 'tell application "System Events" to key up 63'
+5 14 * * 5 osascript /Users/george.gillams/Documents/georgegillams/dotfiles/apple\ script/open_notification_center.scpt
+5 16 * * 5 osascript /Users/george.gillams/Documents/georgegillams/dotfiles/apple\ script/open_notification_center.scpt
 0 */1 * * * rm -rf ~/tmp
 #
