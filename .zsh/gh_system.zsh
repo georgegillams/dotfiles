@@ -24,6 +24,8 @@ alias system-clean='open ~/Desktop && open ~/Downloads && open ~/Documents && op
 alias system-clear-adobe-caches='rm -rf /Users/george.gillams/Library/Caches/Adobe'
 alias system-read-mail='open-code-editor /var/mail/george.gillams'
 
+alias cron-save='dotfiles-save-cron'
+
 alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
 alias inthisphoto='in-this-photo'
 
