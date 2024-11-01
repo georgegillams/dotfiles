@@ -4,5 +4,6 @@ on run argv
         key down 63
         key down "n"
         key up "n"
+        key up 63
   end tell
 end run
