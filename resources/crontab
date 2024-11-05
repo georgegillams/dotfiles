@@ -1,5 +1,5 @@
 #
 5 14 * * 5 osascript /Users/george.gillams/Documents/georgegillams/dotfiles/apple\ script/open_notification_center.scpt
 5 16 * * 5 osascript /Users/george.gillams/Documents/georgegillams/dotfiles/apple\ script/open_notification_center.scpt
-0 */1 * * * rm -rf ~/tmp
+0 */3 * * * rm -rf ~/tmp
 #
