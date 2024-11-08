@@ -81,7 +81,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(
   git macos
   zsh-autosuggestions
-  fzf-zsh
+  fzf-tab
 )
 
 endTime="$(gdate +%s%N | cut -b1-13)"
