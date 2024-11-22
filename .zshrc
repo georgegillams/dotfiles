@@ -113,14 +113,8 @@ alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
-alias set-nvmrc-version-from-tool-versions='echo $(grep "^nodejs " .tool-versions | cut -d " " -f 2) > .nvmrc'
-
 function load-nvmrc() {
   startTime="$(gdate +%s%N | cut -b1-13)"
-  if [[ -f .tool-versions && -r .tool-versions ]]; then
-    set-nvmrc-version-from-tool-versions
-  fi
-
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
 
@@ -129,12 +123,30 @@ function load-nvmrc() {
       nvm install
       nvm use
     fi
+    endTime="$(gdate +%s%N | cut -b1-13)"
+    if [ -x "$(which node)" ]; then
+      info-secondary "nvm Node version $(node -v) set ($((endTime-startTime))ms)"
+      if [ -x "$(which iterm2_set_user_var)" ]; then
+        iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+      fi
+    fi
   fi
-  endTime="$(gdate +%s%N | cut -b1-13)"
-  if [ -x "$(which node)" ]; then
-    info-secondary "Node version $(node -v) set ($((endTime-startTime))ms)"
-    if [ -x "$(which iterm2_set_user_var)" ]; then
-      iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+}
+
+alias asdf-use=". $(brew --prefix asdf)/libexec/asdf.sh"
+
+function load-asdf() {
+  if [[ -f .tool-versions && -r .tool-versions ]]; then
+    startTime="$(gdate +%s%N | cut -b1-13)"
+    asdf-use
+    endTime="$(gdate +%s%N | cut -b1-13)"
+    if [ -x "$(which node)" ]; then
+      info-secondary "asdf Node version $(node -v) set ($((endTime-startTime))ms)"
+      if [ -x "$(which iterm2_set_user_var)" ]; then
+        iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+      fi
+    else
+      info-secondary "asdf versions set ($((endTime-startTime))ms)"
     fi
   fi
 }
@@ -202,6 +214,7 @@ startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
   load-nvmrc
+  load-asdf
   # load-rvmrc
 }
 
