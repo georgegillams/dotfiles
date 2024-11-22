@@ -60,13 +60,6 @@ fi
 
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
-# Set a default Node path so that we can access node without calling `nvm use default`
-nodeDir='/Users/george.gillams/.nvm/versions/node/'
-if [[ -d "$nodeDir" ]]; then
-  latestNodeVersionInstalled=$(ls $nodeDir | tail -1)
-  export PATH=$nodeDir$latestNodeVersionInstalled/bin:$PATH
-fi
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -83,6 +76,9 @@ plugins=(
   zsh-autosuggestions
   fzf-tab
 )
+
+# Load ASDF
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
@@ -101,6 +97,7 @@ if [[ -f $USER_ZSH/typeform.zsh ]]; then
   source $USER_ZSH/typeform.zsh
 fi
 
+
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
@@ -114,31 +111,25 @@ alias c='open-code-editor ./'
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 
 function load-nvmrc() {
-  startTime="$(gdate +%s%N | cut -b1-13)"
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-
-    # if nvm use failed, run nvm install and try again
-    if [ $? -ne 0 ]; then
-      nvm install
-      nvm use
-    fi
-    endTime="$(gdate +%s%N | cut -b1-13)"
-    if [ -x "$(which node)" ]; then
-      info-secondary "nvm Node version $(node -v) set ($((endTime-startTime))ms)"
-      if [ -x "$(which iterm2_set_user_var)" ]; then
-        iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
-      fi
-    fi
+  if [[ ! -f .tool-versions && -f .nvmrc && -r .nvmrc ]]; then
+    echo "nodejs $(cat .nvmrc)" > .tool-versions
+    rm .nvmrc
+    info-secondary "nvmrc version moved to asdf"
+    re-cd
   fi
 }
 
-alias asdf-use=". $(brew --prefix asdf)/libexec/asdf.sh"
-
+# NOTE: Actual version switching is handled automagically by asdf.
+# This function is just used for automatic installation and info logging.
 function load-asdf() {
   if [[ -f .tool-versions && -r .tool-versions ]]; then
     startTime="$(gdate +%s%N | cut -b1-13)"
-    asdf-use
+ 
+    # If versions are not installed, install them
+    if asdf current 2>&1 | grep -q "Not installed"; then
+      asdf install
+    fi
+
     endTime="$(gdate +%s%N | cut -b1-13)"
     if [ -x "$(which node)" ]; then
       info-secondary "asdf Node version $(node -v) set ($((endTime-startTime))ms)"
@@ -189,11 +180,6 @@ info "iTerm user variables set ($((endTime-startTime))ms)"
 # endTime="$(gdate +%s%N | cut -b1-13)"
 # info "rvm initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
-
-export NVM_LAZY=1
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "nvm initialised ($((endTime-startTime))ms)"
