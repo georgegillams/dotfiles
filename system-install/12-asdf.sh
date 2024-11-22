@@ -1,0 +1,1 @@
+echo "nodejs 22.11.0" > ~/.tool-versions

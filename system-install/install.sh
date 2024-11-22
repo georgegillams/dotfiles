@@ -17,7 +17,7 @@
 (. ./09-zsh.sh)
 (. ./10-firefox.sh)
 (. ./11-git.sh)
-(. ./12-nvm.sh)
+(. ./12-asdf.sh)
 
 # OPEN A NEW TAB
 # CHECK THAT ZSH IS LOADING PROPERLY
