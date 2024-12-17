@@ -1,5 +1,9 @@
 #!/usr/bin/osascript
 on run argv
+  display notification "It's time to check your messages. 📮 Message apps will open imminently!" with title "💬 Message check time!"
+
+  delay 3
+
   # open Slack
   tell application "Slack" to activate
   
