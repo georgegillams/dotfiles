@@ -17,6 +17,7 @@ alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchor
 # alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_TF_DRIVE/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
 alias dotfiles-pull-zshrc='dotfiles && gml && cp .zshrc ~/ && cp .zsh/* ~/.zsh/'
 alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_PERSONAL_DRIVE/2_Areas/Work/Typeform/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
+alias dotfiles-save-launchd='dotfiles && cp /Library/LaunchDaemons/uk.co.georgergillams.* ./resources/Launch/LaunchDaemons && cp /Users/george.gillams/Library/LaunchAgents/uk.co.georgergillams.* ./resources/Launch/LaunchAgents/ && gd && sleep 2 && gaa && gcmpchore "Update launchd"'
 alias dotfiles-save-cron='dotfiles && crontab -l > ./resources/crontab && sleep 2 && gaa && gcmpchore "Update crontab"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmpchore "Update VIMRC"'
 alias dotfiles-edit-install-script='(dotfiles && cd system-install && c)'
