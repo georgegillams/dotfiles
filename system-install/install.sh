@@ -31,4 +31,4 @@
 (. ./19-large-downloads.sh)
 (bash ./19-onboard-all-apps.sh)
 (. ./21-login-items-and-permissions.sh)
-(. ./22-crontab.sh)
+(. ./22-webstorm.sh)

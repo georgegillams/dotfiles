@@ -1,0 +1,21 @@
+set clipboard+=unnamed
+syntax on
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set backspace=indent,eol,start
+set noswapfile
+set nocursorline
+set nocursorcolumn
+set background=dark
+set smartcase
+set lazyredraw
+let mapleader = ' '
+inoremap jj <Esc>
+nnoremap J 6j
+nnoremap K 6k
+nnoremap H 6h
+nnoremap L 6l
+nnoremap B 6b
+nnoremap W 6w
