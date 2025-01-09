@@ -7,7 +7,7 @@ const currentBranch = execSync("git rev-parse --abbrev-ref HEAD")
 
 const ghQueryCommand = `gh run list --jq ".[] | select (.status != \\"completed\\") | select (.headBranch == \\"${currentBranch}\\")" --json status,headBranch,databaseId`;
 console.log(`Running command: ${ghQueryCommand}`);
-const jobsStrings = execSync(ghQueryCommand).toString().split('\n');
+const jobsStrings = execSync(ghQueryCommand).toString().split('\n').filter(s => s.length > 0);
 console.log(`\nJobs:\n${jobsStrings.join('\n')}\n`);
 const jobs = JSON.parse(`[${jobsStrings.join(',')}]`);
 
