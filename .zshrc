@@ -199,6 +199,9 @@ if [ -d "$BUN_INSTALL/bin" ]; then
   export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+# c++
+export CPLUS_INCLUDE_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1
+
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "bun initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
