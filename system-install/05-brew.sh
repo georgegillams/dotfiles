@@ -53,7 +53,6 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install glances
 # brew install golang
 # brew install lazydocker
-# brew install libdvdcss
 # brew install lolcat
 # brew install lynx
 # brew install macvim
@@ -93,6 +92,7 @@ brew install cloc # count lines of code
 brew install coreutils
 brew install duti
 brew install exiftool # photo meta-data editing
+brew install ffmpeg
 brew install gh
 brew install git
 brew install gnupg gnupg2
@@ -136,8 +136,11 @@ fi
 
 if [[ $setup_type == "PERSONAL" ]]; then
   brew install --cask displaylink
+  brew install --cask jellyfin
+  brew install --cask makemkv
   brew install --cask mechvibes
   brew install --cask utm
+  brew install libdvdcss
 fi
 
 brew unlink gnupg && brew link --overwrite gnupg2
