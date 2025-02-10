@@ -82,8 +82,17 @@ plugins=(
   fzf-tab
 )
 
+export ASDF_MANUAL_INSTALL_DIR="$HOME/asdf"
+
+# Install via brew broke, so using manual install
+if [ -d "$HOME/asdf/bin" ]; then
+  export PATH="$PATH:$ASDF_MANUAL_INSTALL_DIR/bin"
+fi
+
 # Load ASDF
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Install via brew broke, so using manual install
+# . $(brew --prefix asdf)/libexec/asdf.sh
+. $ASDF_MANUAL_INSTALL_DIR/asdf.sh
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
@@ -101,7 +110,6 @@ source $USER_ZSH/gh_personal.zsh
 if [[ -f $USER_ZSH/typeform.zsh ]]; then
   source $USER_ZSH/typeform.zsh
 fi
-
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
@@ -131,7 +139,7 @@ function load-asdf() {
     startTime="$(gdate +%s%N | cut -b1-13)"
  
     # If versions are not installed, install them
-    if asdf current 2>&1 | grep -q "Not installed"; then
+    if asdf current 2>&1 | grep -q "false - Run"; then
       asdf install
     fi
 
