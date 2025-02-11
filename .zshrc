@@ -85,14 +85,19 @@ plugins=(
 export ASDF_MANUAL_INSTALL_DIR="$HOME/asdf"
 
 # Install via brew broke, so using manual install
-if [ -d "$HOME/asdf/bin" ]; then
+if [ -d "$ASDF_MANUAL_INSTALL_DIR/bin" ]; then
   export PATH="$PATH:$ASDF_MANUAL_INSTALL_DIR/bin"
 fi
 
 # Load ASDF
-# Install via brew broke, so using manual install
-# . $(brew --prefix asdf)/libexec/asdf.sh
-. $ASDF_MANUAL_INSTALL_DIR/asdf.sh
+# Installation via brew broke, so using manual configuration instead
+# if [ -d "$(brew --prefix asdf)" ]; then
+#   . $(brew --prefix asdf)/libexec/asdf.sh
+# fi
+if [ -d "$ASDF_MANUAL_INSTALL_DIR" ]; then
+  # This file came from asdf git repo:
+  . $ASDF_MANUAL_INSTALL_DIR/asdf.sh
+fi
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
