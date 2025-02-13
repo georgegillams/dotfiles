@@ -1,8 +1,9 @@
 #!/usr/bin/osascript
 on run argv
-  display notification "It's time to check your battery levels. 🪫 Notification center will open imminently!" with title "🪫 Battery check time!"
-
-  delay 2
+  tell app "System Events" to display dialog "It's time to check your battery levels. 🪫" with title "🪫 Battery check time!" buttons {"Not now", "OK"} default button 1
+  if button returned of result is "Not now" then
+    return
+  end if
 
   tell application "System Events"
         key down 63
