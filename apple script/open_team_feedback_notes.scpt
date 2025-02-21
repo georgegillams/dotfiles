@@ -5,5 +5,5 @@ on run argv
     return
   end if
 
-  do shell script "open -a 'WebStorm' ~/Google\\ Drive/My\\ Drive/2_Areas/Work/Typeform/Performance/Feedback/2025\\ Q3/Given"
+  do shell script "code ~/Google\\ Drive/My\\ Drive/2_Areas/Work/Typeform/Performance/Feedback/2025\\ Q3/Given"
 end run

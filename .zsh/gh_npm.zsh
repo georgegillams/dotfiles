@@ -9,7 +9,7 @@ alias npm-clear-cache='npm cache clean --force && npm cache clear --force && wat
 
 alias yarn-upgrade='yarn set version stable'
 alias yarn-linked="find . -type l | grep -v .bin | grep -v puppeteer | sed 's/^\.\/node_modules\///'"
-alias yarn-unlink-all="rm -f .link && yarn-linked | xargs -I {} yarn unlink {} || true && yarn install --check-files"
+alias yarn-unlink-all="rm -f .link && rm -rf ~/.config/yarn/link && yarn-linked | xargs -I {} yarn unlink {} || true && yarn install --check-files"
 
 function npx-update-browserlist-db() {
   yarnLockChangedSinceMain=$(git diff main --name-status | grep yarn.lock | cut -d\, -f1)
