@@ -5,5 +5,5 @@ on run argv
     return
   end if
 
-  do shell script "code ~/Google\\ Drive/My\\ Drive/2_Areas/Work/Typeform/Performance/Feedback/2025\\ Q3/Given"
+  do shell script "/Users/george.gillams/Library/CloudStorage/GoogleDrive-hello@georgegillams.co.uk/My\\ Drive/2_Areas/Apps/raycast/scripts/feedback.sh"
 end run
