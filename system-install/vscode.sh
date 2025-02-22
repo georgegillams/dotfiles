@@ -1,32 +1,30 @@
 # VSCode extensions
 
-code --install-extension amazonwebservices.aws-toolkit-vscode
-code --install-extension anseki.vscode-color
 code --install-extension christian-kohler.npm-intellisense
-code --install-extension cssho.vscode-svgviewer
+code --install-extension danishsarwar.reverse-search
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
-code --install-extension fabiospampinato.vscode-diff
-code --install-extension fenkinet.swiftui
-code --install-extension figma.figma-vscode-extension
 code --install-extension firsttris.vscode-jest-runner
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
-code --install-extension Garmin.monkey-c
+code --install-extension github.copilot
+code --install-extension github.copilot-chat
 code --install-extension github.vscode-github-actions
-code --install-extension GitHub.vscode-pull-request-github
+code --install-extension github.vscode-pull-request-github
 code --install-extension iulian-radu-at.find-unused-exports
-code --install-extension JannisX11.batch-rename-extension
-code --install-extension Kasik96.swift
-code --install-extension kisstkondoros.vscode-codemetrics
+code --install-extension jannisx11.batch-rename-extension
+code --install-extension juanallo.vscode-dependency-cruiser
+code --install-extension manuelartero.lock-tree
 code --install-extension mateocerquetella.xcode-12-theme
 code --install-extension matthizou.translation-keys-lookup
+code --install-extension mattpocock.ts-error-translator
 code --install-extension mquandalle.graphql
-code --install-extension ms-vscode.cpptools
+code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode.makefile-tools
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension mskelton.npm-outdated
+code --install-extension mxsdev.typescript-explorer
 code --install-extension naumovs.color-highlight
 code --install-extension raymondcamden.htmlescape-vscode-extension
 code --install-extension redhat.vscode-xml
@@ -35,13 +33,14 @@ code --install-extension shd101wyy.markdown-preview-enhanced
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension styled-components.vscode-styled-components
 code --install-extension stylelint.vscode-stylelint
+code --install-extension sz-p.dependencygraph
+code --install-extension unifiedjs.vscode-mdx
 code --install-extension usernamehw.search
-code --install-extension vknabel.vscode-apple-swift-format
+code --install-extension vitest.explorer
 code --install-extension vscodevim.vim
 code --install-extension weijunyu.vscode-json-path
-code --install-extension withfig.fig
 code --install-extension wix.vscode-import-cost
-code --install-extension wmaurer.change-case
-code --install-extension ZainChen.json
+code --install-extension zainchen.json
+
 
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
