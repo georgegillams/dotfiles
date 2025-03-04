@@ -138,6 +138,9 @@ alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
 
 alias goals-and-dreams='run-raycast-script goals'
 
+alias power-cut='system-disable-usb-lan'
+alias power-cut-end='system-enable-usb-lan'
+
 # ========================== PHOTOGRAPHY ==========================
 
 function repeat-until-success() {
