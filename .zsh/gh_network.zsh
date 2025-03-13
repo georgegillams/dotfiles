@@ -3,3 +3,4 @@ alias edgerouter-failover-sensitivity-up='echo "configure"; echo "set load-balan
 alias edgerouter-failover-sensitivity-down='echo "configure"; echo "set load-balance group G interface pppoe0 route-test interval 10"; echo "commit; save; exit"; edgerouter-ssh'
 alias system-disable-usb-lan='run-raycast-script ethernet-disconnect'
 alias system-enable-usb-lan='run-raycast-script ethernet-reconnect'
+alias edgerouter-force-reconnect-pppoe0='echo "configure"; echo "delete interfaces ethernet eth0 pppoe 0 password"; echo "commit"; echo "sleep 3"; echo "set interfaces ethernet eth0 pppoe 0 password $(1p-personal && op item get "Trooli Wireless Router and PPPOE" --field "pppoe password" --reveal)"; echo "commit"; echo "save; exit"; edgerouter-ssh'
