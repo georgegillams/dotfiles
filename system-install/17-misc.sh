@@ -44,17 +44,19 @@ duti -s org.videolan.vlc .m4a all
 duti -s org.videolan.vlc .mp3 all
 duti -s org.videolan.vlc .aac all
 duti -s org.videolan.vlc .wav all
-# duti -s com.jetbrains.webstorm .css all
-duti -s com.microsoft.VSCode .css all
-duti -s com.microsoft.VSCode .scss all
-duti -s com.microsoft.VSCode .sh all
-duti -s com.microsoft.VSCode .zsh all
-duti -s com.microsoft.VSCode .js all
-duti -s com.microsoft.VSCode .ts all
-duti -s com.microsoft.VSCode .jsx all
-duti -s com.microsoft.VSCode .tsx all
-duti -s com.microsoft.VSCode .md all
-duti -s com.microsoft.VSCode .mdx all
-duti -s com.microsoft.VSCode .txt all
-duti -s com.microsoft.VSCode .json all
-duti -s com.microsoft.VSCode .toml all
+duti -s com.todesktop.230313mzl4w4u92 .css all
+duti -s com.todesktop.230313mzl4w4u92 .scss all
+duti -s com.todesktop.230313mzl4w4u92 .sh all
+duti -s com.todesktop.230313mzl4w4u92 .zsh all
+duti -s com.todesktop.230313mzl4w4u92 .js all
+duti -s com.todesktop.230313mzl4w4u92 .ts all
+duti -s com.todesktop.230313mzl4w4u92 .jsx all
+duti -s com.todesktop.230313mzl4w4u92 .tsx all
+duti -s com.todesktop.230313mzl4w4u92 .md all
+duti -s com.todesktop.230313mzl4w4u92 .mdx all
+duti -s com.todesktop.230313mzl4w4u92 .txt all
+duti -s com.todesktop.230313mzl4w4u92 .json all
+duti -s com.todesktop.230313mzl4w4u92 .toml all
+
+# Webstorm: com.jetbrains.webstorm
+# VSCode: com.microsoft.VSCode
