@@ -3,7 +3,7 @@ export MY_PERSONAL_DRIVE="/Users/george.gillams/Library/CloudStorage/GoogleDrive
 
 alias 1p-personal='op signin --account my.1password.com'
 
-alias daily-backup="ge-backup && hrp-backup && boiler-backup && netmon-backup"
+alias daily-backup="ge-backup && hrp-backup && netmon-backup"
 
 alias gg-aws='clone-and-cd georgegillams aws'
 
