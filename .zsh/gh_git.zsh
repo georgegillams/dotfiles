@@ -45,6 +45,9 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
     console.log(\"clicked\");
   }
 }" | pbcopy'
+alias show-me-how-to-repeatedly-click-a-button='echo "setInterval(() => {
+[...document.getElementsByTagName(\"button\")].find(b => b.getAttribute(\"aria-label\") === \"Yes button\")?.click()
+}, 500)" | pbcopy'
 alias git-prepend-branch-name='node ~/Documents/georgegillams/dotfiles/prepend-ticket.js'
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
