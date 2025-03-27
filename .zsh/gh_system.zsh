@@ -111,7 +111,7 @@ alias tmux-exit="tmux-close"
 alias android-shake='$ANDROID_SDK_ROOT/platform-tools/adb shell input keyevent 82'
 alias android-shake-twice='android-shake && sleep 3 && android-shake'
 
-alias arrange-displays-RL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1680x1050 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:5768F6DE-C603-B581-0857-D6964E3302DB res:2560x1440 hz:75 color_depth:8 enabled:true scaling:off origin:(844,-1440) degree:0" "id:5768F6DE-C603-B581-C90B-A2661D91F570 res:2560x1440 hz:75 color_depth:4 enabled:true scaling:off origin:(-1716,-1440) degree:0"'
+alias arrange-displays-RL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1169 hz:120 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:E3C934F6-761F-469E-8F24-5486082F3F6D res:2560x1440 hz:60 color_depth:8 enabled:true scaling:off origin:(940,-1440) degree:0" "id:C8F0D9FB-2989-409F-9ABF-7AA6411F26B2 res:2560x1440 hz:60 color_depth:8 enabled:true scaling:off origin:(-1620,-1440) degree:0"'
 alias arrange-displays-XREAL='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1169 hz:120 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:38E4C915-26AD-4F65-B1CB-2D438803227E res:1920x1080 hz:120 color_depth:8 enabled:true scaling:on origin:(-59,-1080) degree:0"'
 
 function arrange-displays () {
