@@ -50,10 +50,10 @@ alias tgio='tgi && make dev'
 alias gwa='clone-and-cd georgegillams webapp-boilerplate'
 alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
 alias gwa-start-transpile-watch-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"gwa && yarn gg-webapp-transpile:watch\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
-alias gwa-start='gwa && gwa-start-transpile-watch-in-new-tab && yarn dev'
+alias gwa-start='gwa && gwa-start-transpile-watch-in-new-tab && console-ninja yarn dev'
 alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn gg-webapp-install && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias gwa-live-build='gwa && yarn gg-webapp-transpile && yarn gg-webapp-transpile:live'
-alias gwao='gwa && yarn dev'
+alias gwao='gwa && console-ninja yarn dev'
 alias gwa-deploy='gwa && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/webapp-boilerplate/'
 alias gwa-docker-build-image='gwa && docker build -t webapp-boilerplate-test -f Dockerfile.backstopjstest .'
 alias gwa-update-snapshots='gwa && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
@@ -63,7 +63,7 @@ alias gwa-fix-all='gwa && run-concurrently -n test,lint,browserlist "yarn test:u
 
 alias cl='clone-and-cd georgegillams contentful-links'
 alias cls='cl && echo "No setup required"'
-alias clo='cl && yarn dev'
+alias clo='cl && console-ninja yarn dev'
 alias clbuild='cl && yarn build'
 
 alias cardc='clone-and-cd georgegillams card-challenge'
@@ -74,7 +74,7 @@ alias cardc-deploy='cardc && yarn build && zip -r build build && scp -o "StrictH
 alias ge='clone-and-cd georgegillams georgegillams.co.uk'
 alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
-alias geo='ge && yarn dev'
+alias geo='ge && console-ninja yarn dev'
 alias ge-backup='ge && 1p-personal && node scripts/backup-production-data.js --apiKey $(op item get "AWS Private REST API Key" --vault Personal --field password --reveal --cache) --backupsLocation "$MY_PERSONAL_DRIVE/1_Projects/georgegillams.co.uk/backups"'
 alias ge-deploy='ge && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/georgegillams.co.uk/'
 alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
@@ -83,19 +83,19 @@ alias ge-fix-all='ge && run-concurrently -n test,lint,browserlist "yarn test -u"
 
 alias ihh='clone-and-cd georgegillams isithappyhour.net'
 alias ihhs='ihh && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
-alias ihho='ihh && yarn dev'
+alias ihho='ihh && console-ninja yarn dev'
 alias ihh-fix-all='ihh && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 
 alias hrp='clone-and-cd georgegillams hyroxrelayplanner.com'
 alias hrps='hrp && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
-alias hrpo='hrp && yarn dev'
+alias hrpo='hrp && console-ninja yarn dev'
 alias hrp-fix-all='hrp && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 alias hrp-backup='hrp && 1p-personal && node scripts/backup-production-data.js --apiKey $(op item get "AWS Private REST API Key" --vault Personal --field password --reveal --cache) --backupsLocation "$MY_PERSONAL_DRIVE/1_Projects/Hyrox Relay Planner/backups"'
 
 alias ggc='clone-and-cd georgegillams components'
 alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
-alias ggco='ggc && yarn dev'
+alias ggco='ggc && console-ninja yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'
 alias ggc-live-build='ggc && yarn transpile && yarn transpile:js:live'
 alias ggc-link-live-to-this-project='yellow "Ensure you are already running ggc-live-build alongside this app" && (cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && yarn link react && yarn link react-dom && cd dist && yarn link) && yarn link @george-gillams/components'
@@ -117,18 +117,18 @@ alias mego='meg && open MyEventGuide.xcodeproj'
 
 alias boiler='clone-and-cd georgegillams boiler-server'
 alias boilers='boiler && yarn'
-alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & yarn start'
+alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & console-ninja yarn start'
 alias boiler-deploy='boiler && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/boiler-server'
 alias boiler-backup='curl http://192.168.1.96:3000/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
 
 alias ant='clone-and-cd georgegillams ant-ics'
 alias ants='ant && yarn'
-alias anto='ant && (sleep 1 && open http://localhost:8080/logs) & yarn start'
+alias anto='ant && (sleep 1 && open http://localhost:8080/logs) & console-ninja yarn start'
 alias ant-deploy='ant && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.0.98:/home/pi/Documents/georgegillams/ant-ics'
 
 alias netmon='clone-and-cd georgegillams network-monitor'
 alias netmons='netmon && yarn'
-alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
+alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & console-ninja yarn start'
 alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/network-monitor'
 alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
 
@@ -146,21 +146,19 @@ alias ethernet-reconnect='system-enable-usb-lan'
 function repeat-until-success() {
   local max_tries=24
   local try=1
-  while [ $try -le $max_tries ]
-    do
-      if eval "$@"; then
-        break
-      else
-        sleep 5
+  while [ $try -le $max_tries ]; do
+    if eval "$@"; then
+      break
+    else
+      sleep 5
     fi
   done
 }
 
 function eject-SD-card() {
-if [[ -d /Volumes/$@ ]]
-then
-  repeat-until-success "diskutil eject $@"
-fi
+  if [[ -d /Volumes/$@ ]]; then
+    repeat-until-success "diskutil eject $@"
+  fi
 }
 
 function try-eject-SD-cards() {
@@ -169,20 +167,19 @@ function try-eject-SD-cards() {
 }
 
 function copy-images-from-SD-given-directory() {
-if [[ -d $@ ]]
-then
-  open "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/"
-  mkdir -p $@/GOT
-  echo "Copying photos..."
-  find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
-  echo "Move copied files to GOT..."
-  # find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
-  open $@/
-  echo "Press any key when done"
-  read
-  echo "Ejecting card..."
-  try-eject-SD-cards
-fi
+  if [[ -d $@ ]]; then
+    open "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/"
+    mkdir -p $@/GOT
+    echo "Copying photos..."
+    find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
+    echo "Move copied files to GOT..."
+    # find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
+    open $@/
+    echo "Press any key when done"
+    read
+    echo "Ejecting card..."
+    try-eject-SD-cards
+  fi
 }
 
 function copy-SD-card-images() {

@@ -12,7 +12,7 @@ on run argv
   tell application "Gmail" to activate
   
   # open Gmail Typeform
-  tell application "Gmail Typeform" to activate
+  tell application "/Users/george.gillams/Applications/Gmail Typeform.app" to activate
 
   # open WhatsApp
   tell application "WhatsApp" to activate

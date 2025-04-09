@@ -261,3 +261,5 @@ info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
+
+PATH=~/.console-ninja/.bin:$PATH

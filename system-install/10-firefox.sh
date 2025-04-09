@@ -1,7 +1,7 @@
 # Copy firefox chrome.css to profile directories:
 open /Applications/Firefox\ Developer\ Edition.app/
 echo "Sign in"
-echo "Open about:config and turn off browser.gesture.swipe.left and browser.gesture.swipe.right"
+echo "Open about:config and turn off browser.gesture.swipe.left, browser.gesture.swipe.right, and browser.urlbar.trimURLs"
 echo "Then close Firefox"
 echo "Press any key once complete"
 read
