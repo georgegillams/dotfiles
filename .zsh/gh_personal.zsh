@@ -164,6 +164,7 @@ function eject-SD-card() {
 function try-eject-SD-cards() {
   eject-SD-card "EOS_DIGITAL"
   eject-SD-card "DJI_DIGITAL"
+  eject-SD-card "SD_Card"
 }
 
 function copy-images-from-SD-given-directory() {
@@ -173,7 +174,7 @@ function copy-images-from-SD-given-directory() {
     echo "Copying photos..."
     find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
     echo "Move copied files to GOT..."
-    # find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
+    find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
     open $@/
     echo "Press any key when done"
     read
@@ -187,4 +188,5 @@ function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/EOS_DIGITAL/DCIM/101EOS_R"
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/101MEDIA"
+  copy-images-from-SD-given-directory "/Volumes/SD_Card/DCIM/DJI_001"
 }
