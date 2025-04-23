@@ -21,7 +21,8 @@ function gh-create-pr-web-if-none() {
   fi;
 }
 
-alias gh-cancel-pr-jobs='node ~/Documents/georgegillams/dotfiles/gh-cancel-jobs.js'
+alias IMPLEMENTATION-gh-cancel-pr-jobs='node ~/Documents/georgegillams/dotfiles/gh-cancel-jobs.js'
+alias gh-cancel-pr-jobs='IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs'
 
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
 alias git-show-me-how-to-unfold-all-rich-diffs='echo "const toClick = document.querySelectorAll(\`[aria-label=\"Display the rich diff\"]\`);
