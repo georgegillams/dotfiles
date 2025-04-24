@@ -133,6 +133,8 @@ alias open-code-editor='code'
 alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
+alias premiere-install-LUTs='cd ~/Library/Application\ Support/Adobe/Common/LUTs && mkdir -p Creative Technical && open ./'
+alias delete-lrf-files='find . -name "*.lrf" -exec rm -rf {} \;'
 
 function load-nvmrc() {
   if [[ ! -f .tool-versions && -f .nvmrc && -r .nvmrc ]]; then
