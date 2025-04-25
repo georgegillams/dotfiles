@@ -190,3 +190,5 @@ function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/101MEDIA"
   copy-images-from-SD-given-directory "/Volumes/SD_Card/DCIM/DJI_001"
 }
+
+alias cursor-backup='cp -R ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt'
