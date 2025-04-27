@@ -13,9 +13,16 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 # echo "npm login"
 # npm login
 
-# echo "NOW INSTALL MANUALLY ☹️"
-# echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
+echo "NOW INSTALL MANUALLY ☹️"
+
+if [[ $setup_type == "PERSONAL" ]]; then
+  echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
 # open /usr/local/Caskroom/canon-eos-utility/*/*.app
+fi
+
+if [[ $setup_type == "PERSONAL" ]]; then
+  echo "Sigma Optimization => https://www.sigma-global.com/en/support/software/sigma-optimization-pro/?os=mac"
+fi
 
 installDir=$(pwd)
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
@@ -27,15 +34,11 @@ read
 rm -rf Nord.itermcolors
 cd $installDir
 
-# echo "Obs Studio => https://obsproject.com/download"
-# open https://obsproject.com/download
-# open https://obsproject.com/forum/resources/move.913/
+echo "Obs Studio => https://obsproject.com/download"
+echo "Obs studio move plugin => https://obsproject.com/forum/resources/move.913/"
 
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
-
-echo "Nebula => https://www.xreal.com/ar/"
-open https://www.xreal.com/ar/
 
 # Set default apps for file types
 # Hint: to find the app id use:
