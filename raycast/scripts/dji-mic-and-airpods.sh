@@ -13,4 +13,4 @@
 # @raycast.authorURL https://www.georgegillams.co.uk/
 
 # open /Applications/OBSBOT_WebCam.app
-SwitchAudioSource -s "DJI Microphone" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output
+SwitchAudioSource -s "DJI MIC MINI" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output
