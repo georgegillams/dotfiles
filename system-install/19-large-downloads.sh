@@ -1,4 +1,4 @@
-setup_type=$(cat ~/Desktop/setup_type.txt)
+. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
 
 if [[ $setup_type == "WORK" ]]; then
   brew install --cask blender
