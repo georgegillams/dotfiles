@@ -3,7 +3,7 @@ echo "Sign in to the AppStore. Press enter when complete"
 open '/System/Applications/App Store.app'
 read
 
-setup_type=$(cat ~/Desktop/setup_type.txt)
+. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
 
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 

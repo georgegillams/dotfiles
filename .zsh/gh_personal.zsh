@@ -16,7 +16,18 @@ alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && gi
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
 # alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_TF_DRIVE/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
 alias dotfiles-pull-zshrc='dotfiles && gml && cp .zshrc ~/ && cp .zsh/* ~/.zsh/'
-alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_PERSONAL_DRIVE/2_Areas/Work/Typeform/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
+function dotfiles-save-zshrc() {
+  dotfiles
+  cp ~/.zshrc ./
+  cp ~/.zsh/gh_* ./.zsh/
+  if [[ -f ~/.zsh/typeform.zsh ]]; then
+    cp ~/.zsh/typeform.zsh $MY_PERSONAL_DRIVE/2_Areas/Work/Typeform/.zsh/typeform.zsh
+  fi
+  gd
+  sleep 2
+  gaa
+  gcmpchore "Update ZSHRC"
+}
 alias dotfiles-save-launchd='dotfiles && cp /Library/LaunchDaemons/uk.co.georgergillams.* ./resources/Launch/LaunchDaemons && cp /Users/george.gillams/Library/LaunchAgents/uk.co.georgergillams.* ./resources/Launch/LaunchAgents/ && gd && sleep 2 && gaa && gcmpchore "Update launchd"'
 alias dotfiles-save-cron='dotfiles && crontab -l > ./resources/crontab && sleep 2 && gaa && gcmpchore "Update crontab"'
 alias dotfiles-save-vimrc='dotfiles && cp ~/.vimrc ./ && gaa && gcmpchore "Update VIMRC"'
@@ -165,6 +176,7 @@ function try-eject-SD-cards() {
   eject-SD-card "EOS_DIGITAL"
   eject-SD-card "DJI_DIGITAL"
   eject-SD-card "SD_Card"
+  eject-SD-card "Untitled"
 }
 
 function copy-images-from-SD-given-directory() {
@@ -189,6 +201,12 @@ function copy-SD-card-images() {
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/100MEDIA"
   copy-images-from-SD-given-directory "/Volumes/DJI_DIGITAL/DCIM/101MEDIA"
   copy-images-from-SD-given-directory "/Volumes/SD_Card/DCIM/DJI_001"
+  copy-images-from-SD-given-directory "/Volumes/Untitled/Movies"
 }
 
-alias cursor-backup='cp -R ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt'
+function cursor-backup() {
+  . ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+  if [[ $setup_type == "WORK" ]]; then
+    cp -R ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt
+  fi
+}

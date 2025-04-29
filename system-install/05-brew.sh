@@ -1,6 +1,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-setup_type=$(cat ~/Desktop/setup_type.txt)
+. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
 
 echo "Ensure you do anything that brew has asked following installation"
 echo "If brew is asking you to do the following, just press return and it will be done for you."
@@ -41,6 +41,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install --cask soundflower
 # brew install --cask telegram
 # brew install --cask usr-sse2-rdm # for forcing monitor resolution
+# brew install --cask visual-studio-code
 # brew install --cask wireshark
 # brew install ack # CLI search
 # brew install applesimutils # For detox testing
@@ -66,6 +67,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install w3m
 brew install --cask 1password
 brew install --cask bartender
+brew install --cask cursor
 brew install --cask daisydisk
 brew install --cask figma
 brew install --cask firefox@developer-edition
@@ -83,7 +85,6 @@ brew install --cask rocket
 brew install --cask the-unarchiver
 brew install --cask ticktick
 brew install --cask topaz-photo-ai
-brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask whatsapp
 brew install 1password-cli
