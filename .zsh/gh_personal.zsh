@@ -176,7 +176,7 @@ function try-eject-SD-cards() {
   eject-SD-card "EOS_DIGITAL"
   eject-SD-card "DJI_DIGITAL"
   eject-SD-card "SD_Card"
-  eject-SD-card "Untitled"
+  eject-SD-card "disk4s1"
 }
 
 function copy-images-from-SD-given-directory() {
