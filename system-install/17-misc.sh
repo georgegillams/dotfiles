@@ -2,8 +2,9 @@
 sudo mkdir -p /Library/Filters/
 sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
 
-# Enable press-and-hold typing in VSCode
+# Enable press-and-hold typing in VSCode and cursor
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.todesktop.230313mzl4w4u92 ApplePressAndHoldEnabled -bool false
 
 # Add heic to jpg workflow
 # open ../resources/HEIC\ to\ JPG.workflow
