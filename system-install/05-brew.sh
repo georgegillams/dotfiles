@@ -65,6 +65,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install swiftlint
 # brew install the_silver_searcher
 # brew install w3m
+
 brew install --cask 1password
 brew install --cask bartender
 brew install --cask cursor
@@ -77,6 +78,7 @@ brew install --cask gpg-suite
 brew install --cask handbrake
 brew install --cask imageoptim
 brew install --cask iterm2
+brew install --cask launchcontrol
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
 brew install --cask raycast
@@ -89,11 +91,13 @@ brew install --cask vlc
 brew install --cask whatsapp
 brew install 1password-cli
 brew install bat
+brew install blackhole-16ch
 brew install cloc # count lines of code
 brew install coreutils
 brew install duti
 brew install exiftool # photo meta-data editing
 brew install ffmpeg
+brew install fzf # fuzzy finder for CLI tab completion
 brew install gh
 brew install git
 brew install gnupg gnupg2
