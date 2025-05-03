@@ -31,6 +31,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install --cask grandperspective
 # brew install --cask homebrew/cask-drivers/canon-eos-utility
 # brew install --cask homebrew/cask-drivers/garmin-express
+# brew install --cask jellyfin
 # brew install --cask keycastr
 # brew install --cask meetingbar
 # brew install --cask neat # github notifications
@@ -141,7 +142,6 @@ fi
 
 if [[ $setup_type == "PERSONAL" ]]; then
   brew install --cask displaylink
-  brew install --cask jellyfin
   brew install --cask makemkv
   brew install --cask mechvibes
   brew install --cask utm
