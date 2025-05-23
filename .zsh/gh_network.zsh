@@ -4,6 +4,7 @@ alias edgerouter-failover-sensitivity-down='echo "configure"; echo "set load-bal
 alias system-disable-usb-lan='run-raycast-script ethernet-disconnect'
 alias system-enable-usb-lan='run-raycast-script ethernet-reconnect'
 alias edgerouter-force-reconnect-pppoe0='echo ". /config/scripts/reset-trooli-pppoe.sh"; edgerouter-ssh'
+alias edgerouter-force-reconnect-pppoe1='echo ". /config/scripts/reset-bt-pppoe.sh"; edgerouter-ssh'
 alias controld-open-clients='open -a Safari "https://controld.com/dashboard/endpoints/$(1p-personal && op item get "Control D" --field "endpoint id" --reveal)/clients"'
 alias controld-allow-typeform-tracking='run-raycast-script-drive typeform-tracking-allow'
 alias controld-block-typeform-tracking='run-raycast-script-drive typeform-tracking-disallow'

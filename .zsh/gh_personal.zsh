@@ -207,6 +207,6 @@ function copy-SD-card-images() {
 function cursor-backup() {
   . ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
   if [[ $setup_type == "WORK" ]]; then
-    cp -R ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt
+    rsync -av --exclude='History' ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt
   fi
 }
