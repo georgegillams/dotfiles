@@ -88,10 +88,20 @@ function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | gr
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
   newBranchName=$1
-  git branch -m $newBranchName && git push origin :$oldBranchName $newBranchName && git push origin -u $newBranchName
+  git branch -m $newBranchName
+  git push origin :$oldBranchName $newBranchName
+  git push origin -u $newBranchName
 }
 function git-delete-tag() {
   git push --delete origin $@ & git tag -d $@
+}
+function git-create-tag() {
+  git tag $@
+  git push --tags
+}
+function git-create-note-for-beta-semantic-release() {
+  git notes --ref semantic-release add -f -m '{"channels":["beta"]}' $@
+  git push --force origin refs/notes/semantic-release
 }
 alias gclean='git clean -xdf'
 alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
@@ -106,6 +116,8 @@ function git-diff() { eval "git diff $@" }
 alias gh-auto-merge='gh pr merge --auto --squash'
 alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
 alias gh-pr-ready='gh pr ready'
+
+alias gh-push-to-beta='git push origin HEAD:beta --force'
 
 function cd-if-necessary() {
   if [[ "$(pwd)" != "$1" ]]; then
