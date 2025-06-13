@@ -210,3 +210,15 @@ function cursor-backup() {
     rsync -av --exclude='History' ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt
   fi
 }
+
+function vimex() {
+    local temp_file=$(mktemp)
+    vim "$temp_file"
+    if [ -s "$temp_file" ]; then # Check if the file is not empty
+        chmod +x "$temp_file" # Make it executable
+        "$temp_file"
+    else
+        echo "No content to execute."
+    fi
+    rm "$temp_file"
+}
