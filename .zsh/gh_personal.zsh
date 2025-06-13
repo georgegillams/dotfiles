@@ -222,3 +222,19 @@ function vimex() {
     fi
     rm "$temp_file"
 }
+
+function cursorex() {
+    local temp_file=$(mktemp)
+    cursor "$temp_file"
+    # Wait for changes to file
+    fswatch -o "$temp_file" | while read; do
+      if [ -s "$temp_file" ]; then # Check if the file is not empty
+          chmod +x "$temp_file" # Make it executable
+          "$temp_file"
+          break
+      else
+          echo "No content to execute."
+      fi
+    done
+    rm "$temp_file"
+}
