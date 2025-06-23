@@ -16,7 +16,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
 # brew tap homebrew/cask
-brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
+# brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 # brew tap homebrew/cask-versions && brew install --cask java8
 brew tap wix/brew
 
