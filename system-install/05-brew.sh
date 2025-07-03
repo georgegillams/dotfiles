@@ -82,12 +82,12 @@ brew install --cask iterm2
 brew install --cask launchcontrol
 brew install --cask microsoft-excel
 brew install --cask microsoft-word
+brew install --cask proxyman
 brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask rocket
 brew install --cask the-unarchiver
 brew install --cask ticktick
-brew install --cask topaz-photo-ai
 brew install --cask vlc
 brew install --cask whatsapp
 brew install 1password-cli
@@ -144,6 +144,7 @@ if [[ $setup_type == "PERSONAL" ]]; then
   brew install --cask displaylink
   brew install --cask makemkv
   brew install --cask mechvibes
+  brew install --cask topaz-photo-ai
   brew install --cask utm
   brew install libdvdcss
 fi
