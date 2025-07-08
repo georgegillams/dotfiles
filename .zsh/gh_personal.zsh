@@ -147,6 +147,10 @@ alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'
 alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
 
+alias dsc='clone-and-cd georgegillams ai-hero-deepsearch-course'
+alias dscs='dsc && yarn'
+alias dsco='yarn start'
+
 alias goals-and-dreams='run-raycast-script goals'
 
 alias ethernet-disconnect='system-disable-usb-lan'
