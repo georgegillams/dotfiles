@@ -109,6 +109,8 @@ alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 alias git-disable-gpg='(git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program) || true'
 alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
+alias git-status-count='git status --porcelain | wc -l'
+alias git-status-count-except-nvmrc-tool-version='git status --porcelain | grep -v -E "(\.nvmrc|\.tool-versions)" | wc -l'
 
 # Allows us to use git diff with file-path autocomplete
 function git-diff() { eval "git diff $@" }

@@ -136,7 +136,7 @@ alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -
 alias premiere-install-LUTs='cd ~/Library/Application\ Support/Adobe/Common/LUTs && mkdir -p Creative Technical && open ./'
 alias delete-lrf-files='find . -name "*.LRF" -exec rm -rf {} \; && find . -name "*.SRT" -exec rm -rf {} \;'
 
-function load-nvmrc() {
+function migrate-nvmrc() {
   if [[ ! -f .tool-versions && -f .nvmrc && -r .nvmrc ]]; then
     echo "nodejs $(cat .nvmrc)" > .tool-versions
     rm .nvmrc
@@ -228,7 +228,7 @@ info "bun initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
-  load-nvmrc
+  # migrate-nvmrc
   load-asdf
   # load-rvmrc
 }
