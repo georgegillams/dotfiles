@@ -149,7 +149,7 @@ alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
 
 alias dsc='clone-and-cd georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
 alias dscs='dsc && yarn'
-alias dsco='yarn start'
+alias dsco='./start-database.sh && ./start-redis.sh && yarn dev'
 
 alias goals-and-dreams='run-raycast-script goals'
 
