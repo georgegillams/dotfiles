@@ -126,11 +126,10 @@ alias meg='clone-and-cd georgegillams my-event-guide'
 alias megs='meg && echo "No setup required"'
 alias mego='meg && open MyEventGuide.xcodeproj'
 
-alias boiler='clone-and-cd georgegillams boiler-server'
+alias boiler='clone-and-cd georgegillams boiler-ai'
 alias boilers='boiler && yarn'
 alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & console-ninja yarn start'
-alias boiler-deploy='boiler && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/boiler-server'
-alias boiler-backup='curl http://192.168.1.96:3000/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Boiler hot water issue/Boiler restart logs/$(date).txt"'
+alias boiler-deploy='boiler && yarn build && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.104:/home/pi/Documents/georgegillams/boiler-ai'
 
 alias ant='clone-and-cd georgegillams ant-ics'
 alias ants='ant && yarn'
