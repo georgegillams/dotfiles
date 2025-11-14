@@ -63,7 +63,7 @@ else
   export EDITOR='vim'
 fi
 
-export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:~/go/bin/:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
