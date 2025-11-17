@@ -41,11 +41,23 @@ function green() {
 }
 
 function info() {
-  blue $@
+  blue "[INFO] $@"
 }
 
 function info-secondary() {
-  purple $@
+  purple "[INFO] $@"
+}
+
+function success() {
+  green "[SUCCESS] $@"
+}
+
+function warn() {
+  yellow "[WARN] $@"
+}
+
+function error() {
+  red "[ERROR] $@"
 }
 
 export ZSH=$HOME/.oh-my-zsh
