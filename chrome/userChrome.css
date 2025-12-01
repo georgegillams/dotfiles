@@ -1,43 +1,43 @@
-/* Start: Hide tabs whilst preserving window controls */
+/* #region Hide tabs whilst preserving window controls */
 /* https://github.com/Timvde/UserChrome-Tweaks/blob/master/tabs/hide-tabs-macos.css */
-#titlebar {
+/* #titlebar {
   visibility: collapse;
-}
+} */
 
 /* Position window controls */
-#TabsToolbar .titlebar-buttonbox-container {
+/* #TabsToolbar .titlebar-buttonbox-container {
   display: block;
   position: absolute;
   visibility: visible;
-}
+} */
 
 /* Reposition the close/maximize/minimize buttons for the "normal" toolbar density  */
 /* When the UI density is set to "normal", the `uidensity` attribute is undefined.  */
 /* `window.document.documentElement.getAttribute("uidensity")` will be null.        */
-:root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container {
+/* :root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container {
   margin-left: 12px;
   margin-top: 12px;
-}
+} */
 
 /* Reposition the close/maximize/minimize buttons for the "compact" toolbar density */
-:root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container {
+/* :root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container {
   margin-left: 10px;
   margin-top: 9px;
-}
+} */
 
-#TabsToolbar .titlebar-buttonbox.titlebar-color {
+/* #TabsToolbar .titlebar-buttonbox.titlebar-color {
   margin-left: 0px !important;
-}
-/* End: Hide tabs whilst preserving window controls */
+} */
+/* #endregion Hide tabs whilst preserving window controls */
 
 /* move nav panel in to prevent covering window controls */
-#nav-bar-customization-target {
+/* #nav-bar-customization-target {
   padding-left: 68px;
-}
+} */
 
-#sidebar-header {
+/* #sidebar-header {
   display: none !important;
-}
+} */
 
 /* center URL bar */
 #urlbar:not([focused]) {
