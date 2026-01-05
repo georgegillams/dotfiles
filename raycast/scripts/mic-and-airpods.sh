@@ -14,3 +14,4 @@
 
 # open /Applications/OBSBOT_WebCam.app
 SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output
+shortcuts run 'Video lights on'
