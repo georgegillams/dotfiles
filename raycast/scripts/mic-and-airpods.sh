@@ -13,5 +13,6 @@
 # @raycast.authorURL https://www.georgegillams.co.uk/
 
 # open /Applications/OBSBOT_WebCam.app
+shortcuts run 'Shortcut - Video lights on'
+osascript -e 'tell application "Music" to pause'
 SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Pro" -t output
-shortcuts run 'Video lights on'
