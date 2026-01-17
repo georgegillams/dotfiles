@@ -12,4 +12,13 @@ on run argv
     tell application "Anybox" to activate
     tell application "Anybox" to set miniaturized of windows to true
   end if
+
+  if application "BetterTouchTool" is not running then
+    tell application "BetterTouchTool" to activate
+  end if
+
+  if application "Stream Deck" is not running then
+    tell application "Stream Deck" to activate
+  end if
+
 end run
