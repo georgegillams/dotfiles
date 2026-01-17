@@ -155,6 +155,11 @@ alias goals-and-dreams='run-raycast-script goals'
 alias ethernet-disconnect='system-disable-usb-lan'
 alias ethernet-reconnect='system-enable-usb-lan'
 
+alias sd='clone-and-cd georgegillams stream-deck-script-state'
+alias sds='sd && yarn'
+alias sdo='sd && sd-link && yarn watch'
+alias sd-link='rm -rf ~/Library/Application\ Support/com.elgato.StreamDeck/Plugins/uk.co.georgegillams* || true && streamdeck dev && (cd uk.co.georgegillams.script-state.sdPlugin && streamdeck link)'
+
 # ========================== PHOTOGRAPHY ==========================
 
 function repeat-until-success() {
