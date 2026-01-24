@@ -1,3 +1,3 @@
 #!/bin/bash
 
-shortcuts run "Shortcut - Boost study"
+/usr/bin/shortcuts run "Scene.Heat.Study"

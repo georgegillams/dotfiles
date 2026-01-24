@@ -1,4 +1,4 @@
 #!/bin/bash
 
-shortcuts run "Shortcut - Video lights off"
+/usr/bin/shortcuts run "Shortcut - Video lights off"
 pmset sleepnow
