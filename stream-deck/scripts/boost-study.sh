@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/shortcuts run "Scene.Heat.Study"
+/usr/bin/shortcuts run "Scene.Warm.Study"
