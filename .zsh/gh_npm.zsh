@@ -19,3 +19,5 @@ function npx-update-browserlist-db() {
     npx -y update-browserslist-db@latest
   fi
 }
+
+alias npm-check-updates-"npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer"
