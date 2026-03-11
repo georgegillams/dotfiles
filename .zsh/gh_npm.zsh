@@ -20,4 +20,4 @@ function npx-update-browserlist-db() {
   fi
 }
 
-alias npm-check-updates='npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer,resolutions'
+alias npm-check-updates='rm -rf .npmrc && npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer,resolutions'
