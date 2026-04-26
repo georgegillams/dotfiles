@@ -20,4 +20,16 @@ function npx-update-browserlist-db() {
   fi
 }
 
-alias npm-check-updates='rm -rf .npmrc && npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer,resolutions'
+function loop() {
+  local times="$1"
+  shift  # Remove the first argument (times)
+  for i in $(seq 1 $times); do
+    "$@"  # Execute all remaining arguments as the command
+  done
+}
+
+
+function npm-check-updates() {
+  rm -rf .npmrc
+  loop 3 npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer,resolutions "$@"
+}
