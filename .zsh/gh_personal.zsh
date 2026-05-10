@@ -192,7 +192,7 @@ function copy-images-from-SD-given-directory() {
     open "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/"
     mkdir -p $@/GOT
     echo "Copying photos..."
-    find $@ -type f -maxdepth 1 -execdir cp "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
+    find $@ -type f -maxdepth 1 -execdir cp --preserve=timestamps "{}" "$MY_PERSONAL_DRIVE/2_Areas/Photography/Pictures/import/" ";"
     echo "Move copied files to GOT..."
     find $@ -type f -maxdepth 1 -execdir mv "{}" $@/GOT/ ";"
     open $@/
