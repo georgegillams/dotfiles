@@ -15,8 +15,8 @@ on run argv
   tell application "/Users/george.gillams/Applications/Gmail Typeform.app" to activate
 
   # open WhatsApp
-  tell application "WhatsApp" to activate
+  # tell application "WhatsApp" to activate
 
   # open Messages
-  tell application "Messages" to activate
+  # tell application "Messages" to activate
 end run

@@ -122,15 +122,19 @@ if [[ $setup_type == "WORK" ]]; then
   brew install --cask betterdisplay
   brew install --cask charles
   brew install --cask docker
+  brew install --cask elgato-stream-deck
   brew install --cask notion
+  brew install --cask obsidian
   brew install --cask postman
   brew install --cask screen-studio
   brew install --cask slack
   brew install awscli
+  brew install claude
   brew install cmake
   brew install cookiecutter
   brew install docker
   brew install docker-compose
+  brew install golangci-lint
   brew install jq # needed for tf-cli
   brew install kubectx
   brew install kubernetes-cli
