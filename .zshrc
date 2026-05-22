@@ -137,11 +137,11 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 
 # alias open-code-editor='open -a "WebStorm"'
-if [ -x "$(which cursor)" ]; then
-  alias open-code-editor='cursor'
-else
+# if [ -x "$(which cursor)" ]; then
+#   alias open-code-editor='cursor'
+# else
   alias open-code-editor='code'
-fi
+# fi
 alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
