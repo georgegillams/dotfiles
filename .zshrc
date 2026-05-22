@@ -276,7 +276,7 @@ if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
-PATH=~/.console-ninja/.bin:$PATH
+
 export PATH="/Users/george.gillams/.local/bin:$PATH"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
