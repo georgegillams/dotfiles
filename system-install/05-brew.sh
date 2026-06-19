@@ -110,6 +110,7 @@ brew install mas # CLI apps store
 brew install nvm
 brew install python3
 brew install redis
+brew install rtk
 brew install switchaudio-osx
 brew install tree
 brew install vim
@@ -117,7 +118,7 @@ brew install wget
 brew install yarn
 brew install zsh zsh-completions
 
-if [[ $setup_type == "WORK" ]]; then
+if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install --cask aws-vpn-client
   brew install --cask betterdisplay
   brew install --cask charles
@@ -144,7 +145,7 @@ if [[ $setup_type == "WORK" ]]; then
   brew install watchman
 fi
 
-if [[ $setup_type == "PERSONAL" ]]; then
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask displaylink
   brew install --cask makemkv
   brew install --cask mechvibes

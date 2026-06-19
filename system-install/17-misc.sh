@@ -16,12 +16,12 @@ defaults write com.todesktop.230313mzl4w4u92 ApplePressAndHoldEnabled -bool fals
 
 echo "NOW INSTALL MANUALLY ☹️"
 
-if [[ $setup_type == "PERSONAL" ]]; then
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "EOS Utility => https://www.canon.co.uk/support/consumer_products/software/eos-utility.html"
 # open /usr/local/Caskroom/canon-eos-utility/*/*.app
 fi
 
-if [[ $setup_type == "PERSONAL" ]]; then
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "Sigma Optimization => https://www.sigma-global.com/en/support/software/sigma-optimization-pro/?os=mac"
 fi
 
@@ -40,6 +40,13 @@ echo "Obs studio move plugin => https://obsproject.com/forum/resources/move.913/
 
 echo "Obsbot => https://www.obsbot.com/download/"
 open https://www.obsbot.com/download/
+
+if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
+  echo "Install Claude code"
+  echo "Press any key once complete"
+  read
+  rtk init -g
+fi
 
 # Set default apps for file types
 # Hint: to find the app id use:

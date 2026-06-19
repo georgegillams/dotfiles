@@ -20,6 +20,6 @@ mas install 6450280202 # Day Progress
 mas install 6754022187 # Menu Drop
 # mas install 1524540481 # Widgy Widgets
 
-if [[ $setup_type == "WORK" ]]; then
+if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   mas install 1470584107 # Dato
 fi

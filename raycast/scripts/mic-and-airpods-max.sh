@@ -16,4 +16,3 @@
 shortcuts run 'SetState.Activate.VideoLights'
 osascript -e 'tell application "Music" to pause'
 SwitchAudioSource -s "RØDE VideoMic GO II" -t input & SwitchAudioSource -s "George’s AirPods Max" -t output
-open /Applications/OBSBOT_Center.app/
