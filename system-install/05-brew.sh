@@ -15,14 +15,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
+# Not currently used, but useful apps to have in the future
+
 # brew tap homebrew/cask
 # brew tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 # brew tap homebrew/cask-versions && brew install --cask java8
-brew tap wix/brew
-
-brew tap clementtsang/bottom && brew install bottom # graphical process/system monitor. Run with `btm`
-brew tap jakehilborn/jakehilborn && brew install displayplacer
-brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
+# brew tap clementtsang/bottom && brew install bottom # graphical process/system monitor. Run with `btm`
+# brew tap jakehilborn/jakehilborn && brew install displayplacer
+# brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
 
 # brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 # brew install --cask burp-suite
@@ -46,6 +46,7 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install --cask wireshark
 # brew install ack # CLI search
 # brew install applesimutils # For detox testing
+# brew install audiowaveform
 # brew install brightness
 # brew install chisel
 # brew install clang-format
@@ -54,7 +55,6 @@ brew tap samwho/spacer && brew install spacer # improved terminal output for lon
 # brew install git-delta
 # brew install glances
 # brew install golang
-# brew install lazydocker
 # brew install lolcat
 # brew install lynx
 # brew install macvim
@@ -91,26 +91,31 @@ brew install --cask ticktick
 brew install --cask vlc
 brew install --cask whatsapp
 brew install 1password-cli
+brew install asdf
 brew install bat
 brew install blackhole-16ch
 brew install cloc # count lines of code
 brew install coreutils
+brew install curl
 brew install duti
 brew install exiftool # photo meta-data editing
 brew install ffmpeg
+brew install fswatch
 brew install fzf # fuzzy finder for CLI tab completion
 brew install gh
 brew install git
-brew install gnupg gnupg2
-brew install gpg gpg2 gnupg gnupg2
+brew install gnupg
 brew install htop
 brew install imagemagick
 brew install imageoptim-cli
+brew install iperf3
 brew install mas # CLI apps store
+brew install neovim
 brew install nvm
-brew install python3
+brew install python@3.11
 brew install redis
 brew install rtk
+brew install sox
 brew install switchaudio-osx
 brew install tree
 brew install vim
@@ -135,11 +140,15 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install cookiecutter
   brew install docker
   brew install docker-compose
+  brew install docker-credential-helper-ecr
+  brew install gofumpt
   brew install golangci-lint
   brew install jq # needed for tf-cli
   brew install kubectx
   brew install kubernetes-cli
+  brew install lazydocker
   brew install libpq && brew link --force libpq # postgresql
+  brew install postgresql@16
   brew install siege
   brew install tmux
   brew install watchman
@@ -153,5 +162,3 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask utm
   brew install libdvdcss
 fi
-
-brew unlink gnupg && brew link --overwrite gnupg2

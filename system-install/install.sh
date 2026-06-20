@@ -32,3 +32,4 @@
 (bash ./19-onboard-all-apps.sh)
 (. ./21-login-items-and-permissions.sh)
 (. ./22-webstorm.sh)
+(. ./23-rust.sh)
