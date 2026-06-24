@@ -144,7 +144,7 @@ alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIV
 
 alias sck='clone-and-cd georgegillams software-chording-keyboard'
 alias scks='sck'
-alias scko='sck && open Software\ Chording\ Keyboard.xcodeproj'
+alias scko='sck && open Chorder.xcodeproj'
 
 alias dsc='clone-and-cd georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
 alias dscs='dsc && yarn'
