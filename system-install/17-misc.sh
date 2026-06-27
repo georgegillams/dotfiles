@@ -1,3 +1,5 @@
+. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+
 # Export PDF option
 sudo mkdir -p /Library/Filters/
 sudo cp ../resources/Reduce\ File\ Size\ a\ Bit.qfilter /Library/Filters/
@@ -35,11 +37,13 @@ read
 rm -rf Nord.itermcolors
 cd $installDir
 
-echo "Obs Studio => https://obsproject.com/download"
-echo "Obs studio move plugin => https://obsproject.com/forum/resources/move.913/"
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+  echo "Obs Studio => https://obsproject.com/download"
+  echo "Obs studio move plugin => https://obsproject.com/forum/resources/move.913/"
 
-echo "Obsbot => https://www.obsbot.com/download/"
-open https://www.obsbot.com/download/
+  echo "Obsbot => https://www.obsbot.com/download/"
+  open https://www.obsbot.com/download/
+fi
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   echo "Install Claude code"
