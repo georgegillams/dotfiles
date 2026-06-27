@@ -1,6 +1,6 @@
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 . ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Ensure you do anything that brew has asked following installation"
 echo "If brew is asking you to do the following, just press return and it will be done for you."
@@ -25,14 +25,17 @@ brew update
 # brew tap samwho/spacer && brew install spacer # improved terminal output for long-running commands
 
 # brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+# brew install --cask bartender
 # brew install --cask burp-suite
 # brew install --cask coconutbattery
+# brew install --cask displaylink
 # brew install --cask fig
 # brew install --cask grandperspective
 # brew install --cask homebrew/cask-drivers/canon-eos-utility
 # brew install --cask homebrew/cask-drivers/garmin-express
 # brew install --cask jellyfin
 # brew install --cask keycastr
+# brew install --cask mechvibes
 # brew install --cask meetingbar
 # brew install --cask neat # github notifications
 # brew install --cask oracle-jdk
@@ -67,17 +70,8 @@ brew update
 # brew install the_silver_searcher
 # brew install w3m
 
-brew install --cask 1password
-brew install --cask bartender
-brew install --cask cursor
-brew install --cask daisydisk
-brew install --cask figma
 brew install --cask firefox@developer-edition
 brew install --cask google-chrome
-brew install --cask google-drive
-brew install --cask gpg-suite
-brew install --cask handbrake
-brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask launchcontrol
 brew install --cask microsoft-excel
@@ -85,43 +79,20 @@ brew install --cask microsoft-word
 brew install --cask proxyman
 brew install --cask raycast
 brew install --cask rectangle-pro
-brew install --cask rocket
 brew install --cask the-unarchiver
-brew install --cask ticktick
 brew install --cask vlc
-brew install --cask whatsapp
-brew install 1password-cli
-brew install asdf
-brew install bat
-brew install blackhole-16ch
-brew install cloc # count lines of code
-brew install coreutils
-brew install curl
 brew install duti
-brew install exiftool # photo meta-data editing
-brew install ffmpeg
-brew install fswatch
-brew install fzf # fuzzy finder for CLI tab completion
-brew install gh
-brew install git
-brew install gnupg
-brew install htop
-brew install imagemagick
-brew install imageoptim-cli
-brew install iperf3
-brew install mas # CLI apps store
-brew install neovim
-brew install nvm
-brew install python@3.11
-brew install redis
 brew install rtk
-brew install sox
-brew install switchaudio-osx
 brew install tree
 brew install vim
 brew install wget
 brew install yarn
 brew install zsh zsh-completions
+
+
+if [[ $setup_type == *"WORK"* ]]; then
+  brew install --cask obsidian
+fi
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install --cask aws-vpn-client
@@ -130,7 +101,6 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install --cask docker
   brew install --cask elgato-stream-deck
   brew install --cask notion
-  brew install --cask obsidian
   brew install --cask postman
   brew install --cask screen-studio
   brew install --cask slack
@@ -154,11 +124,48 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install watchman
 fi
 
+if [[ $setup_type == "WORK_SETUP_PROFILE_2" ]]; then
+fi
+
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-  brew install --cask displaylink
+  brew install --cask 1password
+  brew install --cask cursor
+  brew install --cask daisydisk
+  brew install --cask figma
+  brew install --cask google-drive
+  brew install --cask gpg-suite
+  brew install --cask handbrake
+  brew install --cask imageoptim
   brew install --cask makemkv
-  brew install --cask mechvibes
+  brew install --cask rocket
+  brew install --cask ticktick
   brew install --cask topaz-photo-ai
   brew install --cask utm
+  brew install --cask whatsapp
+  brew install 1password-cli
+  brew install asdf
+  brew install bat
+  brew install blackhole-16ch
+  brew install cloc # count lines of code
+  brew install coreutils
+  brew install curl
+  brew install exiftool # photo meta-data editing
+  brew install ffmpeg
+  brew install fswatch
+  brew install fzf # fuzzy finder for CLI tab completion
+  brew install gh
+  brew install git
+  brew install gnupg
+  brew install htop
+  brew install imagemagick
+  brew install imageoptim-cli
+  brew install iperf3
   brew install libdvdcss
+  brew install mas # CLI apps store
+  brew install neovim
+  brew install nvm
+  brew install python@3.11
+  brew install redis
+  brew install sox
+  brew install switchaudio-osx
 fi

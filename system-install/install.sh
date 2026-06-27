@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Note: no brackets so that the exported variables are available to the rest of the script
+. ./00-setup-type.sh
+
 (. ./01-software-update.sh)
 (. ./02-system-preferences.sh)
 (. ./03-finder.sh)

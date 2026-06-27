@@ -1,8 +1,14 @@
+. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+
 echo "\n\nAdd bluetooth devices"
 open "x-apple.systempreferences:com.apple.BluetoothSettings"
 echo "\nPress any key once complete"
 read
 echo "\n\nTurn on auto appearance\nTurn on permanent scroll bars"
+open "x-apple.systempreferences:com.apple.Appearance-Settings.extension"
+echo "\nPress any key once complete"
+read
+echo "\n\nSet accent colour to $([[ $setup_type == *"WORK"* ]] && echo 'red' || echo 'blue')"
 open "x-apple.systempreferences:com.apple.Appearance-Settings.extension"
 echo "\nPress any key once complete"
 read
