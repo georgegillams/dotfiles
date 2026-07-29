@@ -142,7 +142,7 @@ alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn sta
 alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/network-monitor'
 alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
 
-alias sck='clone-and-cd georgegillams software-chording-keyboard'
+alias sck='clone-and-cd georgegillams chorder'
 alias scks='sck'
 alias scko='sck && open Chorder.xcodeproj'
 
