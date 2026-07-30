@@ -21,6 +21,8 @@ function gh-create-pr-web-if-none() {
   fi;
 }
 
+alias gh-list-all-tf-prs='gh search prs --author="@me" --owner="Typeform"'
+
 alias IMPLEMENTATION-gh-cancel-pr-jobs='node ~/Documents/georgegillams/dotfiles/gh-cancel-jobs.js'
 alias gh-cancel-pr-jobs='IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs'
 
