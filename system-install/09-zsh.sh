@@ -1,3 +1,5 @@
+brew install --cask microsoft-excel
+
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Add iterm zsh integration
@@ -18,13 +20,12 @@ cd $installDir
 cp -R ../.zsh ~/
 cp ../.zshrc ~/
 
-echo "Copy typeform.zsh file from Google Drive to ~/.zsh/"
-open ~/.zsh/
-echo "Press enter when complete"
-read
-
-# mkdir -p ~/.warp/themes
-# cp -R dotfiles/warp-themes/* ~/.warp/themes/
+if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
+  echo "Copy typeform.zsh file from Google Drive to ~/.zsh/"
+  open ~/.zsh/
+  echo "Press enter when complete"
+  read
+fi
 
 # Download zsh plugins
 mkdir -p ~/.oh-my-zsh/custom

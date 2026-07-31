@@ -3,15 +3,8 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Ensure you do anything that brew has asked following installation"
-echo "If brew is asking you to do the following, just press return and it will be done for you."
-echo "(echo; echo 'eval \"\$(/opt/homebrew/bin/brew shellenv)\"') >> /Users/george.gillams/.zprofile\neval \"\$(/opt/homebrew/bin/brew shellenv)\"\n\n"
-echo "If brew is asking for something else, abort this script and edit it."
 echo "Press enter to continue"
 read
-
-# Note: These commands are instructions from the brew install process which may change in the future.
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/george.gillams/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
@@ -27,7 +20,6 @@ brew update
 # brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 # brew install --cask bartender
 # brew install --cask burp-suite
-# brew install --cask coconutbattery
 # brew install --cask displaylink
 # brew install --cask fig
 # brew install --cask grandperspective
@@ -39,14 +31,11 @@ brew update
 # brew install --cask meetingbar
 # brew install --cask neat # github notifications
 # brew install --cask oracle-jdk
-# brew install --cask rode-central
 # brew install --cask signal
-# brew install --cask sim-daltonism
-# brew install --cask soundflower
+# brew install --cask soundflower # redirect audio before blackhole
 # brew install --cask telegram
 # brew install --cask usr-sse2-rdm # for forcing monitor resolution
 # brew install --cask visual-studio-code
-# brew install --cask wireshark
 # brew install ack # CLI search
 # brew install applesimutils # For detox testing
 # brew install audiowaveform
@@ -61,13 +50,10 @@ brew update
 # brew install lolcat
 # brew install lynx
 # brew install macvim
-# brew install mitmproxy
 # brew install procs
 # brew install rbenv
 # brew install rclone
 # brew install sl
-# brew install swiftlint
-# brew install the_silver_searcher
 # brew install w3m
 
 brew install --cask firefox@developer-edition
@@ -94,7 +80,7 @@ if [[ $setup_type == *"WORK"* ]]; then
   brew install --cask obsidian
 fi
 
-if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
+if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
   brew install --cask aws-vpn-client
   brew install --cask betterdisplay
   brew install --cask charles
@@ -124,24 +110,33 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
   brew install watchman
 fi
 
-if [[ $setup_type == "WORK_SETUP_PROFILE_2" ]]; then
+if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask 1password
+  brew install --cask coconutbattery
   brew install --cask cursor
   brew install --cask daisydisk
+  brew install --cask docker
+  brew install --cask elgato-stream-deck
   brew install --cask figma
   brew install --cask google-drive
   brew install --cask gpg-suite
   brew install --cask handbrake
   brew install --cask imageoptim
   brew install --cask makemkv
+  brew install --cask postman
   brew install --cask rocket
+  brew install --cask rode-central
+  brew install --cask screen-studio
+  brew install --cask sim-daltonism
+  brew install --cask slack
   brew install --cask ticktick
   brew install --cask topaz-photo-ai
   brew install --cask utm
   brew install --cask whatsapp
+  brew install --cask wireshark
   brew install 1password-cli
   brew install asdf
   brew install bat
@@ -149,6 +144,8 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install cloc # count lines of code
   brew install coreutils
   brew install curl
+  brew install docker
+  brew install docker-compose
   brew install exiftool # photo meta-data editing
   brew install ffmpeg
   brew install fswatch
@@ -160,12 +157,19 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install imagemagick
   brew install imageoptim-cli
   brew install iperf3
+  brew install kubectx
+  brew install kubernetes-cli
+  brew install lazydocker
   brew install libdvdcss
   brew install mas # CLI apps store
+  brew install mitmproxy
   brew install neovim
   brew install nvm
   brew install python@3.11
   brew install redis
   brew install sox
+  brew install swiftlint
   brew install switchaudio-osx
+  brew install the_silver_searcher
+  brew install tmux
 fi

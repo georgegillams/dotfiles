@@ -37,6 +37,11 @@ read
 rm -rf Nord.itermcolors
 cd $installDir
 
+echo "Chorder => https://github.com/georgegillams/chorder#download"
+open "https://github.com/georgegillams/chorder#download"
+echo "Press any key once complete"
+read
+
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "Obs Studio => https://obsproject.com/download"
   echo "Obs studio move plugin => https://obsproject.com/forum/resources/move.913/"
@@ -45,7 +50,7 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   open https://www.obsbot.com/download/
 fi
 
-if [[ $setup_type == "WORK_SETUP_PROFILE_1" ]]; then
+if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
   echo "Install Claude code"
   echo "Press any key once complete"
   read
@@ -55,24 +60,29 @@ fi
 # Set default apps for file types
 # Hint: to find the app id use:
 # osascript -e 'id of app "APP_NAME_HERE"'
+# Webstorm: com.jetbrains.webstorm
+# Cursor: com.todesktop.230313mzl4w4u92
+# VSCode: com.microsoft.VSCode
+if [ -d "/Applications/Cursor.app" ]; then
+  editorAppId=com.todesktop.230313mzl4w4u92
+else
+  editorAppId=com.microsoft.VSCode
+fi
+
 duti -s org.videolan.vlc .m4a all
 duti -s org.videolan.vlc .mp3 all
 duti -s org.videolan.vlc .aac all
 duti -s org.videolan.vlc .wav all
-duti -s com.microsoft.VSCode .css all
-duti -s com.microsoft.VSCode .scss all
-duti -s com.microsoft.VSCode .sh all
-duti -s com.microsoft.VSCode .zsh all
-duti -s com.microsoft.VSCode .js all
-duti -s com.microsoft.VSCode .ts all
-duti -s com.microsoft.VSCode .jsx all
-duti -s com.microsoft.VSCode .tsx all
-duti -s com.microsoft.VSCode .md all
-duti -s com.microsoft.VSCode .mdx all
-duti -s com.microsoft.VSCode .txt all
-duti -s com.microsoft.VSCode .json all
-duti -s com.microsoft.VSCode .toml all
-
-# Webstorm: com.jetbrains.webstorm
-# Cursor: com.todesktop.230313mzl4w4u92
-# VSCode: com.microsoft.VSCode
+duti -s $editorAppId .css all
+duti -s $editorAppId .scss all
+duti -s $editorAppId .sh all
+duti -s $editorAppId .zsh all
+duti -s $editorAppId .js all
+duti -s $editorAppId .ts all
+duti -s $editorAppId .jsx all
+duti -s $editorAppId .tsx all
+duti -s $editorAppId .md all
+duti -s $editorAppId .mdx all
+duti -s $editorAppId .txt all
+duti -s $editorAppId .json all
+duti -s $editorAppId .toml all
