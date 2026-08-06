@@ -12,4 +12,4 @@
 # @raycast.author George Gillams
 # @raycast.authorURL https://www.georgegillams.co.uk/
 
-osascript "/Users/george.gillams/Documents/georgegillams/dotfiles/apple script/open_message_apps.scpt"
+osascript "/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/apple script/open_message_apps.scpt"

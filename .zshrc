@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 startTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
@@ -82,9 +75,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "ZSH loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-[[ ! -f ~/.zsh/gh_p10k.zsh ]] || source ~/.zsh/gh_p10k.zsh
 
 HIST_STAMPS="dd/mm/yyyy"
 
