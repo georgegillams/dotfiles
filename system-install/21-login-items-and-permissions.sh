@@ -1,3 +1,5 @@
+. ./00-setup-type.sh
+
 echo "\n\nRemove unecessary apps from login item\nENSURE YOU LEAVE 1PASSWORD TURNED ON FOR BROWSER SYNC AND CLI."
 open "x-apple.systempreferences:com.apple.systempreferences.GeneralSettings"
 echo "\nPress any key once complete"

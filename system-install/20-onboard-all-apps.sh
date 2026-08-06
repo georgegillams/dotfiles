@@ -1,4 +1,5 @@
 #!/bin/bash
+. ./00-setup-type.sh
 
 let openInBlocksOf=5
 

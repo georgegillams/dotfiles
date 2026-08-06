@@ -1,4 +1,4 @@
-. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+. ./00-setup-type.sh
 
 # Export PDF option
 sudo mkdir -p /Library/Filters/
@@ -27,15 +27,11 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "Sigma Optimization => https://www.sigma-global.com/en/support/software/sigma-optimization-pro/?os=mac"
 fi
 
-installDir=$(pwd)
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
-cd ~/Downloads && wget https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
-open https://github.com/arcticicestudio/nord-iterm2
-echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select font Source Code Pro, size 12, under Text"
+open ../resources/
+echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select font Fira Mono for Powerline, size 12, under Text"
 echo "Press enter when complete"
 read
-rm -rf Nord.itermcolors
-cd $installDir
 
 echo "Chorder => https://github.com/georgegillams/chorder#download"
 open "https://github.com/georgegillams/chorder#download"
@@ -69,20 +65,22 @@ else
   editorAppId=com.microsoft.VSCode
 fi
 
-duti -s org.videolan.vlc .m4a all
-duti -s org.videolan.vlc .mp3 all
-duti -s org.videolan.vlc .aac all
-duti -s org.videolan.vlc .wav all
-duti -s $editorAppId .css all
-duti -s $editorAppId .scss all
-duti -s $editorAppId .sh all
-duti -s $editorAppId .zsh all
-duti -s $editorAppId .js all
-duti -s $editorAppId .ts all
-duti -s $editorAppId .jsx all
-duti -s $editorAppId .tsx all
-duti -s $editorAppId .md all
-duti -s $editorAppId .mdx all
-duti -s $editorAppId .txt all
-duti -s $editorAppId .json all
-duti -s $editorAppId .toml all
+if [ -x "$(which duti)" ]; then
+  duti -s org.videolan.vlc .m4a all
+  duti -s org.videolan.vlc .mp3 all
+  duti -s org.videolan.vlc .aac all
+  duti -s org.videolan.vlc .wav all
+  duti -s $editorAppId .css all
+  duti -s $editorAppId .scss all
+  duti -s $editorAppId .sh all
+  duti -s $editorAppId .zsh all
+  duti -s $editorAppId .js all
+  duti -s $editorAppId .ts all
+  duti -s $editorAppId .jsx all
+  duti -s $editorAppId .tsx all
+  duti -s $editorAppId .md all
+  duti -s $editorAppId .mdx all
+  duti -s $editorAppId .txt all
+  duti -s $editorAppId .json all
+  duti -s $editorAppId .toml all
+fi

@@ -1,3 +1,5 @@
+. ./00-setup-type.sh
+
 # sudo cp ../gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 echo "Sign in to GitHub.com"
@@ -5,16 +7,20 @@ open https://github.com/login
 echo "Press any key once complete"
 read
 
-# Set up Git Authentication and signing
-echo "Open 1Password and configure SSH"
-echo "Press any key once complete"
-read
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+    # Set up Git Authentication and signing
+    echo "Open 1Password and configure SSH"
+    echo "Press any key once complete"
+    read
+fi
 
-# git config setup
-git config --global user.name "George Gillams"
-git config --global user.email code@georgegillams.co.uk
-git config --global core.hooksPath .no-hooks
-git config --global --add --bool push.autoSetupRemote true
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+    # git config setup
+    git config --global user.name "George Gillams"
+    git config --global user.email code@georgegillams.co.uk
+    git config --global core.hooksPath .no-hooks
+    git config --global --add --bool push.autoSetupRemote true
+fi
 
 # # Set up Git SSH
 # ssh-agent
@@ -50,6 +56,8 @@ git config --global --add --bool push.autoSetupRemote true
 # echo "Press any key once complete"
 # read
 
-echo "Sign in to GH CLI - public"
-echo "gh auth login"
-gh auth login
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+    echo "Sign in to GH CLI - public"
+    echo "gh auth login"
+    gh auth login
+fi

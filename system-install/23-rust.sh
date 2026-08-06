@@ -1,3 +1,5 @@
+. ./00-setup-type.sh
+
 if command -v rustc &>/dev/null; then
   echo "Rust already installed: $(rustc --version)"
 else

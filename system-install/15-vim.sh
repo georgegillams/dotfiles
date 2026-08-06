@@ -1,3 +1,5 @@
+. ./00-setup-type.sh
+
 # cd ~/Documents && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # mkdir ~/Documents/georgegillams
 # cd ~/Documents/georgegillams && git clone https://github.com/georgegillams/dotfiles.git

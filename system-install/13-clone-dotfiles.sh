@@ -1,3 +1,5 @@
+. ./00-setup-type.sh
+
 # Re-clone dotfiles, this time as a git repo using ssh
 dotfiles
 cd ..

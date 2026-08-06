@@ -1,4 +1,4 @@
-. ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+. ./00-setup-type.sh
 
 echo "\n\nAdd bluetooth devices"
 open "x-apple.systempreferences:com.apple.BluetoothSettings"
