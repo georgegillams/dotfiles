@@ -6,13 +6,20 @@ on run argv
   end if
 
   # open Slack
-  tell application "Slack" to activate
+  if application "Slack" is not running then
+    tell application "Slack" to activate
+  end if
   
+  # Outlook
+  if application "Microsoft Outlook" is not running then
+    tell application "Microsoft Outlook" to activate
+  end if
+
   # open Gmail
-  tell application "Gmail" to activate
+  # tell application "Gmail" to activate
   
   # open Gmail Typeform
-  tell application "/Users/george.gillams/Applications/Gmail Typeform.app" to activate
+  # tell application "/Users/george.gillams/Applications/Gmail Typeform.app" to activate
 
   # open WhatsApp
   # tell application "WhatsApp" to activate
