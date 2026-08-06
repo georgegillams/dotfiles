@@ -27,7 +27,7 @@ alias system-read-mail='open-code-editor /var/mail/george.gillams'
 alias cron-edit='crontab -e'
 alias cron-save='dotfiles-save-cron'
 
-alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/georgegillams/dotfiles/resources/in_this_photo.jpg)'
+alias in-this-photo='(dotfiles && osascript ./apple\ script/copyITP.scpt ~/Documents/github.com/georgegillams/dotfiles/resources/in_this_photo.jpg)'
 alias inthisphoto='in-this-photo'
 
 alias calendar-acknowledge-calendar-notifications='(dotfiles && osascript ./apple\ script/acknowledge\ calendar\ notifications.scpt)'
@@ -128,11 +128,11 @@ function arrange-displays () {
 }
 
 function edit-raycast-script() {
-  open-code-editor ~/Documents/georgegillams/dotfiles/raycast/scripts/$1.sh
+  open-code-editor ~/Documents/github.com/georgegillams/dotfiles/raycast/scripts/$1.sh
 }
 
 function run-raycast-script() {
-  . ~/Documents/georgegillams/dotfiles/raycast/scripts/$1.sh $2 $3
+  . ~/Documents/github.com/georgegillams/dotfiles/raycast/scripts/$1.sh $2 $3
 }
 
 function run-raycast-script-drive() {

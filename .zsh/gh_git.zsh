@@ -23,7 +23,7 @@ function gh-create-pr-web-if-none() {
 
 alias gh-list-all-tf-prs='gh search prs --author="@me" --owner="Typeform"'
 
-alias IMPLEMENTATION-gh-cancel-pr-jobs='node ~/Documents/georgegillams/dotfiles/gh-cancel-jobs.js'
+alias IMPLEMENTATION-gh-cancel-pr-jobs='node ~/Documents/github.com/georgegillams/dotfiles/gh-cancel-jobs.js'
 alias gh-cancel-pr-jobs='IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs && sleep 5 && IMPLEMENTATION-gh-cancel-pr-jobs'
 
 alias git-show-me-how-to-view-a-forked-branch='echo "gco -b username-branch-name master\ngit pull https://github.com/username/backpack.git branch-name"'
@@ -51,14 +51,14 @@ for (let i = buttons.length - 1; i >= 0; i -= 1){
 alias show-me-how-to-repeatedly-click-a-button='echo "setInterval(() => {
 [...document.getElementsByTagName(\"button\")].find(b => b.getAttribute(\"aria-label\") === \"Yes button\")?.click()
 }, 500)" | pbcopy'
-alias git-prepend-branch-name='node ~/Documents/georgegillams/dotfiles/prepend-ticket.js'
+alias git-prepend-branch-name='node ~/Documents/github.com/georgegillams/dotfiles/prepend-ticket.js'
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard origin/main && git pull && (git branch -D $(git branch | grep -v "main") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias gml='if [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-master-latest; elif [[ $(pwd) == *"Documents/Typeform/k8s-manifests"* ]]; then IMPLEMENTATION-git-master-latest; else IMPLEMENTATION-git-main-latest; fi'
 alias gaa-no-image-optimisation='git add .'
-alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
+alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/github.com/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
 alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
 alias git-fetch='git fetch --all'
@@ -74,7 +74,9 @@ alias gamp='git-pre-push && gcn! --no-verify && gpf'
 alias gamp-with-verification='git-pre-push && gcn! && gpf-with-verification'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias gpf-with-verification='ggf && git push --no-verify --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
-alias gpf='git push --force --no-verify && gh-create-pr-web-if-none'
+alias git-open-repo="open $(git config --get remote.origin.url)"
+# TODO: If a GH repo, use gh-view-or-create-pr-web
+alias gpf='git push --force --no-verify && git-open-repo'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
@@ -106,7 +108,7 @@ function git-create-note-for-beta-semantic-release() {
   git push --force origin refs/notes/semantic-release
 }
 alias gclean='git clean -xdf'
-alias git-pull-fork='node ~/Documents/georgegillams/dotfiles/pull-forked-branch.js'
+alias git-pull-fork='node ~/Documents/github.com/georgegillams/dotfiles/pull-forked-branch.js'
 alias git-submodules-init='git submodule update --init --recursive'
 alias git-submodules-pull='git submodule update --recursive --remote'
 alias git-disable-gpg='(git config --global commit.gpgsign false && git config --global tag.forceSignAnnotated false && git config --global --unset gpg.program) || true'
@@ -130,14 +132,20 @@ function cd-if-necessary() {
 }
 
 function clone-and-cd() {
-  orgPath="$HOME/Documents/$1"
-  repoPath="$orgPath/$2"
+  instancePath=$1
+  instancePath="$HOME/Documents/$1"
+  orgPath="$instancePath/$2"
+  repoPath="$orgPath/$3"
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
     cd-if-necessary $orgPath
-    git clone git@github.com:$1/$2.git
+    git clone https://$1/$2/$3.git
   fi
   cd-if-necessary $repoPath
+}
+
+function clone-and-cd-personal() {
+  clone-and-cd github.com $@
 }
 
 alias re-cd='cd "$(pwd)"'

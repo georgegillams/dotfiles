@@ -5,14 +5,14 @@ alias 1p-personal='op signin --account my.1password.com'
 
 alias daily-backup="ge-backup && hrp-backup && netmon-backup"
 
-alias gg-aws='clone-and-cd georgegillams aws'
+alias gg-aws='clone-and-cd-personal georgegillams aws'
 
 alias on-this-day='open "https://www.timeanddate.com/on-this-day/$(date +%B| tr "[:upper:]" "[:lower:]")/$(date +%e | xargs)"'
 
-alias sort-phone-photos='clone-and-cd georgegillams image-meta-fixer && [[ -d node_modules ]] || yarn && yarn action "$MY_PERSONAL_DRIVE/2_Areas/Photography/Camera Uploads/" "$MY_PERSONAL_DRIVE/2_Areas/Photography/iPhone photos" --fix --move'
+alias sort-phone-photos='clone-and-cd-personal georgegillams image-meta-fixer && [[ -d node_modules ]] || yarn && yarn action "$MY_PERSONAL_DRIVE/2_Areas/Photography/Camera Uploads/" "$MY_PERSONAL_DRIVE/2_Areas/Photography/iPhone photos" --fix --move'
 
-alias dotfiles='clone-and-cd georgegillams dotfiles'
-alias dotfiles-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
+alias dotfiles='clone-and-cd-personal georgegillams dotfiles'
+alias dotfiles-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
 # alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_TF_DRIVE/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
 alias dotfiles-pull-zshrc='dotfiles && gml && cp .zshrc ~/ && cp .zsh/* ~/.zsh/'
@@ -22,6 +22,9 @@ function dotfiles-save-zshrc() {
   cp ~/.zsh/gh_* ./.zsh/
   if [[ -f ~/.zsh/typeform.zsh ]]; then
     cp ~/.zsh/typeform.zsh $MY_PERSONAL_DRIVE/2_Areas/Work/Typeform/.zsh/typeform.zsh
+  fi
+  if [[ -f ~/.zsh/hs.zsh ]]; then
+    cp ~/.zsh/hs.zsh $HS_DRIVE/02_Areas/Apps/.zsh/hs.zsh
   fi
   gd
   sleep 2
@@ -36,16 +39,16 @@ alias brew-edit-install-script='dotfiles-edit-install-script'
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew install script"'
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
-alias browser-scripts='clone-and-cd georgegillams browser-scripts'
+alias browser-scripts='clone-and-cd-personal georgegillams browser-scripts'
 alias browser-scriptss='browser-scripts && yarn setup'
 alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmpfeat "Update scripts"'
-alias browser-scripts-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
+alias browser-scripts-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'
 alias browser-scripts-build-readme='browser-scripts && yarn build:readme'
 alias browser-scripts-extension='browser-scripts && cd src/Notion\ Sidebar\ Expander/'
 alias browser-scripts-extensiono='browser-scripts-extension && npx web-ext run --firefox=/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin'
 
-alias bt='clone-and-cd georgegillams backpack-transpiled'
-alias bt-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
+alias bt='clone-and-cd-personal georgegillams backpack-transpiled'
+alias bt-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf backpack-transpiled && git clone git@github.com:georgegillams/backpack-transpiled.git'
 alias bts='bt && yarn install'
 alias bt-fix-permissions='sudo chown -R $(whoami) ./'
 alias bt-pull-backpack='yarn pull-backpack:clean && git clone https://github.com/Skyscanner/backpack.git && yarn pull-backpack:changelog && (cd backpack && yarn install && yarn build && (find packages -name "node_modules" -exec rm -rf {} \; || true))'
@@ -54,12 +57,12 @@ alias bt-ship='bts && bt-fix-permissions && bt-pull-backpack && yellow "Ready to
 alias r2d2-ssh-ec2='ssh ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com'
 alias zendog-ssh-ec2='ssh ubuntu@ec2-13-40-134-151.eu-west-2.compute.amazonaws.com'
 
-alias tgi='clone-and-cd georgegillams tg-intervals'
+alias tgi='clone-and-cd-personal georgegillams tg-intervals'
 alias tgis='tgi'
 alias tgio='tgi && make dev'
 
-alias gwa='clone-and-cd georgegillams webapp-boilerplate'
-alias gwa-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
+alias gwa='clone-and-cd-personal georgegillams webapp-boilerplate'
+alias gwa-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf webapp-boilerplate && git clone git@github.com:georgegillams/webapp-boilerplate.git'
 alias gwa-start-transpile-watch-in-new-tab="osascript -e 'tell application \"iTerm\" to activate' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"t\" using command down' -e 'tell application \"System Events\" to tell process \"iTerm\" to keystroke \"gwa && yarn gg-webapp-transpile:watch\"' -e 'tell application \"System Events\" to tell process \"iTerm\" to key code 52'"
 alias gwa-start='gwa && gwa-start-transpile-watch-in-new-tab && yarn dev'
 alias gwas='gwa && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn gg-webapp-install && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
@@ -72,18 +75,18 @@ alias gwa-update-snapshots-skip-npm='gwa && ./scripts/docker/prepare.sh && ./scr
 alias gwa-link-live-to-this-project='yellow "Ensure you are already running gwa-live-build alongside this app" && (gwa && cd gg-webapp/dist && yarn link) && yarn link @george-gillams/webapp'
 alias gwa-fix-all='gwa && run-concurrently -n test,lint,browserlist "yarn test:update" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 
-alias cl='clone-and-cd georgegillams contentful-links'
+alias cl='clone-and-cd-personal georgegillams contentful-links'
 alias cls='cl && echo "No setup required"'
 alias clo='cl && yarn dev'
 alias clbuild='cl && yarn build'
 
-alias cardc='clone-and-cd georgegillams card-challenge'
-alias cardc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf card-challenge && git clone git@github.com:georgegillams/card-challenge.git'
+alias cardc='clone-and-cd-personal georgegillams card-challenge'
+alias cardc-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf card-challenge && git clone git@github.com:georgegillams/card-challenge.git'
 alias cardcs='cardc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias cardc-deploy='cardc && yarn build && zip -r build build && scp -o "StrictHostKeyChecking=no" -r ./build.zip ubuntu@www.georgegillams.co.uk:/home/ubuntu/card-challenge/'
 
-alias ge='clone-and-cd georgegillams georgegillams.co.uk'
-alias ge-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
+alias ge='clone-and-cd-personal georgegillams georgegillams.co.uk'
+alias ge-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf georgegillams.co.uk && git clone git@github.com:georgegillams/georgegillams.co.uk.git'
 alias ges='ge && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias geo='ge && yarn dev'
 alias ge-backup='ge && 1p-personal && node scripts/backup-production-data.js --apiKey $(op item get "AWS Private REST API Key" --vault Personal --field password --reveal --cache) --backupsLocation "$MY_PERSONAL_DRIVE/1_Projects/georgegillams.co.uk/backups"'
@@ -92,19 +95,19 @@ alias ge-update-snapshots='ge && ./scripts/docker/prepare.sh && ./scripts/docker
 alias ge-update-snapshots-skip-npm='ge && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 alias ge-fix-all='ge && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 
-alias ihh='clone-and-cd georgegillams isithappyhour.net'
+alias ihh='clone-and-cd-personal georgegillams isithappyhour.net'
 alias ihhs='ihh && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias ihho='ihh && yarn dev'
 alias ihh-fix-all='ihh && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 
-alias hrp='clone-and-cd georgegillams hyroxrelayplanner.com'
+alias hrp='clone-and-cd-personal georgegillams hyroxrelayplanner.com'
 alias hrps='hrp && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install && yarn prebuild'
 alias hrpo='hrp && yarn dev'
 alias hrp-fix-all='hrp && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint" "zsh -ci npx-update-browserlist-db"'
 alias hrp-backup='hrp && 1p-personal && node scripts/backup-production-data.js --apiKey $(op item get "AWS Private REST API Key" --vault Personal --field password --reveal --cache) --backupsLocation "$MY_PERSONAL_DRIVE/1_Projects/Hyrox Relay Planner/backups"'
 
-alias ggc='clone-and-cd georgegillams components'
-alias ggc-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
+alias ggc='clone-and-cd-personal georgegillams components'
+alias ggc-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf components && git clone git@github.com:georgegillams/components.git'
 alias ggcs='ggc && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn'
 alias ggco='ggc && yarn dev'
 alias ggc-update-snapshots='ggc && ./scripts/docker/snapshot-test/prepare.sh && ./scripts/docker/snapshot-test/run-tests.sh --update --tty && ./scripts/docker/snapshot-test/clean-up.sh'
@@ -112,50 +115,47 @@ alias ggc-live-build='ggc && yarn transpile && yarn transpile:js:live'
 alias ggc-link-live-to-this-project='yellow "Ensure you are already running ggc-live-build alongside this app" && (cd node_modules/react && yarn link) && (cd node_modules/react-dom && yarn link) && (ggc && yarn link react && yarn link react-dom && cd dist && yarn link) && yarn link @george-gillams/components'
 alias ggc-fix-all='ggc && run-concurrently -n test,lint,browserlist "yarn test -u" "yarn lint:fix" "zsh -ci npx-update-browserlist-db"'
 
-alias sra='clone-and-cd georgegillams screen-reader-adventures'
-alias sra-nuke='cd ~/Documents/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
+alias sra='clone-and-cd-personal georgegillams screen-reader-adventures'
+alias sra-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf screen-reader-adventures && git clone git@github.com:georgegillams/screen-reader-adventures.git'
 alias sras='sra && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install'
 alias sra-update-snapshots='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty && ./scripts/docker/clean-up.sh'
 alias sra-update-snapshots-skip-npm='sra && ./scripts/docker/prepare.sh && ./scripts/docker/run-tests.sh --update --tty --skip-npm && ./scripts/docker/clean-up.sh'
 
-alias contraster='clone-and-cd georgegillams contraster'
+alias contraster='clone-and-cd-personal georgegillams contraster'
 alias contrasters='contraster && echo "No setup required"'
 alias contrastero='contraster && open Contraster.xcodeproj'
 
-alias meg='clone-and-cd georgegillams my-event-guide'
+alias meg='clone-and-cd-personal georgegillams my-event-guide'
 alias megs='meg && echo "No setup required"'
 alias mego='meg && open MyEventGuide.xcodeproj'
 
-alias boiler='clone-and-cd georgegillams boiler-ai'
+alias boiler='clone-and-cd-personal georgegillams boiler-ai'
 alias boilers='boiler && yarn'
 alias boilero='boiler && (sleep 1 && open http://localhost:8080/logs) & yarn start'
-alias boiler-deploy='boiler && yarn build && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.104:/home/pi/Documents/georgegillams/boiler-ai'
+alias boiler-deploy='boiler && yarn build && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.104:/home/pi/Documents/github.com/georgegillams/boiler-ai'
 
-alias ant='clone-and-cd georgegillams ant-ics'
+alias ant='clone-and-cd-personal georgegillams ant-ics'
 alias ants='ant && yarn'
 alias anto='ant && (sleep 1 && open http://localhost:8080/logs) & yarn start'
-alias ant-deploy='ant && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.0.98:/home/pi/Documents/georgegillams/ant-ics'
+alias ant-deploy='ant && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.0.98:/home/pi/Documents/github.com/georgegillams/ant-ics'
 
-alias netmon='clone-and-cd georgegillams network-monitor'
+alias netmon='clone-and-cd-personal georgegillams network-monitor'
 alias netmons='netmon && yarn'
 alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
-alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/georgegillams/network-monitor'
+alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/github.com/georgegillams/network-monitor'
 alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
 
-alias sck='clone-and-cd georgegillams chorder'
+alias sck='clone-and-cd-personal georgegillams chorder'
 alias scks='sck'
 alias scko='sck && open Chorder.xcodeproj'
 
-alias dsc='clone-and-cd georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
+alias dsc='clone-and-cd-personal georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
 alias dscs='dsc && yarn'
 alias dsco='./start-database.sh && ./start-redis.sh && yarn dev'
 
 alias goals-and-dreams='run-raycast-script goals'
 
-alias ethernet-disconnect='system-disable-usb-lan'
-alias ethernet-reconnect='system-enable-usb-lan'
-
-alias sd='clone-and-cd georgegillams stream-deck-script-state'
+alias sd='clone-and-cd-personal georgegillams stream-deck-script-state'
 alias sds='sd && yarn'
 alias sdo='sd && sd-link && yarn watch'
 alias sd-link='rm -rf ~/Library/Application\ Support/com.elgato.StreamDeck/Plugins/uk.co.georgegillams* || true && streamdeck dev && (cd uk.co.georgegillams.script-state.sdPlugin && streamdeck link)'
@@ -213,7 +213,7 @@ function copy-SD-card-images() {
 }
 
 function cursor-backup() {
-  . ~/Documents/georgegillams/dotfiles/system-install/00-setup-type.sh
+  . ~/Documents/github.com/georgegillams/dotfiles/system-install/00-setup-type.sh
   if [[ $setup_type == "WORK" ]]; then
     rsync -av --exclude='History' ~/Library/Application\ Support/Cursor/User/* $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/User/ && cursor --list-extensions > $MY_PERSONAL_DRIVE/2_Areas/Apps/Cursor/extensions.txt
   fi
