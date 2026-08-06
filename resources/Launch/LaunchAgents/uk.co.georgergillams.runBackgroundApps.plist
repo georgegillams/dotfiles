@@ -7,7 +7,7 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/bin/osascript</string>
-		<string>/Users/george.gillams/Documents/georgegillams/dotfiles/apple script/open_background_apps.scpt</string>
+		<string>/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/apple script/open_background_apps.scpt</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
