@@ -1,5 +1,7 @@
 . ./00-setup-type.sh
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Add iterm zsh integration
 # curl -L https://iterm2.com/shell_integration/zsh \
 # -o ~/.iterm2_shell_integration.zsh
@@ -20,7 +22,7 @@ cd $installDir
 cp ../.zshrc ~/
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
-  echo "ADD HS_DRIVE export to ~/.zshrc"
+  echo "Add HS_DRIVE export to ~/.zshrc"
   echo "Press enter when complete"
   read
 fi

@@ -53,6 +53,7 @@ function error() {
   red "[ERROR] $@"
 }
 
+export ZSH=$HOME/.oh-my-zsh
 export USER_ZSH="/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/.zsh"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
@@ -79,8 +80,8 @@ HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(
   git macos
-  zsh-autosuggestions
-  fzf-tab
+  # zsh-autosuggestions
+  # fzf-tab
 )
 
 export ASDF_MANUAL_INSTALL_DIR="$HOME/asdf"
@@ -103,6 +104,8 @@ fi
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
+
+source $ZSH/oh-my-zsh.sh
 
 source $USER_ZSH/gh_docker.zsh
 source $USER_ZSH/gh_git.zsh
@@ -186,13 +189,7 @@ function load-asdf() {
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
 
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "Fig pre ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 # iTerm custom commands:
@@ -228,13 +225,6 @@ fi
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "starship initialised ($((endTime-startTime))ms)"
 
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "fig post ready ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
