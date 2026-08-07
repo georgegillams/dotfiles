@@ -206,28 +206,6 @@ info "iTerm user variables set ($((endTime-startTime))ms)"
 
 # eval "$(rbenv init -)"
 
-# endTime="$(gdate +%s%N | cut -b1-13)"
-# info "rvm initialised ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "nvm initialised ($((endTime-startTime))ms)"
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-# bun completions
-[ -s "/Users/george.gillams/.bun/_bun" ] && source "/Users/george.gillams/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-if [ -d "$BUN_INSTALL/bin" ]; then
-  export PATH="$BUN_INSTALL/bin:$PATH"
-fi
-
-# c++
-export CPLUS_INCLUDE_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1
-
-endTime="$(gdate +%s%N | cut -b1-13)"
-info "bun initialised ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
@@ -242,6 +220,13 @@ add-zsh-hook chpwd on-change-dir
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "chpwd hooks initialised ($((endTime-startTime))ms)"
+
+startTime="$(gdate +%s%N | cut -b1-13)"
+if [ -x "$(which starship)" ]; then
+  eval "$(starship init zsh)"
+fi
+endTime="$(gdate +%s%N | cut -b1-13)"
+info "starship initialised ($((endTime-startTime))ms)"
 
 startTime="$(gdate +%s%N | cut -b1-13)"
 
