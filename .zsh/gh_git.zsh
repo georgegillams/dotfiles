@@ -139,7 +139,11 @@ function clone-and-cd() {
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
     cd-if-necessary $orgPath
-    git clone https://$1/$2/$3.git
+    if [[ $1 == *"github.com"* ]]; then
+      git clone git@$1:$2/$3.git
+    else
+      git clone https://$1/$2/$3.git
+    fi
   fi
   cd-if-necessary $repoPath
 }

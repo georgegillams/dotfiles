@@ -16,20 +16,11 @@ cd ..
 rm -rf fonts
 cd $installDir
 
-# Copy zsh config
-cp -R ../.zsh ~/
+# Copy zsh entrypoint file
 cp ../.zshrc ~/
 
-if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
-  echo "Copy typeform.zsh file from Google Drive to ~/.zsh/"
-  open ~/.zsh/
-  echo "Press enter when complete"
-  read
-fi
-
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
-  echo "Copy hs.zsh file from OneDrive to ~/.zsh/"
-  open ~/.zsh/
+  echo "ADD HS_DRIVE export to ~/.zshrc"
   echo "Press enter when complete"
   read
 fi
