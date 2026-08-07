@@ -14,7 +14,7 @@ alias sort-phone-photos='clone-and-cd-personal georgegillams image-meta-fixer &&
 alias dotfiles='clone-and-cd-personal georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
-# alias dotfiles-save-zshrc='dotfiles && cp ~/.zshrc ./ && cp ~/.zsh/gh_* ./.zsh/ && cp ~/.zsh/typeform.zsh $MY_TF_DRIVE/.zsh/typeform.zsh && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
+alias dotfiles-save-zshrc='dotfiles && gd && sleep 2 && gaa && gcmpchore "Update ZSHRC"'
 alias dotfiles-pull-zshrc='dotfiles && gml && cp .zshrc ~/ && cp .zsh/* ~/.zsh/'
 function dotfiles-save-zshrc() {
   dotfiles

@@ -58,7 +58,7 @@ alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard 
 alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias gml='if [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-master-latest; elif [[ $(pwd) == *"Documents/Typeform/k8s-manifests"* ]]; then IMPLEMENTATION-git-master-latest; else IMPLEMENTATION-git-main-latest; fi'
 alias gaa-no-image-optimisation='git add .'
-alias gaa='git-pre-push && gaa-no-image-optimisation && node ~/Documents/github.com/georgegillams/dotfiles/image-optim.js && gaa-no-image-optimisation'
+alias gaa='git-pre-push && gaa-no-image-optimisation'
 alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
 alias git-fetch='git fetch --all'
