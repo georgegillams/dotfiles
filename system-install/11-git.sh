@@ -7,20 +7,32 @@ open https://github.com/login
 echo "Press any key once complete"
 read
 
-if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-    # Set up Git Authentication and signing
-    echo "Open 1Password and configure SSH"
-    echo "Press any key once complete"
-    read
-fi
+# Set up Git Authentication and signing
+echo "Open 1Password and enable SSH"
+echo "Press any key once complete"
+read
 
-if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-    # git config setup
-    git config --global user.name "George Gillams"
-    git config --global user.email code@georgegillams.co.uk
-    git config --global core.hooksPath .no-hooks
-    git config --global --add --bool push.autoSetupRemote true
-fi
+# git config setup
+git config --global user.name "George Gillams"
+git config --global user.email code@georgegillams.co.uk
+# git config --global core.hooksPath .no-hooks
+# git config --global --add --bool push.autoSetupRemote true
+
+open "https://github.com/settings/keys"
+echo "On github.com, Add a new SSH key"
+echo "Use 1Password to autofill a new SSH key"
+echo "Press any key once complete"
+read
+open "/Applications/1Password.app"
+echo "In 1Password, configure commit signing and SSH agent"
+echo "Press any key once complete"
+read
+open "https://github.com/settings/keys"
+echo "On github.com, add a new ssh key and choose TYPE: SIGNING"
+echo "Auto-fill with existing SSH key in 1Password"
+echo "Press any key once complete"
+read
+
 
 # # Set up Git SSH
 # ssh-agent
@@ -56,8 +68,6 @@ fi
 # echo "Press any key once complete"
 # read
 
-if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-    echo "Sign in to GH CLI - public"
-    echo "gh auth login"
-    gh auth login
-fi
+echo "Sign in to GH CLI - public"
+echo "gh auth login"
+gh auth login

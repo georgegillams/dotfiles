@@ -87,7 +87,7 @@ plugins=(
 export ASDF_MANUAL_INSTALL_DIR="$HOME/asdf"
 
 # Install via brew broke, so using manual install
-if [ -d "$ASDF_MANUAL_INSTALL_DIR/bin" ]; then
+if [[ -d "$ASDF_MANUAL_INSTALL_DIR/bin" ]]; then
   export PATH="$PATH:$ASDF_MANUAL_INSTALL_DIR/bin"
 fi
 

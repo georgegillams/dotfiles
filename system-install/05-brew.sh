@@ -16,6 +16,7 @@ brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask vlc
 brew install coreutils
+brew install gh
 brew install starship
 brew install vim
 brew install wget
@@ -68,7 +69,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install ffmpeg
   brew install fswatch
   brew install fzf # fuzzy finder for CLI tab completion
-  brew install gh
   brew install git
   brew install gnupg
   brew install htop
