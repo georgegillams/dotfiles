@@ -15,8 +15,8 @@ read
 # git config setup
 git config --global user.name "George Gillams"
 git config --global user.email code@georgegillams.co.uk
+git config --global --add --bool push.autoSetupRemote true
 # git config --global core.hooksPath .no-hooks
-# git config --global --add --bool push.autoSetupRemote true
 
 open "https://github.com/settings/keys"
 echo "On github.com, Add a new SSH key"
