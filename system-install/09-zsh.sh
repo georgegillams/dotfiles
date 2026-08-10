@@ -19,7 +19,7 @@ rm -rf fonts
 cd $installDir
 
 # Copy zsh entrypoint file
-cp ../.zshrc ~/
+echo "source \"/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/.zsh/main.zsh\"" > ~/.zshrc
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   echo "Add HS_DRIVE export to ~/.zshrc"
