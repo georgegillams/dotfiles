@@ -13,10 +13,11 @@ echo "Press any key once complete"
 read
 
 # git config setup
-git config --global user.name "George Gillams"
-git config --global user.email code@georgegillams.co.uk
-git config --global --add --bool push.autoSetupRemote true
-# git config --global core.hooksPath .no-hooks
+git config --global includeIf."gitdir:~/Documents/github.com/".path ~/.gitconfig-personal
+git config -f ~/.gitconfig-personal user.name "George Gillams"
+git config -f ~/.gitconfig-personal user.email code@georgegillams.co.uk
+git config -f ~/.gitconfig-personal --add --bool push.autoSetupRemote true
+# git config -f ~/.gitconfig-personal core.hooksPath .no-hooks
 
 open "https://github.com/settings/keys"
 echo "On github.com, Add a new SSH key"
@@ -25,6 +26,7 @@ echo "Press any key once complete"
 read
 open "/Applications/1Password.app"
 echo "In 1Password, configure commit signing and SSH agent"
+echo "Check that these are correctly added to ~/.gitconfig-personal, not ~/.gitconfig"
 echo "Press any key once complete"
 read
 open "https://github.com/settings/keys"
