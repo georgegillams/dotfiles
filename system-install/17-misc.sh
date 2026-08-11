@@ -61,9 +61,9 @@ fi
 # Cursor: com.todesktop.230313mzl4w4u92
 # VSCode: com.microsoft.VSCode
 if [ -d "/Applications/Cursor.app" ]; then
-  editorAppId=com.todesktop.230313mzl4w4u92
+  editorAppId="com.todesktop.230313mzl4w4u92"
 else
-  editorAppId=com.microsoft.VSCode
+  editorAppId="com.microsoft.VSCode"
 fi
 
 if [ -x "$(which duti)" ]; then
