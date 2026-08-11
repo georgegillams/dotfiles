@@ -46,10 +46,10 @@ function launch-zoom-meeting() {
 
 function run-concurrently() {
     if [ ! -x "$(which concurrently)" ]; then
-      echo "concurrently is not available, installing..."
-      yarn global add concurrently
+      echo "Concurrently is not available!"
+    else
+      concurrently -c "auto" $@
     fi;
-    concurrently -c "auto" $@
 }
 
 alias vim-edit-config='open-code-editor ~/.vimrc'
@@ -74,10 +74,10 @@ alias system-fix-touch-id="(dotfiles && cd system-install && . ./04-touch_id.sh)
 alias system-fix-finder-lagging="mv ~/Library/Preferences/com.apple.finder.plist ~/Desktop/ && echo \"NOW RESTART. IF EVERYTHING IS FINE, DELETE ~/Desktop/com.apple.finder.plist\""
 alias system-fix-vimrc-location="mkdir -p ~/.config/vim && echo 'source ~/.vimrc' > ~/.config/vim/init.vim"
 alias system-open-ms-updater="if [[ -d /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app ]]; then open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app; fi"
-alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ Creative\ Cloud"
+alias system-open-cc-updater="open /Applications/Adobe\ Creative\ Cloud/Adobe\ Creative\ Cloud || true"
 alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew outdated --cask && brew upgrade --cask"
 alias system-open-topaz='if [[ -d /Applications/Topaz\ Photo\ AI.app ]]; then open /Applications/Topaz\ Photo\ AI.app; fi'
-alias system-update-apps='run-concurrently -n brew,manual "zsh -ci system-update-brew-apps" && system-open-cc-updater && zsh -ci system-open-topaz && zsh -ci system-open-ms-updater'
+alias system-update-apps='system-update-brew-apps && system-open-cc-updater && system-open-topaz && system-open-ms-updater && nixt-update'
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null && echo "Host *\n    UseKeychain yes" > ~/.ssh/config'
 alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
