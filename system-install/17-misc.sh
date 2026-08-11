@@ -30,6 +30,7 @@ fi
 echo "Nord theme for iTerm => https://github.com/arcticicestudio/nord-iterm2"
 open ../resources/
 echo "Open iTerm preferences, select profiles, colours and import the NORD theme. Also select font Fira Mono for Powerline, size 12, under Text"
+echo "ALTERNATIVELY, LOAD SETTINGS FROM CLOUD FILE"
 echo "Press enter when complete"
 read
 
