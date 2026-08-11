@@ -46,7 +46,7 @@ function launch-zoom-meeting() {
 
 function run-concurrently() {
     if [ ! -x "$(which concurrently)" ]; then
-      echo "Concurrently is not available!"
+      echo "Concurrently is not available! You can install it with 'yarn global add concurrently'"
     else
       concurrently -c "auto" $@
     fi;
