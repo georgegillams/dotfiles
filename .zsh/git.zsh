@@ -3,7 +3,19 @@ alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
 alias IMPLEMENTATION-gh-create-pr-web='gh pr create --web'
 alias IMPLEMENTATION-gh-view-pr-web='gh pr view --web'
+function git-open-repo() {
+  local url=$(git config --get remote.origin.url)
+  if [[ $url == git@*:* ]]; then
+    url=$(echo $url | sed -E 's#^git@([^:]+):(.+)$#https://\1/\2#')
+  fi
+  open "${url%.git}"
+}
 function gh-view-or-create-pr-web() {
+  if [[ $(git config --get remote.origin.url) == *"gitlab"* ]] then;
+    git-open-repo
+    return
+  fi;
+
   # If a PR exists, open it:
   IMPLEMENTATION-gh-view-pr-web
   if [[ $? != 0 ]] then;
@@ -76,9 +88,7 @@ alias gamp='git-pre-push && gcn! --no-verify && gpf'
 alias gamp-with-verification='git-pre-push && gcn! && gpf-with-verification'
 alias git-test-amend-push='fixtest && git add . && gitamendpush'
 alias gpf-with-verification='ggf && git push --no-verify --set-upstream $(git remote) $(git branch | grep \* | cut -d " " -f2)'
-alias git-open-repo="open $(git config --get remote.origin.url)"
-# TODO: If a GH repo, use gh-view-or-create-pr-web
-alias gpf='git push --force --no-verify && git-open-repo'
+alias gpf='git push --force --no-verify && gh-view-or-create-pr-web'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
