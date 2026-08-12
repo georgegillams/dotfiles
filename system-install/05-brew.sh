@@ -8,6 +8,7 @@ read
 
 brew update
 
+brew install --cask figma
 brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask iterm2
@@ -35,7 +36,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask daisydisk
   brew install --cask docker
   brew install --cask elgato-stream-deck
-  brew install --cask figma
   brew install --cask google-drive
   brew install --cask gpg-suite
   brew install --cask handbrake
