@@ -29,7 +29,6 @@ function loop() {
 }
 
 
-function npm-check-updates() {
-  rm -rf .npmrc
-  loop 3 npx npm-check-updates -u --deep --dep prod,dev,optional,packageManager,peer,resolutions "$@"
+function pnpm-check-updates() {
+  node ~/Documents/github.com/georgegillams/dotfiles/update-js-packages.js pnpm $@
 }

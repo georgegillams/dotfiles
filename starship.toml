@@ -1,0 +1,4 @@
+[status]
+disabled = false
+# Shows exactly "Exit: 1" in red on failure
+format = '[❌ Exit: $status]($style) '

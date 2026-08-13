@@ -26,3 +26,5 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   echo "Press enter when complete"
   read
 fi
+
+ln -s ~/Documents/github.com/georgegillams/dotfiles/starship.toml ~/.config/starship.toml
