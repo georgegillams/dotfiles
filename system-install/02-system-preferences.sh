@@ -1,5 +1,8 @@
 . ./00-setup-type.sh
 
+# Sound:
+# open "/System/Library/PreferencePanes/Sound.prefPane"
+
 echo "\n\nAdd bluetooth devices"
 open "x-apple.systempreferences:com.apple.BluetoothSettings"
 echo "\nPress any key once complete"
