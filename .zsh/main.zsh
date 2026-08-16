@@ -84,21 +84,35 @@ plugins=(
   # fzf-tab
 )
 
-export ASDF_MANUAL_INSTALL_DIR="$HOME/asdf"
+# asdf — only configure when installed via brew
+_asdf_sh="$(brew --prefix asdf 2>/dev/null)/libexec/asdf.sh"
+if [[ -f "$_asdf_sh" ]]; then
+  . "$_asdf_sh"
+fi
+unset _asdf_sh
 
-# Install via brew broke, so using manual install
-if [[ -d "$ASDF_MANUAL_INSTALL_DIR/bin" ]]; then
-  export PATH="$PATH:$ASDF_MANUAL_INSTALL_DIR/bin"
+# nvm — only configure when installed
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+_nvm_sh=""
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  _nvm_sh="$NVM_DIR/nvm.sh"
+elif [[ -s "$(brew --prefix nvm 2>/dev/null)/nvm.sh" ]]; then
+  _nvm_sh="$(brew --prefix nvm)/nvm.sh"
+fi
+if [[ -n "$_nvm_sh" ]]; then
+  . "$_nvm_sh"
+fi
+unset _nvm_sh
+
+# rvm — only configure when installed
+if [[ -d "$HOME/.rvm/bin" ]]; then
+  export PATH="$PATH:$HOME/.rvm/bin"
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
 
-# Load ASDF
-# Installation via brew broke, so using manual configuration instead
-# if [ -d "$(brew --prefix asdf)" ]; then
-#   . $(brew --prefix asdf)/libexec/asdf.sh
-# fi
-if [ -d "$ASDF_MANUAL_INSTALL_DIR" ]; then
-  # This file came from asdf git repo:
-  . $ASDF_MANUAL_INSTALL_DIR/asdf.sh
+# rbenv — only configure when installed
+if command -v rbenv &>/dev/null; then
+  eval "$(rbenv init - zsh)"
 fi
 
 endTime="$(gdate +%s%N | cut -b1-13)"
@@ -130,62 +144,142 @@ function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
 alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 
-# alias open-code-editor='open -a "WebStorm"'
-# if [ -x "$(which cursor)" ]; then
-#   alias open-code-editor='cursor'
-# else
-  alias open-code-editor='code'
-# fi
+ if [ -x "$(which cursor)" ]; then
+   alias open-code-editor='cursor'
+ else
+   alias open-code-editor='code'
+ fi
 alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 alias premiere-install-LUTs='cd ~/Library/Application\ Support/Adobe/Common/LUTs && mkdir -p Creative Technical && open ./'
 alias delete-lrf-files='find . -name "*.LRF" -exec rm -rf {} \; && find . -name "*.SRT" -exec rm -rf {} \;'
 
-function migrate-nvmrc() {
-  if [[ ! -f .tool-versions && -f .nvmrc && -r .nvmrc ]]; then
-    echo "nodejs $(cat .nvmrc)" > .tool-versions
-    rm .nvmrc
-    info-secondary "nvmrc version moved to asdf"
-    re-cd
-  fi
+function has-nix-project() {
+  [[ -f flake.nix || -f shell.nix || -f default.nix ]]
+}
+
+function has-asdf() {
+  command -v asdf &>/dev/null
+}
+
+function has-nvm() {
+  command -v nvm &>/dev/null
+}
+
+function has-rvm() {
+  command -v rvm &>/dev/null
+}
+
+function has-rbenv() {
+  command -v rbenv &>/dev/null
 }
 
 # NOTE: Actual version switching is handled automagically by asdf.
 # This function is just used for automatic installation and info logging.
 function load-asdf() {
-  if [[ -f .tool-versions && -r .tool-versions ]]; then
-    startTime="$(gdate +%s%N | cut -b1-13)"
- 
-    # If versions are not installed, install them
-    if asdf current 2>&1 | grep -q "false - Run"; then
-      asdf install
-    fi
+  if ! has-asdf || [[ ! -f .tool-versions || ! -r .tool-versions ]]; then
+    return
+  fi
 
-    endTime="$(gdate +%s%N | cut -b1-13)"
-    if [ -x "$(which node)" ]; then
-      info-secondary "asdf Node version $(node -v) set ($((endTime-startTime))ms)"
-      if [ -x "$(which iterm2_set_user_var)" ]; then
-        iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
-      fi
-    else
-      info-secondary "asdf versions set ($((endTime-startTime))ms)"
+  startTime="$(gdate +%s%N | cut -b1-13)"
+
+  # If versions are not installed, install them
+  if asdf current 2>&1 | grep -q "false - Run"; then
+    asdf install
+  fi
+
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  if command -v node &>/dev/null; then
+    info-secondary "asdf Node version $(node -v) set ($((endTime-startTime))ms)"
+    if command -v iterm2_set_user_var &>/dev/null; then
+      iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
+    fi
+  else
+    info-secondary "asdf versions set ($((endTime-startTime))ms)"
+  fi
+}
+
+function load-nvm() {
+  if ! has-nvm || [[ ! -f .nvmrc || ! -r .nvmrc ]]; then
+    return
+  fi
+
+  startTime="$(gdate +%s%N | cut -b1-13)"
+  local nvmrc_version
+  nvmrc_version="$(tr -d '[:space:]' < .nvmrc)"
+
+  if ! nvm use "$nvmrc_version" 2>/dev/null; then
+    nvm install "$nvmrc_version"
+    nvm use "$nvmrc_version"
+  fi
+
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  if command -v node &>/dev/null; then
+    info-secondary "nvm Node version $(node -v) set ($((endTime-startTime))ms)"
+    if command -v iterm2_set_user_var &>/dev/null; then
+      iterm2_set_user_var nodeVersion $(node -v | cut -d'v' -f2-)
     fi
   fi
 }
 
-# function load-rvmrc() {
-#   startTime="$(gdate +%s%N | cut -b1-13)"
-#   if [[ -f .ruby-version && -r .ruby-version ]]; then
-#     rbenv local
-#     rvm use
-#   fi
-#   endTime="$(gdate +%s%N | cut -b1-13)"
-#   info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
-#   if [ -x "$(which iterm2_set_user_var)" ]; then
-#     iterm2_set_user_var rubyVersion $(rvm current | cut -d'-' -f2-)
-#   fi
-# }
+function load-rvm() {
+  if ! has-rvm || [[ ! -f .ruby-version || ! -r .ruby-version ]]; then
+    return
+  fi
+
+  startTime="$(gdate +%s%N | cut -b1-13)"
+  rvm use
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  if command -v ruby &>/dev/null; then
+    info-secondary "Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
+    if command -v iterm2_set_user_var &>/dev/null; then
+      iterm2_set_user_var rubyVersion $(rvm current 2>/dev/null | cut -d'-' -f2-)
+    fi
+  fi
+}
+
+function load-rbenv() {
+  if ! has-rbenv || [[ ! -f .ruby-version || ! -r .ruby-version ]]; then
+    return
+  fi
+
+  startTime="$(gdate +%s%N | cut -b1-13)"
+  rbenv local
+  endTime="$(gdate +%s%N | cut -b1-13)"
+  if command -v ruby &>/dev/null; then
+    info-secondary "rbenv Ruby version $(ruby -v) set ($((endTime-startTime))ms)"
+    if command -v iterm2_set_user_var &>/dev/null; then
+      iterm2_set_user_var rubyVersion $(rbenv version-name 2>/dev/null)
+    fi
+  fi
+}
+
+function apply-tool-versions() {
+  if has-nix-project; then
+    return
+  fi
+
+  if has-asdf && [[ -f .tool-versions && -r .tool-versions ]]; then
+    load-asdf
+    return
+  fi
+
+  if [[ -f .nvmrc && -r .nvmrc ]] && has-nvm; then
+    load-nvm
+    return
+  fi
+
+  if [[ -f .ruby-version && -r .ruby-version ]] && has-rvm; then
+    load-rvm
+    return
+  fi
+
+  if [[ -f .ruby-version && -r .ruby-version ]] && has-rbenv; then
+    load-rbenv
+    return
+  fi
+}
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Aliases ready ($((endTime-startTime))ms)"
@@ -199,16 +293,11 @@ function iterm2_print_user_vars() {
 
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "iTerm user variables set ($((endTime-startTime))ms)"
-# startTime="$(gdate +%s%N | cut -b1-13)"
-
-# eval "$(rbenv init -)"
 
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 function on-change-dir() {
-  # migrate-nvmrc
-  load-asdf
-  # load-rvmrc
+  apply-tool-versions
 }
 
 #Auto switch nvm versions:
@@ -224,13 +313,6 @@ if [ -x "$(which starship)" ]; then
 fi
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "starship initialised ($((endTime-startTime))ms)"
-
-startTime="$(gdate +%s%N | cut -b1-13)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-if [ -d "$HOME/.rvm/bin" ]; then
-  export PATH="$PATH:$HOME/.rvm/bin"
-fi
 
 on-change-dir
 

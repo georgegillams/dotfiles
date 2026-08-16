@@ -159,7 +159,7 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias ant-deploy='ant && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.0.98:/home/pi/Documents/github.com/georgegillams/ant-ics'
 
   alias netmon='clone-and-cd-personal georgegillams network-monitor'
-  alias netmons='netmon && yarn'
+  alias netmons='netmon && PUPPETEER_SKIP_DOWNLOAD=true yarn'
   alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
   alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/github.com/georgegillams/network-monitor'
   alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
