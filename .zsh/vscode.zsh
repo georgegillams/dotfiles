@@ -32,15 +32,16 @@ function vscode-backup() {
     return 1
   fi
 
-  local dest i label src dest_dir copied
+  local stamp dest i label src dest_dir copied
+  stamp="$(date +%Y%m%dT%H%M)"
 
   for dest in "${dests[@]}"; do
     for i in {1..${#editor_labels[@]}}; do
       label="${editor_labels[$i]}"
       src="${editor_srcs[$i]}"
-      dest_dir="$dest"
+      dest_dir="$dest/$stamp"
       if [[ ${#editor_labels[@]} -gt 1 ]]; then
-        dest_dir="$dest/${(L)label}"
+        dest_dir="$dest/$stamp/${(L)label}"
       fi
 
       copied=0
