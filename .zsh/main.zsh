@@ -130,6 +130,7 @@ source $USER_ZSH/lang.zsh
 source $USER_ZSH/npm.zsh
 source $USER_ZSH/system.zsh
 source $USER_ZSH/personal.zsh
+source $USER_ZSH/vscode.zsh
 source $USER_ZSH/network.zsh
 
 if [[ -f $USER_ZSH/typeform.zsh ]]; then
@@ -138,7 +139,6 @@ fi
 if [[ -f "$HS_DRIVE/02_Areas/Apps/.zsh/hs.zsh" ]]; then
   source "$HS_DRIVE/02_Areas/Apps/.zsh/hs.zsh"
 fi
-
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 

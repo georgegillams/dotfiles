@@ -46,8 +46,6 @@ alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew ins
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-  export MY_PERSONAL_DRIVE="/Users/george.gillams/Library/CloudStorage/GoogleDrive-hello@georgegillams.co.uk/My Drive"
-
   alias 1p-personal='op signin --account my.1password.com'
 
   alias daily-backup="ge-backup && hrp-backup && netmon-backup"

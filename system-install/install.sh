@@ -34,3 +34,4 @@
 (. ./21-login-items-and-permissions.sh)
 (. ./22-hs.sh)
 (. ./23-rust.sh)
+(. ./24-vscode.sh)

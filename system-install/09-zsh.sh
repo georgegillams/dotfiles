@@ -21,6 +21,12 @@ cd $installDir
 # Copy zsh entrypoint file
 echo "source \"/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/.zsh/main.zsh\"" > ~/.zshrc
 
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+  echo "Add MY_PERSONAL_DRIVE export to ~/.zshrc"
+  echo "Press enter when complete"
+  read
+fi
+
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   echo "Add HS_DRIVE export to ~/.zshrc"
   echo "Press enter when complete"
