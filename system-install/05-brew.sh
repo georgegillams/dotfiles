@@ -8,10 +8,12 @@ read
 
 brew update
 
+brew install --cask elgato-stream-deck
 brew install --cask figma
 brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask iterm2
+brew install --cask meetingbar
 brew install --cask obsidian
 brew install --cask raycast
 brew install --cask rectangle-pro
@@ -35,7 +37,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask cursor
   brew install --cask daisydisk
   brew install --cask docker
-  brew install --cask elgato-stream-deck
   brew install --cask google-drive
   brew install --cask gpg-suite
   brew install --cask handbrake
@@ -145,7 +146,6 @@ fi
 # brew install --cask jellyfin
 # brew install --cask keycastr
 # brew install --cask mechvibes
-# brew install --cask meetingbar
 # brew install --cask neat # github notifications
 # brew install --cask oracle-jdk
 # brew install --cask signal
