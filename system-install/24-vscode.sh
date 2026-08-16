@@ -21,7 +21,6 @@ $editor --install-extension ms-vscode.vscode-typescript-next
 $editor --install-extension redhat.vscode-xml
 $editor --install-extension redhat.vscode-yaml
 $editor --install-extension streetsidesoftware.code-spell-checker
-$editor --install-extension stylelint.vscode-stylelint
 $editor --install-extension vscodevim.vim
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
@@ -36,6 +35,7 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   $editor --install-extension matthizou.translation-keys-lookup
   $editor --install-extension mattpocock.ts-error-translator
   $editor --install-extension styled-components.vscode-styled-components
+  $editor --install-extension stylelint.vscode-stylelint
   $editor --install-extension wix.vscode-import-cost
 fi
 
