@@ -48,7 +48,12 @@ alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Suppo
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias 1p-personal='op signin --account my.1password.com'
 
-  alias daily-backup="ge-backup && hrp-backup && netmon-backup"
+  function daily-backup() {
+    if [[ -d "$MY_PERSONAL_DRIVE" ]]; then
+      ge-backup && hrp-backup && netmon-backup
+    fi
+    vscode-backup
+  }
 
   alias gg-aws='clone-and-cd-personal georgegillams aws'
 
