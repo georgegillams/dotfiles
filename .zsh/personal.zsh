@@ -1,4 +1,4 @@
-. "/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/system-install/00-setup-type.sh"
+
 
 # ========================== CLI UTILITIES ==========================
 

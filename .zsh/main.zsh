@@ -53,6 +53,9 @@ function error() {
   red "[ERROR] $@"
 }
 
+. "/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/system-install/00-setup-type.sh" >/dev/null
+info "Machine configuration: $setup_type"
+
 export ZSH=$HOME/.oh-my-zsh
 export USER_ZSH="/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/.zsh"
 
