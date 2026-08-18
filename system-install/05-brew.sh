@@ -20,6 +20,7 @@ brew install --cask rectangle-pro
 brew install --cask vlc
 brew install coreutils
 brew install gh
+brew install python
 brew install starship
 brew install vim
 brew install wget
@@ -84,7 +85,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install mitmproxy
   brew install neovim
   brew install nvm
-  brew install python@3.11
   brew install redis
   brew install rtk
   brew install sox

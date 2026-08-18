@@ -100,7 +100,7 @@ function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-na
 function IMPLEMENTATION-git-revert-to-main() { rm -rf $@ && git checkout origin/main $@ }
 function IMPLEMENTATION-git-revert-to-master() { rm -rf $@ && git checkout origin/master $@ }
 function IMPLEMENTATION-git-revert-to-develop() { rm -rf $@ && git checkout origin/develop $@ }
-function git-revert-to-main() { if [[ $(pwd) == *"gitlab"* ]]; then IMPLEMENTATION-git-revert-to-develop; elif [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; elif [[ $(pwd) == *"Documents/Typeform/k8s-manifests"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; else IMPLEMENTATION-git-revert-to-main $@ ; fi }
+function git-revert-to-main() { if [[ $(pwd) == *"gitlab"* ]]; then IMPLEMENTATION-git-revert-to-develop $@; elif [[ $(pwd) == *"Documents/Typeform/terraform-shared"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; elif [[ $(pwd) == *"Documents/Typeform/k8s-manifests"* ]]; then IMPLEMENTATION-git-revert-to-master $@ ; else IMPLEMENTATION-git-revert-to-main $@ ; fi }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
