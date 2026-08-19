@@ -20,8 +20,10 @@ $editor --install-extension esbenp.prettier-vscode
 $editor --install-extension ms-vscode.vscode-typescript-next
 $editor --install-extension redhat.vscode-xml
 $editor --install-extension redhat.vscode-yaml
+$editor --install-extension rust-lang.rust-analyzer
 $editor --install-extension streetsidesoftware.code-spell-checker
 $editor --install-extension vscodevim.vim
+
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   $editor --install-extension GitLab.gitlab-workflow
