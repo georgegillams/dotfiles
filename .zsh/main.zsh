@@ -122,7 +122,8 @@ endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
-source $ZSH/oh-my-zsh.sh
+# Because sourcing this can be noisy, route output to /dev/null
+source $ZSH/oh-my-zsh.sh >> /dev/null
 
 source $USER_ZSH/docker.zsh
 source $USER_ZSH/git.zsh
