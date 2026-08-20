@@ -1,4 +1,3 @@
 #!/bin/bash
 
-# /usr/bin/shortcuts run "Shortcut - Pause all HomePods"
-osascript -e 'tell application "Shortcuts" to run shortcut "Shortcut - Pause all HomePods"'
+curl "http://192.168.1.96:3020/button-pause-homepods?event=single-press"

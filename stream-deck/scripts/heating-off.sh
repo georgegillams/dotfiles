@@ -1,4 +1,3 @@
 #!/bin/bash
 
-# /usr/bin/shortcuts run "Shortcut - Heating off scene"
-osascript -e 'tell application "Shortcuts" to run shortcut "Scene.Warm.Off"'
+curl "http://192.168.1.96:3020/button-study-heat?event=double-press"

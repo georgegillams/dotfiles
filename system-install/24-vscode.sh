@@ -29,6 +29,7 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   $editor --install-extension GitLab.gitlab-workflow
   $editor --install-extension hashicorp.terraform
   $editor --install-extension jnoortheen.nix-ide
+  $editor --install-extension oxc.oxc-vscode
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
