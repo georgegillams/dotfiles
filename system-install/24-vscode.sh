@@ -18,6 +18,7 @@ $editor --install-extension DavidAnson.vscode-markdownlint
 $editor --install-extension dbaeumer.vscode-eslint
 $editor --install-extension esbenp.prettier-vscode
 $editor --install-extension ms-vscode.vscode-typescript-next
+$editor --install-extension oxc.oxc-vscode
 $editor --install-extension redhat.vscode-xml
 $editor --install-extension redhat.vscode-yaml
 $editor --install-extension rust-lang.rust-analyzer
@@ -29,7 +30,6 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   $editor --install-extension GitLab.gitlab-workflow
   $editor --install-extension hashicorp.terraform
   $editor --install-extension jnoortheen.nix-ide
-  $editor --install-extension oxc.oxc-vscode
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
