@@ -32,14 +32,6 @@ function cursorex() {
 
 # ==================== PERSONAL PROJECTS =====================
 
-function daily-backup() {
-  if [[ -d "$MY_PERSONAL_DRIVE" ]]; then
-    ge-backup && hrp-backup && netmon-backup
-  fi
-  vscode-backup
-}
-
-
 alias dotfiles='clone-and-cd-personal georgegillams dotfiles'
 alias dotfiles-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf dotfiles && git clone git@github.com:georgegillams/dotfiles.git'
 alias dotfiles-save-tmux-conf='dotfiles && cp ~/.tmux.conf ./ && gaa && gcmpchore "Update TMUX conf"'
@@ -244,3 +236,11 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
     fi
   }
 fi
+
+function daily-backup() {
+  if [[ -d "$MY_PERSONAL_DRIVE" ]]; then
+    ge-backup && hrp-backup && netmon-backup
+  fi
+  vscode-backup
+}
+
