@@ -45,6 +45,8 @@ alias brew-edit-install-script='dotfiles-edit-install-script'
 alias dotfiles-commit-brew-script='dotfiles && gaa && gcmpchore "Update brew install script"'
 alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Support/Code/User/*.json ./vscode/ && gaa && gcmpchore "Update vscode settings"'
 
+alias browser-scripts='clone-and-cd-personal georgegillams browser-scripts'
+
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias 1p-personal='op signin --account my.1password.com'
 
@@ -54,7 +56,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
 
   alias sort-phone-photos='clone-and-cd-personal georgegillams image-meta-fixer && [[ -d node_modules ]] || yarn && yarn action "$MY_PERSONAL_DRIVE/2_Areas/Photography/Camera Uploads/" "$MY_PERSONAL_DRIVE/2_Areas/Photography/iPhone photos" --fix --move'
 
-  alias browser-scripts='clone-and-cd-personal georgegillams browser-scripts'
   alias browser-scriptss='browser-scripts && yarn setup'
   alias browser-scripts-commit='browser-scripts && browser-scripts-build-readme && gaa && gcmpfeat "Update scripts"'
   alias browser-scripts-nuke='cd ~/Documents/github.com/georgegillams/ && sudo rm -rf browser-scripts && git clone git@github.com:georgegillams/browser-scripts.git'

@@ -4,36 +4,36 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const args = process.argv.slice(2);
-const SUPPORTED_MANAGERS = ['npm', 'yarn', 'pnpm', 'bun'];
-
-let pm = 'npm'; // Default package manager
-let matchString = '';
-
-// Smart argument parsing: 
-// If the first argument is a package manager, use it. Otherwise, assume it's the search string.
-if (SUPPORTED_MANAGERS.includes(args[0])) {
-  pm = args[0];
-  matchString = args[1] || '';
-} else {
-  matchString = args[0] || '';
-}
-
-// Map the correct install commands for each package manager
-const pmCommands = {
-  npm: { prod: 'npm install', dev: 'npm install -D' },
-  yarn: { prod: 'yarn add', dev: 'yarn add -D' },
-  pnpm: { prod: 'pnpm add', dev: 'pnpm add -D' },
-  bun: { prod: 'bun add', dev: 'bun add -d' }
-};
-
-const cmdProd = pmCommands[pm].prod;
-const cmdDev = pmCommands[pm].dev;
-
+const matchString = process.argv[2] || '';
 const startDir = process.cwd();
 
 // Crucial: Ignore these directories to prevent infinite loops or modifying the wrong files
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', '.next', 'coverage'];
+
+// Cache to prevent looking up the same package multiple times
+const versionCache = {};
+
+// Helper: Fetch the latest version of a package synchronously
+function getLatestVersion(pkgName) {
+  if (versionCache[pkgName]) return versionCache[pkgName];
+  
+  try {
+    // Suppress stderr to keep terminal clean if a package isn't found
+    const latest = execSync(`npm show "${pkgName}" version 2>/dev/null`, { stdio: 'pipe' })
+      .toString()
+      .trim()
+      .split('\n')
+      .pop()
+      .trim();
+      
+    if (latest) {
+      versionCache[pkgName] = latest;
+      return latest;
+    }
+  } catch (err) {
+    return null; // Package might not exist or network error
+  }
+}
 
 // Recursively find all package.json files
 function findPackageJsons(dir, fileList = []) {
@@ -60,53 +60,87 @@ function findPackageJsons(dir, fileList = []) {
   return fileList;
 }
 
-// Update dependencies for a specific package.json
+// Helper: Updates a specific map inside package.json (dependencies, resolutions, etc.)
+function updateDependencyMap(obj, fieldName, logs) {
+  if (!obj || typeof obj !== 'object') return false;
+  
+  let modified = false;
+  const keys = Object.keys(obj).filter(k => k.includes(matchString));
+
+  for (const key of keys) {
+    const oldVersion = obj[key];
+    if (typeof oldVersion !== 'string') continue;
+    
+    // Skip local/git/workspace resolutions 
+    if (oldVersion.match(/^(workspace:|file:|git\+?|http:|https:)/)) continue;
+
+    // Smart regex: extracts exact package name from nested paths like "**/pkg" or "@scope/pkg"
+    const pkgName = key.match(/(@[^\/]+\/[^\/]+|[^\/]+)$/)?.[0] || key;
+
+    process.stdout.write(`   🔍 Checking ${pkgName}... \r`);
+    const latest = getLatestVersion(pkgName);
+    
+    if (!latest) continue;
+
+    // Preserve the prefix (^, ~, or empty if exact)
+    const prefixMatch = oldVersion.match(/^[\^~]?/);
+    const prefix = prefixMatch ? prefixMatch[0] : '';
+    const newVersion = `${prefix}${latest}`;
+
+    if (oldVersion !== newVersion) {
+      logs.push(`   ✅ Bumped ${key} (${oldVersion} -> ${newVersion}) [${fieldName}]`);
+      obj[key] = newVersion;
+      modified = true;
+    }
+  }
+  
+  return modified;
+}
+
+// Process an individual package.json
 function processPackageJson(packageJsonPath) {
-  const targetDir = path.dirname(packageJsonPath); // 👈 Gets the exact folder of the package.json
+  const targetDir = path.dirname(packageJsonPath);
   let pkg;
+  let indent = 2; // Default indentation fallback
 
   try {
-    pkg = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+    const content = fs.readFileSync(packageJsonPath, 'utf8');
+    // Auto-detect the project's formatting (tabs or spaces) to preserve it
+    const indentMatch = content.match(/^[ \t]+/m);
+    indent = indentMatch ? indentMatch[0] : 2;
+    pkg = JSON.parse(content);
   } catch (err) {
     console.error(`\n❌ Error reading or parsing: ${packageJsonPath}`);
     return;
   }
 
-  // Filter keys by match string, then append '@latest'
-  const deps = Object.keys(pkg.dependencies || {})
-    .filter(k => k.includes(matchString))
-    .map(k => `${k}@latest`);
+  const logs = [];
+  
+  // Update all standard dependency blocks and resolution blocks
+  const depsModified = updateDependencyMap(pkg.dependencies, 'dependencies', logs);
+  const devDepsModified = updateDependencyMap(pkg.devDependencies, 'devDependencies', logs);
+  const resModified = updateDependencyMap(pkg.resolutions, 'resolutions', logs);
+  const overModified = updateDependencyMap(pkg.overrides, 'overrides', logs);
+  
+  let pnpmOverModified = false;
+  if (pkg.pnpm && pkg.pnpm.overrides) {
+    pnpmOverModified = updateDependencyMap(pkg.pnpm.overrides, 'pnpm.overrides', logs);
+  }
+
+  const fileNeedsSave = depsModified || devDepsModified || resModified || overModified || pnpmOverModified;
+
+  if (fileNeedsSave) {
+    console.log(`\n======================================================`);
+    console.log(`💾 Updating: ${packageJsonPath}`);
+    console.log(`======================================================`);
     
-  const devDeps = Object.keys(pkg.devDependencies || {})
-    .filter(k => k.includes(matchString))
-    .map(k => `${k}@latest`);
-
-  if (deps.length === 0 && devDeps.length === 0) {
-    return; // Nothing to update in this file
-  }
-
-  console.log(`\n======================================================`);
-  console.log(`📦 Updating packages in: ${targetDir}`);
-  console.log(`🛠️  Using: ${pm}`);
-  console.log(`======================================================`);
-
-  if (deps.length > 0) {
-    console.log(`\n⏳ Installing dependencies: ${deps.join(' ')}`);
-    try {
-      // 👈 cwd: targetDir ensures it runs in the exact location of the matched package.json
-      execSync(`${cmdProd} ${deps.join(' ')}`, { cwd: targetDir, stdio: 'inherit' });
-    } catch (err) {
-      console.error(`❌ Failed to update dependencies in ${targetDir}`);
-    }
-  }
-
-  if (devDeps.length > 0) {
-    console.log(`\n⏳ Installing devDependencies: ${devDeps.join(' ')}`);
-    try {
-      execSync(`${cmdDev} ${devDeps.join(' ')}`, { cwd: targetDir, stdio: 'inherit' });
-    } catch (err) {
-      console.error(`❌ Failed to update devDependencies in ${targetDir}`);
-    }
+    // Clear the loading line
+    process.stdout.write('                                       \r');
+    
+    logs.forEach(log => console.log(log));
+    
+    // Save file preserving exact indentation
+    fs.writeFileSync(packageJsonPath, JSON.stringify(pkg, null, indent) + '\n', 'utf8');
   }
 }
 
@@ -119,8 +153,10 @@ if (packageFiles.length === 0) {
   process.exit(0);
 }
 
-console.log(`✅ Found ${packageFiles.length} package.json file(s). Searching for dependencies matching: "${matchString}"`);
+console.log(`✅ Found ${packageFiles.length} package.json file(s). Looking up latest versions matching: "${matchString}"\n`);
 
 packageFiles.forEach(processPackageJson);
 
-console.log('\n🎉 All finished!');
+// Clear any trailing status line
+process.stdout.write('                                       \r');
+console.log('\n🎉 All finished! Run your package manager install command to apply updates.');

@@ -29,6 +29,6 @@ function loop() {
 }
 
 
-function pnpm-check-updates() {
-  node ~/Documents/github.com/georgegillams/dotfiles/update-js-packages.js pnpm $@
+function npm-check-updates() {
+  node ~/Documents/github.com/georgegillams/dotfiles/update-js-packages.js $@
 }
