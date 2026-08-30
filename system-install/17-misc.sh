@@ -24,6 +24,11 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
+  echo "DaVinci Resolve => https://www.blackmagicdesign.com/products/davinciresolve"
+fi
+
+
+if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "Sigma Optimization => https://www.sigma-global.com/en/support/software/sigma-optimization-pro/?os=mac"
 fi
 
