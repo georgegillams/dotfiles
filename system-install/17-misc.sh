@@ -25,6 +25,9 @@ fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "DaVinci Resolve => https://www.blackmagicdesign.com/products/davinciresolve"
+  open "https://www.blackmagicdesign.com/products/davinciresolve"
+  echo "DXO => https://shop.dxo.com/en/customer/account/login/"
+  open "https://shop.dxo.com/en/customer/account/login/"
 fi
 
 
