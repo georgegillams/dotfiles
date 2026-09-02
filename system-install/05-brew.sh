@@ -21,6 +21,7 @@ brew install --cask vlc
 brew install coreutils
 brew install gh
 brew install python
+brew install rtk
 brew install starship
 brew install vim
 brew install wget
@@ -66,7 +67,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install curl
   brew install docker
   brew install docker-compose
-  brew install duti
   brew install exiftool # photo meta-data editing
   brew install ffmpeg
   brew install fswatch
@@ -86,7 +86,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install neovim
   brew install nvm
   brew install redis
-  brew install rtk
   brew install sox
   brew install swiftlint
   brew install switchaudio-osx

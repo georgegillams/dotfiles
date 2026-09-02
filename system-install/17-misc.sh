@@ -26,8 +26,6 @@ fi
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   echo "DaVinci Resolve => https://www.blackmagicdesign.com/products/davinciresolve"
   open "https://www.blackmagicdesign.com/products/davinciresolve"
-  echo "DXO => https://shop.dxo.com/en/customer/account/login/"
-  open "https://shop.dxo.com/en/customer/account/login/"
 fi
 
 
@@ -74,22 +72,22 @@ else
   editorAppId="com.microsoft.VSCode"
 fi
 
-if [ -x "$(which duti)" ]; then
-  duti -s org.videolan.vlc .m4a all
-  duti -s org.videolan.vlc .mp3 all
-  duti -s org.videolan.vlc .aac all
-  duti -s org.videolan.vlc .wav all
-  duti -s $editorAppId .css all
-  duti -s $editorAppId .scss all
-  duti -s $editorAppId .sh all
-  duti -s $editorAppId .zsh all
-  duti -s $editorAppId .js all
-  duti -s $editorAppId .ts all
-  duti -s $editorAppId .jsx all
-  duti -s $editorAppId .tsx all
-  duti -s $editorAppId .md all
-  duti -s $editorAppId .mdx all
-  duti -s $editorAppId .txt all
-  duti -s $editorAppId .json all
-  duti -s $editorAppId .toml all
-fi
+../set-default-app.sh org.videolan.vlc m4a
+../set-default-app.sh org.videolan.vlc mp3
+../set-default-app.sh org.videolan.vlc aac
+../set-default-app.sh org.videolan.vlc wav
+../set-default-app.sh $editorAppId css
+../set-default-app.sh $editorAppId scss
+../set-default-app.sh $editorAppId sh
+../set-default-app.sh $editorAppId zsh
+../set-default-app.sh $editorAppId js
+../set-default-app.sh $editorAppId ts
+../set-default-app.sh $editorAppId jsx
+../set-default-app.sh $editorAppId tsx
+../set-default-app.sh $editorAppId md
+../set-default-app.sh $editorAppId mdx
+../set-default-app.sh $editorAppId txt
+../set-default-app.sh $editorAppId json
+../set-default-app.sh $editorAppId toml
+../set-default-app.sh $editorAppId nix
+../set-default-app.sh $editorAppId rs
