@@ -145,20 +145,27 @@ function cd-if-necessary() {
 }
 
 function clone-and-cd() {
-  instancePath=$1
-  instancePath="$HOME/Documents/$1"
-  orgPath="$instancePath/$2"
-  repoPath="$orgPath/$3"
+  method=$1
+  host=$2
+  org=$3
+  repo=$4
+  instancePath="$HOME/Documents/$host"
+  orgPath="$instancePath/$org"
+  repoPath="$orgPath/$repo"
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
     cd-if-necessary $orgPath
-    git clone git@$1:$2/$3.git
+    if [[ $method == "http" ]]; then
+      git clone https://$host/$org/$repo.git
+    else
+      git clone git@$host:$org/$repo.git
+    fi
   fi
   cd-if-necessary $repoPath
 }
 
 function clone-and-cd-personal() {
-  clone-and-cd github.com $@
+  clone-and-cd ssh github.com $@
 }
 
 alias re-cd='cd "$(pwd)"'
