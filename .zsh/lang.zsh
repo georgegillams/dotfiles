@@ -10,6 +10,12 @@ alias xcode-fix-AST-error='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCa
 alias simulator-reset-all-devices='(pkill Simulator || true) && xcrun simctl erase all'
 alias be='bundle exec'
 
+# ========================= RUST =========================
+
+if [[ -f "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+fi
+
 # ========================= ANDROID =========================
 
 alias AndroidStudio="open -a /Applications/Android\ Studio.app"
