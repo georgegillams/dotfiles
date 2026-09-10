@@ -238,10 +238,66 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   }
 fi
 
+function firefox-backup() {
+  local dest="$HS_DRIVE/02_Areas/Apps/Firefox"
+  if [[ ! -d "$dest" ]]; then
+    warn "Firefox backup directory not found: $dest"
+    return
+  fi
+
+  local ff_base="$HOME/Library/Application Support/Firefox/Profiles"
+  local profile_dir
+  profile_dir="$(find "$ff_base" -maxdepth 1 -name '*.default-release' -type d 2>/dev/null | head -1)"
+
+  if [[ -z "$profile_dir" ]]; then
+    warn "No Firefox default-release profile found in $ff_base"
+    return
+  fi
+
+  local stamp dest_dir
+  stamp="$(date +%Y%m%dT%H%M)"
+  dest_dir="$dest/$stamp"
+  mkdir -p "$dest_dir"
+
+  local copied=0
+  if [[ -f "$profile_dir/prefs.js" ]]; then
+    cp -p "$profile_dir/prefs.js" "$dest_dir/prefs.js"
+    copied=1
+  fi
+  if [[ -f "$profile_dir/places.sqlite" ]]; then
+    cp -p "$profile_dir/places.sqlite" "$dest_dir/places.sqlite"
+    copied=1
+  fi
+  if [[ -d "$profile_dir/bookmarkbackups" ]]; then
+    cp -Rp "$profile_dir/bookmarkbackups" "$dest_dir/bookmarkbackups"
+    copied=1
+  fi
+
+  if [[ $copied -eq 1 ]]; then
+    success "Backed up Firefox profile to $dest_dir"
+  else
+    warn "No Firefox settings or bookmarks found in $profile_dir"
+  fi
+}
+
+LAST_BACKUP_FILE="/tmp/.daily-backup-timestamp"
+
+function get-last-backup() {
+  if [[ -f "$LAST_BACKUP_FILE" ]]; then
+    cat "$LAST_BACKUP_FILE"
+  fi
+}
+
+function set-last-backup() {
+  date +%s > "$LAST_BACKUP_FILE"
+}
+
 function daily-backup() {
   if [[ -d "$MY_PERSONAL_DRIVE" ]]; then
     ge-backup && hrp-backup && netmon-backup
   fi
   vscode-backup
+  firefox-backup
+  set-last-backup
 }
 

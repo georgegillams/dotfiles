@@ -2,6 +2,7 @@ startTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 startTime="$(gdate +%s%N | cut -b1-13)"
 
 RED='\033[0;31m'
+RED_BG='\033[97;41m'
 YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 BLUE='\033[0;34m'
@@ -15,6 +16,27 @@ function yellow() {
 
 function red() {
   echo "${RED}$@${NC}"
+}
+
+function red-bg() {
+  if [[ $# -gt 0 ]]; then
+    echo "${RED_BG}$@${NC}"
+  else
+    while IFS= read -r line; do
+      echo "${RED_BG}${line}${NC}"
+    done
+  fi
+}
+
+function box() {
+  local msg="$*"
+  local len=${#msg}
+  local padding=$(printf '%*s' $((len + 2)) '')
+  echo ""
+  echo " ${padding} "
+  echo "  ${msg}  "
+  echo " ${padding} "
+  echo ""
 }
 
 function cyan() {
@@ -322,6 +344,22 @@ on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
+
+# Check if a backup has been done in the last week
+local last_backup
+last_backup="$(get-last-backup)"
+if [[ -n "$last_backup" ]]; then
+  local now one_week
+  now="$(date +%s)"
+  one_week=$((7 * 24 * 60 * 60))
+  if [[ $((now - last_backup)) -lt $one_week ]]; then
+    info "Recent backup done"
+  else
+    box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
+  fi
+else
+  box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
+fi
 
 # PostgreSQL
 if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
