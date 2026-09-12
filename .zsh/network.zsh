@@ -1,3 +1,7 @@
+alias edgerouter-scripts='clone-and-cd-personal georgegillams edgerouter-resilience'
+alias edgerouter-scripts-build='edgerouter-scripts && cp $MY_PERSONAL_DRIVE/2_Areas/Network/Full\ Fibre\ setup/Edgerouter\ files/config/scripts_v2/config.toml ./ && ./build.sh'
+alias edgerouter-scripts-deploy='edgerouter-scripts-build && scp -r dist george@192.168.1.1:/tmp/scripts_dist && blue "NOW ON EDGEROUTER RUN" && yellow "sudo cp -a /tmp/scripts_dist/* /config/scripts/ && sudo chmod +x /config/scripts/* && sudo chmod a-x /config/scripts/*.toml" && blue "Confirm working with" && yellow "cd /config/scripts && ./auto-reset-pppoe" && edgerouter-ssh'
+
 alias edgerouter-ssh='ssh george@192.168.1.1'
 alias edgerouter-failover-sensitivity-up='echo "configure"; echo "set load-balance group G interface pppoe0 route-test interval 5"; echo "commit; save; exit"; edgerouter-ssh'
 alias edgerouter-failover-sensitivity-down='echo "configure"; echo "set load-balance group G interface pppoe0 route-test interval 10"; echo "commit; save; exit"; edgerouter-ssh'
