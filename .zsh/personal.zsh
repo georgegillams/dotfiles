@@ -175,6 +175,9 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias sds='sd && yarn'
   alias sdo='sd && sd-link && yarn watch'
   alias sd-link='rm -rf ~/Library/Application\ Support/com.elgato.StreamDeck/Plugins/uk.co.georgegillams* || true && streamdeck dev && (cd uk.co.georgegillams.script-state.sdPlugin && streamdeck link)'
+
+  alias tracksweep='clone-and-cd-personal georgegillams track-sweep'
+  alias tracksweepo='tracksweep && cargo run --release'
 fi
 
 # ========================== PHOTOGRAPHY ==========================
