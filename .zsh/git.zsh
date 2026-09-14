@@ -92,6 +92,8 @@ alias gpf='git push --force --no-verify && gh-view-or-create-pr-web'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
 function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
+function gcmpcd() { gcmpWithType $@ cd }
+function gcmpci() { gcmpWithType $@ ci }
 function gcmpfix() { gcmpWithType $@ fix }
 function gcmpfeat() { gcmpWithType $@ feat }
 function gcmpchore() { gcmpWithType $@ chore }

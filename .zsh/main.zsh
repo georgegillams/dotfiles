@@ -95,6 +95,11 @@ fi
 
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:~/go/bin/:$PATH
 
+# Auto-attach to tmux in every new iTerm2 window/tab
+if [[ "$TERM_PROGRAM" == "iTerm.app" ]] && command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+  tmux new-session
+fi
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 endTime="$(gdate +%s%N | cut -b1-13)"
