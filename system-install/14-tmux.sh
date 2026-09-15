@@ -3,3 +3,4 @@
 brew install tmux
 
 ln -sf ~/Documents/github.com/georgegillams/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/Documents/github.com/georgegillams/dotfiles/.tmux-theme-sync.sh ~/.tmux-theme-sync.sh

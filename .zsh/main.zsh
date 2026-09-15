@@ -168,6 +168,9 @@ if [[ -f "$HS_DRIVE/02_Areas/Apps/.zsh/hs.zsh" ]]; then
   source "$HS_DRIVE/02_Areas/Apps/.zsh/hs.zsh"
 fi
 
+alias tmux-kill-server='tmux kill-server'
+alias tmux-reload='tmux source-file ~/.tmux.conf'
+
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
 function gif-make-loop-forever() { convert -delay 5 -loop 0 $@ $@ }
