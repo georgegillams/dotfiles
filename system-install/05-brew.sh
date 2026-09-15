@@ -23,6 +23,7 @@ brew install gh
 brew install python
 brew install rtk
 brew install starship
+brew install tmux
 brew install vim
 brew install wget
 brew install zsh
@@ -31,6 +32,7 @@ if [[ $setup_type == *"WORK"* ]]; then
 fi
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
+  brew install herdr
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
@@ -90,7 +92,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install swiftlint
   brew install switchaudio-osx
   brew install the_silver_searcher
-  brew install tmux
   brew install tree
   brew install yarn
 fi
@@ -121,7 +122,6 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
   brew install libpq && brew link --force libpq # postgresql
   brew install postgresql@16
   brew install siege
-  brew install tmux
   brew install watchman
 fi
 

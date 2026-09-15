@@ -1,4 +1,27 @@
+format = "$all$line_break$cmd_duration$time$character"
+
 [status]
 disabled = false
 # Shows exactly "Exit: 1" in red on failure
 format = '[❌ Exit: $status]($style) '
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
+format = '([$all_status$ahead_behind]($style) )'
+
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+
+[nodejs]
+symbol = "📦 "
+
+[git_commit]
+tag_symbol = "🏷️ "
+
+[time]
+disabled = false
+format = "at [$time]($style) "
+time_format = "%H:%M"
