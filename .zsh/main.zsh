@@ -160,6 +160,7 @@ source $USER_ZSH/system.zsh
 source $USER_ZSH/personal.zsh
 source $USER_ZSH/vscode.zsh
 source $USER_ZSH/network.zsh
+source $USER_ZSH/kubectl.zsh
 
 if [[ -f $USER_ZSH/typeform.zsh ]]; then
   source $USER_ZSH/typeform.zsh
