@@ -96,9 +96,9 @@ fi
 export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:~/go/bin/:$PATH
 
 # Auto-attach to tmux in every new iTerm2 window/tab
-if [[ "$TERM_PROGRAM" == "iTerm.app" ]] && command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
-  tmux new-session
-fi
+# if [[ "$TERM_PROGRAM" == "iTerm.app" ]] && command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+#   tmux new-session
+# fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -160,6 +160,7 @@ source $USER_ZSH/system.zsh
 source $USER_ZSH/personal.zsh
 source $USER_ZSH/vscode.zsh
 source $USER_ZSH/network.zsh
+source $USER_ZSH/kubectl.zsh
 
 if [[ -f $USER_ZSH/typeform.zsh ]]; then
   source $USER_ZSH/typeform.zsh
