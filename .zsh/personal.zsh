@@ -242,6 +242,9 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
 fi
 
 function firefox-backup() {
+  if [[ ! -d "$HS_DRIVE" ]]; then
+    return
+  fi
   local dest="$HS_DRIVE/02_Areas/Apps/Firefox"
   if [[ ! -d "$dest" ]]; then
     warn "Firefox backup directory not found: $dest"
