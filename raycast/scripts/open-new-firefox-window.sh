@@ -12,4 +12,4 @@
 # @raycast.author George Gillams
 # @raycast.authorURL https://www.georgegillams.co.uk/
 
-open /Applications/Firefox\ Developer\ Edition.app -n
+open /Applications/Firefox.app -n
