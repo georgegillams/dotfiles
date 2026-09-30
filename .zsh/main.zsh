@@ -39,6 +39,26 @@ function box() {
   echo ""
 }
 
+# Ask a yes/no question. Returns 0 for yes, 1 for no.
+# Usage: ask_yn "Question?" [y|n]   (optional default answer; defaults to n)
+# Example: ask_yn "Delete files?" && rm -rf ./files
+function ask_yn() {
+  local question="$1"
+  local default="${2:-n}"
+  local prompt answer
+
+  if [[ "$default" == [yY] ]]; then
+    prompt="[Y/n]"
+  else
+    prompt="[y/N]"
+  fi
+
+  printf "%s %s " "$question" "$prompt"
+  read -r answer
+
+  [[ "${answer:-$default}" == [yY] ]]
+}
+
 function cyan() {
   echo "${CYAN}$@${NC}"
 }
