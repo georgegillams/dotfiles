@@ -286,7 +286,7 @@ function firefox-backup() {
   fi
 }
 
-LAST_BACKUP_FILE="/tmp/.daily-backup-timestamp"
+LAST_BACKUP_FILE="/Users/george.gillams/.daily-backup-timestamp"
 
 function get-last-backup() {
   if [[ -f "$LAST_BACKUP_FILE" ]]; then

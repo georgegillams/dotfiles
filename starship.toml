@@ -1,4 +1,4 @@
-format = "$all$line_break$cmd_duration$time$character"
+format = "$all$line_break$status$cmd_duration$time$character"
 
 [status]
 disabled = false
