@@ -286,6 +286,18 @@ function firefox-backup() {
   fi
 }
 
+LAST_UPDATE_FILE="/Users/george.gillams/.update-timestamp"
+
+function get-last-update() {
+  if [[ -f "$LAST_UPDATE_FILE" ]]; then
+    cat "$LAST_UPDATE_FILE"
+  fi
+}
+
+function set-last-update() {
+  date +%s > "$LAST_UPDATE_FILE"
+}
+
 LAST_BACKUP_FILE="/Users/george.gillams/.daily-backup-timestamp"
 
 function get-last-backup() {

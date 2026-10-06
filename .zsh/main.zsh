@@ -40,12 +40,17 @@ function box() {
 }
 
 # Ask a yes/no question. Returns 0 for yes, 1 for no.
-# Usage: ask_yn "Question?" [y|n]   (optional default answer; defaults to n)
-# Example: ask_yn "Delete files?" && rm -rf ./files
+# Usage: ask_yn "Question?" [y|n] [--continue-on-timeout]
+# Example: ask_yn "Delete files?" N --continue-on-timeout && rm -rf ./files
 function ask_yn() {
   local question="$1"
   local default="${2:-n}"
+  local continue_on_timeout=0
   local prompt answer
+
+  for arg in "$@"; do
+    [[ "$arg" == "--continue-on-timeout" ]] && continue_on_timeout=1
+  done
 
   if [[ "$default" == [yY] ]]; then
     prompt="[Y/n]"
@@ -53,8 +58,19 @@ function ask_yn() {
     prompt="[y/N]"
   fi
 
-  printf "%s %s " "$question" "$prompt"
-  read -r answer
+  if [[ $continue_on_timeout -eq 1 ]]; then
+    printf "%s %s (continuing in 5s) " "$question" "$prompt"
+  else
+    printf "%s %s " "$question" "$prompt"
+  fi
+  if [[ $continue_on_timeout -eq 1 ]]; then
+    if ! read -r -t 5 answer; then
+      echo "(timed out, using default: $default)"
+      answer="$default"
+    fi
+  else
+    read -r answer
+  fi
 
   [[ "${answer:-$default}" == [yY] ]]
 }
@@ -191,6 +207,8 @@ fi
 
 alias tmux-kill-server='tmux kill-server'
 alias tmux-reload='tmux source-file ~/.tmux.conf'
+
+alias dec='declare -f'
 
 alias clear-scrollback-buffer='printf "\e]1337;ClearScrollback\a"'
 
@@ -373,6 +391,22 @@ on-change-dir
 
 endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
+
+# Check if app update has been done in the last week
+local last_update
+last_update="$(get-last-update)"
+if [[ -n "$last_update" ]]; then
+  local now one_week
+  now="$(date +%s)"
+  one_week=$((7 * 24 * 60 * 60))
+  if [[ $((now - last_update)) -lt $one_week ]]; then
+    info "Recent update done"
+  else
+    box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
+  fi
+else
+  box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
+fi
 
 # Check if a backup has been done in the last week
 local last_backup

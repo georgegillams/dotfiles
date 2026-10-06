@@ -6,7 +6,9 @@ fi
 
 alias k='kubectl'
 
+alias k-get-contexts='k get contexts'
 alias k-get-namespaces='k get namespaces'
+function k-set-context { k config set-context $1 }
 function k-set-namespace { k config set-context --current --namespace=$1 }
 
 alias k-get-pods='k get pods'
