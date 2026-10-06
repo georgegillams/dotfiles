@@ -31,6 +31,7 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   $editor --install-extension hashicorp.terraform
   $editor --install-extension jnoortheen.nix-ide
   $editor --install-extension lucien-martijn.parquet-visualizer
+  $editor --install-extension ms-ossdata.vscode-pgsql
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then

@@ -20,6 +20,7 @@ brew install --cask rectangle-pro
 brew install --cask vlc
 brew install coreutils
 brew install gh
+brew install htop
 brew install python
 brew install rtk
 brew install starship
@@ -75,7 +76,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install fzf # fuzzy finder for CLI tab completion
   brew install git
   brew install gnupg
-  brew install htop
   brew install imagemagick
   brew install imageoptim-cli
   brew install iperf3
