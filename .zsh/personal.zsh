@@ -165,6 +165,10 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias scks='sck'
   alias scko='sck && open Chorder.xcodeproj'
 
+  alias gl='clone-and-cd-personal georgegillams gitlab-monitor'
+  alias gls='gl'
+  alias glo='gl && open GitlabMonitor.xcodeproj'
+
   alias dsc='clone-and-cd-personal georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
   alias dscs='dsc && yarn'
   alias dsco='./start-database.sh && ./start-redis.sh && yarn dev'
