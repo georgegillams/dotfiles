@@ -1,3 +1,3 @@
 #!/bin/bash
 
-open /Users/george.gillams/Desktop
+open /Users/george.gillams/Downloads
