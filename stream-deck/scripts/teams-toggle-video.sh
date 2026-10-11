@@ -1,3 +1,8 @@
 #!/bin/bash
 
-osascript -e 'tell application "Microsoft Teams" to activate' -e 'delay 0.2' -e 'tell application "System Events" to keystroke "o" using {command down, shift down}'
+source "$(dirname "$0")/teams-focus.sh"
+
+osascript <<EOF
+$(teams_focus_applescript)
+tell application "System Events" to keystroke "o" using {shift down, command down}
+EOF
