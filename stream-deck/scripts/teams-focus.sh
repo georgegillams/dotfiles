@@ -5,12 +5,10 @@ teams_focus_applescript() {
 tell application "System Events"
     set teamsProcesses to every process whose name contains "Teams"
     repeat with proc in teamsProcesses
-        set callWindows to every window of proc whose name does not contain "Calendar |" and name is not ""
-        if (count of callWindows) > 0 then
-            set needsDelay to frontmost of proc is false
+        set meetingWindows to every window of proc whose name contains "| Microsoft Teams"
+        if (count of meetingWindows) > 0 then
             set frontmost of proc to true
-            perform action "AXRaise" of item 1 of callWindows
-            if needsDelay then delay 0.2
+            perform action "AXRaise" of item 1 of meetingWindows
         end if
     end repeat
 end tell
