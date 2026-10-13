@@ -1,3 +1,13 @@
+function _set-git-base-branch() {
+  if [[ $(pwd) == *"gitlab."* ]]; then
+    GIT_BASE_BRANCH="develop"
+  else
+    GIT_BASE_BRANCH="main"
+  fi
+}
+chpwd_functions+=(_set-git-base-branch)
+_set-git-base-branch
+
 alias gh-prs='gh pr list'
 alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
@@ -66,19 +76,20 @@ alias show-me-how-to-repeatedly-click-a-button='echo "setInterval(() => {
 alias git-prepend-branch-name='node ~/Documents/github.com/georgegillams/dotfiles/prepend-ticket.js'
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
-alias IMPLEMENTATION-git-develop-latest='gco develop && git-fetch && git reset --hard origin/develop && git pull && (git branch -D $(git branch | grep -v "develop") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-alias IMPLEMENTATION-git-main-latest='gco main && git-fetch && git reset --hard origin/main && git pull && (git branch -D $(git branch | grep -v "main") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-alias IMPLEMENTATION-git-master-latest='gco master && git-fetch && git reset --hard origin/master && git pull && (git branch -D $(git branch | grep -v "master") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-alias gml='if [[ $(pwd) == *"gitlab."* ]]; then IMPLEMENTATION-git-develop-latest; else IMPLEMENTATION-git-main-latest; fi'
+alias gml='gco $GIT_BASE_BRANCH && git-fetch && git reset --hard origin/$GIT_BASE_BRANCH && git pull && (git branch -D $(git branch | grep -v "$GIT_BASE_BRANCH") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
 alias gaa-no-image-optimisation='git add .'
 alias gaa='git-pre-push && gaa-no-image-optimisation'
 alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
 alias git-fetch='git fetch --all'
-alias IMPLEMENTATION-git-rebase-develop='git-fetch && (git rebase origin/develop | grep CONFLICT || true) && git-submodules-pull'
-alias IMPLEMENTATION-git-rebase-main='git-fetch && (git rebase origin/main | grep CONFLICT || true) && git-submodules-pull'
-alias IMPLEMENTATION-git-rebase-master='git-fetch && (git rebase origin/master | grep CONFLICT || true) && git-submodules-pull'
-alias grm='if [[ $(pwd) == *"gitlab."* ]]; then IMPLEMENTATION-git-rebase-develop; else IMPLEMENTATION-git-rebase-main; fi'
+alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
+function grm-stacked() {
+  if [[ -z "$1" ]]; then
+    echo "please provide commit hash from which you want to keep this branch's commits"
+    return 1
+  fi
+  git-fetch && (git rebase --onto "origin/$GIT_BASE_BRANCH" "$1" | grep CONFLICT || true) && git-submodules-pull
+}
 alias gri='HUSKY=0 git rebase -i'
 alias git-pull-master-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/master && git remote remove upstream && git push origin origin/master'
 alias git-pull-main-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/main && git remote remove upstream && git push origin origin/main'
@@ -99,10 +110,7 @@ function gcmpfeat() { gcmpWithType $@ feat }
 function gcmpchore() { gcmpWithType $@ chore }
 function gcmpdocs() { gcmpWithType $@ docs }
 function gcmpbreaking() { git-pre-push && git commit -m "$(git-prepend-branch-name $@ feat !)" -m "BREAKING CHANGE: $@" --no-verify && gpf }
-function IMPLEMENTATION-git-revert-to-main() { rm -rf $@ && git checkout origin/main $@ }
-function IMPLEMENTATION-git-revert-to-master() { rm -rf $@ && git checkout origin/master $@ }
-function IMPLEMENTATION-git-revert-to-develop() { rm -rf $@ && git checkout origin/develop $@ }
-function git-revert-to-main() { if [[ $(pwd) == *"gitlab."* ]]; then IMPLEMENTATION-git-revert-to-develop $@; else IMPLEMENTATION-git-revert-to-main $@ ; fi }
+function git-revert-to-main() { rm -rf $@ && git checkout origin/$GIT_BASE_BRANCH $@ }
 function whoamip() { ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' }
 function git-rename-branch() {
   oldBranchName=$(git branch | grep \* | cut -d " " -f2)
