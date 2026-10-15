@@ -48,7 +48,7 @@ alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Suppo
 alias browser-scripts='clone-and-cd-personal georgegillams browser-scripts'
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
-  alias 1p-personal='op signin --account my.1password.com'
+  alias 1p-personal='op signin --account my || { red "If this is not working, Check: System Settings > Privacy & Security > Files and Folders > iTerm.app > Data Shared by 1Password"; false; }'
 
   alias gg-aws='clone-and-cd-personal georgegillams aws'
 
@@ -160,6 +160,30 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias netmono='netmon && (sleep 1 && open http://localhost:8080/logs) & yarn start'
   alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/github.com/georgegillams/network-monitor'
   alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
+
+  # Deploy into local-plugins (not node_modules) so `hb-service add file:./…` works.
+  alias petkit-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+    --source ~/Documents/github.com/jubepue/homebridge-petkit-platform \
+    --plugin-dir /var/lib/homebridge/local-plugins/homebridge-petkit-platform \
+    --name homebridge-petkit-platform'
+  alias ecovacs-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+    --source ~/Documents/github.com/homebridge-plugins/homebridge-ecovacs \
+    --plugin-dir /var/lib/homebridge/local-plugins/@homebridge-plugins/homebridge-ecovacs \
+    --build "npm run build" \
+    --name homebridge-ecovacs'
+  # Sibling local-plugins dirs so package.json file:../eufy-robovac-js resolves on the Pi.
+  alias robovac-deploy='1p-personal && \
+    node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+      --source ~/Documents/github.com/gtalusan/eufy-robovac-js \
+      --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/eufy-robovac-js \
+      --name eufy-robovac-js \
+      --no-hb-install \
+      --no-restart && \
+    node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+      --source ~/Documents/github.com/gtalusan/homebridge-eufy-robovac \
+      --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/homebridge-eufy-robovac \
+      --build "npm run build" \
+      --name homebridge-eufy-robovac'
 
   alias sck='clone-and-cd-personal georgegillams chorder'
   alias scks='sck'
