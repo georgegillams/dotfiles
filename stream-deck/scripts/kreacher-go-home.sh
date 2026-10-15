@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl "http://192.168.1.96:3020/button-kreacher?event=double-press"
+curl "http://192.168.1.96:3020/button-kreacher?event=long-press"
