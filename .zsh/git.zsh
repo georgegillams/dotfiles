@@ -82,14 +82,6 @@ alias gaa='git-pre-push && gaa-no-image-optimisation'
 alias git-reset='red "ABOUT TO CLEAR ALL CHANGES\nTHATS ALL CHANGES\nALL OF THEM" && git-pre-push && gaa-no-image-optimisation && git reset --hard HEAD && git reset --recurse-submodules'
 alias git-reset-unstaged='yellow "ABOUT TO CLEAR UNSTAGED CHANGES\nUNSTAGED CHANGES WILL BE GONE\nALSO NEW FILES THAT ARENT STAGED" && git-pre-push && git checkout -- .'
 alias git-fetch='git fetch --all'
-alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
-function grm-stacked() {
-  if [[ -z "$1" ]]; then
-    echo "please provide commit hash from which you want to keep this branch's commits"
-    return 1
-  fi
-  git-fetch && (git rebase --onto "origin/$GIT_BASE_BRANCH" "$1" | grep CONFLICT || true) && git-submodules-pull
-}
 alias gri='HUSKY=0 git rebase -i'
 alias git-pull-master-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/master && git remote remove upstream && git push origin origin/master'
 alias git-pull-main-from-upstream='echo "ensure upstream is set using \"git remote add upstream URL\"" && git fetch upstream && git merge upstream/main && git remote remove upstream && git push origin origin/main'
@@ -138,6 +130,15 @@ alias git-disable-gpg='(git config --global commit.gpgsign false && git config -
 alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
 alias git-status-count='git status --porcelain | wc -l'
 alias git-status-count-except-nvmrc-tool-version='git status --porcelain | grep -v -E "(\.nvmrc|\.tool-versions)" | wc -l'
+
+alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
+function grm-stacked() {
+  if [[ -z "$1" ]]; then
+    echo "please provide commit hash from which you want to keep this branch's commits"
+    return 1
+  fi
+  git-fetch && (git rebase --onto "origin/$GIT_BASE_BRANCH" "$1" | grep CONFLICT || true) && git-submodules-pull
+}
 
 # Allows us to use git diff with file-path autocomplete
 function git-diff() { eval "git diff $@" }

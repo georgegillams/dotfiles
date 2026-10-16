@@ -6,6 +6,6 @@ FIXED_VOL=40
 PREV_VOL=$(osascript -e "get output volume of (get volume settings)")
 osascript -e "set volume output volume $FIXED_VOL"
 swift "$PLAY" "$RESOURCES/Unlock me.mp3" "MacBook Pro Speakers"
-# delay 0.4
+sleep 0.4
 swift "$PLAY" "$RESOURCES/Track me.mp3" "MacBook Pro Speakers"
 osascript -e "set volume output volume $PREV_VOL"
