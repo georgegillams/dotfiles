@@ -12,8 +12,8 @@
 # @raycast.author George Gillams
 # @raycast.authorURL https://www.georgegillams.co.uk/
 
-SWITCH="/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/stream-deck/scripts/switch-audio.swift"
-DEVICES=$(swift "$SWITCH" -l)
+SWITCH="/Users/george.gillams/Documents/github.com/georgegillams/dotfiles/stream-deck/scripts/switch-audio.sh"
+DEVICES=$("$SWITCH" -l)
 
 # Mic preference: RØDE > DJI > AirPods Max > AirPods Pro
 if echo "$DEVICES" | grep -q "RØDE VideoMic GO II"; then
@@ -37,6 +37,6 @@ else
     OUTPUT=""
 fi
 
-[ -n "$MIC" ] && swift "$SWITCH" -s "$MIC" -t input &
-[ -n "$OUTPUT" ] && swift "$SWITCH" -s "$OUTPUT" -t output &
+[ -n "$MIC" ] && "$SWITCH" -s "$MIC" -t input &
+[ -n "$OUTPUT" ] && "$SWITCH" -s "$OUTPUT" -t output &
 wait

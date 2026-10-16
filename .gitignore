@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 .idea
 .claude
+stream-deck/scripts/play-on-device
+stream-deck/scripts/switch-audio
