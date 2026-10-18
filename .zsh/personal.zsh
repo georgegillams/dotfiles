@@ -161,24 +161,56 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias netmon-deploy='netmon && rsync -avr -e "ssh -l pi" --exclude ".git" --exclude "node_modules" ./* pi@192.168.1.96:/home/pi/Documents/github.com/georgegillams/network-monitor'
   alias netmon-backup='curl http://192.168.1.96:3001/logs-raw > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date).txt" && curl http://192.168.1.96:3001/ips > "$MY_PERSONAL_DRIVE/2_Areas/Network/Network logs/$(date)-ips.txt"'
 
-alias petkit='clone-and-cd-personal georgegillams homebridge-petkit-platform'
-alias petkits='petkit && npm install'
-alias petkit-sync-master-with-original-repo='petkit && git fetch git@github.com:jubepue/homebridge-petkit-platform.git master && git checkout master && git reset --hard FETCH_HEAD'
-
-alias ecovacs='clone-and-cd-personal georgegillams homebridge-ecovacs'
-alias ecovacs-sync-master-with-original-repo='ecovacs && git fetch git@github.com:homebridge-plugins/homebridge-ecovacs.git latest && git checkout latest && git reset --hard FETCH_HEAD'
-alias ecovacs-fork-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
-  --source ~/Documents/github.com/georgegillams/homebridge-ecovacs \
-  --plugin-dir /var/lib/homebridge/local-plugins/@homebridge-plugins/homebridge-ecovacs \
-  --build "npm run build" \
-  --name homebridge-ecovacs'
-
-alias eufy-robovac-js='clone-and-cd-personal georgegillams eufy-robovac-js'
-alias eufy-robovac-js-sync-master-with-original-repo='eufy-robovac-js && git fetch git@github.com:gtalusan/eufy-robovac-js.git main && git checkout main && git reset --hard FETCH_HEAD'
-
-alias robovac='clone-and-cd-personal georgegillams homebridge-eufy-robovac'
-alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.com:gtalusan/homebridge-eufy-robovac.git latest && git checkout latest && git reset --hard FETCH_HEAD'
+  alias petkit='clone-and-cd-personal georgegillams homebridge-petkit-platform'
+  alias petkits='petkit && npm install'
+  alias petkit-sync-master-with-original-repo='petkit && git fetch git@github.com:jubepue/homebridge-petkit-platform.git master && git checkout master && git reset --hard FETCH_HEAD'
+  alias petkit-fork-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+    --source ~/Documents/github.com/georgegillams/homebridge-petkit-platform \
+    --plugin-dir /var/lib/homebridge/local-plugins/homebridge-petkit-platform \
+    --identifier homebridge-petkit-platform \
+    --display-name-suffix "(george.gillams FORK)" \
+    --name homebridge-petkit-platform'
+  
+  alias ecovacs='clone-and-cd-personal georgegillams homebridge-ecovacs'
+  alias ecovacs-sync-master-with-original-repo='ecovacs && git fetch git@github.com:homebridge-plugins/homebridge-ecovacs.git latest && git checkout latest && git reset --hard FETCH_HEAD'
+  alias ecovacs-fork-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
+    --source ~/Documents/github.com/georgegillams/homebridge-ecovacs \
+    --plugin-dir /var/lib/homebridge/local-plugins/@homebridge-plugins/homebridge-ecovacs \
+    --identifier @homebridge-plugins/homebridge-ecovacs \
+    --display-name-suffix "(george.gillams FORK)" \
+    --build "npm run build" \
+    --name homebridge-ecovacs'
+  
+  alias eufy-robovac-js='clone-and-cd-personal georgegillams eufy-robovac-js'
+  alias eufy-robovac-js-sync-master-with-original-repo='eufy-robovac-js && git fetch git@github.com:gtalusan/eufy-robovac-js.git main && git checkout main && git reset --hard FETCH_HEAD'
+  
+  alias robovac='clone-and-cd-personal georgegillams homebridge-eufy-robovac'
+  alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.com:gtalusan/homebridge-eufy-robovac.git latest && git checkout latest && git reset --hard FETCH_HEAD'
+  # Point homebridge-eufy-robovac at the sibling local copy (not the published package).
+  function robovac-ensure-local-eufy-dep() {
+    local pkg_json="${1:?homebridge-eufy-robovac dir}/package.json"
+    node -e '
+      const fs = require("fs");
+      const pkgPath = process.argv[1];
+      const key = "@george.talusan/eufy-robovac-js";
+      const wanted = "file:../eufy-robovac-js";
+      const original = fs.readFileSync(pkgPath, "utf8");
+      const pkg = JSON.parse(original);
+      if (!pkg.dependencies) pkg.dependencies = {};
+      const current = pkg.dependencies[key];
+      if (current === wanted) {
+        console.log(`→ ${key} already ${wanted}`);
+        process.exit(0);
+      }
+      console.log(`→ ${key}: ${current || "(missing)"} → ${wanted}`);
+      pkg.dependencies[key] = wanted;
+      const trailingNewline = original.endsWith("\n") ? "\n" : "";
+      fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}${trailingNewline}`);
+    ' "$pkg_json"
+  }
+  # Sibling @george.talusan/ dirs so package.json file:../eufy-robovac-js resolves on the Pi.
   alias robovac-fork-deploy='1p-personal && \
+    robovac-ensure-local-eufy-dep ~/Documents/github.com/georgegillams/homebridge-eufy-robovac && \
     node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
       --source ~/Documents/github.com/georgegillams/eufy-robovac-js \
       --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/eufy-robovac-js \
@@ -188,21 +220,22 @@ alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.co
     node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
       --source ~/Documents/github.com/georgegillams/homebridge-eufy-robovac \
       --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/homebridge-eufy-robovac \
+      --identifier @george.talusan/homebridge-eufy-robovac \
+      --display-name-suffix "(george.gillams FORK)" \
       --build "npm run build" \
       --name homebridge-eufy-robovac'
 
-  # Deploy into local-plugins (not node_modules) so `hb-service add file:./…` works.
-  alias petkit-fork-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
-    --source ~/Documents/github.com/georgegillams/homebridge-petkit-platform \
-    --plugin-dir /var/lib/homebridge/local-plugins/homebridge-petkit-platform \
-    --name homebridge-petkit-platform'
   alias petkit-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
     --source ~/Documents/github.com/jubepue/homebridge-petkit-platform \
     --plugin-dir /var/lib/homebridge/local-plugins/homebridge-petkit-platform \
+    --identifier homebridge-petkit-platform \
+    --display-name-suffix "(george.gillams modified)" \
     --name homebridge-petkit-platform'
   alias ecovacs-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
     --source ~/Documents/github.com/homebridge-plugins/homebridge-ecovacs \
     --plugin-dir /var/lib/homebridge/local-plugins/@homebridge-plugins/homebridge-ecovacs \
+    --identifier @homebridge-plugins/homebridge-ecovacs \
+    --display-name-suffix "(george.gillams modified)" \
     --build "npm run build" \
     --name homebridge-ecovacs'
   alias switchbot-deploy='1p-personal && node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
@@ -212,6 +245,7 @@ alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.co
     --name homebridge-switchbot'
   # Sibling local-plugins dirs so package.json file:../eufy-robovac-js resolves on the Pi.
   alias robovac-deploy='1p-personal && \
+    robovac-ensure-local-eufy-dep ~/Documents/github.com/gtalusan/homebridge-eufy-robovac && \
     node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
       --source ~/Documents/github.com/gtalusan/eufy-robovac-js \
       --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/eufy-robovac-js \
@@ -221,6 +255,8 @@ alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.co
     node ~/Documents/github.com/georgegillams/dotfiles/scripts/deploy-homebridge-plugin.js \
       --source ~/Documents/github.com/gtalusan/homebridge-eufy-robovac \
       --plugin-dir /var/lib/homebridge/local-plugins/@george.talusan/homebridge-eufy-robovac \
+      --identifier @george.talusan/homebridge-eufy-robovac \
+      --display-name-suffix "(george.gillams modified)" \
       --build "npm run build" \
       --name homebridge-eufy-robovac'
 
@@ -228,9 +264,9 @@ alias robovac-sync-master-with-original-repo='robovac && git fetch git@github.co
   alias scks='sck'
   alias scko='sck && open Chorder.xcodeproj'
 
-  alias gl='clone-and-cd-personal georgegillams gitlab-monitor'
+  alias gl='clone-and-cd-personal georgegillams merge-request-monitor'
   alias gls='gl'
-  alias glo='gl && open GitlabMonitor.xcodeproj'
+  alias glo='gl && open MergeRequestMonitor.xcodeproj'
 
   alias dsc='clone-and-cd-personal georgegillams ai-hero-deepsearch-course && cd ./courses/01-deepsearch-in-typescript/00-apps/01-day-1-app'
   alias dscs='dsc && yarn'

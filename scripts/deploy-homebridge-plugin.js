@@ -11,6 +11,18 @@
  *   --plugin-dir PATH  Remote install path (required)
  *   --build CMD        Shell command to run in --source before syncing
  *   --name NAME        Label used in status messages
+ *   --identifier NAME  Set package.json "name" (and hardcoded PLUGIN_NAME /
+ *                      pluginName refs) before sync. Persists locally.
+ *                      Must be a valid Homebridge id: homebridge-* or
+ *                      @scope/homebridge-* (e.g. @george.gillams/homebridge-ecovacs).
+ *   --display-name-suffix TEXT
+ *                      Ensure package.json displayName ends with TEXT (e.g.
+ *                      "(george.gillams modified)"). Persists locally.
+ *   --platform-alias ALIAS
+ *                      Set config.schema.json pluginAlias and hardcoded
+ *                      PLATFORM_NAME / platformName refs so the fork can be
+ *                      configured independently of the upstream plugin
+ *                      (e.g. GeorgeGillamsPetkitPlatform). Persists locally.
  *   --no-restart       Skip `hb-service restart` (useful when chaining deploys)
  *   --no-hb-install    Skip `hb-service add file:<plugin-dir>` (for nested
  *                      packages that are not Homebridge plugins)
@@ -116,6 +128,9 @@ function parseCli(argv) {
         "plugin-dir": { type: "string" },
         build: { type: "string" },
         name: { type: "string" },
+        identifier: { type: "string" },
+        "display-name-suffix": { type: "string" },
+        "platform-alias": { type: "string" },
         "no-restart": { type: "boolean", default: false },
         "no-hb-install": { type: "boolean", default: false },
         help: { type: "boolean", short: "h" },
@@ -143,6 +158,9 @@ function parseCli(argv) {
     pluginDir: values["plugin-dir"],
     build: values.build || "",
     name: values.name || path.basename(source),
+    identifier: values.identifier || "",
+    displayNameSuffix: values["display-name-suffix"] || "",
+    platformAlias: values["platform-alias"] || "",
     noRestart: Boolean(values["no-restart"]),
     noHbInstall: Boolean(values["no-hb-install"]),
   };
@@ -220,6 +238,177 @@ function shellSingleQuote(value) {
   return `'${String(value).replace(/'/g, `'\\''`)}'`;
 }
 
+// Homebridge only loads packages matching this (see homebridge-config-ui-x).
+const HB_PLUGIN_NAME_RE = /^(@[\w-]+(?:\.[\w-]+)*\/)?homebridge-[\w-]+$/;
+
+function assertHomebridgePluginName(name) {
+  if (!HB_PLUGIN_NAME_RE.test(name)) {
+    fail(
+      `invalid Homebridge plugin identifier "${name}" — must match ` +
+        `homebridge-* or @scope/homebridge-* (e.g. @george.gillams/homebridge-petkit-platform)`
+    );
+  }
+}
+
+function withDisplayNameSuffix(displayName, suffix) {
+  const trimmedSuffix = String(suffix).trim();
+  const base = String(displayName || "")
+    .replace(/\s*\(george\.gillams[^)]*\)\s*$/i, "")
+    .trim();
+  return base ? `${base} ${trimmedSuffix}` : trimmedSuffix;
+}
+
+const IDENTITY_SOURCE_FILES = [
+  "index.js",
+  "src/settings.ts",
+  "src/settings.js",
+  "src/homebridge-ui/server.js",
+];
+
+function rewriteStringConstants(sourceDir, replacements) {
+  const entries = Object.entries(replacements).filter(([, value]) => value);
+  if (!entries.length) return;
+
+  for (const rel of IDENTITY_SOURCE_FILES) {
+    const filePath = path.join(sourceDir, rel);
+    if (!fs.existsSync(filePath)) continue;
+    const original = fs.readFileSync(filePath, "utf8");
+    let next = original;
+    const touched = [];
+    for (const [constName, value] of entries) {
+      const pattern = new RegExp(
+        `(\\b(?:export\\s+const|const|let|var)\\s+${constName}\\s*=\\s*['"])([^'"]+)(['"])`,
+        "g"
+      );
+      const updated = next.replace(pattern, `$1${value}$3`);
+      if (updated !== next) {
+        touched.push(`${constName}→${value}`);
+        next = updated;
+      }
+    }
+    if (next !== original) {
+      console.log(`→ ${rel}: ${touched.join(", ")}`);
+      fs.writeFileSync(filePath, next);
+    }
+  }
+}
+
+function applyPlatformAlias(sourceDir, platformAlias) {
+  const schemaPath = path.join(sourceDir, "config.schema.json");
+  if (!fs.existsSync(schemaPath)) {
+    fail(`--platform-alias requires config.schema.json in ${sourceDir}`);
+  }
+
+  const original = fs.readFileSync(schemaPath, "utf8");
+  const schema = JSON.parse(original);
+  const previousAlias = schema.pluginAlias;
+  let changed = false;
+
+  if (schema.pluginAlias !== platformAlias) {
+    console.log(
+      `→ config.schema.json pluginAlias: ${previousAlias || "(none)"} → ${platformAlias}`
+    );
+    schema.pluginAlias = platformAlias;
+    changed = true;
+  }
+
+  // Keep schema default name aligned when it mirrored the old pluginAlias.
+  const nameProp = schema.schema?.properties?.name;
+  if (
+    nameProp &&
+    nameProp.default === previousAlias &&
+    previousAlias !== platformAlias
+  ) {
+    console.log(
+      `→ config.schema.json name.default: ${nameProp.default} → ${platformAlias}`
+    );
+    nameProp.default = platformAlias;
+    changed = true;
+  }
+
+  if (changed) {
+    const trailingNewline = original.endsWith("\n") ? "\n" : "";
+    fs.writeFileSync(
+      schemaPath,
+      `${JSON.stringify(schema, null, 2)}${trailingNewline}`
+    );
+  }
+
+  rewriteStringConstants(sourceDir, {
+    PLATFORM_NAME: platformAlias,
+    platformName: platformAlias,
+  });
+}
+
+// Rewrite package identity so the synced copy can coexist with (or be
+// distinguished from) another install. Changes are left in the local source.
+function applyPackageJsonOverrides(
+  sourceDir,
+  { identifier, displayNameSuffix, platformAlias }
+) {
+  if (!identifier && !displayNameSuffix && !platformAlias) {
+    return;
+  }
+
+  const pkgPath = path.join(sourceDir, "package.json");
+  if (!fs.existsSync(pkgPath)) {
+    fail(`no package.json in ${sourceDir}`);
+  }
+
+  if (identifier) {
+    assertHomebridgePluginName(identifier);
+  }
+
+  const original = fs.readFileSync(pkgPath, "utf8");
+  const pkg = JSON.parse(original);
+  let changed = false;
+
+  if (identifier && pkg.name !== identifier) {
+    console.log(`→ package.json name: ${pkg.name} → ${identifier}`);
+    pkg.name = identifier;
+    changed = true;
+  }
+
+  if (displayNameSuffix) {
+    const next = withDisplayNameSuffix(
+      pkg.displayName || pkg.name || "",
+      displayNameSuffix
+    );
+    if (pkg.displayName !== next) {
+      console.log(
+        `→ package.json displayName: ${pkg.displayName || "(none)"} → ${next}`
+      );
+      pkg.displayName = next;
+      changed = true;
+    }
+  }
+
+  if (platformAlias && pkg.alias && pkg.alias !== platformAlias) {
+    console.log(`→ package.json alias: ${pkg.alias} → ${platformAlias}`);
+    pkg.alias = platformAlias;
+    changed = true;
+  }
+
+  if (changed) {
+    const trailingNewline = original.endsWith("\n") ? "\n" : "";
+    fs.writeFileSync(
+      pkgPath,
+      `${JSON.stringify(pkg, null, 2)}${trailingNewline}`
+    );
+  }
+
+  if (identifier) {
+    rewriteStringConstants(sourceDir, {
+      PLUGIN_NAME: identifier,
+      pluginName: identifier,
+    });
+  }
+
+  if (platformAlias) {
+    applyPlatformAlias(sourceDir, platformAlias);
+  }
+}
+
 // npm ignores/strips file: paths that point into node_modules. Prefer a path
 // under /var/lib/homebridge/local-plugins and a relative file:./ spec.
 function hbFileInstallSpec(pluginDir) {
@@ -240,8 +429,18 @@ function hbFileInstallSpec(pluginDir) {
 }
 
 function main() {
-  const { host, source, pluginDir, build, name, noRestart, noHbInstall } =
-    parseCli(process.argv.slice(2));
+  const {
+    host,
+    source,
+    pluginDir,
+    build,
+    name,
+    identifier,
+    displayNameSuffix,
+    platformAlias,
+    noRestart,
+    noHbInstall,
+  } = parseCli(process.argv.slice(2));
 
   if (!which("sshpass")) {
     fail("sshpass is required (brew install esolitos/ipa/sshpass)");
@@ -254,6 +453,12 @@ function main() {
   if (!password) {
     fail(`could not read password from 1Password item "${OP_ITEM}"`);
   }
+
+  applyPackageJsonOverrides(source, {
+    identifier,
+    displayNameSuffix,
+    platformAlias,
+  });
 
   if (build) {
     console.log(`→ Building in ${source}`);
