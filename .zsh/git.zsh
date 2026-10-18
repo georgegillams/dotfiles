@@ -1,5 +1,9 @@
 function _set-git-base-branch() {
-  if [[ $(pwd) == *"gitlab."* ]]; then
+  if [[ $(pwd) == *"homebridge-petkit-platform"* ]]; then
+    GIT_BASE_BRANCH="master"
+  elif [[ $(pwd) == *"homebridge-eufy-robovac"* || $(pwd) == *"homebridge-ecovacs"* ]]; then
+    GIT_BASE_BRANCH="latest"
+  elif [[ $(pwd) == *"gitlab."* ]]; then
     GIT_BASE_BRANCH="develop"
   else
     GIT_BASE_BRANCH="main"
