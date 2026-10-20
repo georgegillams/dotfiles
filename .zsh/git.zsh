@@ -15,27 +15,22 @@ _set-git-base-branch
 alias gh-prs='gh pr list'
 alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
-alias IMPLEMENTATION-gh-create-pr-web='gh pr create --web'
-alias IMPLEMENTATION-gh-view-pr-web='gh pr view --web'
-function git-open-repo() {
-  local url=$(git config --get remote.origin.url)
-  if [[ $url == git@*:* ]]; then
-    url=$(echo $url | sed -E 's#^git@([^:]+):(.+)$#https://\1/\2#')
-  fi
-  open "${url%.git}"
+
+
+function IMPLEMENTATION-gh-view-or-create-pr-web() {
+  git rev-parse --git-dir &>/dev/null || return 1
+  gh pr view --web 2>/dev/null || gh pr create --web
 }
+
 function gh-view-or-create-pr-web() {
+  git rev-parse --git-dir &>/dev/null || return 1
+
   if [[ $(git config --get remote.origin.url) == *"gitlab"* ]] then;
-    git-open-repo
+    IMPLEMENTATION-gitlab-view-or-create-pr-web
     return
   fi;
 
-  # If a PR exists, open it:
-  IMPLEMENTATION-gh-view-pr-web
-  if [[ $? != 0 ]] then;
-    # If a PR didn't exist, create it:
-    IMPLEMENTATION-gh-create-pr-web
-  fi;
+  IMPLEMENTATION-gh-view-or-create-pr-web
 }
 
 function gh-create-pr-web-if-none() {
