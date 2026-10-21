@@ -389,6 +389,13 @@ function firefox-backup() {
   fi
 }
 
+function claude-backup() {
+  if [[ -d "/Users/george.gillams/.claude" ]]; then
+    cp /Users/george.gillams/.claude/settings.json $HS_DRIVE/02_Areas/Apps/Claude/
+    cp /Users/george.gillams/.claude/CLAUDE.md $HS_DRIVE/02_Areas/Apps/Claude/
+  fi
+}
+
 LAST_UPDATE_FILE="/Users/george.gillams/.update-timestamp"
 
 function get-last-update() {
@@ -419,6 +426,7 @@ function daily-backup() {
   fi
   vscode-backup
   firefox-backup
+  claude-backup
   set-last-backup
 }
 
