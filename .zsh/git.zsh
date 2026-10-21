@@ -129,6 +129,8 @@ alias git-disable-gpg='(git config --global commit.gpgsign false && git config -
 alias git-enable-gpg='git config --global commit.gpgsign true && git config --global tag.forceSignAnnotated true && git config --global gpg.program gpg'
 alias git-status-count='git status --porcelain | wc -l'
 alias git-status-count-except-nvmrc-tool-version='git status --porcelain | grep -v -E "(\.nvmrc|\.tool-versions)" | wc -l'
+alias git-stash-unstaged='git stash push --keep-index'
+function git-stash-specific-file() { ga "$1" && g stash push "$1" }
 
 alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
 function grm-stacked() {
