@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$(dirname "${BASH_SOURCE[0]}")/teams-lib.sh"
+
 if ! system_profiler SPDisplaysDataType | grep -qi "LS27D70xE"; then
     exit 0
 fi
@@ -40,7 +42,7 @@ set displayY to $DISPLAY_Y
 tell application "System Events"
     set teamsProcesses to every process whose name contains "Teams"
     repeat with proc in teamsProcesses
-        set callWindows to every window of proc whose name does not contain "Calendar |" and name is not ""
+        set callWindows to every window of proc whose $TEAMS_MEETING_WINDOW_FILTER
         repeat with w in callWindows
             set position of w to {displayX, displayY}
         end repeat

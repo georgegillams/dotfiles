@@ -1,11 +1,13 @@
 #!/bin/bash
 
+source "$(dirname "${BASH_SOURCE[0]}")/teams-lib.sh"
+
 teams_focus_applescript() {
-    cat <<'APPLESCRIPT'
+    cat <<APPLESCRIPT
 tell application "System Events"
     set teamsProcesses to every process whose name contains "Teams"
     repeat with proc in teamsProcesses
-        set meetingWindows to every window of proc whose name contains "| Microsoft Teams"
+        set meetingWindows to every window of proc whose $TEAMS_MEETING_WINDOW_FILTER
         if (count of meetingWindows) > 0 then
             set frontmost of proc to true
             perform action "AXRaise" of item 1 of meetingWindows
