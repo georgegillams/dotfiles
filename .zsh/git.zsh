@@ -161,8 +161,11 @@ function clone-and-cd() {
   host=$2
   org=$3
   repo=$4
-  instancePath="$HOME/Documents/$host"
-  orgPath="$instancePath/$org"
+  hostPath="$HOME/Documents/$host"
+  orgPath="$hostPath/$org"
+  if [[ -n "$INSTANCE" ]]; then
+    orgPath="$orgPath/$INSTANCE"
+  fi
   repoPath="$orgPath/$repo"
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
@@ -174,6 +177,23 @@ function clone-and-cd() {
     fi
   fi
   cd-if-necessary $repoPath
+}
+
+# Set INSTANCE to work in a separate clone at ~/Documents/<host>/<org>/<INSTANCE>/<repo>
+function set-instance() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: set-instance <name>"
+    return 1
+  fi
+  export INSTANCE="$1"
+  # Stop oh-my-zsh overwriting the tab title on every prompt
+  DISABLE_AUTO_TITLE=true
+  printf '\e]1;%s\a\e]2;%s\a' "$INSTANCE" "$INSTANCE"
+}
+
+function clear-instance() {
+  unset INSTANCE
+  unset DISABLE_AUTO_TITLE
 }
 
 function clone-and-cd-personal() {
