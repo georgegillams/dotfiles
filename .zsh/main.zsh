@@ -218,10 +218,20 @@ alias optimise-all-pngs='find . -name "*.png" -exec imageoptim {} \;'
 alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 
  if [ -x "$(which cursor)" ]; then
-   alias open-code-editor='cursor'
+   CODE_EDITOR_CMD='cursor'
  else
-   alias open-code-editor='code'
+   CODE_EDITOR_CMD='code'
  fi
+# With no args, open the root of the current git repo (if inside one)
+unalias open-code-editor 2>/dev/null
+function open-code-editor() {
+  local root
+  if [[ $# -eq 0 ]] && root=$(git rev-parse --show-toplevel 2>/dev/null); then
+    $CODE_EDITOR_CMD "$root"
+  else
+    $CODE_EDITOR_CMD "$@"
+  fi
+}
 alias c='open-code-editor ./'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
