@@ -393,6 +393,7 @@ function claude-backup() {
   if [[ -d "/Users/george.gillams/.claude" ]]; then
     cp /Users/george.gillams/.claude/settings.json $HS_DRIVE/02_Areas/Apps/Claude/
     cp /Users/george.gillams/.claude/CLAUDE.md $HS_DRIVE/02_Areas/Apps/Claude/
+    cp /Users/george.gillams/.claude/RTK.md $HS_DRIVE/02_Areas/Apps/Claude/
   fi
 }
 
