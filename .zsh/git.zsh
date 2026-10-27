@@ -133,13 +133,28 @@ alias git-stash-unstaged='git stash push --keep-index'
 function git-stash-specific-file() { ga "$1" && g stash push "$1" }
 
 alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
-function grm-stacked() {
+function gro() {
   if [[ -z "$1" ]]; then
-    echo "please provide commit hash from which you want to keep this branch's commits"
+    echo "please provide base branch for the rebase"
     return 1
   fi
-  git-fetch && (git rebase --onto "origin/$GIT_BASE_BRANCH" "$1" | grep CONFLICT || true) && git-submodules-pull
+  local commit_hash="$2"
+  if [[ -z "$commit_hash" ]]; then
+    info "You'll need to provide the git commit from which you want to keep this branch's commits"
+    read -t 5
+    git log
+    read "commit_hash?Paste the commit hash from which you want to keep this branch's commits: "
+    if [[ -z "$commit_hash" ]]; then
+      echo "no commit hash provided"
+      return 1
+    fi
+  fi
+  git-fetch && (git rebase --onto "$1" "$commit_hash" | grep CONFLICT || true) && git-submodules-pull
 }
+function grom() {
+  gro "origin/$GIT_BASE_BRANCH" "$1"
+}
+alias grm-stacked='red "Use grom" instead'
 
 # Allows us to use git diff with file-path autocomplete
 function git-diff() { eval "git diff $@" }
