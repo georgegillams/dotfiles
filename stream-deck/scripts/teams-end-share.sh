@@ -1,4 +1,3 @@
 #!/bin/bash
 
-source "$(dirname "${BASH_SOURCE[0]}")/teams-lib.sh"
-teams_meeting_shortcut e
+"$(dirname "${BASH_SOURCE[0]}")/teams-ax.sh" stop-share
