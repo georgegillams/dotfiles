@@ -6,5 +6,5 @@ if application "Amphetamine" is not running then
     delay 2
 end if
 
-tell application "Amphetamine" to start new session
+tell application "Amphetamine" to start new session with options {duration:1, interval:hours, displaySleepAllowed:false}
 EOF
