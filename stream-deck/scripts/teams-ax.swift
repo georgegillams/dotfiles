@@ -1,6 +1,6 @@
 // Control Microsoft Teams (new Teams / MSTeams) meeting buttons via the Accessibility API.
 // Compiled on first use by teams-ax.sh.
-// Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | stop-share | react <label> | react-probe | dump
+// Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump
 import AppKit
 import ApplicationServices
 
@@ -117,7 +117,7 @@ func dumpButtons(_ app: AXUIElement) {
 
 let args = CommandLine.arguments.dropFirst()
 guard let cmd = args.first else {
-    fail("Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | stop-share | react <label> | react-probe | dump")
+    fail("Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump")
 }
 let app = teamsApp()
 
@@ -130,6 +130,7 @@ case "unmute":
 case "camera": print(press(app, ["Turn camera on", "Turn camera off"]))
 case "raise": print(press(app, ["Raise", "Lower"]))
 case "leave": withRestoredWindow(app, containing: ["Leave"]) { print(press(app, ["Leave"])) }
+case "start-share": print(press(app, ["Share"]))
 case "stop-share": print(press(app, ["Stop sharing", "Stop presenting"]))
 case "dump": dumpButtons(app)
 case "react-probe":
