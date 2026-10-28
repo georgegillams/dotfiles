@@ -226,6 +226,9 @@ alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 unalias open-code-editor 2>/dev/null
 function open-code-editor() {
   local root
+  if [[ $# -eq 0 && "$PWD" == "$HOME" ]]; then
+    ask_yn "Open code editor in ~/?" n --continue-on-timeout || return 1
+  fi
   if [[ $# -eq 0 ]] && root=$(git-repo-root); then
     $CODE_EDITOR_CMD "$root"
   else
