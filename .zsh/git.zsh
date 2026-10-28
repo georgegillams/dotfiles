@@ -187,23 +187,24 @@ function clone-and-cd() {
   repo=$4
   hostPath="$HOME/Documents/$host"
   orgPath="$hostPath/$org"
+  repoDir="$repo"
   if [[ -n "$INSTANCE" ]]; then
-    orgPath="$orgPath/$INSTANCE"
+    repoDir="${INSTANCE}_$repo"
   fi
-  repoPath="$orgPath/$repo"
+  repoPath="$orgPath/$repoDir"
   if [[ ! -d $repoPath ]]; then
     mkdir -p $orgPath
     cd-if-necessary $orgPath
     if [[ $method == "http" ]]; then
-      git clone https://$host/$org/$repo.git
+      git clone https://$host/$org/$repo.git $repoDir
     else
-      git clone git@$host:$org/$repo.git
+      git clone git@$host:$org/$repo.git $repoDir
     fi
   fi
   cd-if-necessary $repoPath
 }
 
-# Set INSTANCE to work in a separate clone at ~/Documents/<host>/<org>/<INSTANCE>/<repo>
+# Set INSTANCE to work in a separate clone at ~/Documents/<host>/<org>/<INSTANCE>_<repo>
 function set-instance() {
   if [[ -z "$1" ]]; then
     echo "Usage: set-instance <name>"
