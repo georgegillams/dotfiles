@@ -211,18 +211,42 @@ function set-instance() {
     return 1
   fi
   export INSTANCE="$1"
-  # Stop oh-my-zsh overwriting the tab title on every prompt
-  DISABLE_AUTO_TITLE=true
-  printf '\e]1;%s\a\e]2;%s\a' "$INSTANCE" "$INSTANCE"
-  
+
   # cd back to home so that we don't confusingly remain in another instance's repo
   cd ~/
 }
 
 function clear-instance() {
   unset INSTANCE
-  unset DISABLE_AUTO_TITLE
 }
+
+# Prefixes a title with the current INSTANCE, or shows just the INSTANCE if the title is ~
+function _instance-title() {
+  local title="$1"
+  # Titles go through prompt expansion, so escape any % in the instance name
+  local instance="${INSTANCE//\%/%%}"
+
+  # Titles are prompt escapes (e.g. %~), so expand them to see what will be displayed
+  if [[ "${(%)title}" == "~" ]]; then
+    print -r -- "$instance"
+  else
+    print -r -- "$instance - $title"
+  fi
+}
+
+# Wrap oh-my-zsh's `title` so tab/window titles are prefixed with the current INSTANCE
+if (( $+functions[title] )) && (( ! $+functions[_omz_title] )); then
+  functions -c title _omz_title
+  function title {
+    if [[ -n "$INSTANCE" ]]; then
+      local tab_title="$1"
+      local window_title="${2:-$1}"
+      _omz_title "$(_instance-title "$tab_title")" "$(_instance-title "$window_title")"
+    else
+      _omz_title "$@"
+    fi
+  }
+fi
 
 function clone-and-cd-personal() {
   clone-and-cd ssh github.com $@
