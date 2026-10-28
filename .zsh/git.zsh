@@ -204,6 +204,9 @@ function set-instance() {
   # Stop oh-my-zsh overwriting the tab title on every prompt
   DISABLE_AUTO_TITLE=true
   printf '\e]1;%s\a\e]2;%s\a' "$INSTANCE" "$INSTANCE"
+  
+  # cd back to home so that we don't confusingly remain in another instance's repo
+  cd ~/
 }
 
 function clear-instance() {
