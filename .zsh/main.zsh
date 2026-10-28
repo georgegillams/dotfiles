@@ -226,13 +226,13 @@ alias daily-sign-in='open /Applications/1Password.app && tf-daily-sign-in'
 unalias open-code-editor 2>/dev/null
 function open-code-editor() {
   local root
-  if [[ $# -eq 0 ]] && root=$(git rev-parse --show-toplevel 2>/dev/null); then
+  if [[ $# -eq 0 ]] && root=$(git-repo-root); then
     $CODE_EDITOR_CMD "$root"
   else
     $CODE_EDITOR_CMD "$@"
   fi
 }
-alias c='open-code-editor ./'
+alias c='open-code-editor'
 
 alias lightroom-delete-preview-files='find . -name "*Previews.lrdata" -exec rm -rf {} \;'
 alias premiere-install-LUTs='cd ~/Library/Application\ Support/Adobe/Common/LUTs && mkdir -p Creative Technical && open ./'

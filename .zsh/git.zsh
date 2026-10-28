@@ -12,6 +12,11 @@ function _set-git-base-branch() {
 chpwd_functions+=(_set-git-base-branch)
 _set-git-base-branch
 
+# Prints the root of the current git repo; fails if not inside one
+function git-repo-root() {
+  git rev-parse --show-toplevel 2>/dev/null
+}
+
 alias gh-prs='gh pr list'
 alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
