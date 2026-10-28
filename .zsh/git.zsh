@@ -143,6 +143,10 @@ function gro() {
     echo "please provide base branch for the rebase"
     return 1
   fi
+  if [[ -n "$(git status --porcelain --untracked-files=no)" ]]; then
+    red "You have uncommitted changes. Commit or stash them before rebasing"
+    return 1
+  fi
   local commit_hash="$2"
   if [[ -z "$commit_hash" ]]; then
     info "You'll need to provide the git commit from which you want to keep this branch's commits"
