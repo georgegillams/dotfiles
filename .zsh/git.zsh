@@ -138,6 +138,13 @@ alias git-stash-unstaged='git stash push --keep-index'
 function git-stash-specific-file() { ga "$1" && g stash push "$1" }
 
 alias grm='git-fetch && (git rebase origin/$GIT_BASE_BRANCH | grep CONFLICT || true) && git-submodules-pull'
+function git-origin-ref() {
+  if [[ "$1" == origin/* ]]; then
+    echo "$1"
+  else
+    echo "origin/$1"
+  fi
+}
 function gro() {
   if [[ -z "$1" ]]; then
     echo "please provide base branch for the rebase"
@@ -158,7 +165,7 @@ function gro() {
       return 1
     fi
   fi
-  git-fetch && (git rebase --onto "$1" "$commit_hash" | grep CONFLICT || true) && git-submodules-pull
+  git-fetch && (git rebase --onto "$(git-origin-ref "$1")" "$commit_hash" | grep CONFLICT || true) && git-submodules-pull
 }
 function grom() {
   gro "origin/$GIT_BASE_BRANCH" "$1"
