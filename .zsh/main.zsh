@@ -406,6 +406,7 @@ endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 
 # Check if app update has been done in the last week
+local update_needed=0
 local last_update
 last_update="$(get-last-update)"
 if [[ -n "$last_update" ]]; then
@@ -416,12 +417,15 @@ if [[ -n "$last_update" ]]; then
     info "Recent update done"
   else
     box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
+    update_needed=1
   fi
 else
   box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
+  update_needed=1
 fi
 
 # Check if a backup has been done in the last week
+local backup_needed=0
 local last_backup
 last_backup="$(get-last-backup)"
 if [[ -n "$last_backup" ]]; then
@@ -432,9 +436,11 @@ if [[ -n "$last_backup" ]]; then
     info "Recent backup done"
   else
     box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
+    backup_needed=1
   fi
 else
   box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
+  backup_needed=1
 fi
 
 # PostgreSQL
@@ -448,3 +454,11 @@ export PATH="/Users/george.gillams/.local/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/george.gillams/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Offer to run any overdue maintenance now that everything is loaded
+if [[ $update_needed -eq 1 ]]; then
+  ask_yn "Run system-update-apps now?" n --continue-on-timeout && system-update-apps
+fi
+if [[ $backup_needed -eq 1 ]]; then
+  ask_yn "Run daily-backup now?" n --continue-on-timeout && daily-backup
+fi

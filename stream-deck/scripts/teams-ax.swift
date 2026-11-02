@@ -1,6 +1,6 @@
 // Control Microsoft Teams (new Teams / MSTeams) meeting buttons via the Accessibility API.
 // Compiled on first use by teams-ax.sh.
-// Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump
+// Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump | warm
 import AppKit
 import ApplicationServices
 
@@ -117,7 +117,7 @@ func dumpButtons(_ app: AXUIElement) {
 
 let args = CommandLine.arguments.dropFirst()
 guard let cmd = args.first else {
-    fail("Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump")
+    fail("Usage: teams-ax toggle-mute | mute | unmute | camera | raise | leave | start-share | stop-share | react <label> | react-probe | dump | warm")
 }
 let app = teamsApp()
 
@@ -133,6 +133,11 @@ case "leave": withRestoredWindow(app, containing: ["Leave"]) { print(press(app, 
 case "start-share": print(press(app, ["Share"]))
 case "stop-share": print(press(app, ["Stop sharing", "Stop presenting"]))
 case "dump": dumpButtons(app)
+case "warm":
+    // Walk every window fully so Teams builds its accessibility tree; prints the node count.
+    var count = 0
+    for w in windows(app) { walk(w) { _ in count += 1; return false } }
+    print(count)
 case "react-probe":
     print(press(app, ["React"]))
     Thread.sleep(forTimeInterval: 0.7)

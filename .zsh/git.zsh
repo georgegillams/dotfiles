@@ -1,13 +1,10 @@
 function _set-git-base-branch() {
-  if [[ $(pwd) == *"homebridge-petkit-platform"* ]]; then
-    GIT_BASE_BRANCH="master"
-  elif [[ $(pwd) == *"homebridge-eufy-robovac"* || $(pwd) == *"homebridge-ecovacs"* ]]; then
-    GIT_BASE_BRANCH="latest"
-  elif [[ $(pwd) == *"gitlab."* ]]; then
-    GIT_BASE_BRANCH="develop"
-  else
-    GIT_BASE_BRANCH="main"
-  fi
+  # origin/HEAD tracks the remote's default branch; it's set by `git clone`.
+  # If missing, run `git remote set-head origin --auto` once in the repo.
+  local ref
+  ref=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null)
+  GIT_BASE_BRANCH=${ref#origin/}
+  : ${GIT_BASE_BRANCH:=main}
 }
 chpwd_functions+=(_set-git-base-branch)
 _set-git-base-branch
