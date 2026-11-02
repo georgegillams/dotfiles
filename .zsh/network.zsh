@@ -1,9 +1,11 @@
 alias edgerouter-scripts='clone-and-cd-personal georgegillams edgerouter-resilience'
 alias edgerouter-scripts-build='edgerouter-scripts && cp $MY_PERSONAL_DRIVE/2_Areas/Network/Full\ Fibre\ setup/Edgerouter\ files/config/scripts_v2/config.toml ./ && ./build.sh'
-alias edgerouter-scripts-deploy='edgerouter-scripts-build && scp -r dist george@192.168.1.1:/tmp/scripts_dist && blue "NOW ON EDGEROUTER RUN" && yellow "sudo cp -a /tmp/scripts_dist/* /config/scripts/ && sudo chmod +x /config/scripts/* && sudo chmod a-x /config/scripts/*.toml" && blue "Confirm working with" && yellow "cd /config/scripts && ./auto-reset-pppoe" && edgerouter-ssh'
+alias edgerouter-scripts-deploy='edgerouter-scripts-build && 1p-personal && SSHPASS=$(op item get "Ubiquity EdgeRouter 6 Admin" --vault Personal --field password --reveal --cache | tr -d "\n") sshpass -e scp -o StrictHostKeyChecking=accept-new -o PreferredAuthentications=password -o PubkeyAuthentication=no -o IdentityAgent=none -o NumberOfPasswordPrompts=1 -r dist george@192.168.1.1:/tmp/scripts_dist && blue "NOW ON EDGEROUTER RUN" && yellow "sudo cp -a /tmp/scripts_dist/* /config/scripts/ && sudo chmod +x /config/scripts/* && sudo chmod a-x /config/scripts/*.toml" && blue "Confirm working with" && yellow "cd /config/scripts && ./auto-reset-pppoe" && edgerouter-ssh'
 
-alias edgerouter-ssh='ssh george@192.168.1.1'
+alias edgerouter-ssh='1p-personal && SSHPASS=$(op item get "Ubiquity EdgeRouter 6 Admin" --vault Personal --field password --reveal --cache | tr -d "\n") sshpass -e ssh -o StrictHostKeyChecking=accept-new -o PreferredAuthentications=password -o PubkeyAuthentication=no -o IdentityAgent=none -o NumberOfPasswordPrompts=1 george@192.168.1.1'
+alias ssh-edgerouter='edgerouter-ssh'
 alias ssh-pi='1p-personal && SSHPASS=$(op item get "Raspberry pi login" --vault Personal --field password --reveal --cache | tr -d "\n") sshpass -e ssh -o StrictHostKeyChecking=accept-new -o PreferredAuthentications=password -o PubkeyAuthentication=no -o IdentityAgent=none -o NumberOfPasswordPrompts=1 pi@192.168.1.96'
+alias pi-ssh='ssh-pi'
 alias edgerouter-failover-sensitivity-up='echo "configure"; echo "set load-balance group G interface pppoe0 route-test interval 5"; echo "commit; save; exit"; edgerouter-ssh'
 alias edgerouter-failover-sensitivity-down='echo "configure"; echo "set load-balance group G interface pppoe0 route-test interval 10"; echo "commit; save; exit"; edgerouter-ssh'
 alias system-disable-usb-lan='run-raycast-script ethernet-disconnect'
