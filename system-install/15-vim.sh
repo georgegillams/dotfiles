@@ -9,7 +9,7 @@
 # defaults write com.apple.finder AppleShowAllFiles YES
 
 # # Install YCM backend:
-# ln -s /usr/local/bin/mvim ~/vim
-# ln -s /usr/local/bin/mvim ~/vi
+# ln -sfh /usr/local/bin/mvim ~/vim
+# ln -sfh /usr/local/bin/mvim ~/vi
 # cd ~/.vim/bundle/YouCompleteMe
 # ./install.py --clang-completer

@@ -33,4 +33,4 @@ if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
   read
 fi
 
-ln -s ~/Documents/github.com/georgegillams/dotfiles/starship.toml ~/.config/starship.toml
+ln -sfh ~/Documents/github.com/georgegillams/dotfiles/starship.toml ~/.config/starship.toml
