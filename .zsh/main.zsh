@@ -414,7 +414,7 @@ if [[ -n "$last_update" ]]; then
   now="$(date +%s)"
   one_week=$((7 * 24 * 60 * 60))
   if [[ $((now - last_update)) -lt $one_week ]]; then
-    info "Recent update done"
+    success "Recent update done"
   else
     box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
     update_needed=1
@@ -429,11 +429,10 @@ local backup_needed=0
 local last_backup
 last_backup="$(get-last-backup)"
 if [[ -n "$last_backup" ]]; then
-  local now one_week
   now="$(date +%s)"
   one_week=$((7 * 24 * 60 * 60))
   if [[ $((now - last_backup)) -lt $one_week ]]; then
-    info "Recent backup done"
+    success "Recent backup done"
   else
     box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
     backup_needed=1
