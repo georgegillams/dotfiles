@@ -97,7 +97,7 @@ function _git-offer-pull-remote-branch() {
   count=$(git rev-list --count --right-only --cherry-pick "HEAD...$remote_ref")
   (( count > 0 )) || return 0
   warn "$remote_ref has $count commit(s) that aren't on your local branch:"
-  git log --oneline --right-only --cherry-pick "HEAD...$remote_ref"
+  git --no-pager log --oneline --right-only --cherry-pick "HEAD...$remote_ref"
   ask_yn "Pull them first?" n || return 0
   git rebase "$remote_ref"
 }
