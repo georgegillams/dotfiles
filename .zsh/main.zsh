@@ -75,6 +75,32 @@ function ask_yn() {
   [[ "${answer:-$default}" == [yY] ]]
 }
 
+# Inserts <line> right after the first line exactly equal to <anchor>,
+# By default: unless <line> already appears in <file>. Matches whole lines as plain text.
+# Use -a|--always flag to insert unconditionally
+# Usage: add_line_after [-a|--always] <line> <anchor> <file>
+# Example: add_line_after --always 'Line to always include' '# Heading' file-to-edit.md
+add_line_after() {
+  local -a always
+  zparseopts -D -F -- a=always -always=always || return 2
+  if (( $# != 3 )); then
+    print -u2 "usage: add_line_after [-a|--always] <line> <anchor> <file>"; return 2
+  fi
+  local line=$1 anchor=$2 file=$3
+  [[ -f $file ]] || { print -u2 "add_line_after: no such file: $file"; return 1 }
+  if (( ! $#always )) && grep -qxF -- "$line" "$file"; then
+    return 0
+  fi
+  grep -qxF -- "$anchor" "$file" || { print -u2 "add_line_after: anchor not found in $file: $anchor"; return 1 }
+  local tmp
+  tmp=$(mktemp) || return 1
+  LINE=$line ANCHOR=$anchor awk '
+    { print }
+    !done && $0 == ENVIRON["ANCHOR"] { print ENVIRON["LINE"]; done = 1 }
+  ' "$file" > "$tmp" && cat "$tmp" > "$file"
+  rm -f "$tmp"
+}
+
 function cyan() {
   echo "${CYAN}$@${NC}"
 }

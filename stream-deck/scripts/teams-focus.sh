@@ -22,4 +22,6 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     osascript <<EOF
 $(teams_focus_applescript)
 EOF
+    # Backgrounded: warming can take up to ~30s and focus shouldn't wait on it.
+    "$(dirname "${BASH_SOURCE[0]}")/teams-warm-ax.sh" >/dev/null 2>&1 &
 fi

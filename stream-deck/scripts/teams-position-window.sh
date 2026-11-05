@@ -2,6 +2,9 @@
 
 source "$(dirname "${BASH_SOURCE[0]}")/teams-lib.sh"
 
+# Started first so it still runs when the display checks below exit early; backgrounded as it can take ~30s.
+"$(dirname "${BASH_SOURCE[0]}")/teams-warm-ax.sh" >/dev/null 2>&1 &
+
 if ! system_profiler SPDisplaysDataType | grep -qi "LS27D70xE"; then
     exit 0
 fi
@@ -23,7 +26,7 @@ for i in 0..<Int(displayCount) {
 }
 ls27Displays.sort { $0.0 < $1.0 }
 if ls27Displays.count >= 2 {
-    let b = ls27Displays[1].1
+    let b = ls27Displays[0].1
     print("\(Int(b.origin.x)) \(Int(b.origin.y))")
 }
 ' 2>/dev/null)
