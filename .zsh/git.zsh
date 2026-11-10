@@ -78,13 +78,6 @@ alias git-prepend-branch-name='node ~/Documents/github.com/georgegillams/dotfile
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias gml='git checkout $GIT_BASE_BRANCH &&git-fetch && git reset --hard origin/$GIT_BASE_BRANCH && git pull && (git branch -D $(git branch | grep -v "$GIT_BASE_BRANCH") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-# Succeeds if we're on GIT_BASE_BRANCH and it's behind origin (fetches the base branch to check)
-function _git-base-branch-is-behind() {
-  [[ "$(git branch --show-current 2>/dev/null)" == "$GIT_BASE_BRANCH" ]] || return 1
-  git fetch --quiet origin "$GIT_BASE_BRANCH" 2>/dev/null || return 1
-  (( $(git rev-list --count "HEAD..origin/$GIT_BASE_BRANCH") > 0 ))
-}
-
 # If the current branch's remote counterpart has commits we don't (e.g. made by CI), offer to pull them.
 # Expects the caller to have fetched already.
 function _git-offer-pull-remote-branch() {
@@ -158,15 +151,18 @@ alias git-status-count-except-nvmrc-tool-version='git status --porcelain | grep 
 alias git-stash-unstaged='git stash push --keep-index'
 function git-stash-specific-file() { ga "$1" && g stash push "$1" }
 
-# Replaces oh-my-zsh's `gco` alias so we can offer to update a stale base branch before branching off it.
-# Defined after the aliases gml depends on, since zsh expands aliases when a function is defined.
+# Replaces oh-my-zsh's `gco` alias so that, when branching off a non-base branch (e.g. stacking),
+# we can offer to pull that branch's remote-only commits first.
 unalias gco 2>/dev/null
 function gco() {
-  if _git-base-branch-is-behind; then
-    warn "$GIT_BASE_BRANCH is behind origin/$GIT_BASE_BRANCH"
-    if ask_yn "Run gml first?" n; then
-      gml || return 1
-    fi
+  local current_branch arg is_new_branch=false
+  for arg in "$@"; do
+    [[ "$arg" == "-b" || "$arg" == "-B" ]] && is_new_branch=true
+  done
+  current_branch=$(git branch --show-current 2>/dev/null)
+  if [[ "$is_new_branch" == true && -n "$current_branch" && "$current_branch" != "$GIT_BASE_BRANCH" ]]; then
+    git fetch --quiet origin "$current_branch" 2>/dev/null
+    _git-offer-pull-remote-branch || return 1
   fi
   git checkout "$@"
 }
