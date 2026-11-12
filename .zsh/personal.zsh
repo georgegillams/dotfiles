@@ -397,6 +397,16 @@ function claude-backup() {
   fi
 }
 
+function opencode-backup() {
+  local src="/Users/george.gillams/.config/opencode"
+  local dest="$HS_DRIVE/02_Areas/Apps/OpenCode"
+  if [[ -d "$src" ]]; then
+    mkdir -p "$dest/plugins"
+    cp "$src/opencode.jsonc" "$src/AGENTS.md" "$src/tui.jsonc" "$dest/"
+    cp "$src/plugins/sounds.js" "$dest/plugins/"
+  fi
+}
+
 LAST_UPDATE_FILE="/Users/george.gillams/.update-timestamp"
 
 function get-last-update() {
@@ -428,6 +438,7 @@ function daily-backup() {
   vscode-backup
   firefox-backup
   claude-backup
+  opencode-backup
   set-last-backup
 }
 

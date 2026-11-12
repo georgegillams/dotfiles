@@ -54,10 +54,10 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
 fi
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_TF" ]]; then
-  echo "Install Claude code"
+  echo "Install Claude code and OpenCode"
   echo "Press any key once complete"
   read
-  rtk init -g
+  rtk init -g --opencode
 fi
 
 # Set default apps for file types
