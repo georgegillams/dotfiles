@@ -52,6 +52,12 @@ function ask_yn() {
     [[ "$arg" == "--continue-on-timeout" ]] && continue_on_timeout=1
   done
 
+  # Unattended shells (e.g. software-factory) take the default without asking
+  if [[ -n "$DOTFILES_SKIP_PROMPTS" ]]; then
+    [[ "$default" == [yY] ]]
+    return
+  fi
+
   if [[ "$default" == [yY] ]]; then
     prompt="[Y/n]"
   else
@@ -210,6 +216,10 @@ fi
 endTime="$(gdate +%s%N | cut -b1-13)"
 info "Plugins loaded ($((endTime-startTime))ms)"
 startTime="$(gdate +%s%N | cut -b1-13)"
+
+# Sourced files append function names here to defer interactive startup checks
+# (e.g. "rotate tokens now?") until the shell has finished loading.
+startup_check_callbacks=()
 
 # Because sourcing this can be noisy, route output to /dev/null
 source $ZSH/oh-my-zsh.sh >> /dev/null
@@ -435,41 +445,30 @@ endTimeGlobal="$(gdate +%s%N | cut -b1-13)"
 info "Total time taken: $((endTimeGlobal-startTimeGlobal))ms"
 
 # Check if app update has been done in the last week
-local update_needed=0
-local last_update
-last_update="$(get-last-update)"
-if [[ -n "$last_update" ]]; then
-  local now one_week
-  now="$(date +%s)"
-  one_week=$((7 * 24 * 60 * 60))
-  if [[ $((now - last_update)) -lt $one_week ]]; then
+function _check_recent_update() {
+  local last_update one_week=$((7 * 24 * 60 * 60))
+  last_update="$(get-last-update)"
+  if [[ -n "$last_update" ]] && (( $(date +%s) - last_update < one_week )); then
     success "Recent update done"
-  else
-    box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
-    update_needed=1
+    return
   fi
-else
   box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
-  update_needed=1
-fi
+  ask_yn "Run system-update-apps now?" n --continue-on-timeout && system-update-apps
+}
+startup_check_callbacks+=(_check_recent_update)
 
 # Check if a backup has been done in the last week
-local backup_needed=0
-local last_backup
-last_backup="$(get-last-backup)"
-if [[ -n "$last_backup" ]]; then
-  now="$(date +%s)"
-  one_week=$((7 * 24 * 60 * 60))
-  if [[ $((now - last_backup)) -lt $one_week ]]; then
+function _check_recent_backup() {
+  local last_backup one_week=$((7 * 24 * 60 * 60))
+  last_backup="$(get-last-backup)"
+  if [[ -n "$last_backup" ]] && (( $(date +%s) - last_backup < one_week )); then
     success "Recent backup done"
-  else
-    box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
-    backup_needed=1
+    return
   fi
-else
   box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
-  backup_needed=1
-fi
+  ask_yn "Run daily-backup now?" n --continue-on-timeout && daily-backup
+}
+startup_check_callbacks+=(_check_recent_backup)
 
 # PostgreSQL
 if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
@@ -483,10 +482,8 @@ export PATH="/Users/george.gillams/.local/bin:$PATH"
 export PATH="/Users/george.gillams/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# Offer to run any overdue maintenance now that everything is loaded
-if [[ $update_needed -eq 1 ]]; then
-  ask_yn "Run system-update-apps now?" n --continue-on-timeout && system-update-apps
-fi
-if [[ $backup_needed -eq 1 ]]; then
-  ask_yn "Run daily-backup now?" n --continue-on-timeout && daily-backup
-fi
+# Run deferred startup checks now that everything is loaded
+for _startup_check_callback in "${startup_check_callbacks[@]}"; do
+  "$_startup_check_callback"
+done
+unset _startup_check_callback startup_check_callbacks

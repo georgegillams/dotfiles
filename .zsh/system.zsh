@@ -24,6 +24,10 @@ alias system-clean='open ~/Desktop && open ~/Downloads && open ~/Documents && op
 alias system-clear-adobe-caches='rm -rf /Users/george.gillams/Library/Caches/Adobe'
 alias system-read-mail='open-code-editor /var/mail/george.gillams'
 
+# Software factory: one opencode agent per task dir, each in its own herdr workspace
+alias sf='uv run --quiet --script "$USER_ZSH/../software-factory/factory.py"'
+alias sf-tasks='cd-if-necessary ~/Documents/software-factory-tasks'
+
 alias cron-edit='crontab -e'
 alias cron-save='dotfiles-save-cron'
 
