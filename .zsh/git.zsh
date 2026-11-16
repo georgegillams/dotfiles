@@ -91,8 +91,9 @@ function _git-offer-pull-remote-branch() {
   (( count > 0 )) || return 0
   warn "$remote_ref has $count commit(s) that aren't on your local branch:"
   git --no-pager log --oneline --right-only --cherry-pick "HEAD...$remote_ref"
-  ask_yn "Pull them first?" n || return 0
-  git rebase "$remote_ref"
+  if ask_yn "Pull them first?" n; then
+    git rebase "$remote_ref"
+  fi
 }
 
 alias gaa-no-image-optimisation='git add .'

@@ -41,7 +41,13 @@ function box() {
 
 # Ask a yes/no question. Returns 0 for yes, 1 for no.
 # Usage: ask_yn "Question?" [y|n] [--continue-on-timeout]
-# Example: ask_yn "Delete files?" N --continue-on-timeout && rm -rf ./files
+# Example:
+#   if ask_yn "Delete files?" n --continue-on-timeout; then
+#     rm -rf ./files
+#   fi
+# Always use the `if` form, never `ask_yn ... && cmd`. Aliases expand textually,
+# so if `cmd` is an alias containing `|| ...` the action can run even when the
+# answer is no. ask_yn can't guard against that itself.
 function ask_yn() {
   local question="$1"
   local default="${2:-n}"
@@ -264,7 +270,9 @@ unalias open-code-editor 2>/dev/null
 function open-code-editor() {
   local root
   if [[ $# -eq 0 && "$PWD" == "$HOME" ]]; then
-    ask_yn "Open code editor in ~/?" n --continue-on-timeout || return 1
+    if ! ask_yn "Open code editor in ~/?" n --continue-on-timeout; then
+      return 1
+    fi
   fi
   if [[ $# -eq 0 ]] && root=$(git-repo-root); then
     $CODE_EDITOR_CMD "$root"
@@ -453,7 +461,9 @@ function _check_recent_update() {
     return
   fi
   box "UPDATE REQUIRED. RUN system-update-apps ASAP." | red-bg
-  ask_yn "Run system-update-apps now?" n --continue-on-timeout && system-update-apps
+  if ask_yn "Run system-update-apps now?" n --continue-on-timeout; then
+    system-update-apps
+  fi
 }
 startup_check_callbacks+=(_check_recent_update)
 
@@ -466,7 +476,9 @@ function _check_recent_backup() {
     return
   fi
   box "BACKUP REQUIRED. RUN daily-backup ASAP." | red-bg
-  ask_yn "Run daily-backup now?" n --continue-on-timeout && daily-backup
+  if ask_yn "Run daily-backup now?" n --continue-on-timeout; then
+    daily-backup
+  fi
 }
 startup_check_callbacks+=(_check_recent_backup)
 
