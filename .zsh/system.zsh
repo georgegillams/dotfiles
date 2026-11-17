@@ -4,6 +4,30 @@ alias whence-function='echo "use declare -f FUNC"'
 
 alias duplicate-tab='open . -a iterm'
 
+# Usage: run-in-new-iterm some-command
+# The command is passed via argv rather than interpolated into the AppleScript,
+# so quotes and backslashes in it need no escaping.
+function run-in-new-iterm() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: run-in-new-iterm <command> [args...]" >&2
+    return 1
+  fi
+  osascript - "$*" <<'APPLESCRIPT'
+on run argv
+    set theCommand to item 1 of argv
+    tell application "iTerm"
+        activate
+        set newWindow to (create window with default profile)
+        -- Give the new session's shell time to start before typing into it
+        delay 1
+        tell current session of current tab of newWindow
+            write text theCommand
+        end tell
+    end tell
+end run
+APPLESCRIPT
+}
+
 alias system-wifi-off='networksetup -setairportpower Wi-Fi off'
 alias system-wifi-on='networksetup -setairportpower Wi-Fi on'
 alias system-wifi-reboot='run-raycast-script reset-wifi'

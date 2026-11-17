@@ -18,8 +18,10 @@ brew install --cask obsidian
 brew install --cask raycast
 brew install --cask rectangle-pro
 brew install --cask vlc
+brew install 1password-cli
 brew install coreutils
 brew install gh
+brew install herdr
 brew install htop
 brew install python
 brew install rtk
@@ -33,7 +35,8 @@ if [[ $setup_type == *"WORK"* ]]; then
 fi
 
 if [[ $setup_type == "WORK_SETUP_PROFILE_HS" ]]; then
-  brew install herdr
+  brew install --cask podman-desktop
+  brew install podman
 fi
 
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
@@ -61,7 +64,6 @@ if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   brew install --cask utm
   brew install --cask whatsapp
   brew install --cask wireshark
-  brew install 1password-cli
   brew install asdf
   brew install bat
   brew install blackhole-16ch

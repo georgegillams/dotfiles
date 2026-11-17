@@ -7,3 +7,16 @@ alias docker-list-ips='docker inspect -f "{{.Name}} - {{range .NetworkSettings.N
 alias docker-list-ports='docker inspect --format="{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}" $(docker ps -aq)'
 alias docker-start-all='docker start $(docker ps -aq)'
 alias docker-pull-sql-image='docker pull microsoft/mssql-server-linux:2017-latest'
+
+# Removes all containers, pods, images, volumes, networks and build cache,
+# but keeps the podman machine
+function podman-reset() {
+  podman rm --all --force
+  podman pod rm --all --force
+  podman rmi --all --force
+  podman system prune --all --volumes --force
+}
+
+# Wipes all podman storage, including podman machines (the VM disk images)
+alias podman-reset-hard='podman system reset --force'
+
