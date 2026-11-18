@@ -47,6 +47,8 @@ alias dotfiles-save-vscode-settings='dotfiles && cp ~/Library/Application\ Suppo
 
 alias browser-scripts='clone-and-cd-personal georgegillams browser-scripts'
 
+alias software-factory='clone-and-cd-personal georgegillams software-factory'
+
 if [[ $setup_type == "PERSONAL_SETUP_PROFILE_1" ]]; then
   alias 1p-personal='op signin --account my || { red "If this is not working, Check: System Settings > Privacy & Security > Files and Folders > iTerm.app > Data Shared by 1Password"; false; }'
 

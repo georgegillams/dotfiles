@@ -78,22 +78,37 @@ alias git-prepend-branch-name='node ~/Documents/github.com/georgegillams/dotfile
 alias git-rebase-keep-their-changes='git checkout --ours . && git add . && git rebase --continue'
 alias git-rebase-keep-our-changes='git checkout --theirs . && git add . && git rebase --continue'
 alias gml='git checkout $GIT_BASE_BRANCH &&git-fetch && git reset --hard origin/$GIT_BASE_BRANCH && git pull && (git branch -D $(git branch | grep -v "$GIT_BASE_BRANCH") || true) && git submodule update && git reset --hard HEAD && git reset --recurse-submodules'
-# If the current branch's remote counterpart has commits we don't (e.g. made by CI), offer to pull them.
-# Expects the caller to have fetched already.
-function _git-offer-pull-remote-branch() {
+# If the current branch's remote counterpart has commits we don't (e.g. made by CI), list them and
+# succeed with the remote ref in $REPLY; otherwise fail. Expects the caller to have fetched already.
+function _git-warn-remote-only-commits() {
   local branch remote_ref count
   branch=$(git branch --show-current)
-  [[ -n "$branch" ]] || return 0
+  [[ -n "$branch" ]] || return 1
   remote_ref=$(git rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>/dev/null) || remote_ref="origin/$branch"
-  git rev-parse --verify --quiet "$remote_ref" >/dev/null || return 0
+  git rev-parse --verify --quiet "$remote_ref" >/dev/null || return 1
   # --cherry-pick ignores commits whose patch we already have, e.g. the pre-rebase copies of our own commits
   count=$(git rev-list --count --right-only --cherry-pick "HEAD...$remote_ref")
-  (( count > 0 )) || return 0
+  (( count > 0 )) || return 1
   warn "$remote_ref has $count commit(s) that aren't on your local branch:"
   git --no-pager log --oneline --right-only --cherry-pick "HEAD...$remote_ref"
+  REPLY="$remote_ref"
+}
+
+function _git-offer-pull-remote-branch() {
+  _git-warn-remote-only-commits || return 0
   if ask_yn "Pull them first?" n; then
-    git rebase "$remote_ref"
+    git rebase "$REPLY"
   fi
+}
+
+# Fails if the remote branch has commits we don't and the user doesn't want to force-push over them
+function _git-confirm-overwrite-remote-branch() {
+  local branch
+  branch=$(git branch --show-current)
+  [[ -n "$branch" ]] || return 0
+  git fetch --quiet origin "$branch" 2>/dev/null
+  _git-warn-remote-only-commits || return 0
+  ask_yn "Force-pushing will discard them. Continue anyway?" n
 }
 
 alias gaa-no-image-optimisation='git add .'
@@ -113,7 +128,7 @@ alias gpf-with-verification='ggf && git push --no-verify --set-upstream $(git re
 alias gpf='git push --force --no-verify && gh-view-or-create-pr-web'
 alias git-yolo='gpf'
 alias git-clear-cache='git rm -r --cached . && git add . && git commit -m && git push ~'
-function gcmpWithType() { git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
+function gcmpWithType() { _git-confirm-overwrite-remote-branch && git-pre-push && git commit -m "$(git-prepend-branch-name $@)" --no-verify && gpf }
 function gcmpcd() { gcmpWithType $@ cd }
 function gcmpci() { gcmpWithType $@ ci }
 function gcmpfix() { gcmpWithType $@ fix }
