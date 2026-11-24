@@ -13,13 +13,15 @@ const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', '.next', 'coverage
 // Cache to prevent looking up the same package multiple times
 const versionCache = {};
 
-// Helper: Fetch the latest version of a package synchronously
-function getLatestVersion(pkgName) {
-  if (versionCache[pkgName]) return versionCache[pkgName];
+// Helper: Fetch the latest version of a package synchronously.
+// Runs in the package.json's directory so its .npmrc (e.g. private registries) is honoured.
+function getLatestVersion(pkgName, cwd) {
+  const cacheKey = `${cwd}::${pkgName}`;
+  if (versionCache[cacheKey]) return versionCache[cacheKey];
   
   try {
     // Suppress stderr to keep terminal clean if a package isn't found
-    const latest = execSync(`npm show "${pkgName}" version 2>/dev/null`, { stdio: 'pipe' })
+    const latest = execSync(`npm show "${pkgName}" version 2>/dev/null`, { stdio: 'pipe', cwd })
       .toString()
       .trim()
       .split('\n')
@@ -27,7 +29,7 @@ function getLatestVersion(pkgName) {
       .trim();
       
     if (latest) {
-      versionCache[pkgName] = latest;
+      versionCache[cacheKey] = latest;
       return latest;
     }
   } catch (err) {
@@ -61,7 +63,7 @@ function findPackageJsons(dir, fileList = []) {
 }
 
 // Helper: Updates a specific map inside package.json (dependencies, resolutions, etc.)
-function updateDependencyMap(obj, fieldName, logs) {
+function updateDependencyMap(obj, fieldName, logs, cwd) {
   if (!obj || typeof obj !== 'object') return false;
   
   let modified = false;
@@ -78,9 +80,12 @@ function updateDependencyMap(obj, fieldName, logs) {
     const pkgName = key.match(/(@[^\/]+\/[^\/]+|[^\/]+)$/)?.[0] || key;
 
     process.stdout.write(`   🔍 Checking ${pkgName}... \r`);
-    const latest = getLatestVersion(pkgName);
+    const latest = getLatestVersion(pkgName, cwd);
     
-    if (!latest) continue;
+    if (!latest) {
+      logs.push(`   ⚠️  Could not resolve latest version of ${pkgName} [${fieldName}]`);
+      continue;
+    }
 
     // Preserve the prefix (^, ~, or empty if exact)
     const prefixMatch = oldVersion.match(/^[\^~]?/);
@@ -117,28 +122,30 @@ function processPackageJson(packageJsonPath) {
   const logs = [];
   
   // Update all standard dependency blocks and resolution blocks
-  const depsModified = updateDependencyMap(pkg.dependencies, 'dependencies', logs);
-  const devDepsModified = updateDependencyMap(pkg.devDependencies, 'devDependencies', logs);
-  const resModified = updateDependencyMap(pkg.resolutions, 'resolutions', logs);
-  const overModified = updateDependencyMap(pkg.overrides, 'overrides', logs);
+  const depsModified = updateDependencyMap(pkg.dependencies, 'dependencies', logs, targetDir);
+  const devDepsModified = updateDependencyMap(pkg.devDependencies, 'devDependencies', logs, targetDir);
+  const resModified = updateDependencyMap(pkg.resolutions, 'resolutions', logs, targetDir);
+  const overModified = updateDependencyMap(pkg.overrides, 'overrides', logs, targetDir);
   
   let pnpmOverModified = false;
   if (pkg.pnpm && pkg.pnpm.overrides) {
-    pnpmOverModified = updateDependencyMap(pkg.pnpm.overrides, 'pnpm.overrides', logs);
+    pnpmOverModified = updateDependencyMap(pkg.pnpm.overrides, 'pnpm.overrides', logs, targetDir);
   }
 
   const fileNeedsSave = depsModified || devDepsModified || resModified || overModified || pnpmOverModified;
 
-  if (fileNeedsSave) {
+  if (fileNeedsSave || logs.length > 0) {
     console.log(`\n======================================================`);
-    console.log(`💾 Updating: ${packageJsonPath}`);
+    console.log(`${fileNeedsSave ? '💾 Updating' : '📄 Checked'}: ${packageJsonPath}`);
     console.log(`======================================================`);
     
     // Clear the loading line
     process.stdout.write('                                       \r');
     
     logs.forEach(log => console.log(log));
-    
+  }
+
+  if (fileNeedsSave) {
     // Save file preserving exact indentation
     fs.writeFileSync(packageJsonPath, JSON.stringify(pkg, null, indent) + '\n', 'utf8');
   }
