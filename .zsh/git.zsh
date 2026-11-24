@@ -14,9 +14,18 @@ function git-repo-root() {
   git rev-parse --show-toplevel 2>/dev/null
 }
 
+# Succeeds if the current repo's origin is hosted on GitLab
+function is-gitlab-repo() {
+  [[ $(git config --get remote.origin.url) == *"gitlab"* ]]
+}
+
 alias gh-prs='gh pr list'
 alias gh-check-if-pr-exists='gh pr view > /dev/null'
 alias gh-create-pr='gh pr create'
+
+function IMPLEMENTATION-gh-create-pr-web() {
+  gh pr create --web
+}
 
 
 function IMPLEMENTATION-gh-view-or-create-pr-web() {
@@ -24,13 +33,19 @@ function IMPLEMENTATION-gh-view-or-create-pr-web() {
   gh pr view --web 2>/dev/null || gh pr create --web
 }
 
+function IMPLEMENTATION-gitlab-view-or-create-pr-web() {
+  git rev-parse --git-dir &>/dev/null || return 1
+  # --fill skips the title/description prompts that `glab mr create --web` would otherwise show first
+  glab mr view --web 2>/dev/null || glab mr create --web --fill
+}
+
 function gh-view-or-create-pr-web() {
   git rev-parse --git-dir &>/dev/null || return 1
 
-  if [[ $(git config --get remote.origin.url) == *"gitlab"* ]] then;
+  if is-gitlab-repo; then
     IMPLEMENTATION-gitlab-view-or-create-pr-web
     return
-  fi;
+  fi
 
   IMPLEMENTATION-gh-view-or-create-pr-web
 }
@@ -230,7 +245,25 @@ alias grm-stacked='red "Use grom" instead'
 # Allows us to use git diff with file-path autocomplete
 function git-diff() { eval "git diff $@" }
 
-alias gh-auto-merge='gh pr merge --auto --squash'
+function IMPLEMENTATION-gh-auto-merge() {
+  gh pr merge --auto --squash "$@"
+}
+
+function IMPLEMENTATION-gitlab-auto-merge() {
+  glab mr merge --auto-merge --squash --yes "$@"
+}
+
+unalias gh-auto-merge 2>/dev/null
+function gh-auto-merge() {
+  git rev-parse --git-dir &>/dev/null || return 1
+
+  if is-gitlab-repo; then
+    IMPLEMENTATION-gitlab-auto-merge "$@"
+    return
+  fi
+
+  IMPLEMENTATION-gh-auto-merge "$@"
+}
 alias gh-admin-merge='red "ABOUT TO ADMIN MERGE" && sleep 5 && gh pr merge --admin --squash'
 alias gh-pr-ready='gh pr ready'
 
