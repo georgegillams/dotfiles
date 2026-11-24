@@ -17,3 +17,11 @@ alias controld-allow-typeform-tracking='run-raycast-script-drive typeform-tracki
 alias controld-block-typeform-tracking='run-raycast-script-drive typeform-tracking-disallow'
 alias allow-typeform-tracking='controld-allow-typeform-tracking'
 alias block-typeform-tracking='controld-block-typeform-tracking'
+
+# Usage: http-server [dir=.] [port=8000]. Binds to 127.0.0.1 so it's not reachable from other machines.
+function http-server() {
+  local dir="${1:-.}"
+  local port="${2:-8000}"
+  info "Serving $(cd "$dir" && pwd) at http://localhost:$port/"
+  python3 -m http.server "$port" --bind 127.0.0.1 --directory "$dir"
+}
