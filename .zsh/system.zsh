@@ -7,12 +7,18 @@ alias duplicate-tab='open . -a iterm'
 # Usage: run-in-new-iterm some-command
 # The command is passed via argv rather than interpolated into the AppleScript,
 # so quotes and backslashes in it need no escaping.
+# If INSTANCE is set, the new window is switched to the same instance first.
 function run-in-new-iterm() {
   if [[ $# -eq 0 ]]; then
     echo "Usage: run-in-new-iterm <command> [args...]" >&2
     return 1
   fi
-  osascript - "$*" <<'APPLESCRIPT'
+  local command="$*"
+  if [[ -n "$INSTANCE" ]]; then
+    # The new shell parses this line, so the instance name must be quoted for it
+    command="set-instance ${(q)INSTANCE} && $command"
+  fi
+  osascript - "$command" <<'APPLESCRIPT'
 on run argv
     set theCommand to item 1 of argv
     tell application "iTerm"
@@ -106,7 +112,7 @@ alias system-open-davinci='open /Applications/DaVinci\ Resolve.app || true'
 alias system-open-dxo='open /Applications/DXO\ Photo\ Lab.app || true'
 alias system-update-brew-apps="brew update && brew outdated && brew upgrade && brew outdated --cask && brew upgrade --cask"
 alias system-open-topaz='if [[ -d /Applications/Topaz\ Photo\ AI.app ]]; then open /Applications/Topaz\ Photo\ AI.app; fi'
-alias system-update-apps='set-last-update && system-update-brew-apps && system-open-cc-updater && system-open-topaz && system-open-ms-updater && system-open-davinci && system-open-dxo && (nixt-update || true)'
+alias system-update-apps='set-last-update && system-update-brew-apps && system-open-cc-updater && system-open-topaz && system-open-ms-updater && system-open-davinci && system-open-dxo && (nixt-update || true) && (skills-pull || true)'
 alias system-fix-spotlight='sudo mdutil -E'
 alias system-fix-ssh='ssh-add -K ~/.ssh/id_rsa &>/dev/null && echo "Host *\n    UseKeychain yes" > ~/.ssh/config'
 alias system-fix-gpg='(gpg-agent --daemon || true) && gpg-agent --default-cache-ttl 2592000 && gpg -s ~/.zshrc && rm ~/.zshrc.gpg'
